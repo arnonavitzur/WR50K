@@ -1,6 +1,6 @@
-const CACHE_NAME = 'ultraplan-v1';
+const CACHE_NAME = 'ultraplan-v2';
 const ASSETS = [
-  './50K_dashboard.html',
+  './50k_dashboard.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png'
