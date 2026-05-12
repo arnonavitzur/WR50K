@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ultraplan-v3';
+const CACHE_NAME = 'ultraplan-v4';
 const ASSETS = [
   './50k_dashboard.html',
   './manifest.json',
