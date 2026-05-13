@@ -1847,12 +1847,17 @@ function App() {
                         <PrePostCard block={plan.session_protocols.run.pre_run} kind="pre" label="RUN WARM-UP" accent="#60a5fa"/>
                         <PrePostCard block={plan.session_protocols.run.post_run} kind="post" label="RUN COOLDOWN" accent="#4ade80"/>
                       </>
-                    ) : isStr ? (
-                      <>
-                        <PrePostCard block={plan.session_protocols.strength.pre_strength} kind="pre" label="STRENGTH PREP" accent="#60a5fa"/>
-                        <PrePostCard block={plan.session_protocols.strength.post_strength} kind="post" label="MOBILITY" accent="#4ade80"/>
-                      </>
-                    ) : null;
+                    ) : isStr ? (() => {
+                      const warmupKey = s.warmup_protocol;
+                      const warmupBlock = warmupKey && plan.session_protocols.strength[warmupKey];
+                      const warmupLabel = warmupKey === 'pre_upper' ? 'UPPER WARM-UP' : warmupKey === 'pre_lower' ? 'LOWER WARM-UP' : 'STRENGTH PREP';
+                      return (
+                        <>
+                          {warmupBlock && <PrePostCard block={warmupBlock} kind="pre" label={warmupLabel} accent="#60a5fa"/>}
+                          <PrePostCard block={plan.session_protocols.strength.post_strength} kind="post" label="MOBILITY" accent="#4ade80"/>
+                        </>
+                      );
+                    })() : null;
                     return (
                       <HeroWorkout
                         key={i}
