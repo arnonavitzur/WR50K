@@ -1039,7 +1039,7 @@ const mpsToPace = (mps) => {
 const gapFactor = (gradeDec) => {
   const g = Math.max(-0.30, Math.min(0.30, gradeDec));
   const cost = 15.14*Math.pow(g,4) - 2.896*Math.pow(g,3) + 7.624*g*g + 3.310*g + 1.0;
-  return cost > 0 ? 1.0 / cost : 1.0;
+  return cost > 0 ? cost : 1.0;
 };
 
 const nanMean = (arr) => {
