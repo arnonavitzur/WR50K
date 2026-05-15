@@ -1089,10 +1089,8 @@ const buildSeries = (records) => {
     vert_osc_mm[i] = num(r.vertical_oscillation);
   }
 
-  // Derive grade from altitude if absent (5-point moving average over per-step)
-  let gradeAllNaN = true;
-  for (let i = 0; i < n; i++) { if (!Number.isNaN(grade[i])) { gradeAllNaN = false; break; } }
-  if (gradeAllNaN) {
+  // Always derive grade from altitude (ignore Garmin's grade field — altitude is more reliable)
+  {
     const stepGrade = new Float64Array(n);
     stepGrade[0] = NaN;
     for (let i = 1; i < n; i++) {
@@ -1100,7 +1098,7 @@ const buildSeries = (records) => {
       const dD = dist_m[i] - dist_m[i-1];
       stepGrade[i] = (dD > 0.5 && !Number.isNaN(dA) && !Number.isNaN(dD)) ? dA / dD : NaN;
     }
-    // 5-point moving avg over valid points
+    // 15-point moving avg over valid points (matches Python GRADE_SMOOTH_W=15)
     const validIdx = [];
     for (let i = 0; i < n; i++) if (!Number.isNaN(stepGrade[i])) validIdx.push(i);
     if (validIdx.length > 15) {
@@ -1213,7 +1211,13 @@ const analyzeMask = (series, mask, label, cleanCad = false) => {
   const avg_spd   = nanMean(spd);
   const avg_hr    = nanMean(hr);
   const avg_cad   = nanMean(cad);
-  const avg_grade = nanMean(grade);
+  // Avg grade from endpoints: (alt_end - alt_start) / (dist_end - dist_start)
+  // Matches Python: avg_grade = (alt_valid[-1] - alt_valid[0]) / (dist_valid[-1] - dist_valid[0])
+  const distValid = Array.from(dist).filter(v => !Number.isNaN(v));
+  const altValid2 = Array.from(alt).filter(v => !Number.isNaN(v));
+  const avg_grade = (distValid.length >= 2 && altValid2.length >= 2)
+    ? (altValid2[altValid2.length-1] - altValid2[0]) / (distValid[distValid.length-1] - distValid[0])
+    : null;
   const avg_vo    = nanMean(vertOsc);
 
   let avg_gap_spd = avg_spd;
