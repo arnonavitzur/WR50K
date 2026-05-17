@@ -1323,6 +1323,80 @@ const buildSummary = (series) => {
   return analyzeMask(series, mask, 'Run total', false);
 };
 
+// Combined summary for all ascent or descent sections.
+// Unions masks by dist_start_m/dist_end_m so metrics are properly weighted.
+// Grade is overridden with distance-weighted average of per-section grades
+// (endpoint grade across non-contiguous sections is meaningless).
+const buildDirectionSummary = (series, gradeSegments, direction) => {
+  const label = direction === 'ascent' ? 'Ascent total' : 'Descent total';
+  const matching = gradeSegments.filter(s => s.direction === direction);
+  if (!matching.length) return null;
+
+  const dist_m = series.dist_m;
+  const mask = new Uint8Array(dist_m.length);
+  for (const seg of matching) {
+    const { dist_start_m, dist_end_m } = seg;
+    if (dist_start_m == null || dist_end_m == null) continue;
+    for (let i = 0; i < dist_m.length; i++) {
+      if (dist_m[i] >= dist_start_m && dist_m[i] <= dist_end_m) mask[i] = 1;
+    }
+  }
+  if (!Array.from(mask).some(v => v)) return null;
+
+  const result = analyzeMask(series, mask, label, true); // cleanCad=true
+  if (!result) return null;
+
+  // Override grade with distance-weighted average of individual section grades
+  const totalDist = matching.reduce((s, seg) => s + (seg.distance_mi || 0), 0);
+  if (totalDist > 0) {
+    const wGrade = matching.reduce(
+      (s, seg) => s + (seg.avg_grade_pct || 0) * (seg.distance_mi || 0), 0
+    ) / totalDist;
+    result.avg_grade_pct = Math.round(wGrade * 10) / 10;
+  }
+  return result;
+};
+
+// Elevation profile: [[distance_mi, altitude_ft], ...] on a 10m grid.
+// Covers only the active run portion (series is already filtered).
+const buildElevationProfile = (series, stepM = 10.0) => {
+  const dist_m = series.dist_m;
+  const alt_m  = series.alt_m;
+
+  // Collect valid paired points
+  const dv = [], av = [];
+  for (let i = 0; i < dist_m.length; i++) {
+    if (!Number.isNaN(dist_m[i]) && !Number.isNaN(alt_m[i])) {
+      dv.push(dist_m[i]);
+      av.push(alt_m[i]);
+    }
+  }
+  if (dv.length < 2) return [];
+
+  const d0 = dv[0], dLast = dv[dv.length - 1];
+  const profile = [];
+
+  // Linear interpolation helper
+  const interp = (d) => {
+    if (d <= dv[0]) return av[0];
+    if (d >= dLast) return av[av.length - 1];
+    let lo = 0, hi = dv.length - 1;
+    while (hi - lo > 1) {
+      const mid = (lo + hi) >> 1;
+      if (dv[mid] <= d) lo = mid; else hi = mid;
+    }
+    const t = (d - dv[lo]) / (dv[hi] - dv[lo]);
+    return av[lo] + t * (av[hi] - av[lo]);
+  };
+
+  for (let d = d0; d <= dLast; d += stepM) {
+    const distMi = Math.round((d - d0) / 1609.344 * 1000) / 1000;
+    const altFt  = Math.round(interp(d) * 3.28084 * 10) / 10;
+    profile.push([distMi, altFt]);
+  }
+  return profile;
+};
+
 // Extract (startMs, endMs) windows for laps with intensity === 'active'.
 // fit-file-parser decodes intensity to a string like 'active'/'warmup'/'cooldown'.
 const activeWindows = (laps) => {
@@ -1453,7 +1527,12 @@ const buildGradeSegments = (series) => {
     if (!anyHit) continue;
     const label = dir === 1 ? `A${++aCount}` : `D${++dCount}`;
     const seg = analyzeMask(series, mask, label, true); // cleanCad=true
-    if (seg) { seg.direction = dir === 1 ? 'ascent' : 'descent'; segments.push(seg); }
+    if (seg) {
+      seg.direction    = dir === 1 ? 'ascent' : 'descent';
+      seg.dist_start_m = dStart;
+      seg.dist_end_m   = dEnd;
+      segments.push(seg);
+    }
   }
   return segments;
 };
@@ -1507,6 +1586,7 @@ const analyzeFitBuffer = (buf) => new Promise((resolve, reject) => {
         || null;
       const sport = firstSession.sport || firstActivity.sport || firstFileId.type || null;
 
+      const gradeSegs = buildGradeSegments(series);
       resolve({
         meta: {
           start_time: startTime ? new Date(startTime).toISOString() : null,
@@ -1514,10 +1594,13 @@ const analyzeFitBuffer = (buf) => new Promise((resolve, reject) => {
           laps_total: laps.length,
           laps_active: windows.length,
         },
-        summary:          buildSummary(series),
-        segments_10min:   buildTimeSegments(series),
-        segments_by_mile: buildMileSegments(series),
-        segments_grade:   buildGradeSegments(series),
+        summary:           buildSummary(series),
+        ascent_summary:    buildDirectionSummary(series, gradeSegs, 'ascent'),
+        descent_summary:   buildDirectionSummary(series, gradeSegs, 'descent'),
+        segments_10min:    buildTimeSegments(series),
+        segments_by_mile:  buildMileSegments(series),
+        segments_grade:    gradeSegs,
+        elevation_profile: buildElevationProfile(series),
       });
     } catch (e) {
       reject(e);
@@ -1606,7 +1689,8 @@ function formatDurationHMS(sec) {
   return `${m}m ${String(s).padStart(2,'0')}s`;
 }
 
-function SegmentTable({title, segments}) {
+function SegmentTable({title, segments, summaryRow}) {
+  const [collapsed, setCollapsed] = useState(false);
   if (!segments || !segments.length) return null;
   const headerCellStyle = {
     fontSize: 9, color: A.textDim, fontFamily: MONO, letterSpacing: 1.3, fontWeight: 700,
@@ -1616,51 +1700,86 @@ function SegmentTable({title, segments}) {
   const cellStyle = {
     fontSize: 12, color: A.text, fontFamily: MONO, padding: '8px 8px', whiteSpace: 'nowrap',
   };
+  const totalCellStyle = {
+    ...cellStyle,
+    fontWeight: 700, color: A.accent,
+    borderTop: `1px solid ${A.border}`,
+  };
   return (
     <div style={{
       background: A.surface, borderRadius: 16, border: `1px solid ${A.border}`,
       overflow: 'hidden',
     }}>
-      <div style={{
-        padding: '12px 14px 8px', borderBottom: `1px solid ${A.border}`,
-        fontFamily: MONO, fontSize: 10, letterSpacing: 1.6, fontWeight: 700, color: A.textDim,
-      }}>
-        {title}
-      </div>
-      <div style={{overflowX: 'auto'}}>
-        <table style={{borderCollapse: 'collapse', width: 'max-content', minWidth: '100%'}}>
-          <thead>
-            <tr>
-              <th style={{...headerCellStyle, position: 'sticky', left: 0, background: A.surface, zIndex: 1}}>Section</th>
-              <th style={headerCellStyle}>Dist (mi)</th>
-              <th style={headerCellStyle}>Grade %</th>
-              <th style={headerCellStyle}>Pace</th>
-              <th style={headerCellStyle}>GAP</th>
-              <th style={headerCellStyle}>HR (bpm)</th>
-              <th style={headerCellStyle}>Cad (spm)</th>
-              <th style={headerCellStyle}>VO (mm)</th>
-              <th style={headerCellStyle}>Asc (ft)</th>
-              <th style={headerCellStyle}>Desc (ft)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {segments.map((s, i) => (
-              <tr key={i} style={{background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)'}}>
-                <td style={{...cellStyle, position: 'sticky', left: 0, background: i % 2 === 0 ? A.surface : A.surface2, color: A.text, fontWeight: 600}}>{s.label}</td>
-                <td style={cellStyle}>{fmt(s.distance_mi)}</td>
-                <td style={cellStyle}>{fmt(s.avg_grade_pct, '%')}</td>
-                <td style={cellStyle}>{fmt(s.avg_pace)}</td>
-                <td style={cellStyle}>{fmt(s.avg_gap)}</td>
-                <td style={cellStyle}>{fmt(s.avg_hr_bpm)}</td>
-                <td style={cellStyle}>{fmt(s.avg_cadence_spm)}</td>
-                <td style={cellStyle}>{fmt(s.avg_vert_osc_mm)}</td>
-                <td style={cellStyle}>{fmt(s.ascent_ft)}</td>
-                <td style={cellStyle}>{fmt(s.descent_ft)}</td>
+      <button
+        onClick={() => setCollapsed(c => !c)}
+        style={{
+          width: '100%', padding: '12px 14px', borderBottom: collapsed ? 'none' : `1px solid ${A.border}`,
+          background: 'transparent', border: 'none', borderBottom: collapsed ? 'none' : `1px solid ${A.border}`,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          cursor: 'pointer', WebkitTapHighlightColor: 'transparent',
+        }}
+      >
+        <span style={{fontFamily: MONO, fontSize: 10, letterSpacing: 1.6, fontWeight: 700, color: A.textDim}}>
+          {title}
+        </span>
+        <svg
+          width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke={A.textDim} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+          style={{transform: collapsed ? 'rotate(-90deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease', flexShrink: 0}}
+        >
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+      {!collapsed && (
+        <div style={{overflowX: 'auto'}}>
+          <table style={{borderCollapse: 'collapse', width: 'max-content', minWidth: '100%'}}>
+            <thead>
+              <tr>
+                <th style={{...headerCellStyle, position: 'sticky', left: 0, background: A.surface, zIndex: 1}}>Section</th>
+                <th style={headerCellStyle}>Dist (mi)</th>
+                <th style={headerCellStyle}>Grade %</th>
+                <th style={headerCellStyle}>Pace</th>
+                <th style={headerCellStyle}>GAP</th>
+                <th style={headerCellStyle}>HR (bpm)</th>
+                <th style={headerCellStyle}>Cad (spm)</th>
+                <th style={headerCellStyle}>VO (mm)</th>
+                <th style={headerCellStyle}>Asc (ft)</th>
+                <th style={headerCellStyle}>Desc (ft)</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {segments.map((s, i) => (
+                <tr key={i} style={{background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)'}}>
+                  <td style={{...cellStyle, position: 'sticky', left: 0, background: i % 2 === 0 ? A.surface : A.surface2, color: A.text, fontWeight: 600}}>{s.label}</td>
+                  <td style={cellStyle}>{fmt(s.distance_mi)}</td>
+                  <td style={cellStyle}>{fmt(s.avg_grade_pct, '%')}</td>
+                  <td style={cellStyle}>{fmt(s.avg_pace)}</td>
+                  <td style={cellStyle}>{fmt(s.avg_gap)}</td>
+                  <td style={cellStyle}>{fmt(s.avg_hr_bpm)}</td>
+                  <td style={cellStyle}>{fmt(s.avg_cadence_spm)}</td>
+                  <td style={cellStyle}>{fmt(s.avg_vert_osc_mm)}</td>
+                  <td style={cellStyle}>{fmt(s.ascent_ft)}</td>
+                  <td style={cellStyle}>{fmt(s.descent_ft)}</td>
+                </tr>
+              ))}
+              {summaryRow && (
+                <tr style={{background: `color-mix(in srgb, ${A.accent} 6%, ${A.surface})`}}>
+                  <td style={{...totalCellStyle, position: 'sticky', left: 0, background: `color-mix(in srgb, ${A.accent} 6%, ${A.surface})`}}>{summaryRow.label}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.distance_mi)}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.avg_grade_pct, '%')}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.avg_pace)}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.avg_gap)}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.avg_hr_bpm)}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.avg_cadence_spm)}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.avg_vert_osc_mm)}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.ascent_ft)}</td>
+                  <td style={totalCellStyle}>{fmt(summaryRow.descent_ft)}</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
@@ -1678,8 +1797,7 @@ function SummaryStat({label, value, accent}) {
   );
 }
 
-function AnalysisSummaryCard({meta, summary}) {
-  if (!meta && !summary) return null;
+function SummaryCard({accentColor, accentLabel, headerRight, children}) {
   return (
     <div style={{
       background: A.surface, borderRadius: 16, border: `1px solid ${A.border}`,
@@ -1689,42 +1807,156 @@ function AnalysisSummaryCard({meta, summary}) {
         padding: '10px 14px 8px', borderBottom: `1px solid ${A.border}`,
         display: 'flex', alignItems: 'baseline', gap: 8,
       }}>
-        <div style={{fontSize: 10, color: A.accent, fontFamily: MONO, letterSpacing: 1.6, fontWeight: 700}}>
-          RUN SUMMARY
+        <div style={{fontSize: 10, color: accentColor || A.accent, fontFamily: MONO, letterSpacing: 1.6, fontWeight: 700}}>
+          {accentLabel}
         </div>
-        {meta?.start_time && (
-          <div style={{fontSize: 11, color: A.textDim, fontFamily: SANS}}>
-            {formatDateTimeShort(meta.start_time)}
-            {meta.sport ? ` · ${String(meta.sport).toUpperCase()}` : ''}
-          </div>
-        )}
-        {meta?.laps_active != null && meta.laps_active > 0 && (
-          <div style={{marginLeft: 'auto', fontSize: 9, color: A.textFaint, fontFamily: MONO, letterSpacing: 1}}>
-            {meta.laps_active} ACTIVE LAP{meta.laps_active !== 1 ? 'S' : ''} OF {meta.laps_total}
-          </div>
-        )}
+        {headerRight}
       </div>
-      {summary && (
-        <div style={{padding: '12px 14px', display: 'flex', gap: 20, flexWrap: 'wrap'}}>
-          <SummaryStat label="DISTANCE" value={summary.distance_mi != null ? `${summary.distance_mi} mi` : null}/>
-          <SummaryStat label="AVG PACE" value={summary.avg_pace}/>
-          <SummaryStat label="AVG GAP"  value={summary.avg_gap}/>
-          <SummaryStat label="AVG HR"   value={summary.avg_hr_bpm != null ? `${summary.avg_hr_bpm} bpm` : null} accent="#ff5a3c"/>
-          <SummaryStat label="AVG CAD"  value={summary.avg_cadence_spm != null ? `${Math.round(summary.avg_cadence_spm)} spm` : null}/>
-          {summary.avg_grade_pct != null && (
-            <SummaryStat label="AVG GRADE" value={`${summary.avg_grade_pct}%`}/>
-          )}
-          {summary.ascent_ft != null && (
-            <SummaryStat label="ASCENT" value={`${summary.ascent_ft} ft`} accent="#4ade80"/>
-          )}
-          {summary.descent_ft != null && (
-            <SummaryStat label="DESCENT" value={`${summary.descent_ft} ft`} accent="#60a5fa"/>
-          )}
-          {summary.avg_vert_osc_mm != null && (
-            <SummaryStat label="VERT OSC" value={`${summary.avg_vert_osc_mm} mm`}/>
-          )}
-        </div>
-      )}
+      <div style={{padding: '12px 14px', display: 'flex', gap: 20, flexWrap: 'wrap'}}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function ElevationGraph({profile}) {
+  if (!profile || profile.length < 2) return null;
+
+  const W = 340, H = 120;
+  const PAD = {top: 10, right: 10, bottom: 24, left: 44};
+  const gW = W - PAD.left - PAD.right;
+  const gH = H - PAD.top - PAD.bottom;
+
+  const xs = profile.map(p => p[0]);
+  const ys = profile.map(p => p[1]);
+  const xMin = xs[0], xMax = xs[xs.length - 1];
+  const yMin = Math.min(...ys), yMax = Math.max(...ys);
+  const yRange = yMax - yMin || 1;
+
+  const toX = d => PAD.left + ((d - xMin) / (xMax - xMin)) * gW;
+  const toY = a => PAD.top + (1 - (a - yMin) / yRange) * gH;
+
+  // Build SVG path
+  const pts = profile.map(([d, a]) => `${toX(d).toFixed(1)},${toY(a).toFixed(1)}`);
+  const linePath = 'M' + pts.join('L');
+  // Fill area
+  const fillPath = linePath +
+    `L${toX(xMax).toFixed(1)},${(PAD.top + gH).toFixed(1)}` +
+    `L${toX(xMin).toFixed(1)},${(PAD.top + gH).toFixed(1)}Z`;
+
+  // Y axis ticks
+  const yTicks = 3;
+  const yTickVals = Array.from({length: yTicks}, (_, i) =>
+    Math.round(yMin + (i / (yTicks - 1)) * yRange)
+  );
+
+  // X axis ticks — every whole mile
+  const maxMile = Math.floor(xMax);
+  const xTickVals = Array.from({length: maxMile + 1}, (_, i) => i);
+
+  return (
+    <div style={{
+      background: A.surface, borderRadius: 16, border: `1px solid ${A.border}`,
+      overflow: 'hidden',
+    }}>
+      <div style={{
+        padding: '10px 14px 6px', borderBottom: `1px solid ${A.border}`,
+        fontFamily: MONO, fontSize: 10, letterSpacing: 1.6, fontWeight: 700, color: A.textDim,
+      }}>
+        ELEVATION PROFILE
+      </div>
+      <div style={{padding: '10px 14px 12px', overflowX: 'auto'}}>
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          style={{width: '100%', maxWidth: W, display: 'block'}}
+          preserveAspectRatio="xMidYMid meet"
+        >
+          {/* Grid lines */}
+          {yTickVals.map((v, i) => (
+            <line
+              key={i}
+              x1={PAD.left} y1={toY(v).toFixed(1)}
+              x2={PAD.left + gW} y2={toY(v).toFixed(1)}
+              stroke="rgba(255,255,255,0.06)" strokeWidth="1"
+            />
+          ))}
+
+          {/* Fill area */}
+          <path d={fillPath} fill="rgba(255,90,60,0.12)" />
+
+          {/* Line */}
+          <path d={linePath} fill="none" stroke="#ff5a3c" strokeWidth="1.5" strokeLinejoin="round" />
+
+          {/* Y axis ticks + labels */}
+          {yTickVals.map((v, i) => (
+            <g key={i}>
+              <line
+                x1={PAD.left - 3} y1={toY(v).toFixed(1)}
+                x2={PAD.left} y2={toY(v).toFixed(1)}
+                stroke="rgba(255,255,255,0.2)" strokeWidth="1"
+              />
+              <text
+                x={PAD.left - 6} y={toY(v)} dominantBaseline="middle" textAnchor="end"
+                fontSize="8" fill="rgba(255,255,255,0.38)" fontFamily="monospace"
+              >
+                {v.toLocaleString()}
+              </text>
+            </g>
+          ))}
+
+          {/* Y axis label */}
+          <text
+            x={8} y={PAD.top + gH / 2}
+            textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.3)"
+            fontFamily="monospace" transform={`rotate(-90, 8, ${PAD.top + gH / 2})`}
+          >
+            ft
+          </text>
+
+          {/* X axis ticks + labels */}
+          {xTickVals.map((mi) => {
+            if (mi > xMax + 0.05) return null;
+            const px = toX(mi);
+            return (
+              <g key={mi}>
+                <line
+                  x1={px} y1={PAD.top + gH}
+                  x2={px} y2={PAD.top + gH + 3}
+                  stroke="rgba(255,255,255,0.2)" strokeWidth="1"
+                />
+                <text
+                  x={px} y={PAD.top + gH + 13}
+                  textAnchor="middle" fontSize="8" fill="rgba(255,255,255,0.38)"
+                  fontFamily="monospace"
+                >
+                  {mi}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* X axis label */}
+          <text
+            x={PAD.left + gW / 2} y={H - 2}
+            textAnchor="middle" fontSize="7" fill="rgba(255,255,255,0.3)"
+            fontFamily="monospace"
+          >
+            mi
+          </text>
+
+          {/* Axes */}
+          <line
+            x1={PAD.left} y1={PAD.top}
+            x2={PAD.left} y2={PAD.top + gH}
+            stroke="rgba(255,255,255,0.15)" strokeWidth="1"
+          />
+          <line
+            x1={PAD.left} y1={PAD.top + gH}
+            x2={PAD.left + gW} y2={PAD.top + gH}
+            stroke="rgba(255,255,255,0.15)" strokeWidth="1"
+          />
+        </svg>
+      </div>
     </div>
   );
 }
@@ -1732,6 +1964,8 @@ function AnalysisSummaryCard({meta, summary}) {
 function AnalysisResultDetail({analysis, onBack}) {
   const ascentSegs  = (analysis.segments_grade || []).filter(s => s.direction === 'ascent');
   const descentSegs = (analysis.segments_grade || []).filter(s => s.direction === 'descent');
+  const { meta, summary, ascent_summary, descent_summary, elevation_profile } = analysis;
+
   return (
     <div style={{display: 'flex', flexDirection: 'column', gap: 14}}>
       <button onClick={onBack} style={{
@@ -1744,11 +1978,78 @@ function AnalysisResultDetail({analysis, onBack}) {
         <Icon name="back" size={12} color={A.text}/>
         HISTORY
       </button>
-      <AnalysisSummaryCard meta={analysis.meta} summary={analysis.summary}/>
+
+      {/* Run Summary */}
+      {summary && (
+        <SummaryCard
+          accentColor={A.accent}
+          accentLabel="RUN SUMMARY"
+          headerRight={
+            <React.Fragment>
+              {meta?.start_time && (
+                <div style={{fontSize: 11, color: A.textDim, fontFamily: SANS}}>
+                  {formatDateTimeShort(meta.start_time)}
+                  {meta.sport ? ` · ${String(meta.sport).toUpperCase()}` : ''}
+                </div>
+              )}
+              {meta?.laps_active != null && meta.laps_active > 0 && (
+                <div style={{marginLeft: 'auto', fontSize: 9, color: A.textFaint, fontFamily: MONO, letterSpacing: 1}}>
+                  {meta.laps_active} ACTIVE LAP{meta.laps_active !== 1 ? 'S' : ''} OF {meta.laps_total}
+                </div>
+              )}
+            </React.Fragment>
+          }
+        >
+          <SummaryStat label="DISTANCE" value={summary.distance_mi != null ? `${summary.distance_mi} mi` : null}/>
+          <SummaryStat label="AVG PACE" value={summary.avg_pace}/>
+          <SummaryStat label="AVG GAP"  value={summary.avg_gap}/>
+          <SummaryStat label="AVG HR"   value={summary.avg_hr_bpm != null ? `${summary.avg_hr_bpm} bpm` : null} accent="#ff5a3c"/>
+          <SummaryStat label="AVG CAD"  value={summary.avg_cadence_spm != null ? `${Math.round(summary.avg_cadence_spm)} spm` : null}/>
+          {summary.avg_vert_osc_mm != null && (
+            <SummaryStat label="VERT OSC" value={`${summary.avg_vert_osc_mm} mm`}/>
+          )}
+        </SummaryCard>
+      )}
+
+      {/* Ascent Summary */}
+      {ascent_summary && (
+        <SummaryCard accentColor="#4ade80" accentLabel="ASCENT SUMMARY">
+          <SummaryStat label="DISTANCE" value={ascent_summary.distance_mi != null ? `${ascent_summary.distance_mi} mi` : null}/>
+          <SummaryStat label="AVG GRADE" value={ascent_summary.avg_grade_pct != null ? `${ascent_summary.avg_grade_pct}%` : null} accent="#4ade80"/>
+          <SummaryStat label="ASCENT" value={ascent_summary.ascent_ft != null ? `${ascent_summary.ascent_ft} ft` : null} accent="#4ade80"/>
+          <SummaryStat label="AVG PACE" value={ascent_summary.avg_pace}/>
+          <SummaryStat label="AVG GAP"  value={ascent_summary.avg_gap}/>
+          <SummaryStat label="AVG HR"   value={ascent_summary.avg_hr_bpm != null ? `${ascent_summary.avg_hr_bpm} bpm` : null} accent="#ff5a3c"/>
+          <SummaryStat label="AVG CAD"  value={ascent_summary.avg_cadence_spm != null ? `${Math.round(ascent_summary.avg_cadence_spm)} spm` : null}/>
+          {ascent_summary.avg_vert_osc_mm != null && (
+            <SummaryStat label="VERT OSC" value={`${ascent_summary.avg_vert_osc_mm} mm`}/>
+          )}
+        </SummaryCard>
+      )}
+
+      {/* Descent Summary */}
+      {descent_summary && (
+        <SummaryCard accentColor="#60a5fa" accentLabel="DESCENT SUMMARY">
+          <SummaryStat label="DISTANCE" value={descent_summary.distance_mi != null ? `${descent_summary.distance_mi} mi` : null}/>
+          <SummaryStat label="AVG GRADE" value={descent_summary.avg_grade_pct != null ? `${descent_summary.avg_grade_pct}%` : null} accent="#60a5fa"/>
+          <SummaryStat label="DESCENT" value={descent_summary.descent_ft != null ? `${descent_summary.descent_ft} ft` : null} accent="#60a5fa"/>
+          <SummaryStat label="AVG PACE" value={descent_summary.avg_pace}/>
+          <SummaryStat label="AVG GAP"  value={descent_summary.avg_gap}/>
+          <SummaryStat label="AVG HR"   value={descent_summary.avg_hr_bpm != null ? `${descent_summary.avg_hr_bpm} bpm` : null} accent="#ff5a3c"/>
+          <SummaryStat label="AVG CAD"  value={descent_summary.avg_cadence_spm != null ? `${Math.round(descent_summary.avg_cadence_spm)} spm` : null}/>
+          {descent_summary.avg_vert_osc_mm != null && (
+            <SummaryStat label="VERT OSC" value={`${descent_summary.avg_vert_osc_mm} mm`}/>
+          )}
+        </SummaryCard>
+      )}
+
+      {/* Elevation Graph */}
+      <ElevationGraph profile={elevation_profile}/>
+
       <SegmentTable title="10-MINUTE SECTIONS" segments={analysis.segments_10min}/>
       <SegmentTable title="MILE SECTIONS" segments={analysis.segments_by_mile}/>
-      <SegmentTable title="ASCENT SECTIONS" segments={ascentSegs}/>
-      <SegmentTable title="DESCENT SECTIONS" segments={descentSegs}/>
+      <SegmentTable title="ASCENT SECTIONS" segments={ascentSegs} summaryRow={ascent_summary}/>
+      <SegmentTable title="DESCENT SECTIONS" segments={descentSegs} summaryRow={descent_summary}/>
     </div>
   );
 }
