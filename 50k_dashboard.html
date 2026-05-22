@@ -1010,6 +1010,12 @@ const MIN_SECTION_MI = 0.30;   // minimum section length to keep
 const MERGE_GAP_MI   = 0.10;   // flat gap ≤ this merges same-direction runs
 const GRID_STEP_M    = 5.0;    // distance grid resolution for grade detection
 
+// Grade-band sub-section splitting
+const GRADE_BAND_BOUNDS           = [0.10, 0.15, 0.20]; // bands: 5–10%, 10–15%, 15–20%, >20%
+const GRADE_BAND_SMOOTH_M         = 250.0;               // heavy smoothing for band classification
+const GRADE_BAND_MIN_SUB_MI       = 0.20;                // min length for close-band sub-section
+const GRADE_BAND_MIN_SUB_MI_STRONG = 0.10;               // min length for 2+-band-different sub-section
+
 // Cadence cleaning (grade sections only)
 const CAD_WALK_SPEED          = 1.5;   // m/s — below this = walking, exclude
 const CAD_PCTILE_LO           = 10;    // drop below this percentile after speed filter
@@ -1204,9 +1210,27 @@ const analyzeMask = (series, mask, label, cleanCad = false) => {
   const vertOsc  = pick(series.vert_osc_mm);
 
   const dValid = Array.from(dist).filter(v => !Number.isNaN(v));
-  const dist_mi = dValid.length >= 2
-    ? Math.round(((dValid[dValid.length-1] - dValid[0]) / M_PER_MI) * 100) / 100
-    : null;
+  let dist_mi = null;
+  if (dValid.length >= 2) {
+    // Sum per-step distances, ignoring gap jumps between non-contiguous mask sections.
+    // A step > median*10 is a gap between sections (e.g. union of A1.1+A1.2+A1.3),
+    // not real movement — exclude it to avoid over-counting.
+    const diffs = [];
+    for (let i = 1; i < dValid.length; i++) {
+      const d = dValid[i] - dValid[i-1];
+      if (d > 0) diffs.push(d);
+    }
+    if (diffs.length > 0) {
+      const sorted = diffs.slice().sort((a, b) => a - b);
+      const mid = Math.floor(sorted.length / 2);
+      const medianStep = sorted.length % 2 === 0
+        ? (sorted[mid-1] + sorted[mid]) / 2
+        : sorted[mid];
+      const stepCap = medianStep * 10;
+      const realSteps = diffs.filter(d => d <= stepCap);
+      dist_mi = Math.round((realSteps.reduce((s, d) => s + d, 0) / M_PER_MI) * 100) / 100;
+    }
+  }
 
   const avg_spd   = nanMean(spd);
   const avg_hr    = nanMean(hr);
@@ -1237,13 +1261,26 @@ const analyzeMask = (series, mask, label, cleanCad = false) => {
   const altValid = Array.from(alt).filter(v => !Number.isNaN(v));
   let ascent = null, descent = null;
   if (altValid.length >= 2) {
-    let asc = 0, desc = 0;
-    for (let i = 1; i < altValid.length; i++) {
-      const d = altValid[i] - altValid[i-1];
-      if (d > 0) asc += d; else desc += -d;
+    const diffs = [];
+    for (let i = 1; i < altValid.length; i++) diffs.push(altValid[i] - altValid[i-1]);
+    // Filter out large altitude jumps that span gaps in a non-contiguous mask
+    // (e.g. seam between A1.1 and A1.2 in the ascent-total union mask).
+    // Use median(|diff|)*10 as cap — a gap jump dwarfs any real altitude step.
+    const absDiffs = diffs.map(Math.abs);
+    const sortedAbs = absDiffs.slice().sort((a, b) => a - b);
+    const mid = Math.floor(sortedAbs.length / 2);
+    const medianAbs = sortedAbs.length % 2 === 0
+      ? (sortedAbs[mid-1] + sortedAbs[mid]) / 2
+      : sortedAbs[mid];
+    // If median is 0 (all flat), no filter needed — keep everything
+    const gapCap = medianAbs > 0 ? medianAbs * 10 : Infinity;
+    const validDiffs = diffs.filter((_, i) => absDiffs[i] <= gapCap);
+    if (validDiffs.length > 0) {
+      const asc  = validDiffs.filter(d => d > 0).reduce((s, d) => s + d, 0);
+      const desc = validDiffs.filter(d => d < 0).reduce((s, d) => s + (-d), 0);
+      ascent  = Math.round(asc  * M_TO_FT);
+      descent = Math.round(desc * M_TO_FT);
     }
-    ascent  = Math.round(asc * M_TO_FT);
-    descent = Math.round(desc * M_TO_FT);
   }
 
   return {
@@ -1514,8 +1551,131 @@ const buildGradeSegments = (series) => {
   runs = filterLen(runs);
   runs.sort((a, b) => d_grid[a[1]] - d_grid[b[1]]);
 
-  // Build output segments
-  let aCount = 0, dCount = 0;
+  // --- Split each run into grade-band sub-sections ---
+  // Band classifier: which of the 4 bands does |grade| fall into?
+  const bandOf = (absGrade) => {
+    for (let i = 0; i < GRADE_BAND_BOUNDS.length; i++) {
+      if (absGrade < GRADE_BAND_BOUNDS[i]) return i;
+    }
+    return GRADE_BAND_BOUNDS.length; // band 3 = >20%
+  };
+
+  const MIN_SUB_M        = GRADE_BAND_MIN_SUB_MI * M_PER_MI;
+  const MIN_SUB_M_STRONG = GRADE_BAND_MIN_SUB_MI_STRONG * M_PER_MI;
+  const smoothSamples    = Math.max(3, Math.round(GRADE_BAND_SMOOTH_M / GRID_STEP_M));
+
+  const splitByBand = (dir, s, e) => {
+    if (e - s < 2) return [[dir, s, e]];
+
+    // 1. Smooth grade within section using box kernel of smoothSamples width
+    const seg = g_grid.slice(s, e + 1);
+    const w = Math.min(smoothSamples, seg.length);
+    const smoothed = seg.slice();
+    if (w >= 3) {
+      for (let i = 0; i < seg.length; i++) {
+        const half = Math.floor(w / 2);
+        const lo2 = Math.max(0, i - half);
+        const hi2 = Math.min(seg.length - 1, i + half);
+        let sum = 0;
+        for (let j = lo2; j <= hi2; j++) sum += seg[j];
+        smoothed[i] = sum / (hi2 - lo2 + 1);
+      }
+    }
+
+    // 2. Classify each point into a band
+    const bands = smoothed.map(g => bandOf(Math.abs(g)));
+
+    // 3. Find raw band runs
+    const subRuns = []; // [band, globalS, globalE]
+    let i = 0;
+    while (i < bands.length) {
+      const b = bands[i];
+      let j = i;
+      while (j < bands.length && bands[j] === b) j++;
+      subRuns.push([b, s + i, s + j - 1]);
+      i = j;
+    }
+
+    const runLenM = (r) => d_grid[r[2]] - d_grid[r[1]];
+
+    // 4. Identify dominant (longest) band
+    let dominantBand = subRuns[0][0];
+    let maxLen = 0;
+    for (const r of subRuns) {
+      const l = runLenM(r);
+      if (l > maxLen) { maxLen = l; dominantBand = r[0]; }
+    }
+
+    const minLenFor = (band) =>
+      Math.abs(band - dominantBand) >= 2 ? MIN_SUB_M_STRONG : MIN_SUB_M;
+
+    // 5. Edge trim: drop too-short edge runs that are 2+ bands from dominant
+    while (subRuns.length > 1) {
+      const r = subRuns[0];
+      if (runLenM(r) < minLenFor(r[0]) && Math.abs(r[0] - dominantBand) >= 2)
+        subRuns.shift();
+      else break;
+    }
+    while (subRuns.length > 1) {
+      const r = subRuns[subRuns.length - 1];
+      if (runLenM(r) < minLenFor(r[0]) && Math.abs(r[0] - dominantBand) >= 2)
+        subRuns.pop();
+      else break;
+    }
+
+    // 6. Absorb short interior runs into longer neighbor (smallest ratio first)
+    let changed = true;
+    while (changed && subRuns.length > 1) {
+      changed = false;
+      let shortestK = -1, shortestRatio = 1.0;
+      for (let k = 0; k < subRuns.length; k++) {
+        const ml = minLenFor(subRuns[k][0]);
+        const ratio = ml > 0 ? runLenM(subRuns[k]) / ml : 1.0;
+        if (ratio < 1.0 && ratio < shortestRatio) {
+          shortestRatio = ratio; shortestK = k;
+        }
+      }
+      if (shortestK === -1) break;
+      const k = shortestK;
+      const left  = k > 0 ? subRuns[k-1] : null;
+      const right = k < subRuns.length - 1 ? subRuns[k+1] : null;
+      let chosen;
+      if (!left && !right) break;
+      if (!left)  chosen = 'right';
+      else if (!right) chosen = 'left';
+      else chosen = runLenM(left) >= runLenM(right) ? 'left' : 'right';
+      if (chosen === 'left') {
+        subRuns[k-1][2] = subRuns[k][2];
+        subRuns.splice(k, 1);
+      } else {
+        subRuns[k+1][1] = subRuns[k][1];
+        subRuns.splice(k, 1);
+      }
+      changed = true;
+    }
+
+    // 7. Re-merge adjacent same-band runs
+    const merged = [];
+    for (const sr of subRuns) {
+      if (merged.length && merged[merged.length-1][0] === sr[0])
+        merged[merged.length-1][2] = sr[2];
+      else
+        merged.push([sr[0], sr[1], sr[2]]);
+    }
+
+    return merged.map(([, ss, ee]) => [dir, ss, ee]);
+  };
+
+  // Apply band splitting to every run
+  const splitRuns = [];
+  for (const [dir, s, e] of runs) {
+    splitByBand(dir, s, e).forEach(r => splitRuns.push(r));
+  }
+  runs = splitRuns;
+  runs.sort((a, b) => d_grid[a[1]] - d_grid[b[1]]);
+
+  // --- Build output segments with hierarchical labels: A1.1, A1.2, D1.1 … ---
+  let aBlock = 0, dBlock = 0, aSub = 0, dSub = 0, lastDir = null;
   const segments = [];
   for (const [dir, s, e] of runs) {
     const dStart = d_grid[s], dEnd = d_grid[e];
@@ -1525,7 +1685,19 @@ const buildGradeSegments = (series) => {
       if (dist_m[i] >= dStart && dist_m[i] <= dEnd) { mask[i] = 1; anyHit = true; }
     }
     if (!anyHit) continue;
-    const label = dir === 1 ? `A${++aCount}` : `D${++dCount}`;
+
+    let label;
+    if (dir === 1) { // ascent
+      if (lastDir !== 1) { aBlock++; aSub = 0; }
+      aSub++;
+      label = `A${aBlock}.${aSub}`;
+    } else {          // descent
+      if (lastDir !== -1) { dBlock++; dSub = 0; }
+      dSub++;
+      label = `D${dBlock}.${dSub}`;
+    }
+    lastDir = dir;
+
     const seg = analyzeMask(series, mask, label, true); // cleanCad=true
     if (seg) {
       seg.direction    = dir === 1 ? 'ascent' : 'descent';
