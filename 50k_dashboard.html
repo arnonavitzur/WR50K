@@ -1006,7 +1006,13 @@ const MIN_SPEED   = 0.05;  // m/s — below this treated as stopped
 // Ascent/descent detection
 const GRADE_THRESH   = 0.05;   // ±5% qualifies as ascent/descent
 const FLAT_THRESH    = 0.02;   // ±2% counts as flat for end-trimming
-const MIN_SECTION_MI = 0.30;   // minimum section length to keep
+// Minimum section length — tiered by avg absolute grade of the candidate run.
+// Steeper pitches are meaningful even when short; the 0.30 mi floor is kept for gentle terrain.
+const MIN_SECTION_MI_BY_GRADE = [
+  [0.15, 0.10],  // |grade| >= 15% → 0.10 mi minimum
+  [0.10, 0.20],  // |grade| >= 10% → 0.20 mi minimum
+  [0.00, 0.30],  // |grade| <  10% → 0.30 mi minimum (original default)
+];
 const MERGE_GAP_MI   = 0.10;   // flat gap ≤ this merges same-direction runs
 const GRID_STEP_M    = 5.0;    // distance grid resolution for grade detection
 
@@ -1018,7 +1024,8 @@ const GRADE_BAND_MIN_SUB_MI_STRONG = 0.10;               // min length for 2+-ba
 
 // Cadence cleaning (grade sections only)
 const CAD_WALK_SPEED          = 1.5;   // m/s — below this = walking, exclude
-const CAD_PCTILE_LO           = 10;    // drop below this percentile after speed filter
+const CAD_PCTILE_LO           = 10;    // drop below this percentile (descent/running sections)
+const CAD_PCTILE_HI           = 90;    // drop above this percentile (ascent/hiking sections)
 const CAD_BIMODAL_VALLEY_RATIO = 0.60;
 const CAD_LEAD_DIST           = 0.05;  // inspect first 5% of section distance
 const CAD_LEAD_BELOW          = 0.15;  // lead avg must be >15% below median to trim
@@ -1085,7 +1092,8 @@ const buildSeries = (records) => {
     hr[i]        = num(r.heart_rate);
     const cadRaw  = num(r.cadence);
     const fracCad = num(r.fractional_cadence);
-    cadence_spm[i] = Number.isNaN(cadRaw)
+    // Garmin writes cadence=0 (not NaN) when the accelerometer loses signal — treat as missing.
+    cadence_spm[i] = (Number.isNaN(cadRaw) || cadRaw === 0)
       ? NaN
       : (cadRaw + (Number.isNaN(fracCad) ? 0 : fracCad)) * 2.0;
     const gRaw   = num(r.grade);
@@ -1121,16 +1129,18 @@ const buildSeries = (records) => {
   return { t_sec, speed_mps, hr, cadence_spm, grade, dist_m, alt_m, vert_osc_mm };
 };
 
-// Clean cadence for grade sections: speed floor, bimodal split, lead-ramp trim, pctile floor.
-const cleanCadence = (cad, spd, dist) => {
+// Clean cadence for grade sections.
+// keepUpper=true  (default, descent / summary): keep the high-cadence running cluster.
+// keepUpper=false (ascent sections):            keep the low-cadence hiking cluster.
+const cleanCadence = (cad, spd, dist, keepUpper = true) => {
   const out = Float64Array.from(cad);
 
-  // Step 1: speed floor — null where walking
+  // Step 1: speed floor — null where stopped / very slow regardless of direction
   for (let i = 0; i < spd.length; i++) {
     if (!Number.isNaN(spd[i]) && spd[i] < CAD_WALK_SPEED) out[i] = NaN;
   }
 
-  // Step 2: bimodal detection — find dominant peak, scan left for valley
+  // Step 2: bimodal detection — direction-aware
   const valid1 = Array.from(out).filter(v => !Number.isNaN(v));
   if (valid1.length >= 20) {
     const mn = Math.min(...valid1), mx = Math.max(...valid1);
@@ -1143,21 +1153,41 @@ const cleanCadence = (cad, spd, dist) => {
     }
     let mainPeak = 0;
     for (let i = 1; i < bins; i++) if (counts[i] > counts[mainPeak]) mainPeak = i;
-    if (mainPeak > 1) {
-      let valleyIdx = 0, valleyVal = counts[0];
-      for (let i = 1; i < mainPeak; i++) {
-        if (counts[i] < valleyVal) { valleyVal = counts[i]; valleyIdx = i; }
+
+    if (keepUpper) {
+      // Descent: dominant peak is the HIGH (running) cluster.
+      // Scan LEFT for deepest valley; cut everything below it.
+      if (mainPeak > 1) {
+        let valleyIdx = 0, valleyVal = counts[0];
+        for (let i = 1; i < mainPeak; i++) {
+          if (counts[i] < valleyVal) { valleyVal = counts[i]; valleyIdx = i; }
+        }
+        const peakVal = counts[mainPeak];
+        if (peakVal > 0 && valleyVal / peakVal < (1 - CAD_BIMODAL_VALLEY_RATIO)) {
+          const cut = (edges[valleyIdx] + edges[valleyIdx + 1]) / 2;
+          for (let i = 0; i < out.length; i++) if (out[i] < cut) out[i] = NaN;
+        }
       }
-      const peakVal = counts[mainPeak];
-      if (peakVal > 0 && valleyVal / peakVal < (1 - CAD_BIMODAL_VALLEY_RATIO)) {
-        const cut = (edges[valleyIdx] + edges[valleyIdx + 1]) / 2;
-        for (let i = 0; i < out.length; i++) if (out[i] < cut) out[i] = NaN;
+    } else {
+      // Ascent: dominant peak is the LOW (hiking) cluster.
+      // Scan RIGHT for deepest valley; cut everything above it.
+      if (mainPeak < bins - 2) {
+        let valleyIdx = mainPeak + 1, valleyVal = counts[mainPeak + 1];
+        for (let i = mainPeak + 2; i < bins; i++) {
+          if (counts[i] < valleyVal) { valleyVal = counts[i]; valleyIdx = i; }
+        }
+        const peakVal = counts[mainPeak];
+        if (peakVal > 0 && valleyVal / peakVal < (1 - CAD_BIMODAL_VALLEY_RATIO)) {
+          const cut = (edges[valleyIdx] + edges[valleyIdx + 1]) / 2;
+          for (let i = 0; i < out.length; i++) if (out[i] > cut) out[i] = NaN;
+        }
       }
     }
   }
 
-  // Step 3: leading-ramp trim
-  if (dist) {
+  // Step 3: leading-ramp trim — descent / runnable sections only (keepUpper=true).
+  // Ascent sections begin at hiking cadence immediately — no ramp to trim.
+  if (keepUpper && dist) {
     const dv = Array.from(dist).filter(v => !Number.isNaN(v));
     if (dv.length >= 2) {
       const dStart = dv[0], dSpan = dv[dv.length-1] - dStart;
@@ -1182,18 +1212,26 @@ const cleanCadence = (cad, spd, dist) => {
     }
   }
 
-  // Step 4: percentile floor on survivors
+  // Step 4: percentile trim on survivors — direction flips with keepUpper
   const valid2 = Array.from(out).filter(v => !Number.isNaN(v)).sort((a,b) => a-b);
   if (valid2.length >= 10) {
-    const floor = valid2[Math.floor(valid2.length * CAD_PCTILE_LO / 100)];
-    for (let i = 0; i < out.length; i++) if (out[i] < floor) out[i] = NaN;
+    if (keepUpper) {
+      // Running: trim below 10th percentile — removes residual slow-shuffle noise
+      const floor = valid2[Math.floor(valid2.length * CAD_PCTILE_LO / 100)];
+      for (let i = 0; i < out.length; i++) if (out[i] < floor) out[i] = NaN;
+    } else {
+      // Hiking: trim above 90th percentile — removes residual brief-jog spikes
+      const ceiling = valid2[Math.floor(valid2.length * CAD_PCTILE_HI / 100)];
+      for (let i = 0; i < out.length; i++) if (out[i] > ceiling) out[i] = NaN;
+    }
   }
 
   return out;
 };
 
 // Analyze a single segment. mask is Uint8Array; cleanCad applies cadence cleaning.
-const analyzeMask = (series, mask, label, cleanCad = false) => {
+// cadKeepUpper: passed to cleanCadence — true for descent/summary, false for ascent.
+const analyzeMask = (series, mask, label, cleanCad = false, cadKeepUpper = true) => {
   const idx = [];
   for (let i = 0; i < mask.length; i++) if (mask[i]) idx.push(i);
   if (!idx.length) return null;
@@ -1203,7 +1241,7 @@ const analyzeMask = (series, mask, label, cleanCad = false) => {
   const spd      = pick(series.speed_mps);
   const hr       = pick(series.hr);
   const rawCad   = pick(series.cadence_spm);
-  const cad      = cleanCad ? cleanCadence(rawCad, spd, pick(series.dist_m)) : rawCad;
+  const cad      = cleanCad ? cleanCadence(rawCad, spd, pick(series.dist_m), cadKeepUpper) : rawCad;
   const grade    = pick(series.grade);
   const dist     = pick(series.dist_m);
   const alt      = pick(series.alt_m);
@@ -1380,7 +1418,9 @@ const buildDirectionSummary = (series, gradeSegments, direction) => {
   }
   if (!Array.from(mask).some(v => v)) return null;
 
-  const result = analyzeMask(series, mask, label, true); // cleanCad=true
+  // Ascent summary uses keep_upper=false (hiking cadence); descent uses true (running cadence)
+  const cadKeepUpper = direction !== 'ascent';
+  const result = analyzeMask(series, mask, label, true, cadKeepUpper);
   if (!result) return null;
 
   // Override grade with distance-weighted average of individual section grades
@@ -1536,9 +1576,19 @@ const buildGradeSegments = (series) => {
     return [s, e];
   };
 
+  // Grade-tiered minimum section length: steeper pitches survive shorter.
+  // Mirrors Python MIN_SECTION_MI_BY_GRADE table.
+  const minSectionM = (s, e) => {
+    const pts = g_grid.slice(s, e + 1);
+    const avgAbsGrade = pts.reduce((sum, g) => sum + Math.abs(g), 0) / pts.length;
+    for (const [thresh, minMi] of MIN_SECTION_MI_BY_GRADE) {
+      if (avgAbsGrade >= thresh) return minMi * M_PER_MI;
+    }
+    return 0.30 * M_PER_MI; // fallback (shouldn't reach here)
+  };
+
   const filterLen = (runs) => {
-    const MIN_M = MIN_SECTION_MI * M_PER_MI;
-    return runs.filter(([, s, e]) => d_grid[e] - d_grid[s] >= MIN_M);
+    return runs.filter(([, s, e]) => d_grid[e] - d_grid[s] >= minSectionM(s, e));
   };
 
   let runs = findRuns(lbl);
@@ -1698,7 +1748,8 @@ const buildGradeSegments = (series) => {
     }
     lastDir = dir;
 
-    const seg = analyzeMask(series, mask, label, true); // cleanCad=true
+    const isAscent = dir === 1;
+    const seg = analyzeMask(series, mask, label, true, !isAscent); // cadKeepUpper=false for ascent
     if (seg) {
       seg.direction    = dir === 1 ? 'ascent' : 'descent';
       seg.dist_start_m = dStart;
