@@ -1379,6 +1379,12 @@ function AnalysisResultDetail({analysis, onBack}) {
           {summary.avg_vert_osc_mm != null && (
             <SummaryStat label="VERT OSC" value={`${summary.avg_vert_osc_mm} mm`}/>
           )}
+          {summary.ascent_ft != null && (
+            <SummaryStat label="ASCENT" value={`${summary.ascent_ft} ft`} accent="#4ade80"/>
+          )}
+          {summary.descent_ft != null && (
+            <SummaryStat label="DESCENT" value={`${summary.descent_ft} ft`} accent="#f97316"/>
+          )}
         </SummaryCard>
       )}
 

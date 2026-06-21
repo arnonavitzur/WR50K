@@ -410,10 +410,91 @@ const buildMileSegments = (series) => {
   return out;
 };
 
-// Build summary row across all active records.
-const buildSummary = (series) => {
-  const mask = new Uint8Array(series.t_sec.length).fill(1);
-  return analyzeMask(series, mask, 'Run total', false);
+// Build summary row — uses Garmin session message for device-computed totals
+// (distance, ascent, descent, pace, HR, cadence). Grade and vert osc are still
+// derived from record data since the session message doesn't expose them reliably.
+const buildSummary = (series, session) => {
+  const sess = session || {};
+
+  // Distance — session stores metres
+  const rawDist = sess.total_distance;
+  const distMi = rawDist != null ? Math.round(rawDist / M_PER_MI * 100) / 100 : null;
+
+  // Ascent / descent — stored in metres
+  const rawAsc  = sess.total_ascent;
+  const rawDesc = sess.total_descent;
+  const ascentFt  = rawAsc  != null ? Math.round(rawAsc  * M_TO_FT) : null;
+  const descentFt = rawDesc != null ? Math.round(rawDesc * M_TO_FT) : null;
+
+  // Avg pace — session stores avg_speed in m/s
+  const rawSpd = sess.enhanced_avg_speed != null ? sess.enhanced_avg_speed : sess.avg_speed;
+  const avgPace = rawSpd != null ? mpsToPace(rawSpd) : '—';
+
+  // Avg HR
+  const rawHr = sess.avg_heart_rate;
+  const avgHr = rawHr != null ? Math.round(rawHr * 10) / 10 : null;
+
+  // Avg cadence — Garmin stores half-cycles; multiply by 2 for spm
+  const rawCad  = sess.avg_cadence;
+  const rawFrac = sess.avg_fractional_cadence;
+  let avgCadSpm = null;
+  if (rawCad != null) {
+    const baseSpm = rawCad;
+    const fracSpm = rawFrac != null ? rawFrac : 0;
+    avgCadSpm = Math.round((baseSpm + fracSpm) * 2.0 * 10) / 10;
+  }
+
+  // Avg GAP — no session field; derive from record data
+  const spd   = series.speed_mps;
+  const grade = series.grade;
+  let avgGapSpd = rawSpd != null ? rawSpd : null;
+  let validCount = 0;
+  for (let i = 0; i < spd.length; i++) if (!isNaN(spd[i])) validCount++;
+  let allGradeNan = true;
+  for (let i = 0; i < grade.length; i++) if (!isNaN(grade[i])) { allGradeNan = false; break; }
+  if (validCount > 0 && !allGradeNan) {
+    let gapSum = 0, gapCount = 0;
+    for (let i = 0; i < spd.length; i++) {
+      if (isNaN(spd[i])) continue;
+      const g = isNaN(grade[i]) ? 0 : grade[i];
+      gapSum += spd[i] * gapFactor(g);
+      gapCount++;
+    }
+    avgGapSpd = gapCount > 0 ? gapSum / gapCount : avgGapSpd;
+  }
+  const avgGap = mpsToPace(avgGapSpd);
+
+  // avg_grade_pct: endpoint rise / distance span (from record data)
+  const alt  = series.alt_m;
+  const dist = series.dist_m;
+  let avgGrade = null;
+  const altValid = alt.filter(v => !isNaN(v));
+  const disValid = dist.filter(v => !isNaN(v));
+  if (altValid.length >= 2 && disValid.length >= 2) {
+    const riseM = altValid[altValid.length - 1] - altValid[0];
+    const spanM = disValid[disValid.length - 1] - disValid[0];
+    if (spanM > 0) avgGrade = Math.round(riseM / spanM * 1000) / 10;
+  }
+
+  // avg_vert_osc_mm: not in session message
+  const vo = series.vert_osc_mm;
+  const voValid = vo.filter(v => !isNaN(v));
+  const avgVo = voValid.length > 0
+    ? Math.round(voValid.reduce((s, v) => s + v, 0) / voValid.length * 10) / 10
+    : null;
+
+  return {
+    label:           'Run total',
+    distance_mi:     distMi,
+    avg_grade_pct:   avgGrade,
+    avg_pace:        avgPace,
+    avg_gap:         avgGap,
+    avg_hr_bpm:      avgHr,
+    avg_cadence_spm: avgCadSpm,
+    avg_vert_osc_mm: avgVo,
+    ascent_ft:       ascentFt,
+    descent_ft:      descentFt,
+  };
 };
 
 // Combined summary for all ascent or descent sections.
@@ -835,7 +916,7 @@ const analyzeFitBuffer = (buf) => new Promise((resolve, reject) => {
           laps_total: laps.length,
           laps_active: windows.length,
         },
-        summary:           buildSummary(series),
+        summary:           buildSummary(series, firstSession),
         ascent_summary:    buildDirectionSummary(series, gradeSegs, 'ascent'),
         descent_summary:   buildDirectionSummary(series, gradeSegs, 'descent'),
         segments_10min:    buildTimeSegments(series),
