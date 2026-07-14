@@ -1,21 +1,21 @@
 {
-  "name": "UltraPlan",
-  "short_name": "UltraPlan",
-  "description": "White River 50K Training Dashboard",
-  "start_url": "./50k_dashboard.html",
+  "name": "Poker Practice App",
+  "short_name": "Poker Practice",
+  "description": "Practice and build intuition for no-limit hold'em decision-making.",
+  "start_url": "./index.html",
   "display": "fullscreen",
-  "orientation": "portrait",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "orientation": "any",
+  "background_color": "#E8E2D6",
+  "theme_color": "#E8E2D6",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
