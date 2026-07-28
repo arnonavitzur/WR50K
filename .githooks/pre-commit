@@ -4,10 +4,14 @@
 # The cache name in sw.js is the only PWA invalidation lever. Without a bump the
 # installed app keeps serving the old files and the deploy is invisible on device.
 # Bypass deliberately with: git commit --no-verify
+#
+# combined_plan.json is deliberately NOT in this list. The app fetches it at
+# runtime and sw.js serves it network-first, so a plan edit reaches the device
+# on its own and does not need a cache bump.
 
 staged=$(git diff --cached --name-only --diff-filter=ACM)
 
-assets=$(printf '%s\n' "$staged" | grep -E '^(50k_dashboard\.html|fit-analysis\.js|combined_plan\.json|manifest\.json)$')
+assets=$(printf '%s\n' "$staged" | grep -E '^(50k_dashboard\.html|fit-analysis\.js|manifest\.json)$')
 [ -z "$assets" ] && exit 0
 
 # sw.js staged at all?
