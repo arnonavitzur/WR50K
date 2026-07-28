@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Local tooling / editor config
+.claude/
+
+# Local-only project docs and coaching context
+CLAUDE.md
+context_v2.md
+
+# Plan-authoring sources (not yet part of the repo)
+run_plan.json
+strength_plan.json
+nutrition_plan.json
+merge_plans.py
+inject_plan.py
+update_plan.py
+
+# FIT parser reference implementation — fit-analysis.js is what ships.
+# Kept local so parser logic can be developed in Python and ported over.
+*fit_parser*.py
+section-fit-parser.py
+
+# Test fixtures — real activity files, not needed in the repo
+*.fit
