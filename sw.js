@@ -11,6 +11,7 @@ const CACHE = 'wr50k-v2';
 const PRECACHE = [
   './',
   './50k_dashboard.html',
+  './combined_plan.json',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
@@ -71,28 +72,41 @@ function isHTML(request) {
   );
 }
 
+/* The plan is the one thing here that changes on its own schedule, independent
+ * of a code deploy. It must never be served cache-first or an edited plan would
+ * never reach the device. */
+function isPlan(request) {
+  return new URL(request.url).pathname.endsWith('/combined_plan.json');
+}
+
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
   if (request.method !== 'GET') return;
   if (!/^https?:$/.test(new URL(request.url).protocol)) return;
 
-  /* HTML: network first, so a deploy shows up on the next online load.
-   * Falls back to the cached shell when offline. */
-  if (isHTML(request)) {
+  const html = isHTML(request);
+  const plan = isPlan(request);
+
+  /* HTML and plan data: network first, so a deploy or a plan edit shows up on
+   * the next online load. Falls back to cache when offline. */
+  if (html || plan) {
     event.respondWith(
       (async () => {
         try {
-          const preload = await event.preloadResponse;
+          const preload = html ? await event.preloadResponse : null;
           const res = preload || (await fetch(request));
-          const cache = await caches.open(CACHE);
-          cache.put(request, res.clone());
+          if (res && res.ok) {
+            const cache = await caches.open(CACHE);
+            cache.put(request, res.clone());
+          }
           return res;
         } catch (err) {
           const cached =
             (await caches.match(request)) ||
-            (await caches.match('./50k_dashboard.html')) ||
-            (await caches.match('./'));
+            (plan ? await caches.match('./combined_plan.json') : null) ||
+            (html ? await caches.match('./50k_dashboard.html') : null) ||
+            (html ? await caches.match('./') : null);
           if (cached) return cached;
           throw err;
         }
