@@ -1,7 +1,7 @@
 {
-  "name": "White River 50K — Training",
-  "short_name": "WR50K",
-  "description": "Training plan and FIT file analysis for the White River 50K.",
+  "name": "Vermont 50K — Training",
+  "short_name": "VT50K",
+  "description": "Training plan and FIT file analysis for the Vermont 50K.",
   "start_url": "./50k_dashboard.html",
   "scope": "./",
   "id": "./50k_dashboard.html",
