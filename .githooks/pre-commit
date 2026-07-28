@@ -1,0 +1,28 @@
+#!/bin/sh
+# Refuse a commit that changes a precached asset without bumping CACHE in sw.js.
+#
+# The cache name in sw.js is the only PWA invalidation lever. Without a bump the
+# installed app keeps serving the old files and the deploy is invisible on device.
+# Bypass deliberately with: git commit --no-verify
+
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+
+assets=$(printf '%s\n' "$staged" | grep -E '^(50k_dashboard\.html|fit-analysis\.js|combined_plan\.json|manifest\.json)$')
+[ -z "$assets" ] && exit 0
+
+# sw.js staged at all?
+printf '%s\n' "$staged" | grep -qx 'sw.js' || {
+  echo "pre-commit: precached asset staged without sw.js:"
+  printf '  %s\n' $assets
+  echo "  Bump CACHE in sw.js and stage it, or use --no-verify."
+  exit 1
+}
+
+# sw.js is staged — confirm the CACHE line actually changed.
+if git diff --cached -U0 -- sw.js | grep -qE '^\+const CACHE'; then
+  exit 0
+fi
+
+echo "pre-commit: sw.js is staged but the CACHE constant did not change."
+echo "  Bump it (e.g. vt50k-v2 -> vt50k-v3), or use --no-verify."
+exit 1
