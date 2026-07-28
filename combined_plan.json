@@ -7,7 +7,7 @@
     "plan_end": "2026-09-27",
     "sources": {
       "run": {
-        "schema_version": "1.2",
+        "schema_version": "1.3",
         "generated_by": "Performance / Run Coach (Claude)",
         "generated_date": "2026-07-27"
       },
@@ -547,11 +547,13 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 3,
+          "mileage_mi": 0.0,
           "vertical_ft": 0,
           "long_run_mi": 0,
           "strength_sessions": 3,
-          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days."
+          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W1 EXCEPTION: Week 1 sessions are duration-prescribed walk/jog with no distance or vertical values, so the derived header is 0 by construction. Actual content is ~175 min of walking with ~14 min of jogged intervals. The pre-rev-1.2 header of \"3 mi\" was a hand-authored estimate of jogged minutes and has been removed rather than fabricated back. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
         "day_notes": "Full rest. Short walks around the house, elevation when sitting, pre-stand mobility. Day 2 post-race.",
@@ -602,11 +604,13 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 3,
+          "mileage_mi": 0.0,
           "vertical_ft": 0,
           "long_run_mi": 0,
           "strength_sessions": 3,
-          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days."
+          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W1 EXCEPTION: Week 1 sessions are duration-prescribed walk/jog with no distance or vertical values, so the derived header is 0 by construction. Actual content is ~175 min of walking with ~14 min of jogged intervals. The pre-rev-1.2 header of \"3 mi\" was a hand-authored estimate of jogged minutes and has been removed rather than fabricated back. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
         "day_notes": "",
@@ -622,7 +626,8 @@
             "poles": false,
             "key_cue": "Flat, supportive shoes, conversational stroll. This is circulation, not training.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Walk only. Note how the right lateral ankle and left knee feel at the start vs. end — this is baseline data for the week."
+            "notes": "Intensity: Recovery. Walk only. Note how the right lateral ankle and left knee feel at the start vs. end — this is baseline data for the week.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -802,11 +807,13 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 3,
+          "mileage_mi": 0.0,
           "vertical_ft": 0,
           "long_run_mi": 0,
           "strength_sessions": 3,
-          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days."
+          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W1 EXCEPTION: Week 1 sessions are duration-prescribed walk/jog with no distance or vertical values, so the derived header is 0 by construction. Actual content is ~175 min of walking with ~14 min of jogged intervals. The pre-rev-1.2 header of \"3 mi\" was a hand-authored estimate of jogged minutes and has been removed rather than fabricated back. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
         "day_notes": "",
@@ -822,7 +829,8 @@
             "poles": false,
             "key_cue": "Slightly longer. Still flat. Stop early without guilt if anything localizes.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Tendon-entry strength session this evening (see strength plan) — isometrics only."
+            "notes": "Intensity: Recovery. Tendon-entry strength session this evening (see strength plan) — isometrics only.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -905,11 +913,13 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 3,
+          "mileage_mi": 0.0,
           "vertical_ft": 0,
           "long_run_mi": 0,
           "strength_sessions": 3,
-          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days."
+          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W1 EXCEPTION: Week 1 sessions are duration-prescribed walk/jog with no distance or vertical values, so the derived header is 0 by construction. Actual content is ~175 min of walking with ~14 min of jogged intervals. The pre-rev-1.2 header of \"3 mi\" was a hand-authored estimate of jogged minutes and has been removed rather than fabricated back. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
         "day_notes": "Rest from walking volume. Daily routines + evening isometrics only. Assess: is walking symptom-free? That answer gates Friday.",
@@ -1058,11 +1068,13 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 3,
+          "mileage_mi": 0.0,
           "vertical_ft": 0,
           "long_run_mi": 0,
           "strength_sessions": 3,
-          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days."
+          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W1 EXCEPTION: Week 1 sessions are duration-prescribed walk/jog with no distance or vertical values, so the derived header is 0 by construction. Actual content is ~175 min of walking with ~14 min of jogged intervals. The pre-rev-1.2 header of \"3 mi\" was a hand-authored estimate of jogged minutes and has been removed rather than fabricated back. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
         "day_notes": "",
@@ -1078,7 +1090,8 @@
             "poles": false,
             "key_cue": "6 x 1 min VERY easy jog inside a 45-min walk — ONLY if walking has been fully symptom-free since Wednesday.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Day 6 post-race. If any of the three sites (right lateral ankle, left outer knee, right forefoot) speaks up on the jog steps, drop back to walking and retry Sunday."
+            "notes": "Intensity: Recovery. Day 6 post-race. If any of the three sites (right lateral ankle, left outer knee, right forefoot) speaks up on the jog steps, drop back to walking and retry Sunday.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -1161,11 +1174,13 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 3,
+          "mileage_mi": 0.0,
           "vertical_ft": 0,
           "long_run_mi": 0,
           "strength_sessions": 3,
-          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days."
+          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W1 EXCEPTION: Week 1 sessions are duration-prescribed walk/jog with no distance or vertical values, so the derived header is 0 by construction. Actual content is ~175 min of walking with ~14 min of jogged intervals. The pre-rev-1.2 header of \"3 mi\" was a hand-authored estimate of jogged minutes and has been removed rather than fabricated back. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
         "day_notes": "Rest or optional 25-30 min flat walk. Flex day — listen to the legs.",
@@ -1301,11 +1316,13 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 3,
+          "mileage_mi": 0.0,
           "vertical_ft": 0,
           "long_run_mi": 0,
           "strength_sessions": 3,
-          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days."
+          "notes": "Recovery week 1 of 2. Walking only until Friday; first jog steps are symptom-gated. Mileage figure counts jogged minutes only. SYMPTOM GATE all week: any sharp or localized pain in the right lateral ankle, left outer knee, or right forefoot ends the session and pushes the progression back 2 days.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W1 EXCEPTION: Week 1 sessions are duration-prescribed walk/jog with no distance or vertical values, so the derived header is 0 by construction. Actual content is ~175 min of walking with ~14 min of jogged intervals. The pre-rev-1.2 header of \"3 mi\" was a hand-authored estimate of jogged minutes and has been removed rather than fabricated back. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
         "day_notes": "",
@@ -1321,7 +1338,8 @@
             "poles": false,
             "key_cue": "8 x 1 min easy jog inside a 60-min walk if Friday was clean. Gentle terrain OK, nothing steep or technical.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. End-of-week checkpoint: report symptom status — it sets Week 2's walk/run ratios."
+            "notes": "Intensity: Recovery. End-of-week checkpoint: report symptom status — it sets Week 2's walk/run ratios.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -1404,13 +1422,15 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 12,
+          "mileage_mi": 14.5,
           "vertical_ft": 300,
           "long_run_mi": 5.5,
           "strength_sessions": 3,
-          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run."
+          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach.",
+        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
         "day_notes": "Rest. Daily routines + evening isometrics.",
         "sessions": []
       },
@@ -1459,13 +1479,15 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 12,
+          "mileage_mi": 14.5,
           "vertical_ft": 300,
           "long_run_mi": 5.5,
           "strength_sessions": 3,
-          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run."
+          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach.",
+        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
         "day_notes": "",
         "sessions": [
           {
@@ -1476,11 +1498,12 @@
             "distance_mi": 3.0,
             "terrain": "road",
             "hr_cap_bpm": 142,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "key_cue": "2 min easy run / 2 min walk x 10. Flat. Cadence relaxed, no watch-chasing.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. First structured run/walk. Tendon-entry lower session this evening."
+            "notes": "Intensity: Recovery. First structured run/walk. Tendon-entry lower session this evening.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -1660,13 +1683,15 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 12,
+          "mileage_mi": 14.5,
           "vertical_ft": 300,
           "long_run_mi": 5.5,
           "strength_sessions": 3,
-          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run."
+          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach.",
+        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
         "day_notes": "",
         "sessions": [
           {
@@ -1680,7 +1705,8 @@
             "poles": false,
             "key_cue": "Pure walk between run/walk days.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Upper strength this evening if energy is normal."
+            "notes": "Intensity: Recovery. Upper strength this evening if energy is normal.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -1831,13 +1857,15 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 12,
+          "mileage_mi": 14.5,
           "vertical_ft": 300,
           "long_run_mi": 5.5,
           "strength_sessions": 3,
-          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run."
+          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach.",
+        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
         "day_notes": "",
         "sessions": [
           {
@@ -1848,11 +1876,12 @@
             "distance_mi": 3.5,
             "terrain": "mixed",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "key_cue": "4 min easy run / 2 min walk x 7-8. Gentle rolling OK, avoid sustained descent.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Second tendon-entry lower session this evening. 48h from Tuesday's."
+            "notes": "Intensity: Recovery. Second tendon-entry lower session this evening. 48h from Tuesday's.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -2032,13 +2061,15 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 12,
+          "mileage_mi": 14.5,
           "vertical_ft": 300,
           "long_run_mi": 5.5,
           "strength_sessions": 3,
-          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run."
+          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach.",
+        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
         "day_notes": "Rest.",
         "sessions": []
       },
@@ -2087,13 +2118,15 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 12,
+          "mileage_mi": 14.5,
           "vertical_ft": 300,
           "long_run_mi": 5.5,
           "strength_sessions": 3,
-          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run."
+          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach.",
+        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
         "day_notes": "",
         "sessions": [
           {
@@ -2108,7 +2141,8 @@
             "poles": false,
             "key_cue": "25 min continuous easy. Flat. Stop at 25 even if it feels great — it should feel great.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Milestone session: first continuous run post-race."
+            "notes": "Intensity: Recovery. Milestone session: first continuous run post-race.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -2164,13 +2198,15 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 12,
+          "mileage_mi": 14.5,
           "vertical_ft": 300,
           "long_run_mi": 5.5,
           "strength_sessions": 3,
-          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run."
+          "notes": "Recovery week 2 of 2. Walk/run progressing toward continuous easy running by Saturday. Still no HSR in the gym, still flat/gentle terrain, still symptom-gated. Target ~12 mi combined walk+run.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach.",
+        "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
         "day_notes": "",
         "sessions": [
           {
@@ -2296,13 +2332,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 19,
-          "vertical_ft": 1400,
+          "mileage_mi": 24.0,
+          "vertical_ft": 2450,
           "long_run_mi": 10,
           "strength_sessions": 4,
-          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes."
+          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects.",
+        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
         "day_notes": "Rest. Post-long-run recovery slot for the rest of the plan.",
         "sessions": []
       },
@@ -2342,13 +2380,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 19,
-          "vertical_ft": 1400,
+          "mileage_mi": 24.0,
+          "vertical_ft": 2450,
           "long_run_mi": 10,
           "strength_sessions": 4,
-          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes."
+          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects.",
+        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
         "day_notes": "DOUBLE DAY — AM hills + PM Lower A (hill strength). Run first.",
         "sessions": [
           {
@@ -2560,21 +2600,23 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 19,
-          "vertical_ft": 1400,
+          "mileage_mi": 24.0,
+          "vertical_ft": 2450,
           "long_run_mi": 10,
           "strength_sessions": 4,
-          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes."
+          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects.",
+        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "easy",
             "title": "Easy Z2",
-            "duration_min": 40,
-            "distance_mi": 4.0,
+            "duration_min": 35,
+            "distance_mi": 3.5,
             "elevation_gain_ft": 300,
             "terrain": "trail",
             "hr_cap_bpm": 149,
@@ -2582,7 +2624,7 @@
             "poles": false,
             "key_cue": "Conversational. Nose-breathing test on the flats.",
             "fueling_required": false,
-            "notes": "Intensity: Easy. Upper A this evening."
+            "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -2733,13 +2775,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 19,
-          "vertical_ft": 1400,
+          "mileage_mi": 24.0,
+          "vertical_ft": 2450,
           "long_run_mi": 10,
           "strength_sessions": 4,
-          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes."
+          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects.",
+        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
         "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B. Run first.",
         "sessions": [
           {
@@ -2936,21 +2980,23 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 19,
-          "vertical_ft": 1400,
+          "mileage_mi": 24.0,
+          "vertical_ft": 2450,
           "long_run_mi": 10,
           "strength_sessions": 4,
-          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes."
+          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects.",
+        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "easy",
             "title": "Easy + first hill strides",
-            "duration_min": 35,
-            "distance_mi": 3.5,
+            "duration_min": 25,
+            "distance_mi": 2.5,
             "elevation_gain_ft": 200,
             "terrain": "trail",
             "hr_cap_bpm": 149,
@@ -2958,7 +3004,7 @@
             "poles": false,
             "key_cue": "4 x 15 s uphill strides at the end — smooth build to fast-but-relaxed, walk back down. Full recovery.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + strides. Strides gate: only if the week has been symptom-free at the ankle. These are neuromuscular, not cardio — HR is irrelevant on a 15-s rep."
+            "notes": "Intensity: Easy + strides. Strides gate: only if the week has been symptom-free at the ankle. These are neuromuscular, not cardio — HR is irrelevant on a 15-s rep. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -3032,13 +3078,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 19,
-          "vertical_ft": 1400,
+          "mileage_mi": 24.0,
+          "vertical_ft": 2450,
           "long_run_mi": 10,
           "strength_sessions": 4,
-          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes."
+          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects.",
+        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
         "day_notes": "Rest (or optional 20 min shakeout). Upper B this evening — upper is fine the day before a long run.",
         "sessions": []
       },
@@ -3171,13 +3219,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 19,
-          "vertical_ft": 1400,
+          "mileage_mi": 24.0,
+          "vertical_ft": 2450,
           "long_run_mi": 10,
           "strength_sessions": 4,
-          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes."
+          "notes": "Build opens. First hill intervals (short, sub-threshold), first descent skill block (gentle, Gate 1 cleared), first strides. 4th strength session added. Ramp guard: nothing this week exceeds 60% of peak-week session sizes. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects.",
+        "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
         "day_notes": "",
         "sessions": [
           {
@@ -3303,11 +3353,13 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 24,
-          "vertical_ft": 1900,
+          "mileage_mi": 29.0,
+          "vertical_ft": 2950,
           "long_run_mi": 13,
           "strength_sessions": 4,
-          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work)."
+          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work). SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
         "day_notes": "",
@@ -3349,11 +3401,13 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 24,
-          "vertical_ft": 1900,
+          "mileage_mi": 29.0,
+          "vertical_ft": 2950,
           "long_run_mi": 13,
           "strength_sessions": 4,
-          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work)."
+          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work). SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
         "day_notes": "DOUBLE DAY — AM hills + PM Lower A.",
@@ -3567,11 +3621,13 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 24,
-          "vertical_ft": 1900,
+          "mileage_mi": 29.0,
+          "vertical_ft": 2950,
           "long_run_mi": 13,
           "strength_sessions": 4,
-          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work)."
+          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work). SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
         "day_notes": "",
@@ -3580,15 +3636,15 @@
             "type": "run",
             "subtype": "easy",
             "title": "Easy Z2",
-            "duration_min": 45,
-            "distance_mi": 4.5,
-            "elevation_gain_ft": 300,
+            "duration_min": 30,
+            "distance_mi": 3.0,
+            "elevation_gain_ft": 150,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Easy. Upper A this evening."
+            "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -3739,11 +3795,13 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 24,
-          "vertical_ft": 1900,
+          "mileage_mi": 29.0,
+          "vertical_ft": 2950,
           "long_run_mi": 13,
           "strength_sessions": 4,
-          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work)."
+          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work). SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
         "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B.",
@@ -3942,11 +4000,13 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 24,
-          "vertical_ft": 1900,
+          "mileage_mi": 29.0,
+          "vertical_ft": 2950,
           "long_run_mi": 13,
           "strength_sessions": 4,
-          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work)."
+          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work). SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
         "day_notes": "",
@@ -3955,16 +4015,16 @@
             "type": "run",
             "subtype": "easy",
             "title": "Easy + gear-change pickups",
-            "duration_min": 40,
-            "distance_mi": 4.0,
-            "elevation_gain_ft": 250,
+            "duration_min": 25,
+            "distance_mi": 2.5,
+            "elevation_gain_ft": 100,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "key_cue": "6 x 1 min RUNNING at +2..4% inside the run, cadence 140+, easy jog between. Smooth, tall, quick feet.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + economy. This is the +2..5% band work: at peak fitness you ran it at 13:31 / cadence 138 — the pickups keep that gait pattern rehearsed while volume rebuilds."
+            "notes": "Intensity: Easy + economy. This is the +2..5% band work: at peak fitness you ran it at 13:31 / cadence 138 — the pickups keep that gait pattern rehearsed while volume rebuilds. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -4038,11 +4098,13 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 24,
-          "vertical_ft": 1900,
+          "mileage_mi": 29.0,
+          "vertical_ft": 2950,
           "long_run_mi": 13,
           "strength_sessions": 4,
-          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work)."
+          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work). SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
         "day_notes": "",
@@ -4051,14 +4113,15 @@
             "type": "run",
             "subtype": "shakeout",
             "title": "Shakeout",
-            "duration_min": 20,
-            "distance_mi": 2.0,
+            "duration_min": 10,
+            "distance_mi": 1.0,
             "terrain": "road",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Upper B this evening."
+            "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -4177,11 +4240,13 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 24,
-          "vertical_ft": 1900,
+          "mileage_mi": 29.0,
+          "vertical_ft": 2950,
           "long_run_mi": 13,
           "strength_sessions": 4,
-          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work)."
+          "notes": "Volume +~25% on a clean Week 3. Hill reps lengthen to 3 min. Descent blocks grow. Gear-change pickups start Friday (the +2..4% running economy work). SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
         "day_notes": "",
@@ -4309,14 +4374,16 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 28,
-          "vertical_ft": 2300,
+          "mileage_mi": 34.0,
+          "vertical_ft": 3450,
           "long_run_mi": 16,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday calibration long run at full race fueling protocol (see nutrition plan override 2026-08-30)",
-          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them."
+          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them. Gate 2 fail branch: see week notes — 8/30 loses calibration status and the calibration run moves to 9/6. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards.",
+        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
         "day_notes": "",
         "sessions": []
       },
@@ -4356,14 +4423,16 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 28,
-          "vertical_ft": 2300,
+          "mileage_mi": 34.0,
+          "vertical_ft": 3450,
           "long_run_mi": 16,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday calibration long run at full race fueling protocol (see nutrition plan override 2026-08-30)",
-          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them."
+          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them. Gate 2 fail branch: see week notes — 8/30 loses calibration status and the calibration run moves to 9/6. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards.",
+        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
         "day_notes": "DOUBLE DAY — AM hills + PM Lower A.",
         "sessions": [
           {
@@ -4575,29 +4644,31 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 28,
-          "vertical_ft": 2300,
+          "mileage_mi": 34.0,
+          "vertical_ft": 3450,
           "long_run_mi": 16,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday calibration long run at full race fueling protocol (see nutrition plan override 2026-08-30)",
-          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them."
+          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them. Gate 2 fail branch: see week notes — 8/30 loses calibration status and the calibration run moves to 9/6. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards.",
+        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "easy",
             "title": "Easy Z2",
-            "duration_min": 45,
-            "distance_mi": 4.5,
-            "elevation_gain_ft": 300,
+            "duration_min": 30,
+            "distance_mi": 3.0,
+            "elevation_gain_ft": 100,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Easy. Upper A this evening."
+            "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -4748,14 +4819,16 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 28,
-          "vertical_ft": 2300,
+          "mileage_mi": 34.0,
+          "vertical_ft": 3450,
           "long_run_mi": 16,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday calibration long run at full race fueling protocol (see nutrition plan override 2026-08-30)",
-          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them."
+          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them. Gate 2 fail branch: see week notes — 8/30 loses calibration status and the calibration run moves to 9/6. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards.",
+        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
         "day_notes": "DOUBLE DAY — AM Gate 2 descent session + PM Lower B (moderate).",
         "sessions": [
           {
@@ -4767,12 +4840,12 @@
             "elevation_gain_ft": 500,
             "terrain": "trail",
             "hr_cap_bpm": 152,
-            "hr_zone": "Z2",
+            "hr_zone": "Z2-3",
             "poles": false,
             "key_cue": "After 15 min warmup: 2 x 1.5 mi SUSTAINED running at -5..8%, cadence 170+, controlled-strong effort, full recovery between. Non-technical surface. Clean FIT recording.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 30 min.",
-            "notes": "Intensity: Calibration/Quality. THE GATE 2 SESSION, deferred from last cycle. Pass criteria: both reps completed at cadence 170+, no symptom escalation at ankle/knee within 24h. Pass clears race-specific descent volume from Week 6. The FIT file goes to the Race Strategy project. Reference ceiling for context, not target: June 13 held 10:38/mi at HR 147 over 6.67 mi of this band. Lower B this evening — tendon work, moderate load given the hard morning."
+            "notes": "Intensity: Calibration/Quality. THE GATE 2 SESSION, deferred from last cycle. Pass criteria: both reps completed at cadence 170+, no symptom escalation at ankle/knee within 24h. Pass clears race-specific descent volume from Week 6. The FIT file goes to the Race Strategy project. Reference ceiling for context, not target: June 13 held 10:38/mi at HR 147 over 6.67 mi of this band. Lower B this evening — tendon work, moderate load given the hard morning. CAP RATIONALE: the 152 cap is the White River descent-throttle signal, correctly inherited — a declared tripwire at low Z3 over an intended Z2 execution band. The intended band is stated unambiguously here because this session's FIT file feeds the Vermont pacing plan. FAIL BRANCH: a flag here also demotes Sunday 8/30 to a flat/gentle 10-12 mi easy (no calibration status) and moves the calibration long run to 9/6 — see week notes."
           }
         ]
       },
@@ -4963,29 +5036,31 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 28,
-          "vertical_ft": 2300,
+          "mileage_mi": 34.0,
+          "vertical_ft": 3450,
           "long_run_mi": 16,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday calibration long run at full race fueling protocol (see nutrition plan override 2026-08-30)",
-          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them."
+          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them. Gate 2 fail branch: see week notes — 8/30 loses calibration status and the calibration run moves to 9/6. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards.",
+        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "easy",
             "title": "Recovery easy",
-            "duration_min": 35,
-            "distance_mi": 3.5,
-            "elevation_gain_ft": 150,
+            "duration_min": 25,
+            "distance_mi": 2.5,
+            "elevation_gain_ft": 0,
             "terrain": "trail",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Genuinely easy between the two calibration efforts."
+            "notes": "Intensity: Recovery. Genuinely easy between the two calibration efforts. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -5059,28 +5134,31 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 28,
-          "vertical_ft": 2300,
+          "mileage_mi": 34.0,
+          "vertical_ft": 3450,
           "long_run_mi": 16,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday calibration long run at full race fueling protocol (see nutrition plan override 2026-08-30)",
-          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them."
+          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them. Gate 2 fail branch: see week notes — 8/30 loses calibration status and the calibration run moves to 9/6. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards.",
+        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "shakeout",
             "title": "Shakeout",
-            "duration_min": 20,
-            "distance_mi": 2.0,
+            "duration_min": 15,
+            "distance_mi": 1.5,
             "terrain": "road",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Upper B this evening."
+            "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -5199,14 +5277,16 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 28,
-          "vertical_ft": 2300,
+          "mileage_mi": 34.0,
+          "vertical_ft": 3450,
           "long_run_mi": 16,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday calibration long run at full race fueling protocol (see nutrition plan override 2026-08-30)",
-          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them."
+          "notes": "RECALIBRATION CHECKPOINT WEEK. Two sessions double as calibration data for the Race Strategy project: Thursday's Gate 2 descent-calibration session and Sunday's rolling calibration long run. Record both on the Garmin and send the FIT files to the Race Strategy project — the Vermont pacing plan v1 is built from them. Gate 2 fail branch: see week notes — 8/30 loses calibration status and the calibration run moves to 9/6. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards.",
+        "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
         "day_notes": "",
         "sessions": [
           {
@@ -5223,7 +5303,7 @@
             "key_cue": "Rolling runnable, ~120 ft/mi, run-everything. Steady clean recording, minimal stops. This is the Vermont fitness snapshot.",
             "fueling_required": true,
             "fueling_notes": "FULL RACE PROTOCOL TEST — see nutrition date override for 2026-08-30.",
-            "notes": "Intensity: Long Z2 / calibration. FIT file to the Race Strategy project with Thursday's — together they rebuild the grade-banded tables on current fitness (the June tables are stale, the race matrix is a protective state; this replaces both)."
+            "notes": "Intensity: Long Z2 / calibration. FIT file to the Race Strategy project with Thursday's — together they rebuild the grade-banded tables on current fitness (the June tables are stale, the race matrix is a protective state; this replaces both). CONDITIONAL: only runs as the calibration session if Gate 2 (Thu) passed cleanly. If Gate 2 flagged: this becomes a flat/gentle 10-12 mi easy run, NO calibration status, and the calibration long run moves to Sunday 9/6 (coach messaged first)."
           }
         ]
       },
@@ -5332,13 +5412,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 32,
-          "vertical_ft": 2800,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
           "long_run_mi": 18,
           "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load."
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday.",
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
         "day_notes": "",
         "sessions": []
       },
@@ -5378,13 +5460,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 32,
-          "vertical_ft": 2800,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
           "long_run_mi": 18,
           "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load."
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday.",
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
         "day_notes": "DOUBLE DAY — AM hills + PM Lower A.",
         "sessions": [
           {
@@ -5393,14 +5477,14 @@
             "title": "Hill intervals — 5 min reps",
             "duration_min": 60,
             "distance_mi": 5.5,
-            "elevation_gain_ft": 1050,
+            "elevation_gain_ft": 950,
             "terrain": "trail",
             "hr_cap_bpm": 157,
             "hr_zone": "Z3",
             "poles": false,
             "key_cue": "4 x 5 min at +5..8% Z3, rolling recoveries; 3 x 30 s at +12..15%; 4 x 20 s strides.",
             "fueling_required": false,
-            "notes": "Intensity: Quality. Reps now at the top of the Vermont climb-duration range (the 2-8 min shapes from the course brief). Lower A this evening."
+            "notes": "Intensity: Quality. Reps now at the top of the Vermont climb-duration range (the 2-8 min shapes from the course brief). Lower A this evening. VERT TRIM (rev 1.2): 1,050 -> 950 ft. Session structure (4 x 5 min at +5..8%, 3 x 30 s steep, 4 x 20 s strides) is UNCHANGED — only the approach/recovery climbing is reduced. Density is still 173 ft/mi, above race. Required because easy-day vertical alone could not bring W6 inside the 10% vert cap; flagged as a deliberate deviation from the easy-days-only trim principle."
           }
         ]
       },
@@ -5596,28 +5680,30 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 32,
-          "vertical_ft": 2800,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
           "long_run_mi": 18,
           "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load."
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday.",
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "easy",
             "title": "Easy Z2",
-            "duration_min": 50,
-            "distance_mi": 5.0,
-            "elevation_gain_ft": 350,
+            "duration_min": 30,
+            "distance_mi": 3.0,
+            "elevation_gain_ft": 0,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Easy. Upper A this evening."
+            "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -5768,13 +5854,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 32,
-          "vertical_ft": 2800,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
           "long_run_mi": 18,
           "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load."
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday.",
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
         "day_notes": "DOUBLE DAY — AM descent volume + PM Lower B.",
         "sessions": [
           {
@@ -5783,14 +5871,14 @@
             "title": "Descent volume run",
             "duration_min": 60,
             "distance_mi": 6.0,
-            "elevation_gain_ft": 600,
+            "elevation_gain_ft": 500,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "key_cue": "Rolling route with 4 descents of 0.75-1 mi at -4..8%, RUN all of them strong, cadence 170+, easy everything else.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + descent volume. First race-specific descent accumulation — repeated moderate doses under building fatigue, the exact Vermont stimulus. Lower B this evening."
+            "notes": "Intensity: Easy + descent volume. First race-specific descent accumulation — repeated moderate doses under building fatigue, the exact Vermont stimulus. Lower B this evening. VERT TRIM (rev 1.2): 600 -> 500 ft. All 4 descents of 0.75-1 mi at -4..8% are UNCHANGED — the eccentric stimulus is intact; only the connecting gain is reduced. Same rationale as Tuesday: W6 could not otherwise comply."
           }
         ]
       },
@@ -5981,29 +6069,31 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 32,
-          "vertical_ft": 2800,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
           "long_run_mi": 18,
           "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load."
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday.",
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "easy",
             "title": "Easy + gear-change pickups",
-            "duration_min": 40,
-            "distance_mi": 4.0,
-            "elevation_gain_ft": 250,
+            "duration_min": 25,
+            "distance_mi": 2.5,
+            "elevation_gain_ft": 100,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "key_cue": "6 x 1 min at +2..4%, cadence 140+.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + economy."
+            "notes": "Intensity: Easy + economy. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -6077,27 +6167,30 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 32,
-          "vertical_ft": 2800,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
           "long_run_mi": 18,
           "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load."
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday.",
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "shakeout",
             "title": "Shakeout",
-            "duration_min": 25,
-            "distance_mi": 2.5,
+            "duration_min": 20,
+            "distance_mi": 2.0,
             "terrain": "road",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Upper B this evening."
+            "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -6216,13 +6309,15 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 32,
-          "vertical_ft": 2800,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
           "long_run_mi": 18,
           "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load."
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday.",
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
         "day_notes": "",
         "sessions": [
           {
@@ -6348,12 +6443,14 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 34,
-          "vertical_ft": 3000,
+          "mileage_mi": 40.0,
+          "vertical_ft": 4100,
           "long_run_mi": 20,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day."
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
         "day_notes": "",
@@ -6395,12 +6492,14 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 34,
-          "vertical_ft": 3000,
+          "mileage_mi": 40.0,
+          "vertical_ft": 4100,
           "long_run_mi": 20,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day."
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
         "day_notes": "DOUBLE DAY — AM hills + PM Lower A (last heavy).",
@@ -6411,14 +6510,14 @@
             "title": "Hill intervals — peak session",
             "duration_min": 60,
             "distance_mi": 5.5,
-            "elevation_gain_ft": 1100,
+            "elevation_gain_ft": 750,
             "terrain": "trail",
             "hr_cap_bpm": 157,
             "hr_zone": "Z3",
             "poles": false,
             "key_cue": "5 x 4 min at +5..8% with two back-to-back pairs; 3 x 30 s steep; 4 x 20 s strides.",
             "fueling_required": false,
-            "notes": "Intensity: Quality. Peak hill session. Lower A this evening is the LAST HEAVY gym session of the block."
+            "notes": "Intensity: Quality. Peak hill session. Lower A this evening is the LAST HEAVY gym session of the block. VERT REDISTRIBUTION (rev 1.2, Answer B1): 1,100 -> 750 ft. Session structure is UNCHANGED; the 350 ft moves to Sunday's marquee climb. Peak hill density is already banked from the W5-W6 Tuesdays at 190-191 ft/mi, so this costs nothing."
           }
         ]
       },
@@ -6614,12 +6713,14 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 34,
-          "vertical_ft": 3000,
+          "mileage_mi": 40.0,
+          "vertical_ft": 4100,
           "long_run_mi": 20,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day."
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
         "day_notes": "",
@@ -6630,13 +6731,13 @@
             "title": "Easy Z2",
             "duration_min": 45,
             "distance_mi": 4.5,
-            "elevation_gain_ft": 300,
+            "elevation_gain_ft": 50,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Easy. Upper A this evening."
+            "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -6787,12 +6888,14 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 34,
-          "vertical_ft": 3000,
+          "mileage_mi": 40.0,
+          "vertical_ft": 4100,
           "long_run_mi": 20,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day."
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
         "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B (moderate/iso).",
@@ -6803,14 +6906,14 @@
             "title": "Easy + moderate descent block",
             "duration_min": 45,
             "distance_mi": 4.5,
-            "elevation_gain_ft": 350,
+            "elevation_gain_ft": 250,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
             "key_cue": "2 x 1 mi at -5..7%, cadence 170+, smooth.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + skill. Descent maintenance, not progression. Lower B this evening shifts isometric-dominant (taper-compatible tendon work begins)."
+            "notes": "Intensity: Easy + skill. Descent maintenance, not progression. Lower B this evening shifts isometric-dominant (taper-compatible tendon work begins). VERT REDISTRIBUTION (rev 1.2, Answer B1): 350 -> 250 ft. The 2 x 1 mi at -5..7% descent block is UNCHANGED."
           }
         ]
       },
@@ -6991,12 +7094,14 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 34,
-          "vertical_ft": 3000,
+          "mileage_mi": 40.0,
+          "vertical_ft": 4100,
           "long_run_mi": 20,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day."
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
         "day_notes": "",
@@ -7007,13 +7112,13 @@
             "title": "Recovery easy",
             "duration_min": 35,
             "distance_mi": 3.5,
-            "elevation_gain_ft": 150,
+            "elevation_gain_ft": 50,
             "terrain": "trail",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Recovery."
+            "notes": "Intensity: Recovery. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
           }
         ]
       },
@@ -7087,12 +7192,14 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 34,
-          "vertical_ft": 3000,
+          "mileage_mi": 40.0,
+          "vertical_ft": 4100,
           "long_run_mi": 20,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day."
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
         "day_notes": "",
@@ -7105,10 +7212,11 @@
             "distance_mi": 2.0,
             "terrain": "road",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Recovery. Upper B this evening."
+            "notes": "Intensity: Recovery. Upper B this evening.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -7227,12 +7335,14 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 34,
-          "vertical_ft": 3000,
+          "mileage_mi": 40.0,
+          "vertical_ft": 4100,
           "long_run_mi": 20,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day."
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the 20-mi dress rehearsal. After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
         "day_notes": "",
@@ -7240,18 +7350,18 @@
           {
             "type": "run",
             "subtype": "long",
-            "title": "PEAK long run — Vermont dress rehearsal",
+            "title": "PEAK long run — Vermont dress rehearsal (S1-S5 spec)",
             "duration_min": 240,
             "distance_mi": 20,
-            "elevation_gain_ft": 2600,
+            "elevation_gain_ft": 3000,
             "terrain": "trail",
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
-            "key_cue": "~130 ft/mi rolling. Full race-day rehearsal: breakfast, kit, fueling, run-everything. Make the final big climb of the route come at ~mi 17-18 and run it on tired legs — that is the Blood Hill rehearsal.",
+            "key_cue": "S1 FINAL 8 MILES at >=150 ft/mi (>=1,200 ft between mi 12 and 20). S2 MARQUEE CLIMB at mi 17-18: 1.0-1.2 mi at 6-8%, gaining ~350-400 ft — matched to the race's mi-29.4 Blood Hill climb, not a generic hill. S3 SETUP: the marquee climb must be preceded by 1.5-2.5 mi of sustained RUNNABLE descent at ~4-6%. The descend-then-climb sequence IS the rehearsal — an average-density day cannot reproduce it. S4 DAY TOTAL ~3,000 ft (~150 ft/mi); front half stays at the gentler current density to control total eccentric load. S5 Time the caffeine gel so the marquee climb arrives 15-20 min after it, mirroring the race-day rule.",
             "fueling_required": true,
             "fueling_notes": "FULL RACE DRESS REHEARSAL — see nutrition date override 2026-09-13. Practice caffeine-gel timing in the final 90 min.",
-            "notes": "Intensity: Long Z2 / rehearsal. Biggest day of the block. FIT file to the Race Strategy project as a final data point for the pacing plan."
+            "notes": "Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. SPEC SOURCE: Race_Strategy_Response_v1 Answer B1 — the spec is a DISTRIBUTION, not an average; 130 ft/mi was never the problem and 172 was never the answer. ROUTE CONSTRAINT (non-negotiable): all added or steepened descent must be runnable (<10%); the technical-descent ban stands. Added climbing on a loop means added descending — route selection must absorb it at runnable grades. GATE CONDITION: this spec is conditional on Gate 2 (8/27) passing unflagged AND the 8/30 calibration reading clean. If either flags, this session REVERTS to 20 mi / 2,600 ft / 130 ft/mi and the spec is dropped without discussion — a gentler rehearsal is a smaller loss than a re-injury six days before taper. The revert is also guard-safe: 3,700 ft for the week is a decrease from W6."
           }
         ]
       },
@@ -7360,11 +7470,13 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 22,
-          "vertical_ft": 1600,
+          "mileage_mi": 25.5,
+          "vertical_ft": 2500,
           "long_run_mi": 12,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric."
+          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
@@ -7406,11 +7518,13 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 22,
-          "vertical_ft": 1600,
+          "mileage_mi": 25.5,
+          "vertical_ft": 2500,
           "long_run_mi": 12,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric."
+          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "DOUBLE DAY — AM hills + PM lower (iso-dominant).",
@@ -7630,11 +7744,13 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 22,
-          "vertical_ft": 1600,
+          "mileage_mi": 25.5,
+          "vertical_ft": 2500,
           "long_run_mi": 12,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric."
+          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
@@ -7725,11 +7841,13 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 22,
-          "vertical_ft": 1600,
+          "mileage_mi": 25.5,
+          "vertical_ft": 2500,
           "long_run_mi": 12,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric."
+          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
@@ -7897,11 +8015,13 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 22,
-          "vertical_ft": 1600,
+          "mileage_mi": 25.5,
+          "vertical_ft": 2500,
           "long_run_mi": 12,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric."
+          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
@@ -7943,11 +8063,13 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 22,
-          "vertical_ft": 1600,
+          "mileage_mi": 25.5,
+          "vertical_ft": 2500,
           "long_run_mi": 12,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric."
+          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
@@ -7960,10 +8082,11 @@
             "distance_mi": 2.0,
             "terrain": "road",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "fueling_required": false,
-            "notes": "Intensity: Recovery."
+            "notes": "Intensity: Recovery.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -8019,11 +8142,13 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 22,
-          "vertical_ft": 1600,
+          "mileage_mi": 25.5,
+          "vertical_ft": 2500,
           "long_run_mi": 12,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric."
+          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
@@ -8151,11 +8276,13 @@
       "run": {
         "phase": "Race_week",
         "weekly_targets": {
-          "mileage_mi": 10,
-          "vertical_ft": 500,
+          "mileage_mi": 8.5,
+          "vertical_ft": 400,
           "long_run_mi": 0,
           "strength_sessions": 1,
-          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast."
+          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W9 EXCEPTION: stated EX-RACE. The race itself (32.5 mi / 5,600 ft) is excluded from the header by convention. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
         "day_notes": "Rest from running. Isometric maintenance strength session (the week's single session) — tendon stiffness without recovery cost.",
@@ -8280,11 +8407,13 @@
       "run": {
         "phase": "Race_week",
         "weekly_targets": {
-          "mileage_mi": 10,
-          "vertical_ft": 500,
+          "mileage_mi": 8.5,
+          "vertical_ft": 400,
           "long_run_mi": 0,
           "strength_sessions": 1,
-          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast."
+          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W9 EXCEPTION: stated EX-RACE. The race itself (32.5 mi / 5,600 ft) is excluded from the header by convention. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
         "day_notes": "",
@@ -8298,11 +8427,11 @@
             "elevation_gain_ft": 250,
             "terrain": "trail",
             "hr_cap_bpm": 152,
-            "hr_zone": "Z2",
+            "hr_zone": "Z2-3",
             "poles": false,
             "key_cue": "4 x 2 min at race rhythm on rolling grades + 4 x 20 s strides.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + touches."
+            "notes": "Intensity: Easy + touches. Brief race-rhythm reps may brush low Z3 — the label says so; the cap is the ceiling."
           }
         ]
       },
@@ -8376,11 +8505,13 @@
       "run": {
         "phase": "Race_week",
         "weekly_targets": {
-          "mileage_mi": 10,
-          "vertical_ft": 500,
+          "mileage_mi": 8.5,
+          "vertical_ft": 400,
           "long_run_mi": 0,
           "strength_sessions": 1,
-          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast."
+          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W9 EXCEPTION: stated EX-RACE. The race itself (32.5 mi / 5,600 ft) is excluded from the header by convention. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
         "day_notes": "",
@@ -8471,11 +8602,13 @@
       "run": {
         "phase": "Race_week",
         "weekly_targets": {
-          "mileage_mi": 10,
-          "vertical_ft": 500,
+          "mileage_mi": 8.5,
+          "vertical_ft": 400,
           "long_run_mi": 0,
           "strength_sessions": 1,
-          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast."
+          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W9 EXCEPTION: stated EX-RACE. The race itself (32.5 mi / 5,600 ft) is excluded from the header by convention. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
         "day_notes": "Rest. Pack, prep, travel planning. Carb load begins (see nutrition plan).",
@@ -8526,11 +8659,13 @@
       "run": {
         "phase": "Race_week",
         "weekly_targets": {
-          "mileage_mi": 10,
-          "vertical_ft": 500,
+          "mileage_mi": 8.5,
+          "vertical_ft": 400,
           "long_run_mi": 0,
           "strength_sessions": 1,
-          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast."
+          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W9 EXCEPTION: stated EX-RACE. The race itself (32.5 mi / 5,600 ft) is excluded from the header by convention. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
         "day_notes": "",
@@ -8543,11 +8678,12 @@
             "distance_mi": 2.0,
             "terrain": "road",
             "hr_cap_bpm": 145,
-            "hr_zone": "Z1",
+            "hr_zone": "Z1-2",
             "poles": false,
             "key_cue": "4 x 20 s strides at the end.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery + strides."
+            "notes": "Intensity: Recovery + strides.",
+            "elevation_gain_ft": 0
           }
         ]
       },
@@ -8603,11 +8739,13 @@
       "run": {
         "phase": "Race_week",
         "weekly_targets": {
-          "mileage_mi": 10,
-          "vertical_ft": 500,
+          "mileage_mi": 8.5,
+          "vertical_ft": 400,
           "long_run_mi": 0,
           "strength_sessions": 1,
-          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast."
+          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W9 EXCEPTION: stated EX-RACE. The race itself (32.5 mi / 5,600 ft) is excluded from the header by convention. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
         "day_notes": "Travel / pre-race day. 15-20 min leg-stretch walk. Race meeting per site 7:30 AM Sunday — confirm actual start time, bib pickup, aid list. Kit laid out, rehearsed breakfast ingredients confirmed.",
@@ -8658,11 +8796,13 @@
       "run": {
         "phase": "Race_week",
         "weekly_targets": {
-          "mileage_mi": 10,
-          "vertical_ft": 500,
+          "mileage_mi": 8.5,
+          "vertical_ft": 400,
           "long_run_mi": 0,
           "strength_sessions": 1,
-          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast."
+          "notes": "Race week. One isometric maintenance strength session Monday. Short sharp touches Tuesday/Friday. Race Sunday 9/27. Logistics: confirm start time (site lists a 7:30 AM race meeting), aid-station list, forecast. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. W9 EXCEPTION: stated EX-RACE. The race itself (32.5 mi / 5,600 ft) is excluded from the header by convention. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
         "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
         "day_notes": "",
@@ -8675,12 +8815,12 @@
             "elevation_gain_ft": 5600,
             "terrain": "mixed",
             "hr_cap_bpm": 158,
-            "hr_zone": "Z2",
+            "hr_zone": "Z2-3",
             "poles": false,
             "key_cue": "HR-led, exactly like White River. Run everything the grade allows; walking is a fatigue-management choice, not a terrain requirement. The race is decided on the mi-29 climb — budget for it all day.",
             "fueling_required": true,
             "fueling_notes": "Full race protocol — see nutrition date override 2026-09-27.",
-            "notes": "Intensity: RACE. Detailed stage/pacing plan comes from the Race Strategy project (~2 weeks out) and supersedes the generic caps here. 32-33 mi, ~5,600 ft as 20+ short climbs/descents, 37% gravel road, no poles."
+            "notes": "Intensity: RACE. Detailed stage/pacing plan comes from the Race Strategy project (~2 weeks out) and supersedes the generic caps here. 32-33 mi, ~5,600 ft as 20+ short climbs/descents, 37% gravel road, no poles. HR band note: the race is not a Z2-only event — White River executed as low/mid-Z2 average with designed Z3 excursions; 158 is the never-cross ceiling, exactly the top of Z3 under the corrected table. The Race Strategy pacing plan supersedes this generic cap when delivered."
           }
         ]
       },
