@@ -1,0 +1,2923 @@
+{
+ "meta": {
+  "plan_type": "strength",
+  "schema_version": "1.2",
+  "athlete": "Arnon",
+  "race": "Vermont 50K",
+  "race_date": "2026-09-27",
+  "plan_start": "2026-07-27",
+  "plan_end": "2026-09-27",
+  "generated_by": "Strength Coach (Claude)",
+  "generated_date": "2026-07-27",
+  "notes": "9-week strength plan bridging White River (7/25) to Vermont 50K (9/27), implementing the connective-tissue bridge (W1-2 recover/no HSR -> W3-6 build HSR + specialize -> W7 last heavy -> W8-9 isometric taper) and the handoff P1 scope: (a) right-foot pronation program [foot_correctives daily routine], (b) Achilles + calf complex HSR/isometrics [Lower A calf slot + Lower B soleus HSR + evening micro-dose], (c) peroneal/lateral-ankle loading \u2014 the June injury site [isometric W1-2 -> loaded slow-resistance W3+ in Lower B, always sub-symptom], (d) knee & hip stability incl. LATERAL CHAIN [hip_lateral_activation daily + lateral step-downs, Copenhagen planks, glute-med work in sessions]. HILL STRENGTH IS CO-EQUAL WITH TENDON WORK (Addendum 2a): Lower A (Tue) = hill strength \u2014 eccentric quads, unilateral climbing drive, heavy calf; Lower B (Thu) = tendon HSR + lateral chain + proprioception; the evening isometric micro-dose supplies tendon FREQUENCY on non-session days (the 'more frequent, shorter exposures' resolution of 2c). Gym eccentric work is NOT gated by P3 \u2014 it starts Week 3; only on-terrain descent volume is gated. SSC/reactive layer: low-amplitude pogo hops enter Lower B in W5-7, gated on right forefoot AND lateral ankle, first thing pulled on any complaint; Vermont's rolling profile wants elastic tendons but moderate-descent running supplies most of the SSC stimulus, so the plyo dose stays small. SESSIONS: W1-2 3/wk (2 lower-entry + 1 upper), W3-7 4/wk (2L+2U), W8 2/wk, W9 1 isometric session. DOUBLE-DAY RULES: lower body = PM double after Tue hill intervals (hard-with-hard valid for muscular work) and Thu runs; NO lower-body strength day-of or day-before the Sunday long run (upper OK Saturday); run before strength always, 4+ h gap. Age-50 recovery criteria: drop a session (Upper B first, then reduce Lower A load \u2014 never skip Lower B tendon work) when 2 of: resting HR +7 bpm, sleep under 6 h twice in 3 days, persistent soreness beyond 48h. KNEE GATE: eccentric quad work never first; bodyweight step-down check in pre_lower before any loaded step work. NO NSAIDs around loading sessions. NEW THIS VERSION: post_strength cooldown split into post_lower and post_upper (pending item from last cycle, now built). COMPLIANCE MECHANISM: every P1 item is a named, tracked session or routine; Sunday weekly compliance check in every week's notes; two missed P1 items in a week = message the coach. Home gym: barbell, squat rack, dumbbells, pull-up/pull-down bar, cable row, bands, box."
+ },
+ "daily_routines": [
+  {
+   "id": "foot_correctives",
+   "title": "Foot & Arch Correctives (pronation program)",
+   "timing": "morning",
+   "duration_min": 10,
+   "active_weeks": "1-9",
+   "exercises": [
+    {
+     "name": "Short-foot activation",
+     "category": "corrective",
+     "sets": 3,
+     "duration_sec": 20,
+     "side": "alternating",
+     "cue": "Barefoot. Lift the arch without curling toes."
+    },
+    {
+     "name": "Toe yoga",
+     "category": "corrective",
+     "sets": 2,
+     "reps": 10,
+     "side": "both",
+     "cue": "Big toe down, little toes up; then reverse."
+    },
+    {
+     "name": "Heel walks",
+     "category": "corrective",
+     "sets": 2,
+     "duration_sec": 20,
+     "side": "both",
+     "cue": "Toes up, walk on heels across the room."
+    },
+    {
+     "name": "Big-toe extension mobilization",
+     "category": "mobility",
+     "sets": 2,
+     "duration_sec": 30,
+     "side": "alternating",
+     "cue": "Kneel, toes tucked, gentle sit-back. Big-toe range for push-off."
+    },
+    {
+     "name": "Calf raise with eversion bias",
+     "category": "corrective",
+     "sets": 2,
+     "reps": 12,
+     "side": "both",
+     "cue": "Rise with slight outward pressure \u2014 anti-pronation pattern."
+    }
+   ],
+   "notes": "NON-NEGOTIABLE, every day of the block. This is P1 component (a). Pair with the daily collagen + vitamin C dose (see nutrition plan) so the connective tissue gets a signaled stimulus daily."
+  },
+  {
+   "id": "hip_lateral_activation",
+   "title": "Hip & Lateral-Chain Activation",
+   "timing": "morning",
+   "duration_min": 8,
+   "active_weeks": "1-9",
+   "exercises": [
+    {
+     "name": "Clamshells (band)",
+     "category": "hip_stability",
+     "sets": 2,
+     "reps": 12,
+     "side": "alternating",
+     "cue": "Pelvis still; open from the hip."
+    },
+    {
+     "name": "Side-lying hip abduction",
+     "category": "hip_stability",
+     "sets": 2,
+     "reps": 10,
+     "side": "alternating",
+     "cue": "Heel leads, toe slightly down \u2014 glute med, not TFL."
+    },
+    {
+     "name": "Banded lateral walk",
+     "category": "hip_stability",
+     "sets": 2,
+     "reps": 10,
+     "side": "both",
+     "cue": "Athletic stance, steps controlled both directions."
+    },
+    {
+     "name": "Single-leg balance reach",
+     "category": "balance",
+     "sets": 2,
+     "reps": 5,
+     "side": "alternating",
+     "cue": "Stand on one leg, reach the free foot to 3 points of a clock."
+    }
+   ],
+   "notes": "P1 component (d) daily floor: the lateral-stability chain (pronating right foot -> lateral ankle -> lateral knee) gets touched every morning; the loaded version lives in Lower B."
+  },
+  {
+   "id": "shoulder_maintenance",
+   "title": "Shoulder & Scapular Maintenance",
+   "timing": "morning",
+   "duration_min": 5,
+   "active_weeks": "1-9",
+   "exercises": [
+    {
+     "name": "Band pull-aparts",
+     "category": "corrective",
+     "sets": 2,
+     "reps": 15,
+     "side": "both",
+     "cue": "Squeeze shoulder blades; no shrug."
+    },
+    {
+     "name": "Band external rotation",
+     "category": "corrective",
+     "sets": 2,
+     "reps": 12,
+     "side": "alternating",
+     "cue": "Elbow pinned to ribs. Left shoulder priority."
+    },
+    {
+     "name": "Scapular wall slides",
+     "category": "mobility",
+     "sets": 2,
+     "reps": 8,
+     "side": "both",
+     "cue": "Forearms on wall, slide up without ribs flaring."
+    }
+   ],
+   "notes": "Left-shoulder maintenance carries over unchanged."
+  },
+  {
+   "id": "tendon_isometrics_evening",
+   "title": "Evening Tendon Isometrics (micro-dose)",
+   "timing": "evening",
+   "duration_min": 8,
+   "active_weeks": "1-9",
+   "exercises": [
+    {
+     "name": "Single-leg calf raise isometric hold",
+     "category": "calf",
+     "sets": 3,
+     "duration_sec": 30,
+     "side": "alternating",
+     "cue": "Mid-range hold, fingertips on wall."
+    },
+    {
+     "name": "Resisted eversion isometric (band)",
+     "category": "corrective",
+     "sets": 2,
+     "duration_sec": 20,
+     "load": "light",
+     "side": "right",
+     "cue": "June injury site \u2014 daily gentle signal, never provocation. Both sides; right +1 set."
+    },
+    {
+     "name": "Tibialis raises",
+     "category": "corrective",
+     "sets": 2,
+     "reps": 12,
+     "side": "both",
+     "cue": "Wall lean, toes up."
+    }
+   ],
+   "phase_overrides": [
+    {
+     "weeks": "1-2",
+     "modification": "Effort easy, holds 20-30 s, skip entirely on any day the sites feel reactive.",
+     "reason": "Post-race tissue caution."
+    },
+    {
+     "weeks": "9",
+     "modification": "Monday-Wednesday only, then stop.",
+     "reason": "Race week \u2014 nothing costs anything."
+    }
+   ],
+   "notes": "Tendon loading responds to FREQUENCY more than per-session volume (Addendum 2c). This micro-dose is the 'more frequent, shorter lower-body exposures' resolution: skip it on Lower A/B days (the session covers it)."
+  }
+ ],
+ "session_protocols": {
+  "pre_lower": {
+   "duration_min": 10,
+   "exercises": [
+    {
+     "name": "Foot tripod + short-foot set",
+     "category": "corrective",
+     "sets": 1,
+     "duration_sec": 30,
+     "side": "alternating",
+     "cue": "Barefoot or socks. Set the arch before loading it."
+    },
+    {
+     "name": "Ankle dorsiflexion rocks",
+     "category": "mobility",
+     "sets": 2,
+     "reps": 10,
+     "side": "alternating",
+     "cue": "Half-kneel, knee over toes, heel down. Descent-mobility priority."
+    },
+    {
+     "name": "Glute bridge",
+     "category": "activation",
+     "sets": 2,
+     "reps": 10,
+     "side": "both",
+     "cue": "2 s squeeze at top."
+    },
+    {
+     "name": "Bodyweight squat",
+     "category": "activation",
+     "sets": 2,
+     "reps": 10,
+     "side": "both",
+     "cue": "Slow and full range; the knee-gate warmup \u2014 no loaded knee work until these feel silent."
+    },
+    {
+     "name": "Leg swings front/back + side/side",
+     "category": "mobility",
+     "sets": 1,
+     "reps": 12,
+     "side": "alternating"
+    },
+    {
+     "name": "Bodyweight step-down (low box)",
+     "category": "activation",
+     "sets": 1,
+     "reps": 6,
+     "side": "alternating",
+     "cue": "Final knee check before any loaded step work."
+    }
+   ],
+   "notes": "KNEE GATE lives here: loaded step-downs/step-ups only after the bodyweight versions are pain-free and the knee is warm."
+  },
+  "pre_upper": {
+   "duration_min": 5,
+   "exercises": [
+    {
+     "name": "Band pull-aparts",
+     "category": "corrective",
+     "sets": 2,
+     "reps": 15,
+     "side": "both"
+    },
+    {
+     "name": "Arm circles + scap circles",
+     "category": "mobility",
+     "sets": 1,
+     "reps": 10,
+     "side": "both"
+    },
+    {
+     "name": "Scapular push-up",
+     "category": "activation",
+     "sets": 1,
+     "reps": 10,
+     "side": "both"
+    }
+   ],
+   "notes": "Short \u2014 shoulders warm, scaps awake."
+  },
+  "post_lower": {
+   "duration_min": 8,
+   "exercises": [
+    {
+     "name": "Standing calf stretch (straight + bent knee)",
+     "category": "calf",
+     "sets": 2,
+     "duration_sec": 30,
+     "side": "alternating",
+     "cue": "Both angles: gastroc and soleus."
+    },
+    {
+     "name": "Half-kneeling hip flexor stretch",
+     "category": "mobility",
+     "sets": 2,
+     "duration_sec": 30,
+     "side": "alternating",
+     "cue": "Back glute on first, then lean."
+    },
+    {
+     "name": "Standing quad stretch",
+     "category": "mobility",
+     "sets": 1,
+     "duration_sec": 30,
+     "side": "alternating"
+    },
+    {
+     "name": "Ankle dorsiflexion mobilization (wall)",
+     "category": "mobility",
+     "sets": 2,
+     "reps": 8,
+     "side": "alternating",
+     "cue": "Knee to wall, heel down \u2014 bank the descent range while warm."
+    },
+    {
+     "name": "Figure-4 supine (glute/piriformis)",
+     "category": "mobility",
+     "sets": 1,
+     "duration_sec": 45,
+     "side": "alternating"
+    }
+   ],
+   "notes": "NEW post-lower split (replaces the old single post_strength). Lower-body specific: calves/ankle/hip get the cooldown minutes."
+  },
+  "post_upper": {
+   "duration_min": 5,
+   "exercises": [
+    {
+     "name": "Doorway pec stretch",
+     "category": "mobility",
+     "sets": 1,
+     "duration_sec": 30,
+     "side": "both"
+    },
+    {
+     "name": "Overhead lat stretch",
+     "category": "mobility",
+     "sets": 1,
+     "duration_sec": 30,
+     "side": "alternating"
+    },
+    {
+     "name": "Thoracic opener over foam roller",
+     "category": "mobility",
+     "sets": 1,
+     "duration_sec": 45,
+     "side": "both",
+     "cue": "Gentle extension. Deprioritized vs last cycle (pole-driven need is gone) but kept as a short reset."
+    }
+   ],
+   "notes": "NEW post-upper split \u2014 short shoulder/torso reset."
+  }
+ },
+ "weeks": [
+  {
+   "week_number": 1,
+   "start_date": "2026-07-27",
+   "phase": "Base",
+   "weekly_targets": {
+    "strength_sessions": 3,
+    "notes": "2 lower-entry (isometrics, no HSR) + 1 upper. Days 2-8 post-race. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "Recovery weeks 1-2 = the 'recover, no HSR' phase of the connective-tissue bridge. Tendon work is isometric and sub-symptom; its job is to keep tissue signaled without loading it. Daily routines run every day from day 1 \u2014 they ARE the P1 floor.",
+   "days": [
+    {
+     "date": "2026-07-27",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Daily routines only, gently."
+    },
+    {
+     "date": "2026-07-28",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower Entry A \u2014 Tendon Isometrics & Lateral Chain",
+       "duration_min": 40,
+       "exercises": [
+        {
+         "name": "Wall-sit isometric hold",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "duration_sec": 30,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Shallow angle (~60 deg knee bend). Knee-gate: fully warm before this; keep depth pain-free.",
+         "progression_note": "Add 10 s per week if pain-free."
+        },
+        {
+         "name": "Single-leg calf raise isometric hold (mid-range)",
+         "category": "calf",
+         "sets": 4,
+         "duration_sec": 30,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Hold at mid-range on one leg, fingertips on wall for balance. Even pressure across the forefoot \u2014 do not roll to the little toes (pronation cue).",
+         "progression_note": "Progress toward 45 s holds by Week 2."
+        },
+        {
+         "name": "Bent-knee soleus isometric hold",
+         "category": "calf",
+         "sets": 3,
+         "duration_sec": 30,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg, heel high. Soleus carries descents \u2014 treat it as a separate tendon."
+        },
+        {
+         "name": "Resisted eversion isometric (band)",
+         "category": "corrective",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "light",
+         "side": "right",
+         "cue": "Band around forefoot, press outward and HOLD. This is the June injury site (peroneal/lateral ankle) \u2014 effort stays at 'working, never provoking'.",
+         "notes": "Do both sides; right gets an extra set."
+        },
+        {
+         "name": "Short-foot single-leg balance",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Barefoot, arch active, big toe down. Eyes forward."
+        },
+        {
+         "name": "Side plank with clamshell",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Lateral-chain opener: hips stacked, top knee opens against gravity.",
+         "notes": "Lateral-stability hypothesis work \u2014 pronating foot, lateral ankle, lateral knee all sit on this chain."
+        },
+        {
+         "name": "Bird dog",
+         "category": "core",
+         "sets": 2,
+         "reps": 8,
+         "side": "alternating",
+         "cue": "Slow, no lumbar rotation."
+        }
+       ],
+       "notes": "RECOVERY-PHASE SESSION: isometrics only, NO heavy slow resistance yet (tendon bridge weeks 1-2 = recover, no HSR). Everything sub-symptom. No NSAIDs around this or any loading session.",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "Evening session after the recovery walk."
+    },
+    {
+     "date": "2026-07-29",
+     "day_of_week": "Wednesday",
+     "flex": true,
+     "rest_day": true,
+     "day_notes": "Routines only. Optional: move Upper A here if Saturday is busy."
+    },
+    {
+     "date": "2026-07-30",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower Entry B \u2014 Pattern Rehearsal & Light Load",
+       "duration_min": 45,
+       "exercises": [
+        {
+         "name": "Goblet squat",
+         "category": "eccentric_quad",
+         "sets": 2,
+         "reps": 10,
+         "tempo": "3-1-2",
+         "load": "light",
+         "side": "both",
+         "cue": "Light dumbbell. Re-groove the pattern, nothing more."
+        },
+        {
+         "name": "Romanian deadlift (dumbbells)",
+         "category": "hip_stability",
+         "sets": 2,
+         "reps": 10,
+         "tempo": "3-1-2",
+         "load": "light",
+         "side": "both",
+         "cue": "Hinge pattern rehearsal."
+        },
+        {
+         "name": "Lateral step-down (low box, bodyweight)",
+         "category": "hip_stability",
+         "sets": 2,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Low box (6-8 in). Pelvis level, knee tracks over second toe. Off-axis control for the lateral chain.",
+         "notes": "Knee-gate: only after full warmup; skip if left outer knee has spoken this week."
+        },
+        {
+         "name": "Single-leg calf raise isometric hold",
+         "category": "calf",
+         "sets": 4,
+         "duration_sec": 40,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Same as Session A \u2014 frequency is the tendon stimulus in this phase."
+        },
+        {
+         "name": "Resisted eversion isometric (band)",
+         "category": "corrective",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "light",
+         "side": "right",
+         "cue": "June injury site. Sub-symptom always."
+        },
+        {
+         "name": "Tibialis raises (wall lean)",
+         "category": "corrective",
+         "sets": 2,
+         "reps": 12,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Toes up against wall lean. Front-of-shin control for descents."
+        },
+        {
+         "name": "Single-leg balance on folded towel",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 30,
+         "side": "alternating",
+         "cue": "Slightly unstable surface. Ankles do small corrections \u2014 that is the point."
+        }
+       ],
+       "notes": "RECOVERY-PHASE SESSION 2: 48h after Entry A. Light patterns wake up, isometrics continue. Still no HSR.",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "48h from Tuesday's session."
+    },
+    {
+     "date": "2026-07-31",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true
+    },
+    {
+     "date": "2026-08-01",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "moderate",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ]
+    },
+    {
+     "date": "2026-08-02",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 2,
+   "start_date": "2026-08-03",
+   "phase": "Base",
+   "weekly_targets": {
+    "strength_sessions": 3,
+    "notes": "2 lower-entry + 1 upper. Isometric holds lengthen; light patterns groove. Still no HSR. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "Second recovery week. Everything from Week 1 progresses slightly (hold times +10 s, one extra set where clean). HSR begins next week if the sites stay quiet.",
+   "days": [
+    {
+     "date": "2026-08-03",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true
+    },
+    {
+     "date": "2026-08-04",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower Entry A \u2014 Tendon Isometrics & Lateral Chain",
+       "duration_min": 40,
+       "exercises": [
+        {
+         "name": "Wall-sit isometric hold",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "duration_sec": 30,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Shallow angle (~60 deg knee bend). Knee-gate: fully warm before this; keep depth pain-free.",
+         "progression_note": "Add 10 s per week if pain-free."
+        },
+        {
+         "name": "Single-leg calf raise isometric hold (mid-range)",
+         "category": "calf",
+         "sets": 4,
+         "duration_sec": 30,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Hold at mid-range on one leg, fingertips on wall for balance. Even pressure across the forefoot \u2014 do not roll to the little toes (pronation cue).",
+         "progression_note": "Progress toward 45 s holds by Week 2."
+        },
+        {
+         "name": "Bent-knee soleus isometric hold",
+         "category": "calf",
+         "sets": 3,
+         "duration_sec": 30,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg, heel high. Soleus carries descents \u2014 treat it as a separate tendon."
+        },
+        {
+         "name": "Resisted eversion isometric (band)",
+         "category": "corrective",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "light",
+         "side": "right",
+         "cue": "Band around forefoot, press outward and HOLD. This is the June injury site (peroneal/lateral ankle) \u2014 effort stays at 'working, never provoking'.",
+         "notes": "Do both sides; right gets an extra set."
+        },
+        {
+         "name": "Short-foot single-leg balance",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Barefoot, arch active, big toe down. Eyes forward."
+        },
+        {
+         "name": "Side plank with clamshell",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Lateral-chain opener: hips stacked, top knee opens against gravity.",
+         "notes": "Lateral-stability hypothesis work \u2014 pronating foot, lateral ankle, lateral knee all sit on this chain."
+        },
+        {
+         "name": "Bird dog",
+         "category": "core",
+         "sets": 2,
+         "reps": 8,
+         "side": "alternating",
+         "cue": "Slow, no lumbar rotation."
+        }
+       ],
+       "notes": "RECOVERY-PHASE SESSION: isometrics only, NO heavy slow resistance yet (tendon bridge weeks 1-2 = recover, no HSR). Everything sub-symptom. No NSAIDs around this or any loading session.",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "Progress holds to 40-45 s where Week 1 was clean."
+    },
+    {
+     "date": "2026-08-05",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "moderate",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Upper moves midweek from this week onward."
+    },
+    {
+     "date": "2026-08-06",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower Entry B \u2014 Pattern Rehearsal & Light Load",
+       "duration_min": 45,
+       "exercises": [
+        {
+         "name": "Goblet squat",
+         "category": "eccentric_quad",
+         "sets": 2,
+         "reps": 10,
+         "tempo": "3-1-2",
+         "load": "light",
+         "side": "both",
+         "cue": "Light dumbbell. Re-groove the pattern, nothing more."
+        },
+        {
+         "name": "Romanian deadlift (dumbbells)",
+         "category": "hip_stability",
+         "sets": 2,
+         "reps": 10,
+         "tempo": "3-1-2",
+         "load": "light",
+         "side": "both",
+         "cue": "Hinge pattern rehearsal."
+        },
+        {
+         "name": "Lateral step-down (low box, bodyweight)",
+         "category": "hip_stability",
+         "sets": 2,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Low box (6-8 in). Pelvis level, knee tracks over second toe. Off-axis control for the lateral chain.",
+         "notes": "Knee-gate: only after full warmup; skip if left outer knee has spoken this week."
+        },
+        {
+         "name": "Single-leg calf raise isometric hold",
+         "category": "calf",
+         "sets": 4,
+         "duration_sec": 40,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Same as Session A \u2014 frequency is the tendon stimulus in this phase."
+        },
+        {
+         "name": "Resisted eversion isometric (band)",
+         "category": "corrective",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "light",
+         "side": "right",
+         "cue": "June injury site. Sub-symptom always."
+        },
+        {
+         "name": "Tibialis raises (wall lean)",
+         "category": "corrective",
+         "sets": 2,
+         "reps": 12,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Toes up against wall lean. Front-of-shin control for descents."
+        },
+        {
+         "name": "Single-leg balance on folded towel",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 30,
+         "side": "alternating",
+         "cue": "Slightly unstable surface. Ankles do small corrections \u2014 that is the point."
+        }
+       ],
+       "notes": "RECOVERY-PHASE SESSION 2: 48h after Entry A. Light patterns wake up, isometrics continue. Still no HSR.",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "Goblet/RDL may move light -> moderate if patterns feel crisp."
+    },
+    {
+     "date": "2026-08-07",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true
+    },
+    {
+     "date": "2026-08-08",
+     "day_of_week": "Saturday",
+     "flex": true,
+     "rest_day": true,
+     "day_notes": "Routines only. Long-ish walk/run tomorrow."
+    },
+    {
+     "date": "2026-08-09",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 3,
+   "start_date": "2026-08-10",
+   "phase": "Build",
+   "weekly_targets": {
+    "strength_sessions": 4,
+    "notes": "HSR opens: Lower A (hill strength) and Lower B (tendon HSR) both start at re-entry loads. 4th session (Upper B) added. Tue and Thu lowers sit 48h apart \u2014 protect that spacing. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "HSR opens: Lower A (hill strength) and Lower B (tendon HSR) both start at re-entry loads. 4th session (Upper B) added. Tue and Thu lowers sit 48h apart \u2014 protect that spacing.",
+   "days": [
+    {
+     "date": "2026-08-10",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only \u2014 post-long-run day."
+    },
+    {
+     "date": "2026-08-11",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower A \u2014 Hill Strength (Eccentric Quad + Unilateral Drive)",
+       "duration_min": 55,
+       "exercises": [
+        {
+         "name": "Back squat (or heavy goblet)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-2",
+         "load": "moderate",
+         "side": "both",
+         "cue": "Restart at ~70% of pre-race working weight. Tempo is the stimulus."
+        },
+        {
+         "name": "Rear-foot-elevated split squat",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Unassisted climbing strength \u2014 this is the pole-replacement exercise. Front heel heavy, drive tall.",
+         "progression_note": "Add load weekly; by Week 6 use the heaviest dumbbells that keep 8 clean reps."
+        },
+        {
+         "name": "Loaded step-down (12 in box)",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "4-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "4-second lowering \u2014 this is the repeated-descent absorber. KNEE-GATE: never first in session, always fully warm; drop to bodyweight + reps if the knee objects.",
+         "progression_note": "Load +5 lb per hand every 2 weeks if knee-quiet."
+        },
+        {
+         "name": "Barbell Romanian deadlift",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-2",
+         "load": "moderate",
+         "side": "both",
+         "cue": "Posterior chain for climb drive."
+        },
+        {
+         "name": "Single-leg calf raise (straight knee, loaded)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "2-1-3",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "HSR calf work: heavy, slow 3-s eccentric. Even forefoot pressure (pronation cue).",
+         "progression_note": "This is the Achilles/gastroc HSR slot \u2014 progress load, not reps."
+        },
+        {
+         "name": "Pallof press (heavy band)",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold."
+        }
+       ],
+       "notes": "PM double after AM hill intervals \u2014 hard-with-hard is valid for muscular work (established last cycle). Run first, 4+ hours between. Eccentric quad work never first in session (knee gate).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM hill intervals + PM Lower A. Run first, 4+ h gap."
+    },
+    {
+     "date": "2026-08-12",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening after easy run."
+    },
+    {
+     "date": "2026-08-13",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower B \u2014 Tendon HSR & Lateral Chain",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Single-leg calf raise, bent knee (soleus HSR)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load \u2014 the descent tendon builder.",
+         "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+        },
+        {
+         "name": "Spanish squat isometric (band behind knees)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "duration_sec": 45,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+        },
+        {
+         "name": "Resisted eversion, heavy slow (band or cable)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 10,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "right",
+         "cue": "Slow controlled eversion against meaningful resistance \u2014 the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
+         "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
+        },
+        {
+         "name": "Tibialis raises (loaded)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "both",
+         "cue": "Add a light plate on the toes or use band resistance."
+        },
+        {
+         "name": "Lateral step-down",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "light",
+         "side": "alternating",
+         "cue": "Off-axis knee/hip control. Pelvis level \u2014 glute med owns this. Knee-gate applies."
+        },
+        {
+         "name": "Copenhagen plank (short lever)",
+         "category": "hip_stability",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+        },
+        {
+         "name": "Single-leg balance \u2014 unstable surface progression",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "side": "alternating",
+         "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+        }
+       ],
+       "notes": "P1 flagship session. HSR responds to frequency \u2014 this session plus Tuesday's calf slot gives each tendon two quality exposures per week, 48h apart. Collagen + vitamin C 30-60 min before (see nutrition plan).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM run + PM Lower B. 48h from Tuesday's lower. No lower-body strength after this until Tuesday (long-run window protected)."
+    },
+    {
+     "date": "2026-08-14",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-08-15",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper B \u2014 Push Emphasis + Carries",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Bench press or heavy push-up variant",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": 8,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Controlled 2 s descent."
+        },
+        {
+         "name": "Lat pulldown",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Chest tall, elbows to hips."
+        },
+        {
+         "name": "Incline dumbbell press",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both"
+        },
+        {
+         "name": "Farmer carry",
+         "category": "core",
+         "sets": 3,
+         "duration_sec": 40,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Heavy dumbbells, tall posture, brisk walk. Grip + trunk under load \u2014 vest-hours posture insurance."
+        },
+        {
+         "name": "Scapular push-up",
+         "category": "corrective",
+         "sets": 2,
+         "reps": 12,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Straight arms, shoulder blades only."
+        },
+        {
+         "name": "Dead bug",
+         "category": "core",
+         "sets": 3,
+         "reps": 8,
+         "side": "alternating",
+         "cue": "Low back stays glued down."
+        }
+       ],
+       "notes": "Upper B sits Saturday evening \u2014 upper body is fine the day before the long run.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening. Upper is fine the day before the long run; lower is not."
+    },
+    {
+     "date": "2026-08-16",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Long run day \u2014 no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 4,
+   "start_date": "2026-08-17",
+   "phase": "Build",
+   "weekly_targets": {
+    "strength_sessions": 4,
+    "notes": "Loads progress. Watch 24h-after tendon response to Thursday's loaded eversion work \u2014 that is the progression signal. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "Loads progress. Watch 24h-after tendon response to Thursday's loaded eversion work \u2014 that is the progression signal.",
+   "days": [
+    {
+     "date": "2026-08-17",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only \u2014 post-long-run day."
+    },
+    {
+     "date": "2026-08-18",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower A \u2014 Hill Strength (Eccentric Quad + Unilateral Drive)",
+       "duration_min": 55,
+       "exercises": [
+        {
+         "name": "Back squat (or heavy goblet)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-2",
+         "load": "moderate",
+         "side": "both",
+         "cue": "Add 5-10 lb from last week if all reps were clean."
+        },
+        {
+         "name": "Rear-foot-elevated split squat",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Unassisted climbing strength \u2014 this is the pole-replacement exercise. Front heel heavy, drive tall.",
+         "progression_note": "Add load weekly; by Week 6 use the heaviest dumbbells that keep 8 clean reps."
+        },
+        {
+         "name": "Loaded step-down (12 in box)",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "4-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "4-second lowering \u2014 this is the repeated-descent absorber. KNEE-GATE: never first in session, always fully warm; drop to bodyweight + reps if the knee objects.",
+         "progression_note": "Load +5 lb per hand every 2 weeks if knee-quiet."
+        },
+        {
+         "name": "Barbell Romanian deadlift",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-2",
+         "load": "moderate",
+         "side": "both",
+         "cue": "Posterior chain for climb drive."
+        },
+        {
+         "name": "Single-leg calf raise (straight knee, loaded)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "2-1-3",
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "HSR calf work: heavy, slow 3-s eccentric. Even forefoot pressure (pronation cue).",
+         "progression_note": "This is the Achilles/gastroc HSR slot \u2014 progress load, not reps."
+        },
+        {
+         "name": "Pallof press (heavy band)",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold."
+        }
+       ],
+       "notes": "PM double after AM hill intervals \u2014 hard-with-hard is valid for muscular work (established last cycle). Run first, 4+ hours between. Eccentric quad work never first in session (knee gate).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM hill intervals + PM Lower A. Run first, 4+ h gap."
+    },
+    {
+     "date": "2026-08-19",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening after easy run."
+    },
+    {
+     "date": "2026-08-20",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower B \u2014 Tendon HSR & Lateral Chain",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Single-leg calf raise, bent knee (soleus HSR)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-3",
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load \u2014 the descent tendon builder.",
+         "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+        },
+        {
+         "name": "Spanish squat isometric (band behind knees)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "duration_sec": 45,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+        },
+        {
+         "name": "Resisted eversion, heavy slow (band or cable)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 10,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "right",
+         "cue": "Slow controlled eversion against meaningful resistance \u2014 the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
+         "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
+        },
+        {
+         "name": "Tibialis raises (loaded)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "both",
+         "cue": "Add a light plate on the toes or use band resistance."
+        },
+        {
+         "name": "Lateral step-down",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "light",
+         "side": "alternating",
+         "cue": "Off-axis knee/hip control. Pelvis level \u2014 glute med owns this. Knee-gate applies."
+        },
+        {
+         "name": "Copenhagen plank (short lever)",
+         "category": "hip_stability",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+        },
+        {
+         "name": "Single-leg balance \u2014 unstable surface progression",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "side": "alternating",
+         "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+        }
+       ],
+       "notes": "P1 flagship session. HSR responds to frequency \u2014 this session plus Tuesday's calf slot gives each tendon two quality exposures per week, 48h apart. Collagen + vitamin C 30-60 min before (see nutrition plan).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM run + PM Lower B. 48h from Tuesday's lower. No lower-body strength after this until Tuesday (long-run window protected)."
+    },
+    {
+     "date": "2026-08-21",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-08-22",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper B \u2014 Push Emphasis + Carries",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Bench press or heavy push-up variant",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": 8,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Controlled 2 s descent."
+        },
+        {
+         "name": "Lat pulldown",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Chest tall, elbows to hips."
+        },
+        {
+         "name": "Incline dumbbell press",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both"
+        },
+        {
+         "name": "Farmer carry",
+         "category": "core",
+         "sets": 3,
+         "duration_sec": 40,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Heavy dumbbells, tall posture, brisk walk. Grip + trunk under load \u2014 vest-hours posture insurance."
+        },
+        {
+         "name": "Scapular push-up",
+         "category": "corrective",
+         "sets": 2,
+         "reps": 12,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Straight arms, shoulder blades only."
+        },
+        {
+         "name": "Dead bug",
+         "category": "core",
+         "sets": 3,
+         "reps": 8,
+         "side": "alternating",
+         "cue": "Low back stays glued down."
+        }
+       ],
+       "notes": "Upper B sits Saturday evening \u2014 upper body is fine the day before the long run.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening. Upper is fine the day before the long run; lower is not."
+    },
+    {
+     "date": "2026-08-23",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Long run day \u2014 no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 5,
+   "start_date": "2026-08-24",
+   "phase": "Build",
+   "weekly_targets": {
+    "strength_sessions": 4,
+    "notes": "CHECKPOINT WEEK: Thursday AM is the Gate 2 descent session, so Lower B that evening runs at moderate load (tendon frequency preserved, total-day load respected). Pogo-hop SSC entry appears in Lower B this week, forefoot/ankle-gated. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "CHECKPOINT WEEK: Thursday AM is the Gate 2 descent session, so Lower B that evening runs at moderate load (tendon frequency preserved, total-day load respected). Pogo-hop SSC entry appears in Lower B this week, forefoot/ankle-gated.",
+   "days": [
+    {
+     "date": "2026-08-24",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only \u2014 post-long-run day."
+    },
+    {
+     "date": "2026-08-25",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower A \u2014 Hill Strength (Eccentric Quad + Unilateral Drive)",
+       "duration_min": 55,
+       "exercises": [
+        {
+         "name": "Back squat (or heavy goblet)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-2",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Working into genuinely heavy territory now \u2014 bar speed slow but never grinding."
+        },
+        {
+         "name": "Rear-foot-elevated split squat",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Unassisted climbing strength \u2014 this is the pole-replacement exercise. Front heel heavy, drive tall.",
+         "progression_note": "Add load weekly; by Week 6 use the heaviest dumbbells that keep 8 clean reps."
+        },
+        {
+         "name": "Loaded step-down (12 in box)",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "4-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "4-second lowering \u2014 this is the repeated-descent absorber. KNEE-GATE: never first in session, always fully warm; drop to bodyweight + reps if the knee objects.",
+         "progression_note": "Load +5 lb per hand every 2 weeks if knee-quiet."
+        },
+        {
+         "name": "Barbell Romanian deadlift",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-2",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Posterior chain for climb drive."
+        },
+        {
+         "name": "Single-leg calf raise (straight knee, loaded)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "2-1-3",
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "HSR calf work: heavy, slow 3-s eccentric. Even forefoot pressure (pronation cue).",
+         "progression_note": "This is the Achilles/gastroc HSR slot \u2014 progress load, not reps."
+        },
+        {
+         "name": "Pallof press (heavy band)",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold."
+        }
+       ],
+       "notes": "PM double after AM hill intervals \u2014 hard-with-hard is valid for muscular work (established last cycle). Run first, 4+ hours between. Eccentric quad work never first in session (knee gate).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM hill intervals + PM Lower A. Run first, 4+ h gap."
+    },
+    {
+     "date": "2026-08-26",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening after easy run."
+    },
+    {
+     "date": "2026-08-27",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower B \u2014 Tendon HSR & Lateral Chain",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Single-leg calf raise, bent knee (soleus HSR)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-3",
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load \u2014 the descent tendon builder.",
+         "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+        },
+        {
+         "name": "Spanish squat isometric (band behind knees)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "duration_sec": 45,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+        },
+        {
+         "name": "Resisted eversion, heavy slow (band or cable)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 10,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "right",
+         "cue": "Slow controlled eversion against meaningful resistance \u2014 the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
+         "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
+        },
+        {
+         "name": "Tibialis raises (loaded)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "both",
+         "cue": "Add a light plate on the toes or use band resistance."
+        },
+        {
+         "name": "Lateral step-down",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Off-axis knee/hip control. Pelvis level \u2014 glute med owns this. Knee-gate applies."
+        },
+        {
+         "name": "Copenhagen plank (short lever)",
+         "category": "hip_stability",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+        },
+        {
+         "name": "Single-leg balance \u2014 unstable surface progression",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "side": "alternating",
+         "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+        },
+        {
+         "name": "Pogo hops (low amplitude)",
+         "category": "balance",
+         "sets": 2,
+         "reps": 20,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Quiet, springy, ankles-only bounces in place. SSC/reactive entry for the rolling course.",
+         "notes": "GATED: only if right forefoot AND lateral ankle are fully quiet. First thing pulled on any complaint \u2014 the reactive layer is a bonus, not a requirement."
+        }
+       ],
+       "notes": "P1 flagship session. HSR responds to frequency \u2014 this session plus Tuesday's calf slot gives each tendon two quality exposures per week, 48h apart. Collagen + vitamin C 30-60 min before (see nutrition plan). CHECKPOINT-WEEK ADJUSTMENT: moderate loads tonight \u2014 the AM Gate 2 descent session carries the day's hard stimulus.",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM run + PM Lower B. 48h from Tuesday's lower. No lower-body strength after this until Tuesday (long-run window protected)."
+    },
+    {
+     "date": "2026-08-28",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-08-29",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper B \u2014 Push Emphasis + Carries",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Bench press or heavy push-up variant",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": 8,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Controlled 2 s descent."
+        },
+        {
+         "name": "Lat pulldown",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Chest tall, elbows to hips."
+        },
+        {
+         "name": "Incline dumbbell press",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both"
+        },
+        {
+         "name": "Farmer carry",
+         "category": "core",
+         "sets": 3,
+         "duration_sec": 40,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Heavy dumbbells, tall posture, brisk walk. Grip + trunk under load \u2014 vest-hours posture insurance."
+        },
+        {
+         "name": "Scapular push-up",
+         "category": "corrective",
+         "sets": 2,
+         "reps": 12,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Straight arms, shoulder blades only."
+        },
+        {
+         "name": "Dead bug",
+         "category": "core",
+         "sets": 3,
+         "reps": 8,
+         "side": "alternating",
+         "cue": "Low back stays glued down."
+        }
+       ],
+       "notes": "Upper B sits Saturday evening \u2014 upper body is fine the day before the long run.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening. Upper is fine the day before the long run; lower is not."
+    },
+    {
+     "date": "2026-08-30",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Long run day \u2014 no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 6,
+   "start_date": "2026-08-31",
+   "phase": "Build",
+   "weekly_targets": {
+    "strength_sessions": 4,
+    "notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics.",
+   "days": [
+    {
+     "date": "2026-08-31",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only \u2014 post-long-run day."
+    },
+    {
+     "date": "2026-09-01",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower A \u2014 Hill Strength (Eccentric Quad + Unilateral Drive)",
+       "duration_min": 55,
+       "exercises": [
+        {
+         "name": "Back squat (or heavy goblet)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-2",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Heaviest planned squat week. 4x6 at a load that leaves 2 reps in reserve."
+        },
+        {
+         "name": "Rear-foot-elevated split squat",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Unassisted climbing strength \u2014 this is the pole-replacement exercise. Front heel heavy, drive tall.",
+         "progression_note": "Add load weekly; by Week 6 use the heaviest dumbbells that keep 8 clean reps."
+        },
+        {
+         "name": "Loaded step-down (12 in box)",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "4-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "4-second lowering \u2014 this is the repeated-descent absorber. KNEE-GATE: never first in session, always fully warm; drop to bodyweight + reps if the knee objects.",
+         "progression_note": "Load +5 lb per hand every 2 weeks if knee-quiet."
+        },
+        {
+         "name": "Barbell Romanian deadlift",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-2",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Posterior chain for climb drive."
+        },
+        {
+         "name": "Single-leg calf raise (straight knee, loaded)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "2-1-3",
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "HSR calf work: heavy, slow 3-s eccentric. Even forefoot pressure (pronation cue).",
+         "progression_note": "This is the Achilles/gastroc HSR slot \u2014 progress load, not reps."
+        },
+        {
+         "name": "Pallof press (heavy band)",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold."
+        }
+       ],
+       "notes": "PM double after AM hill intervals \u2014 hard-with-hard is valid for muscular work (established last cycle). Run first, 4+ hours between. Eccentric quad work never first in session (knee gate).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM hill intervals + PM Lower A. Run first, 4+ h gap."
+    },
+    {
+     "date": "2026-09-02",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening after easy run."
+    },
+    {
+     "date": "2026-09-03",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower B \u2014 Tendon HSR & Lateral Chain",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Single-leg calf raise, bent knee (soleus HSR)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-3",
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load \u2014 the descent tendon builder.",
+         "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+        },
+        {
+         "name": "Spanish squat isometric (band behind knees)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "duration_sec": 45,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+        },
+        {
+         "name": "Resisted eversion, heavy slow (band or cable)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 10,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "right",
+         "cue": "Slow controlled eversion against meaningful resistance \u2014 the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
+         "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
+        },
+        {
+         "name": "Tibialis raises (loaded)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "both",
+         "cue": "Add a light plate on the toes or use band resistance."
+        },
+        {
+         "name": "Lateral step-down",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Off-axis knee/hip control. Pelvis level \u2014 glute med owns this. Knee-gate applies."
+        },
+        {
+         "name": "Copenhagen plank (short lever)",
+         "category": "hip_stability",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+        },
+        {
+         "name": "Single-leg balance \u2014 unstable surface progression",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "side": "alternating",
+         "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+        },
+        {
+         "name": "Pogo hops (low amplitude)",
+         "category": "balance",
+         "sets": 2,
+         "reps": 20,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Quiet, springy, ankles-only bounces in place. SSC/reactive entry for the rolling course.",
+         "notes": "GATED: only if right forefoot AND lateral ankle are fully quiet. First thing pulled on any complaint \u2014 the reactive layer is a bonus, not a requirement."
+        }
+       ],
+       "notes": "P1 flagship session. HSR responds to frequency \u2014 this session plus Tuesday's calf slot gives each tendon two quality exposures per week, 48h apart. Collagen + vitamin C 30-60 min before (see nutrition plan).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM run + PM Lower B. 48h from Tuesday's lower. No lower-body strength after this until Tuesday (long-run window protected)."
+    },
+    {
+     "date": "2026-09-04",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-09-05",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper B \u2014 Push Emphasis + Carries",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Bench press or heavy push-up variant",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": 8,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Controlled 2 s descent."
+        },
+        {
+         "name": "Lat pulldown",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Chest tall, elbows to hips."
+        },
+        {
+         "name": "Incline dumbbell press",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both"
+        },
+        {
+         "name": "Farmer carry",
+         "category": "core",
+         "sets": 3,
+         "duration_sec": 40,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Heavy dumbbells, tall posture, brisk walk. Grip + trunk under load \u2014 vest-hours posture insurance."
+        },
+        {
+         "name": "Scapular push-up",
+         "category": "corrective",
+         "sets": 2,
+         "reps": 12,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Straight arms, shoulder blades only."
+        },
+        {
+         "name": "Dead bug",
+         "category": "core",
+         "sets": 3,
+         "reps": 8,
+         "side": "alternating",
+         "cue": "Low back stays glued down."
+        }
+       ],
+       "notes": "Upper B sits Saturday evening \u2014 upper body is fine the day before the long run.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening. Upper is fine the day before the long run; lower is not."
+    },
+    {
+     "date": "2026-09-06",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Long run day \u2014 no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 7,
+   "start_date": "2026-09-07",
+   "phase": "Peak",
+   "weekly_targets": {
+    "strength_sessions": 4,
+    "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant \u2014 the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant \u2014 the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+   "days": [
+    {
+     "date": "2026-09-07",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only \u2014 post-long-run day."
+    },
+    {
+     "date": "2026-09-08",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower A \u2014 Hill Strength (Eccentric Quad + Unilateral Drive)",
+       "duration_min": 55,
+       "exercises": [
+        {
+         "name": "Back squat (or heavy goblet)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-2",
+         "load": "heavy",
+         "side": "both",
+         "cue": "LAST HEAVY SESSION of the block. Match Week 6 loads, do not chase a new top set."
+        },
+        {
+         "name": "Rear-foot-elevated split squat",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Unassisted climbing strength \u2014 this is the pole-replacement exercise. Front heel heavy, drive tall.",
+         "progression_note": "Add load weekly; by Week 6 use the heaviest dumbbells that keep 8 clean reps."
+        },
+        {
+         "name": "Loaded step-down (12 in box)",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "4-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "4-second lowering \u2014 this is the repeated-descent absorber. KNEE-GATE: never first in session, always fully warm; drop to bodyweight + reps if the knee objects.",
+         "progression_note": "Load +5 lb per hand every 2 weeks if knee-quiet."
+        },
+        {
+         "name": "Barbell Romanian deadlift",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-2",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Posterior chain for climb drive."
+        },
+        {
+         "name": "Single-leg calf raise (straight knee, loaded)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "2-1-3",
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "HSR calf work: heavy, slow 3-s eccentric. Even forefoot pressure (pronation cue).",
+         "progression_note": "This is the Achilles/gastroc HSR slot \u2014 progress load, not reps."
+        },
+        {
+         "name": "Pallof press (heavy band)",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold."
+        }
+       ],
+       "notes": "PM double after AM hill intervals \u2014 hard-with-hard is valid for muscular work (established last cycle). Run first, 4+ hours between. Eccentric quad work never first in session (knee gate).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM hill intervals + PM Lower A. Run first, 4+ h gap."
+    },
+    {
+     "date": "2026-09-09",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening after easy run."
+    },
+    {
+     "date": "2026-09-10",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower B \u2014 Tendon Isometrics (taper-compatible)",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Single-leg calf raise, bent knee (soleus HSR)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load \u2014 the descent tendon builder.",
+         "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+        },
+        {
+         "name": "Spanish squat isometric (band behind knees)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "duration_sec": 45,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+        },
+        {
+         "name": "Resisted eversion, heavy slow (band or cable)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 10,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "right",
+         "cue": "Slow controlled eversion against meaningful resistance \u2014 the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
+         "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
+        },
+        {
+         "name": "Tibialis raises (loaded)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "both",
+         "cue": "Add a light plate on the toes or use band resistance."
+        },
+        {
+         "name": "Lateral step-down",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Off-axis knee/hip control. Pelvis level \u2014 glute med owns this. Knee-gate applies."
+        },
+        {
+         "name": "Copenhagen plank (short lever)",
+         "category": "hip_stability",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+        },
+        {
+         "name": "Single-leg balance \u2014 unstable surface progression",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "side": "alternating",
+         "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+        }
+       ],
+       "notes": "P1 flagship session. Isometric-dominant from this week: taper-compatible tendon stimulus (stiffness without eccentric recovery cost). Collagen + vitamin C 30-60 min before (see nutrition plan).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "DOUBLE DAY \u2014 AM run + PM Lower B. 48h from Tuesday's lower. No lower-body strength after this until Tuesday (long-run window protected)."
+    },
+    {
+     "date": "2026-09-11",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-09-12",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper B \u2014 Push Emphasis + Carries",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Bench press or heavy push-up variant",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": 8,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Controlled 2 s descent."
+        },
+        {
+         "name": "Lat pulldown",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Chest tall, elbows to hips."
+        },
+        {
+         "name": "Incline dumbbell press",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "moderate",
+         "side": "both"
+        },
+        {
+         "name": "Farmer carry",
+         "category": "core",
+         "sets": 3,
+         "duration_sec": 40,
+         "load": "heavy",
+         "side": "both",
+         "cue": "Heavy dumbbells, tall posture, brisk walk. Grip + trunk under load \u2014 vest-hours posture insurance."
+        },
+        {
+         "name": "Scapular push-up",
+         "category": "corrective",
+         "sets": 2,
+         "reps": 12,
+         "load": "bodyweight",
+         "side": "both",
+         "cue": "Straight arms, shoulder blades only."
+        },
+        {
+         "name": "Dead bug",
+         "category": "core",
+         "sets": 3,
+         "reps": 8,
+         "side": "alternating",
+         "cue": "Low back stays glued down."
+        }
+       ],
+       "notes": "Upper B sits Saturday evening \u2014 upper body is fine the day before the long run.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Evening. Upper is fine the day before the long run; lower is not."
+    },
+    {
+     "date": "2026-09-13",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Long run day \u2014 no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 8,
+   "start_date": "2026-09-14",
+   "phase": "Taper_1",
+   "weekly_targets": {
+    "strength_sessions": 2,
+    "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost \u2014 the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
+   "days": [
+    {
+     "date": "2026-09-14",
+     "day_of_week": "Monday",
+     "flex": false,
+     "rest_day": true
+    },
+    {
+     "date": "2026-09-15",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Lower B \u2014 Tendon Isometrics (taper-compatible)",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Single-leg calf raise, bent knee (soleus HSR)",
+         "category": "calf",
+         "sets": 4,
+         "reps": 6,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load \u2014 the descent tendon builder.",
+         "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+        },
+        {
+         "name": "Spanish squat isometric (band behind knees)",
+         "category": "eccentric_quad",
+         "sets": 4,
+         "duration_sec": 45,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+        },
+        {
+         "name": "Resisted eversion, heavy slow (band or cable)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 10,
+         "tempo": "3-1-3",
+         "load": "moderate",
+         "side": "right",
+         "cue": "Slow controlled eversion against meaningful resistance \u2014 the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
+         "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
+        },
+        {
+         "name": "Tibialis raises (loaded)",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "both",
+         "cue": "Add a light plate on the toes or use band resistance."
+        },
+        {
+         "name": "Lateral step-down",
+         "category": "hip_stability",
+         "sets": 3,
+         "reps": 8,
+         "tempo": "3-1-1",
+         "load": "moderate",
+         "side": "alternating",
+         "cue": "Off-axis knee/hip control. Pelvis level \u2014 glute med owns this. Knee-gate applies."
+        },
+        {
+         "name": "Copenhagen plank (short lever)",
+         "category": "hip_stability",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+        },
+        {
+         "name": "Single-leg balance \u2014 unstable surface progression",
+         "category": "balance",
+         "sets": 3,
+         "duration_sec": 45,
+         "side": "alternating",
+         "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+        }
+       ],
+       "notes": "P1 flagship session. Isometric-dominant from this week: taper-compatible tendon stimulus (stiffness without eccentric recovery cost). Collagen + vitamin C 30-60 min before (see nutrition plan).",
+       "warmup_protocol": "pre_lower"
+      }
+     ],
+     "day_notes": "Single lower session of the week, after the AM taper hill session. Moderate throughout."
+    },
+    {
+     "date": "2026-09-16",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-09-17",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "upper",
+       "title": "Upper A \u2014 Pull Emphasis + Rotator Cuff",
+       "duration_min": 50,
+       "exercises": [
+        {
+         "name": "Pull-ups (or band-assisted)",
+         "category": "upper_body",
+         "sets": 4,
+         "reps": "6-8",
+         "load": "heavy",
+         "side": "both",
+         "cue": "Full hang to chin over. Scap sets first rep."
+        },
+        {
+         "name": "Single-arm dumbbell row",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 10,
+         "load": "heavy",
+         "side": "alternating",
+         "cue": "Flat back, no torso rotation."
+        },
+        {
+         "name": "Overhead press (dumbbell)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 8,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Ribs down, no lumbar arch."
+        },
+        {
+         "name": "Cable row (or band row)",
+         "category": "upper_body",
+         "sets": 3,
+         "reps": 12,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Squeeze shoulder blades, 1 s hold."
+        },
+        {
+         "name": "Band external rotation",
+         "category": "corrective",
+         "sets": 3,
+         "reps": 12,
+         "load": "light",
+         "side": "alternating",
+         "cue": "Elbow pinned. Left shoulder maintenance \u2014 non-negotiable set."
+        },
+        {
+         "name": "Pallof press",
+         "category": "core",
+         "sets": 3,
+         "reps": 10,
+         "side": "alternating",
+         "cue": "2 s hold each rep."
+        }
+       ],
+       "notes": "Pairs with any run day including quality days. Left-shoulder scapular/RC work stays in every upper session.",
+       "warmup_protocol": "pre_upper"
+      }
+     ],
+     "day_notes": "Last upper session of the block. Moderate loads."
+    },
+    {
+     "date": "2026-09-18",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true
+    },
+    {
+     "date": "2026-09-19",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-09-20",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Race-rhythm long run day. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+    }
+   ]
+  },
+  {
+   "week_number": 9,
+   "start_date": "2026-09-21",
+   "phase": "Race_week",
+   "weekly_targets": {
+    "strength_sessions": 1,
+    "notes": "One isometric maintenance session Monday. Daily routines continue through Friday, then rest. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief \u2014 the work only protects you if it happens."
+   },
+   "week_notes": "Race week: tendon stiffness maintained by Monday isometrics; everything else is rest and routines. Nothing after Wednesday touches the legs.",
+   "days": [
+    {
+     "date": "2026-09-21",
+     "day_of_week": "Monday",
+     "flex": false,
+     "sessions": [
+      {
+       "type": "strength",
+       "subtype": "lower",
+       "title": "Isometric Maintenance \u2014 Race Week",
+       "duration_min": 30,
+       "exercises": [
+        {
+         "name": "Single-leg calf raise isometric hold",
+         "category": "calf",
+         "sets": 4,
+         "duration_sec": 40,
+         "load": "bodyweight",
+         "side": "alternating",
+         "cue": "Mid-range, strong effort, zero soreness cost."
+        },
+        {
+         "name": "Bent-knee soleus isometric hold",
+         "category": "calf",
+         "sets": 3,
+         "duration_sec": 30,
+         "load": "bodyweight",
+         "side": "alternating"
+        },
+        {
+         "name": "Spanish squat isometric",
+         "category": "eccentric_quad",
+         "sets": 3,
+         "duration_sec": 40,
+         "load": "moderate",
+         "side": "both",
+         "cue": "Familiar band tension, nothing new."
+        },
+        {
+         "name": "Resisted eversion isometric",
+         "category": "corrective",
+         "sets": 3,
+         "duration_sec": 20,
+         "load": "light",
+         "side": "right",
+         "cue": "Keep the lateral ankle awake, gently."
+        },
+        {
+         "name": "Short-foot single-leg balance",
+         "category": "balance",
+         "sets": 2,
+         "duration_sec": 45,
+         "side": "alternating"
+        }
+       ],
+       "notes": "Race-week tendon stiffness maintenance. Isometrics only \u2014 no eccentric cost, no soreness. Done Monday; nothing after Wednesday.",
+       "warmup_protocol": "pre_lower"
+      }
+     ]
+    },
+    {
+     "date": "2026-09-22",
+     "day_of_week": "Tuesday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-09-23",
+     "day_of_week": "Wednesday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only."
+    },
+    {
+     "date": "2026-09-24",
+     "day_of_week": "Thursday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Routines only (travel prep)."
+    },
+    {
+     "date": "2026-09-25",
+     "day_of_week": "Friday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Morning routines only \u2014 last day of routines."
+    },
+    {
+     "date": "2026-09-26",
+     "day_of_week": "Saturday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "Travel / pre-race. Nothing."
+    },
+    {
+     "date": "2026-09-27",
+     "day_of_week": "Sunday",
+     "flex": false,
+     "rest_day": true,
+     "day_notes": "RACE DAY \u2014 Vermont 50K."
+    }
+   ]
+  }
+ ]
+}

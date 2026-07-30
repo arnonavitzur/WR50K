@@ -8,11 +8,12 @@
 CLAUDE.md
 context_v2.md
 
-# Plan-authoring sources (not yet part of the repo)
-run_plan.json
-strength_plan.json
-nutrition_plan.json
-merge_plans.py
+# Plan sources and the merge script are TRACKED — CI rebuilds combined_plan.json
+# from them on push. See .github/workflows/merge-plan.yml.
+
+# Retired: inject_plan.py inlined the plan into the HTML (the app now fetches
+# combined_plan.json). update_plan.py patched one section of the combined file,
+# which a full CI re-merge makes unnecessary. Kept local, out of the repo.
 inject_plan.py
 update_plan.py
 

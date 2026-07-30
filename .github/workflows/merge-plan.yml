@@ -1,0 +1,77 @@
+name: Merge training plan
+
+# Rebuilds combined_plan.json whenever a plan source changes, so the three
+# source files are the only thing that needs editing. The app fetches
+# combined_plan.json at runtime, so a rebuilt plan reaches the device on the
+# next online load with no HTML change and no service worker cache bump.
+#
+# Loop safety — this workflow commits combined_plan.json, which is deliberately
+# NOT in the paths filter below, so its own commit cannot re-trigger it. GitHub
+# additionally suppresses workflow triggers for commits pushed with GITHUB_TOKEN,
+# and the commit message carries [skip ci]. Three independent guards.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - run_plan.json
+      - strength_plan.json
+      - nutrition_plan.json
+      - merge_plans.py
+      - .github/workflows/merge-plan.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Never let two rebuilds race to push.
+concurrency:
+  group: merge-plan
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # merge_plans.py uses PEP 604 unions (`dict | None`), so it needs 3.10+.
+      # It has no third-party dependencies, so there is nothing to install.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild combined_plan.json
+        run: |
+          python merge_plans.py \
+            --run run_plan.json \
+            --strength strength_plan.json \
+            --nutrition nutrition_plan.json \
+            --output-full combined_plan.json \
+            --output-week1 "${RUNNER_TEMP}/week1_plan.json"
+
+      - name: Validate the result before committing
+        run: |
+          python - <<'PY'
+          import json, sys
+          d = json.load(open('combined_plan.json', encoding='utf-8'))
+          days = d.get('days')
+          if not isinstance(days, dict) or not days:
+              sys.exit('merge produced no days — refusing to commit')
+          if not d.get('meta', {}).get('race'):
+              sys.exit('merge produced no meta.race — refusing to commit')
+          print(f"ok: {d['meta']['race']} | {len(days)} days")
+          PY
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- combined_plan.json; then
+            echo "combined_plan.json is already up to date — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add combined_plan.json
+          git commit -m "Rebuild combined_plan.json from plan sources [skip ci]"
+          git push
+          echo "Committed a rebuilt combined_plan.json."

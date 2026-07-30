@@ -1,0 +1,974 @@
+{
+ "meta": {
+  "plan_type": "nutrition",
+  "schema_version": "1.2",
+  "athlete": "Arnon",
+  "race": "Vermont 50K",
+  "race_date": "2026-09-27",
+  "plan_start": "2026-07-27",
+  "plan_end": "2026-09-27",
+  "generated_by": "Nutrition Coach (Claude)",
+  "generated_date": "2026-07-27",
+  "notes": "9-week nutrition plan bridging White River -> Vermont 50K. Arnon: 50M, 175 lb / 79 kg, 5'10. BASELINES ARE NOW RACE-PROVEN (per debrief section 6 + updated profile \u2014 the old 'gut untested beyond 3:20' premise is retired): ~210-230 cal/hr at 30-min GU Roctane cadence over 8 h with zero GI failure; SaltStick 1/45 min cool-weather, zero cramping; ~500 ml/hr fluid at 14-22 C (600-800 for heat); 3 caffeine gels from mile 18, clean. RACE TARGET for Vermont: step up to 240-260 cal/hr at 25-30 min cadence \u2014 tested on the 9/13 dress rehearsal; the proven floor is the fallback, never the ceiling abandoned. THEMES THIS BLOCK: (1) COLLAGEN PROTOCOL is the P1 nutritional lever \u2014 15 g collagen + 250 mg vitamin C 30-60 min before every lower/tendon session, and daily with the foot-corrective block on other days (small daily doses beat one large dose; synthesis has a refractory window). (2) PROTEIN HIGH THROUGHOUT: 1.7-1.9 g/kg (~140-150 g) every day including rest days \u2014 tendon remodeling at 50 is protein-hungry. (3) NO NSAIDs around loading sessions (blunts collagen remodeling); fish oil is the sanctioned anti-inflammatory support. (4) Recovery weeks 1-2: calories modest, protein and collagen priority. (5) Real aid-station food remains UNTESTED \u2014 Vermont is raced self-supplied (gels + pretzels + SaltSticks carried), aid stations for water only. Day types match the new weekly skeleton (Sunday long runs, Tue hill+lower double, Thu easy+tendon double). date_overrides remain the source of truth for race week."
+ },
+ "day_types": [
+  {
+   "id": "rest_day",
+   "label": "Rest day (no training)",
+   "triggers": [
+    {
+     "run_subtype": null,
+     "strength_subtype": null,
+     "description": "No sessions scheduled"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2300,
+    "carbs_g": 230,
+    "protein_g": 140,
+    "fat_g": 85,
+    "fluid_ml_total": 2500,
+    "general_guidance": "Lower carb, protein held high (~1.7 g/kg at 79 kg). Protein at every meal, 25-35 g per sitting. Vegetables and fats carry satiety.",
+    "notes": "Protein stays high on rest days \u2014 tissue remodeling doesn't take days off. Collagen + vitamin C still taken with the morning foot-corrective block."
+   },
+   "phase_adjustments": [
+    {
+     "phase": "Base",
+     "adjustment": "Recovery weeks 1-2: same targets; emphasis shifts to collagen-supportive eating (protein spread across 4 feedings, vitamin-C-rich produce daily). No NSAIDs around any loading.",
+     "modified_targets": {
+      "calories_total": 2300,
+      "carbs_g": 220,
+      "protein_g": 145,
+      "fat_g": 85
+     }
+    },
+    {
+     "phase": "Race_week",
+     "adjustment": "Race-week rest days before Thursday: normal. Thursday onward, see carb-load date overrides.",
+     "modified_targets": {
+      "calories_total": 2400,
+      "carbs_g": 260,
+      "protein_g": 135,
+      "fat_g": 80
+     }
+    }
+   ]
+  },
+  {
+   "id": "strength_only",
+   "label": "Strength only (no run)",
+   "triggers": [
+    {
+     "run_subtype": null,
+     "strength_subtype": "lower",
+     "description": "Lower/tendon session, no run"
+    },
+    {
+     "run_subtype": null,
+     "strength_subtype": "upper",
+     "description": "Upper session, no run"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2450,
+    "carbs_g": 260,
+    "protein_g": 145,
+    "fat_g": 85,
+    "fluid_ml_total": 2700,
+    "general_guidance": "Moderate carbs, high protein. Carbs concentrated in the meals flanking the session.",
+    "notes": "Common in recovery weeks 1-2 and race week."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": null,
+      "position": "pre"
+     },
+     "timing": "30-60 min before session",
+     "foods": [
+      "collagen + vitamin C in water",
+      "optional: banana or toast with honey"
+     ],
+     "notes": "Collagen 15 g + vitamin C 250 mg, 30-60 min before ANY lower/tendon session \u2014 the collagen-synthesis window is the point. Light carb snack if 3+ h since last meal."
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": null,
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 300,
+     "carbs_g": 30,
+     "protein_g": 30,
+     "foods": [
+      "whey shake with milk",
+      "or Greek yogurt + fruit"
+     ],
+     "notes": "Protein 25-30 g. Creatine 5 g goes here."
+    }
+   ]
+  },
+  {
+   "id": "easy_run_only",
+   "label": "Easy run / recovery walk (no strength)",
+   "triggers": [
+    {
+     "run_subtype": "easy",
+     "strength_subtype": null,
+     "description": "Easy run or recovery walk, no strength"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2550,
+    "carbs_g": 300,
+    "protein_g": 140,
+    "fat_g": 80,
+    "fluid_ml_total": 2800,
+    "general_guidance": "Moderate day. Carbs at breakfast and the post-run meal.",
+    "notes": "Runs under 60 min need no during-fuel; water only."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "easy",
+      "position": "pre"
+     },
+     "timing": "60-90 min before (or run fasted-light if under 45 min easy)",
+     "calories": 250,
+     "carbs_g": 45,
+     "protein_g": 8,
+     "fat_g": 5,
+     "foods": [
+      "toast with honey and banana",
+      "coffee"
+     ],
+     "notes": "Short easy runs are flexible \u2014 don't force a pre-meal for a 35-min jog."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "easy",
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 300,
+     "carbs_g": 45,
+     "protein_g": 25,
+     "foods": [
+      "whey shake + fruit",
+      "or normal meal if mealtime"
+     ],
+     "notes": "Creatine 5 g post-run."
+    }
+   ],
+   "phase_adjustments": [
+    {
+     "phase": "Base",
+     "adjustment": "Recovery weeks: walks burn little \u2014 hold calories at the lower end, keep protein up.",
+     "modified_targets": {
+      "calories_total": 2400,
+      "carbs_g": 270,
+      "protein_g": 145,
+      "fat_g": 80
+     }
+    }
+   ]
+  },
+  {
+   "id": "shakeout_run",
+   "label": "Shakeout (recovery day)",
+   "triggers": [
+    {
+     "run_subtype": "shakeout",
+     "strength_subtype": null,
+     "description": "Short shakeout only"
+    },
+    {
+     "run_subtype": "shakeout",
+     "strength_subtype": "upper",
+     "description": "Shakeout + Saturday evening upper"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2500,
+    "carbs_g": 300,
+    "protein_g": 140,
+    "fat_g": 78,
+    "fluid_ml_total": 2800,
+    "general_guidance": "Saturday pattern: light day, but begin topping up carbs at dinner \u2014 the long run is tomorrow morning.",
+    "notes": "Saturday dinner is quietly the first fueling act of the Sunday long run: carb-forward, familiar, moderate fibre."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": "upper",
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 250,
+     "carbs_g": 30,
+     "protein_g": 28,
+     "foods": [
+      "whey shake"
+     ],
+     "notes": "If Upper B is scheduled this evening."
+    }
+   ]
+  },
+  {
+   "id": "easy_run_upper_strength",
+   "label": "Easy run + upper strength (double-day)",
+   "triggers": [
+    {
+     "run_subtype": "easy",
+     "strength_subtype": "upper",
+     "description": "Easy run AM + upper PM"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2700,
+    "carbs_g": 320,
+    "protein_g": 150,
+    "fat_g": 82,
+    "fluid_ml_total": 3000,
+    "general_guidance": "Double-day: carbs around the run, protein through the day, real meal between sessions.",
+    "notes": ""
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "easy",
+      "position": "pre"
+     },
+     "timing": "60-90 min before",
+     "calories": 250,
+     "carbs_g": 45,
+     "protein_g": 8,
+     "fat_g": 5,
+     "foods": [
+      "toast with honey and banana",
+      "coffee"
+     ]
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "easy",
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 300,
+     "carbs_g": 45,
+     "protein_g": 25,
+     "foods": [
+      "whey shake + fruit"
+     ],
+     "notes": "Creatine 5 g."
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": "upper",
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 250,
+     "carbs_g": 30,
+     "protein_g": 28,
+     "foods": [
+      "whey or Greek yogurt + fruit",
+      "dinner counts if within the window"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "easy_run_lower_strength",
+   "label": "Easy run + lower/tendon strength (double-day)",
+   "triggers": [
+    {
+     "run_subtype": "easy",
+     "strength_subtype": "lower",
+     "description": "Thu pattern: easy run w/ descent block AM + Lower B tendon PM"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2850,
+    "carbs_g": 345,
+    "protein_g": 150,
+    "fat_g": 85,
+    "fluid_ml_total": 3200,
+    "general_guidance": "Tendon-session day. The one non-negotiable: collagen + vitamin C 30-60 min before the PM lower session.",
+    "notes": "P1 support day. Vitamin-C-rich produce at lunch (peppers, citrus, kiwi) on top of the supplement."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "easy",
+      "position": "pre"
+     },
+     "timing": "60-90 min before",
+     "calories": 250,
+     "carbs_g": 45,
+     "protein_g": 8,
+     "fat_g": 5,
+     "foods": [
+      "toast with honey and banana",
+      "coffee"
+     ]
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "easy",
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 300,
+     "carbs_g": 45,
+     "protein_g": 25,
+     "foods": [
+      "whey shake + fruit"
+     ],
+     "notes": "Creatine 5 g."
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": "lower",
+      "position": "pre"
+     },
+     "timing": "30-60 min before PM session",
+     "calories": 100,
+     "carbs_g": 15,
+     "protein_g": 10,
+     "foods": [
+      "collagen 15 g + vitamin C 250 mg in water",
+      "optional small carb snack"
+     ],
+     "notes": "THE COLLAGEN WINDOW. Timed to the loading session, every lower day, no exceptions."
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": "lower",
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 350,
+     "carbs_g": 45,
+     "protein_g": 30,
+     "foods": [
+      "dinner: protein + rice/potatoes + vegetables"
+     ],
+     "notes": "Usually lands at dinner \u2014 make dinner the recovery meal."
+    }
+   ]
+  },
+  {
+   "id": "hill_intervals_lower_strength",
+   "label": "Hill intervals + Lower A (hard double-day)",
+   "triggers": [
+    {
+     "run_subtype": "power_climb",
+     "strength_subtype": "lower",
+     "description": "Tue pattern: AM hill intervals + PM Lower A hill strength"
+    },
+    {
+     "run_subtype": "power_climb",
+     "strength_subtype": null,
+     "description": "Hill intervals without strength (taper)"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2950,
+    "carbs_g": 380,
+    "protein_g": 150,
+    "fat_g": 85,
+    "fluid_ml_total": 3300,
+    "general_guidance": "Hardest regular day of the week. Carbs before and after the AM quality run, collagen before the PM lift, dinner as the second recovery meal.",
+    "notes": "Under-fueling this double-day shows up as a flat Thursday \u2014 eat like it matters."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "power_climb",
+      "position": "pre"
+     },
+     "timing": "90 min before",
+     "calories": 400,
+     "carbs_g": 70,
+     "protein_g": 12,
+     "fat_g": 8,
+     "foods": [
+      "oatmeal with banana and honey",
+      "coffee"
+     ],
+     "notes": "Quality session \u2014 arrive fueled."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "power_climb",
+      "position": "during"
+     },
+     "timing": "If over 60 min",
+     "calories": 100,
+     "sodium_mg": 125,
+     "fluid_ml": 500,
+     "fueling_schedule": [
+      {
+       "interval_min": 40,
+       "item": "GU Roctane gel",
+       "cal": 100,
+       "sodium_mg": 125
+      }
+     ],
+     "notes": "One gel mid-session on the longer interval days; water throughout."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "power_climb",
+      "position": "post"
+     },
+     "timing": "Within 30 min",
+     "calories": 350,
+     "carbs_g": 55,
+     "protein_g": 25,
+     "foods": [
+      "whey shake + banana"
+     ],
+     "notes": "Creatine 5 g. Glycogen priority \u2014 the PM lift is coming."
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": "lower",
+      "position": "pre"
+     },
+     "timing": "30-60 min before PM session",
+     "calories": 100,
+     "carbs_g": 15,
+     "protein_g": 10,
+     "foods": [
+      "collagen 15 g + vitamin C 250 mg",
+      "small carb snack"
+     ],
+     "notes": "Collagen window before Lower A."
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "subtype": "lower",
+      "position": "post"
+     },
+     "timing": "Within 45 min",
+     "calories": 400,
+     "carbs_g": 50,
+     "protein_g": 32,
+     "foods": [
+      "dinner: protein + carb-forward sides"
+     ],
+     "notes": "Second recovery meal of the day."
+    }
+   ]
+  },
+  {
+   "id": "long_run",
+   "label": "Long run day (Sunday)",
+   "triggers": [
+    {
+     "run_subtype": "long",
+     "strength_subtype": null,
+     "description": "Sunday long run"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 3200,
+    "carbs_g": 440,
+    "protein_g": 145,
+    "fat_g": 82,
+    "fluid_ml_total": 3500,
+    "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal, every week, same meal. During-run fueling at race cadence. Post-run recovery is the priority meal of the week.",
+    "notes": "The rehearsed breakfast (oatmeal + banana + honey + berries, coffee) is race-proven \u2014 it fed an 8-hour ultra. Keep it identical."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "pre"
+     },
+     "timing": "90 min before run",
+     "calories": 500,
+     "carbs_g": 80,
+     "protein_g": 15,
+     "fat_g": 10,
+     "foods": [
+      "oatmeal with banana, honey, and berries",
+      "coffee with splash of milk"
+     ],
+     "notes": "THE REHEARSED MEAL \u2014 unchanged from the White River build; it is now race-proven."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "during"
+     },
+     "timing": "First gel at 30 min, every 30 min after; SaltStick at 45-min marks",
+     "calories": 210,
+     "sodium_mg": 425,
+     "fluid_ml": 550,
+     "fueling_schedule": [
+      {
+       "interval_min": 30,
+       "item": "GU Roctane gel (non-caffeine)",
+       "cal": 100,
+       "sodium_mg": 125
+      },
+      {
+       "interval_min": 45,
+       "item": "SaltStick capsule",
+       "cal": 0,
+       "sodium_mg": 225
+      }
+     ],
+     "notes": "PROVEN BASELINE (race-validated): ~210-230 cal/hr at 30-min gel cadence, 1 SaltStick/45 min, ~500-600 ml/hr in cool conditions. This is the floor, not the ceiling \u2014 the dress-rehearsal overrides push toward 240-260/hr at 25-30 min cadence for race day. Scale fluid to 600-800 ml/hr if warm."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "post"
+     },
+     "timing": "Within 30 min",
+     "calories": 450,
+     "carbs_g": 55,
+     "protein_g": 35,
+     "foods": [
+      "whey shake with banana and oats",
+      "whole-food meal within 2 h: chicken/salmon, rice, vegetables"
+     ],
+     "notes": "Priority recovery meal of the week. Rehydrate ~150% of losses; include sodium."
+    }
+   ],
+   "phase_adjustments": [
+    {
+     "phase": "Base",
+     "adjustment": "Recovery-week 'long' walk/runs are short \u2014 trim totals, keep the breakfast rehearsal habit.",
+     "modified_targets": {
+      "calories_total": 2700,
+      "carbs_g": 350,
+      "protein_g": 145,
+      "fat_g": 78
+     }
+    },
+    {
+     "phase": "Build",
+     "adjustment": "Long runs 10-18 mi. Totals scale with duration; from Week 5 the calibration/dress-rehearsal overrides take over the details.",
+     "modified_targets": {
+      "calories_total": 3300,
+      "carbs_g": 460,
+      "protein_g": 148,
+      "fat_g": 82
+     }
+    },
+    {
+     "phase": "Peak",
+     "adjustment": "20-mi dress rehearsal \u2014 highest calorie training day (see 2026-09-13 override).",
+     "modified_targets": {
+      "calories_total": 3500,
+      "carbs_g": 490,
+      "protein_g": 150,
+      "fat_g": 84
+     }
+    },
+    {
+     "phase": "Taper_1",
+     "adjustment": "12-mi race-rhythm run: totals down, during-run cadence stays at race protocol.",
+     "modified_targets": {
+      "calories_total": 2900,
+      "carbs_g": 390,
+      "protein_g": 145,
+      "fat_g": 78
+     }
+    }
+   ]
+  }
+ ],
+ "date_overrides": [
+  {
+   "date": "2026-08-30",
+   "reason": "CALIBRATION LONG RUN (16 mi) \u2014 full race-protocol fueling test",
+   "daily_targets": {
+    "calories_total": 3300,
+    "carbs_g": 460,
+    "protein_g": 145,
+    "fat_g": 80,
+    "fluid_ml_total": 3800,
+    "general_guidance": "Run the proven race protocol end-to-end on the calibration run: rehearsed breakfast, 30-min gel cadence, SaltStick 1/45. Data day for the gut as much as the legs.",
+    "notes": "FIT file goes to the Race Strategy project. Note any GI signal alongside the running data."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "pre"
+     },
+     "timing": "90 min before",
+     "calories": 500,
+     "carbs_g": 80,
+     "protein_g": 15,
+     "fat_g": 10,
+     "foods": [
+      "oatmeal with banana, honey, and berries",
+      "coffee"
+     ],
+     "notes": "Rehearsed meal."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "during"
+     },
+     "timing": "Gel every 30 min from minute 30; SaltStick every 45 min",
+     "calories": 215,
+     "sodium_mg": 425,
+     "fluid_ml": 550,
+     "fueling_schedule": [
+      {
+       "interval_min": 30,
+       "item": "GU Roctane gel (non-caffeine)",
+       "cal": 100,
+       "sodium_mg": 125
+      },
+      {
+       "interval_min": 45,
+       "item": "SaltStick capsule",
+       "cal": 0,
+       "sodium_mg": 225
+      }
+     ],
+     "notes": "Proven baseline protocol, executed exactly. ~2.5-3 h effort: expect 5-6 gels, 3-4 SaltSticks."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "post"
+     },
+     "timing": "Within 30 min",
+     "calories": 450,
+     "carbs_g": 55,
+     "protein_g": 35,
+     "foods": [
+      "whey shake + banana + oats",
+      "full meal within 2 h"
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2026-09-13",
+   "reason": "PEAK LONG RUN (20 mi) \u2014 full Vermont dress rehearsal",
+   "daily_targets": {
+    "calories_total": 3550,
+    "carbs_g": 500,
+    "protein_g": 150,
+    "fat_g": 84,
+    "fluid_ml_total": 4200,
+    "general_guidance": "Complete race-day rehearsal: rehearsed breakfast at race-relative timing, race vest, race-day fueling cadence stepped UP to the 25-30 min pattern, caffeine timing practiced late.",
+    "notes": "This is the day that converts the proven floor (210-230 cal/hr @ 30 min) toward the race target (240-260 cal/hr @ 25-30 min). If the gut accepts the tighter cadence here, it becomes the race protocol; if not, race on the proven floor."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "pre"
+     },
+     "timing": "2.5-3 h before start (rehearse race-morning timing)",
+     "calories": 550,
+     "carbs_g": 90,
+     "protein_g": 15,
+     "fat_g": 10,
+     "foods": [
+      "oatmeal with banana, honey, and berries",
+      "coffee 1-2 cups",
+      "sip 300-400 ml electrolyte water pre-start"
+     ],
+     "notes": "Slightly larger than usual \u2014 race-morning sized."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "during"
+     },
+     "timing": "Gel every 25-30 min; SaltStick 1/45; caffeine gels in the final 90 min",
+     "calories": 245,
+     "sodium_mg": 475,
+     "fluid_ml": 575,
+     "fueling_schedule": [
+      {
+       "interval_min": 27,
+       "item": "GU Roctane gel (non-caffeine until final 90 min)",
+       "cal": 100,
+       "sodium_mg": 125
+      },
+      {
+       "interval_min": 45,
+       "item": "SaltStick capsule",
+       "cal": 0,
+       "sodium_mg": 225
+      },
+      {
+       "interval_min": 150,
+       "item": "Switch to CAFFEINE gels for the final 90 min (2 total today)",
+       "cal": 100,
+       "sodium_mg": 125,
+       "caffeine_mg": 35
+      }
+     ],
+     "notes": "TEST DAY for the stepped-up cadence: target 240-260 cal/hr. Also carry pretzels (race-proven) and take one handful mid-run \u2014 variety rehearsal. Fluid 500-650 ml/hr, scale up if warm."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "long",
+      "position": "post"
+     },
+     "timing": "Within 30 min",
+     "calories": 500,
+     "carbs_g": 60,
+     "protein_g": 38,
+     "foods": [
+      "whey shake + banana + oats",
+      "full recovery meal within 2 h"
+     ],
+     "notes": "Biggest recovery meal of the block."
+    }
+   ]
+  },
+  {
+   "date": "2026-09-24",
+   "reason": "Carb load day 1 of 3 (moderate ramp)",
+   "daily_targets": {
+    "calories_total": 2800,
+    "carbs_g": 400,
+    "protein_g": 130,
+    "fat_g": 75,
+    "fluid_ml_total": 3000,
+    "general_guidance": "~5 g/kg carbs (~400 g). Normal foods, carb-forward at every meal. Normal fibre today; it tapers tomorrow.",
+    "notes": "Three-day ramp: 400 g -> 550-600 g -> 550-600 g. Familiar foods only."
+   }
+  },
+  {
+   "date": "2026-09-25",
+   "reason": "Carb load day 2 of 3 (high)",
+   "daily_targets": {
+    "calories_total": 3200,
+    "carbs_g": 575,
+    "protein_g": 110,
+    "fat_g": 65,
+    "fluid_ml_total": 3300,
+    "general_guidance": "~7-7.5 g/kg (~550-600 g). Rice, pasta, potatoes, bread, juice, honey. Fat and fibre pull back. Expect 1-2 kg of water weight \u2014 that is stored glycogen, not a problem.",
+    "notes": "Graze carbs through the day rather than three giant meals."
+   }
+  },
+  {
+   "date": "2026-09-26",
+   "reason": "Carb load day 3 of 3 (high, low fibre) \u2014 travel/pre-race day",
+   "daily_targets": {
+    "calories_total": 3100,
+    "carbs_g": 550,
+    "protein_g": 105,
+    "fat_g": 60,
+    "fluid_ml_total": 3300,
+    "general_guidance": "~7 g/kg, LOW FIBRE (white rice, white bread, pretzels, juice, sports drink). Dinner early, familiar, boring. Pack race fuel tonight: ~14-16 gels (3-4 caffeine), 8+ SaltSticks, pretzels.",
+    "notes": "Travel day \u2014 carry snacks so the load doesn't depend on road food. Hydrate steadily with electrolytes, don't flood. Race meeting is Sunday 7:30 AM per the site; confirm start logistics today."
+   }
+  },
+  {
+   "date": "2026-09-27",
+   "reason": "RACE DAY \u2014 Vermont 50K",
+   "daily_targets": {
+    "calories_total": 4100,
+    "carbs_g": 580,
+    "protein_g": 100,
+    "fat_g": 70,
+    "fluid_ml_total": 5000,
+    "general_guidance": "RACE DAY. Execute the rehearsed plan. No new foods, no aid-station experiments \u2014 aid fare is UNTESTED, everything you need is on your vest. Eat by the clock, not by hunger.",
+    "notes": "~32-33 mi, ~5,600 ft, no poles, likely 7-8 h. Late-September Vermont: typically 40s-60s F \u2014 cool-condition protocol applies; scale fluids/sodium up only if the forecast surprises warm. Start time TBD (7:30 AM race meeting listed) \u2014 anchor breakfast 2.5-3 h before the actual gun."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "race_pace",
+      "position": "pre"
+     },
+     "timing": "Breakfast 2.5-3 h before start; finish eating 2 h out",
+     "calories": 550,
+     "carbs_g": 90,
+     "protein_g": 15,
+     "fat_g": 10,
+     "foods": [
+      "oatmeal with banana, honey, and berries",
+      "coffee 1-2 cups",
+      "sip 300-400 ml electrolyte water until 30 min out"
+     ],
+     "notes": "THE REHEARSED MEAL \u2014 identical to every Sunday of the block and to White River race morning. Bathroom before the start."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "race_pace",
+      "position": "during"
+     },
+     "timing": "By the clock: gel every 25-30 min from minute 25-30; SaltStick every 45 min; caffeine from ~hour 4.5",
+     "calories": 250,
+     "sodium_mg": 500,
+     "fluid_ml": 550,
+     "fueling_schedule": [
+      {
+       "interval_min": 27,
+       "item": "GU Roctane gel (non-caffeine)",
+       "cal": 100,
+       "sodium_mg": 125
+      },
+      {
+       "interval_min": 45,
+       "item": "SaltStick capsule",
+       "cal": 0,
+       "sodium_mg": 225
+      },
+      {
+       "interval_min": 90,
+       "item": "Pretzel handful (race-proven, carried)",
+       "cal": 60,
+       "sodium_mg": 180
+      },
+      {
+       "interval_min": 270,
+       "item": "GU Roctane CAFFEINE gel \u2014 first at ~hour 4.5 (~mile 19-20)",
+       "cal": 100,
+       "sodium_mg": 125,
+       "caffeine_mg": 35
+      },
+      {
+       "interval_min": 330,
+       "item": "Second caffeine gel ~hour 5.5",
+       "cal": 100,
+       "sodium_mg": 125,
+       "caffeine_mg": 35
+      },
+      {
+       "interval_min": 390,
+       "item": "Third caffeine gel ~hour 6.5 \u2014 fuel for the mile-29 climb",
+       "cal": 100,
+       "sodium_mg": 125,
+       "caffeine_mg": 35
+      }
+     ],
+     "notes": "PER-HOUR TARGETS: 240-260 cal (or the proven 210-230 floor if the 9/13 rehearsal said no to the tighter cadence), 450-550 mg Na, 500-650 ml fluid \u2014 cool-weather race-proven numbers. CARRY EVERYTHING: ~14-16 gels + pretzels + 8-10 SaltSticks; aid stations are water/top-up only since their fare is untested. The 3rd caffeine gel is deliberately timed ahead of the mile-29.4 Blood Hill climb \u2014 the race's decision point."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "subtype": "race_pace",
+      "position": "post"
+     },
+     "timing": "Immediately after + meal within 2 h",
+     "calories": 800,
+     "carbs_g": 100,
+     "protein_g": 40,
+     "foods": [
+      "finish-line carbs + whatever appeals",
+      "real meal within 2 h: protein + carbs + salt",
+      "rehydrate with electrolytes through the evening"
+     ],
+     "notes": "Then the recovery-week protocol picks up Monday \u2014 same shape as post-White River."
+    }
+   ]
+  }
+ ],
+ "supplements": [
+  {
+   "name": "Vitamin D3",
+   "dose": "2000 IU",
+   "timing": "morning with breakfast",
+   "timing_slot": "morning",
+   "rationale": "Baseline bone/immune support.",
+   "active_weeks": "1-9"
+  },
+  {
+   "name": "Omega-3 fish oil (EPA/DHA)",
+   "dose": "2 g combined EPA+DHA",
+   "timing": "morning with food",
+   "timing_slot": "morning",
+   "rationale": "Anti-inflammatory support without blunting adaptation (unlike NSAIDs, which stay OFF around loading).",
+   "active_weeks": "1-9"
+  },
+  {
+   "name": "Collagen peptides + Vitamin C",
+   "dose": "15 g collagen + 250 mg vitamin C",
+   "timing": "30-60 min BEFORE lower/tendon strength sessions; on non-lifting days, with the morning foot-corrective block",
+   "timing_slot": "pre_run",
+   "rationale": "Peri-loading collagen availability for tendon remodeling \u2014 the P1 nutritional lever. Daily low-dose beats one big weekly dose because collagen synthesis has a refractory window.",
+   "active_weeks": "1-9",
+   "notes": "THE priority supplement this block. Never skipped on Lower A / Lower B days."
+  },
+  {
+   "name": "Creatine monohydrate",
+   "dose": "5 g",
+   "timing": "post-run or post-strength, any consistent daily slot",
+   "timing_slot": "post_run",
+   "rationale": "Strength/power support during the HSR block; consistency matters more than timing.",
+   "active_weeks": "1-9"
+  },
+  {
+   "name": "Whey protein isolate",
+   "dose": "25-30 g per serving",
+   "timing": "post-session windows and to top up daily protein",
+   "timing_slot": "post_run",
+   "rationale": "Hits the 1.7-1.9 g/kg/day protein target that tissue remodeling at 50 demands.",
+   "active_weeks": "1-9"
+  },
+  {
+   "name": "Magnesium glycinate",
+   "dose": "400 mg elemental",
+   "timing": "evening before bed",
+   "timing_slot": "evening",
+   "rationale": "Sleep quality \u2014 recovery is the P1 multiplier.",
+   "active_weeks": "1-9"
+  },
+  {
+   "name": "Electrolytes (SaltStick)",
+   "dose": "1 capsule per 45 min during long runs (race-proven for cool conditions); 1/hr on shorter quality sessions if hot",
+   "timing": "during long efforts",
+   "timing_slot": "pre_run",
+   "rationale": "Race-validated: zero cramping over 8 h at this cadence.",
+   "active_weeks": "1-9"
+  },
+  {
+   "name": "Caffeine (GU Roctane caffeine gels)",
+   "dose": "35 mg per gel; 3 gels in the final third of long efforts",
+   "timing": "final 90 min of runs over 3 h; race day from ~hour 4.5",
+   "timing_slot": "pre_run",
+   "rationale": "Race-proven pattern: 3 caffeine gels from mile 18, no issues.",
+   "active_weeks": "5-9"
+  }
+ ]
+}
