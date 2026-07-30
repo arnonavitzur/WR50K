@@ -10,6 +10,10 @@ name: Merge training plan
 # additionally suppresses workflow triggers for commits pushed with GITHUB_TOKEN,
 # and the commit message carries [skip ci]. Three independent guards.
 
+# Note: a workflow does not run for the push that first adds it. This one was
+# therefore dormant until its second push. To rebuild on demand at any time,
+# use the "Run workflow" button on the Actions tab (workflow_dispatch below).
+
 on:
   push:
     branches: [main]
