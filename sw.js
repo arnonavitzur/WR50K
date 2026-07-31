@@ -3,7 +3,7 @@
  * Bump CACHE whenever you deploy. That is the only lever: a new cache name
  * forces a fresh precache and drops everything from the previous version.
  */
-const CACHE = 'vt50k-v3';
+const CACHE = 'vt50k-v4';
 
 /* All paths are relative to this file, so the worker works unchanged whether
  * the site is served from a user page (user.github.io) or a project page
@@ -107,7 +107,19 @@ self.addEventListener('fetch', (event) => {
             (plan ? await caches.match('./combined_plan.json') : null) ||
             (html ? await caches.match('./50k_dashboard.html') : null) ||
             (html ? await caches.match('./') : null);
-          if (cached) return cached;
+          if (cached) {
+            /* Tag cache fallbacks. Without this the page cannot tell a fresh
+             * 200 from a cached one, so an update check made while the network
+             * is down looks identical to "you already have the latest" — it
+             * would report up-to-date having never reached the server. */
+            const headers = new Headers(cached.headers);
+            headers.set('X-Served-From', 'sw-cache');
+            return new Response(cached.body, {
+              status: cached.status,
+              statusText: cached.statusText,
+              headers,
+            });
+          }
           throw err;
         }
       })()

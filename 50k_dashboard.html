@@ -38,6 +38,10 @@
   #root { min-height: 100%; }
   ::-webkit-scrollbar { display: none; }
   * { scrollbar-width: none; }
+  @keyframes wr-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    @keyframes wr-spin { to { transform: none; } }
+  }
 </style>
 </head>
 <body>
@@ -981,7 +985,56 @@ function WeekCard({week, defaultOpen, onJump}) {
   );
 }
 
-function PlanView({plan, currentDate, onJumpToDay}) {
+// ── Plan update control ───────────────────────────────────────
+// Reports whether the merged plan on the server differs from the one loaded.
+// A check is a conditional request: 304 costs no bandwidth, 200 carries the
+// new plan. Never applies an update on its own — swapping the plan under
+// someone reading today's session would be jarring.
+function UpdateControl({update}) {
+  if (!update) return null;
+  const {status, changed, planDate, onCheck, onApply} = update;
+
+  const fmtDate = (iso) => iso
+    ? new Date(iso+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'})
+    : null;
+
+  const tap = status === 'available' ? onApply : onCheck;
+  const busy = status === 'checking';
+
+  const label = {
+    checking:  'Checking…',
+    current:   'Up to date',
+    offline:   "Can't reach server — retry",
+    error:     'Check failed — retry',
+    available: changed.length
+      ? `${changed.join(' + ')} plan updated — tap to apply`
+      : 'Update available — tap to apply',
+  }[status] || (planDate ? `Plan from ${fmtDate(planDate)}` : 'Check for updates');
+
+  const hue = status === 'available' ? A.accent
+            : status === 'offline' || status === 'error' ? '#ffb020'
+            : A.textFaint;
+
+  return (
+    <button onClick={busy ? undefined : tap} disabled={busy} style={{
+      display:'flex',alignItems:'center',gap:7,marginTop:10,
+      padding:'7px 11px',borderRadius:9,
+      background: status === 'available' ? `${A.accent}14` : A.surface,
+      border:`1px solid ${status === 'available' ? `${A.accent}55` : A.border}`,
+      color:hue,fontFamily:MONO,fontSize:10,letterSpacing:0.8,fontWeight:700,
+      cursor: busy ? 'default' : 'pointer', textAlign:'left',
+      WebkitTapHighlightColor:'transparent',
+    }}>
+      <span style={{
+        fontSize:12,lineHeight:1,display:'inline-block',
+        animation: busy ? 'wr-spin 0.9s linear infinite' : 'none',
+      }}>⟳</span>
+      <span>{label.toUpperCase()}</span>
+    </button>
+  );
+}
+
+function PlanView({plan, currentDate, onJumpToDay, update}) {
   const weeks = useMemo(() => buildWeeks(plan), [plan]);
   const currentWeek = plan.days[currentDate]?.week_number;
   const scrollerRef = useRef(null);
@@ -996,6 +1049,7 @@ function PlanView({plan, currentDate, onJumpToDay}) {
         <div style={{fontSize:10,color:A.accent,fontFamily:MONO,letterSpacing:1.6,fontWeight:700,marginBottom:4}}>{weeks.length} WEEKS · {(plan.meta?.race || '').toUpperCase()}</div>
         <div style={{fontSize:22,fontWeight:800,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.6,lineHeight:1.1}}>The full plan</div>
         <div style={{fontSize:12,color:A.textDim,marginTop:4}}>Tap any week to expand. Tap a workout to jump into that day.</div>
+        <UpdateControl update={update}/>
       </div>
       <div style={{padding:'0 16px 14px',display:'flex',gap:10,flexWrap:'wrap'}}>
         {[['Base','#4ade80'],['Build','#ff5a3c'],['Peak','#ffb020'],['Taper_1','#60a5fa'],['Race_week','#c084fc']].map(([k,c]) => (
@@ -1670,7 +1724,7 @@ function AnalysisView({onBack}) {
 }
 
 
-function App({plan}) {
+function App({plan, update}) {
   useEffect(() => {
     if (plan?.meta?.race) document.title = `${plan.meta.race} — Training`;
   }, []);
@@ -1719,7 +1773,7 @@ function App({plan}) {
           <div style={{flex:1}}/>
           <div style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1.4,fontWeight:700}}>FULL PLAN</div>
         </div>
-        <PlanView plan={plan} currentDate={selected} onJumpToDay={jumpToDay}/>
+        <PlanView plan={plan} currentDate={selected} onJumpToDay={jumpToDay} update={update}/>
       </div>
     );
   }
@@ -1890,29 +1944,151 @@ function BootScreen({children}) {
   );
 }
 
+const PLAN_URL = './combined_plan.json';
+const SOURCE_LABEL = {run:'Run', strength:'Strength', nutrition:'Nutrition'};
+const AUTO_CHECK_MS = 5 * 60 * 1000;   // don't re-check on every tab focus
+
+// Throws if the payload is not a usable merged plan.
+const assertPlan = (data) => {
+  if (!data || typeof data !== 'object' || !data.days || !Object.keys(data.days).length) {
+    throw new Error('combined_plan.json has no "days" — is it the merged plan?');
+  }
+  return data;
+};
+
+// Which of the three source plans changed between two merged files.
+// merge_plans.py stamps meta.sources.{run,strength,nutrition} with the
+// schema_version and generated_date of each source, so the merged file alone
+// is enough to say what moved — the app never reads the sources themselves.
+const changedSources = (oldPlan, newPlan) => {
+  const a = oldPlan?.meta?.sources || {};
+  const b = newPlan?.meta?.sources || {};
+  return [...new Set([...Object.keys(a), ...Object.keys(b)])]
+    .filter(k => JSON.stringify(a[k]) !== JSON.stringify(b[k]))
+    .map(k => SOURCE_LABEL[k] || k);
+};
+
+const newestSourceDate = (plan) => {
+  const dates = Object.values(plan?.meta?.sources || {})
+    .map(s => s?.generated_date).filter(Boolean).sort();
+  return dates.length ? dates[dates.length - 1] : null;
+};
+
 function Root() {
   const [plan, setPlan] = useState(null);
   const [error, setError] = useState(null);
+  // Cache validators for the plan currently rendered. GitHub Pages sends an
+  // ETag; python -m http.server sends only Last-Modified; a bare static host
+  // may send neither. All three cases have to work, so we keep both and fall
+  // back to comparing content.
+  const [validator, setValidator] = useState({etag:null, lastModified:null});
+  // Monotonic remount key for App — independent of whether the host sends
+  // any validator at all.
+  const [planVersion, setPlanVersion] = useState(0);
+
+  // Update checking. status: idle | checking | current | available | offline | error
+  const [status, setStatus] = useState('idle');
+  const [pending, setPending] = useState(null);   // {plan, etag, changed[]}
+  const lastCheckedRef = useRef(0);
 
   const load = useCallback(() => {
     setError(null);
     // 'no-cache' revalidates with the server rather than trusting the HTTP
     // cache, so an edited plan is picked up without a service worker bump.
-    fetch('./combined_plan.json', {cache:'no-cache'})
+    fetch(PLAN_URL, {cache:'no-cache'})
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-        return res.json();
+        const v = {etag: res.headers.get('etag'), lastModified: res.headers.get('last-modified')};
+        return res.json().then(data => ({data, v}));
       })
-      .then(data => {
-        if (!data || typeof data !== 'object' || !data.days || !Object.keys(data.days).length) {
-          throw new Error('combined_plan.json has no "days" — is it the merged plan?');
-        }
+      .then(({data, v}) => {
+        assertPlan(data);
         setPlan(data);
+        setValidator(v);
+        setPlanVersion(n => n + 1);
+        setStatus('idle');
+        setPending(null);
       })
       .catch(e => setError(e));
   }, []);
 
   useEffect(load, [load]);
+
+  // Conditional re-fetch. GitHub Pages honours If-None-Match and answers 304
+  // with an empty body, so a check that finds nothing costs no bandwidth.
+  // 'no-store' keeps the browser HTTP cache out of it so our own conditional
+  // header is the only thing deciding 304 vs 200.
+  const check = useCallback((opts = {}) => {
+    const {silent = false} = opts;
+    if (!plan) return;
+    if (!silent) setStatus('checking');
+    lastCheckedRef.current = Date.now();
+
+    const headers = {};
+    if (validator.etag) headers['If-None-Match'] = validator.etag;
+    else if (validator.lastModified) headers['If-Modified-Since'] = validator.lastModified;
+
+    fetch(PLAN_URL, {cache:'no-store', headers})
+      .then(res => {
+        // The service worker tags responses it served from cache because the
+        // network was unreachable. Those must not be read as "up to date" —
+        // the server was never actually consulted.
+        if (res.headers.get('X-Served-From') === 'sw-cache') {
+          throw Object.assign(new Error('served from cache — network unreachable'), {offline: true});
+        }
+        if (res.status === 304) { setStatus('current'); return null; }
+        if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+        const v = {etag: res.headers.get('etag'), lastModified: res.headers.get('last-modified')};
+        return res.json().then(data => ({data, v}));
+      })
+      .then(result => {
+        if (!result) return;
+        assertPlan(result.data);
+        // A 200 does not prove the plan changed — a host may send no validator
+        // at all, in which case every check returns the full body. Compare
+        // content so we never claim an update that isn't there.
+        if (JSON.stringify(result.data) === JSON.stringify(plan)) {
+          setValidator(result.v);      // refresh validators so later checks can 304
+          setStatus('current');
+          return;
+        }
+        setPending({plan: result.data, validator: result.v, changed: changedSources(plan, result.data)});
+        setStatus('available');
+      })
+      .catch(e => {
+        // Either the fetch rejected outright, or the service worker answered
+        // from cache because it could not reach the network. Neither means
+        // "up to date" — report the check as not having happened.
+        const unreachable = e?.offline || navigator.onLine === false;
+        setStatus(unreachable ? 'offline' : 'error');
+        if (!unreachable) console.warn('[plan] update check failed:', e);
+      });
+  }, [plan, validator]);
+
+  // A backgrounded PWA often resumes rather than cold-starts, and a resumed
+  // page never re-runs the initial fetch — so without this an update could go
+  // unnoticed indefinitely. Checks quietly; never applies on its own.
+  useEffect(() => {
+    const onVisible = () => {
+      if (document.visibilityState !== 'visible') return;
+      if (Date.now() - lastCheckedRef.current < AUTO_CHECK_MS) return;
+      check({silent: true});
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
+  }, [check]);
+
+  // Swapping the plan changes App's key, remounting it. That re-runs
+  // useState(() => resolveToday(plan)), so `selected` can never point at a
+  // date the new plan lacks — plan.days[selected] is read unguarded in App.
+  const apply = useCallback(() => {
+    if (!pending) return;
+    setPlan(pending.plan);
+    setValidator(pending.validator);
+    setPlanVersion(n => n + 1);
+    setPending(null);
+    setStatus('current');
+  }, [pending]);
 
   if (error) {
     const isFileProto = window.location.protocol === 'file:';
@@ -1943,7 +2119,20 @@ function Root() {
     );
   }
 
-  return <App plan={plan}/>;
+  // key={etag} is load-bearing — see the comment on apply().
+  return (
+    <App
+      key={planVersion}
+      plan={plan}
+      update={{
+        status,
+        changed: pending?.changed || [],
+        planDate: newestSourceDate(plan),
+        onCheck: () => check(),
+        onApply: apply,
+      }}
+    />
+  );
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<Root/>);
