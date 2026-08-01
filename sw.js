@@ -3,7 +3,7 @@
  * Bump CACHE whenever you deploy. That is the only lever: a new cache name
  * forces a fresh precache and drops everything from the previous version.
  */
-const CACHE = 'vt50k-v4';
+const CACHE = 'vt50k-v5';
 
 /* All paths are relative to this file, so the worker works unchanged whether
  * the site is served from a user page (user.github.io) or a project page

@@ -98,14 +98,28 @@ const phaseStyle = (p) => PHASE_STYLE[p] || { label: (p||'PHASE').toUpperCase(),
 const formatDayLong = (iso) => new Date(iso+'T00:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
 const dayShort = (iso) => new Date(iso+'T00:00:00').toLocaleDateString('en-US',{weekday:'short'}).slice(0,3).toUpperCase();
 const dayNum = (iso) => new Date(iso+'T00:00:00').getDate();
+// Local calendar date as YYYY-MM-DD. toISOString() alone is UTC, which rolls
+// over to tomorrow during the evening in western timezones.
+const todayIso = () => {
+  const d = new Date();
+  return new Date(d.getTime() - d.getTimezoneOffset()*60000).toISOString().slice(0,10);
+};
 const weekActive = (rangeStr, week) => {
   if (!rangeStr) return true;
   const parts = rangeStr.split('-').map(Number);
   return week >= parts[0] && week <= (parts[1]||parts[0]);
 };
+// Scrolls an element to just under the sticky day header inside #app-scroll.
+const scrollUnderHeader = (el, extra = 12) => {
+  const sc = document.getElementById('app-scroll');
+  if (!sc || !el) return;
+  const headerH = document.getElementById('day-header')?.offsetHeight || 0;
+  const top = sc.scrollTop + el.getBoundingClientRect().top - sc.getBoundingClientRect().top - headerH - extra;
+  sc.scrollTo({top: Math.max(0, top), behavior:'smooth'});
+};
 const resolveToday = (plan) => {
   const dates = Object.keys(plan.days).sort();
-  const today = new Date().toISOString().slice(0,10);
+  const today = todayIso();
   if (plan.days[today]) return today;
   let best = dates[0], bestDiff = Infinity;
   for (const d of dates) {
@@ -140,6 +154,7 @@ function Icon({name, size=16, color='currentColor', stroke=2}) {
 // ── Day strip ─────────────────────────────────────────────────
 function DayStrip({dates, selected, onSelect, plan}) {
   const ref = useRef(null);
+  const today = todayIso();
   useEffect(() => {
     if (!ref.current) return;
     const el = ref.current.querySelector(`[data-day="${selected}"]`);
@@ -150,6 +165,7 @@ function DayStrip({dates, selected, onSelect, plan}) {
       {dates.map(d => {
         const day = plan.days[d];
         const isSel = d === selected;
+        const isToday = d === today;
         const run = day.run?.sessions?.[0];
         const str = day.strength?.sessions?.[0];
         const dots = [];
@@ -160,7 +176,7 @@ function DayStrip({dates, selected, onSelect, plan}) {
           <button key={d} data-day={d} onClick={()=>onSelect(d)} style={{
             flex:'0 0 auto', minWidth:54, height:72, padding:'8px 6px',
             borderRadius:14, border:`1.5px solid ${isSel ? A.text : A.border}`,
-            background: isSel ? A.surface2 : 'transparent',
+            background: isSel ? A.surface2 : isToday ? 'rgba(255,255,255,0.07)' : 'transparent',
             color: A.text, cursor:'pointer', fontFamily:SANS,
             display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between',
             transition:'all .18s ease', WebkitTapHighlightColor:'transparent',
@@ -250,8 +266,20 @@ function WorkoutFueling({preFuel, postFuel, workoutLabel, color}) {
   );
 }
 
-function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel}) {
+function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel, focusNonce, onFocusDone}) {
   const [collapsed, setCollapsed] = useState(false);
+  const rootRef = useRef(null);
+  // A focus request from the Focus tab: expand this card and scroll it into view.
+  useEffect(() => {
+    if (focusNonce == null) return;
+    setCollapsed(false);
+    // Deferred so the tab switch and the expand have both laid out before we measure.
+    const t = setTimeout(() => {
+      scrollUnderHeader(rootRef.current);
+      onFocusDone && onFocusDone();
+    }, 0);
+    return () => clearTimeout(t);
+  }, [focusNonce]);
   const color = kind === 'run' ? runColor(session.subtype) : strColor(session.subtype);
   const preFuel = (fueling||[]).find(f => {
     const ls = f.linked_session || {};
@@ -275,7 +303,7 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
   const elev = kind==='run' ? session.elevation_gain_ft : null;
 
   return (
-    <div style={{background:`color-mix(in srgb, ${color.hue} 6%, ${A.surface})`,borderRadius:20,overflow:'hidden',border:`1px solid color-mix(in srgb, ${color.hue} 20%, ${A.border})`}}>
+    <div ref={rootRef} style={{background:`color-mix(in srgb, ${color.hue} 6%, ${A.surface})`,borderRadius:20,overflow:'hidden',border:`1px solid color-mix(in srgb, ${color.hue} 20%, ${A.border})`}}>
       <div style={{height:3,background:color.hue}}/>
 
       {/* Tappable header — always visible, toggles collapse */}
@@ -740,13 +768,18 @@ function RoutineRow({routine}) {
 }
 
 // ── Minimal Workout Card (All tab) ───────────────────────────
-function HeroWorkoutMinimal({session, kind}) {
+function HeroWorkoutMinimal({session, kind, onOpen}) {
   const color = kind === 'run' ? runColor(session.subtype) : strColor(session.subtype);
   const dist = session.distance_mi;
   const dur = session.duration_min;
   const elev = session.elevation_gain_ft;
   return (
-    <div style={{background:`color-mix(in srgb, ${color.hue} 6%, ${A.surface})`,borderRadius:20,overflow:'hidden',border:`1px solid color-mix(in srgb, ${color.hue} 20%, ${A.border})`}}>
+    <div
+      onClick={onOpen}
+      onKeyDown={e => { if (onOpen && (e.key==='Enter'||e.key===' ')) { e.preventDefault(); onOpen(); } }}
+      role={onOpen ? 'button' : undefined}
+      tabIndex={onOpen ? 0 : undefined}
+      style={{background:`color-mix(in srgb, ${color.hue} 6%, ${A.surface})`,borderRadius:20,overflow:'hidden',border:`1px solid color-mix(in srgb, ${color.hue} 20%, ${A.border})`,cursor:onOpen?'pointer':'default',WebkitTapHighlightColor:'transparent'}}>
       <div style={{height:3,background:color.hue}}/>
       <div style={{padding:'18px 18px 0'}}>
         <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4}}>
@@ -779,7 +812,7 @@ function HeroWorkoutMinimal({session, kind}) {
 }
 
 // ── Minimal Nutrition Card (All tab) ─────────────────────────
-function NutritionCardMinimal({nutrition}) {
+function NutritionCardMinimal({nutrition, onOpen}) {
   const t = nutrition.daily_targets || {};
   const macros = [
     {label:'CARBS',   val:t.carbs_g,   color:'#ffb020', pct:(t.carbs_g*4)/(t.calories_total||1)},
@@ -787,7 +820,12 @@ function NutritionCardMinimal({nutrition}) {
     {label:'FAT',     val:t.fat_g,     color:'#4ade80', pct:(t.fat_g*9)/(t.calories_total||1)},
   ];
   return (
-    <div style={{background:'color-mix(in srgb, #ffb020 6%, #0e0e10)',borderRadius:20,overflow:'hidden',border:'1px solid color-mix(in srgb, #ffb020 20%, rgba(255,255,255,0.08))'}}>
+    <div
+      onClick={onOpen}
+      onKeyDown={e => { if (onOpen && (e.key==='Enter'||e.key===' ')) { e.preventDefault(); onOpen(); } }}
+      role={onOpen ? 'button' : undefined}
+      tabIndex={onOpen ? 0 : undefined}
+      style={{background:'color-mix(in srgb, #ffb020 6%, #0e0e10)',borderRadius:20,overflow:'hidden',border:'1px solid color-mix(in srgb, #ffb020 20%, rgba(255,255,255,0.08))',cursor:onOpen?'pointer':'default',WebkitTapHighlightColor:'transparent'}}>
       <div style={{height:3,background:'#ffb020'}}/>
       <div style={{padding:18}}>
       <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4}}>
@@ -1724,6 +1762,10 @@ function AnalysisView({onBack}) {
 }
 
 
+// How long the app can be backgrounded before a resume counts as "opening it
+// again" rather than a quick app-switch.
+const RESUME_RESET_MS = 30 * 60 * 1000;
+
 function App({plan, update}) {
   useEffect(() => {
     if (plan?.meta?.race) document.title = `${plan.meta.race} — Training`;
@@ -1733,10 +1775,27 @@ function App({plan, update}) {
   const [filter, setFilter] = useState('all');
   const [transitioning, setTransitioning] = useState(false);
   const [view, setView] = useState('day'); // 'day' | 'plan' | 'analysis'
+  // Focus-tab → detail-tab jump. {idx, nonce}; the matching HeroWorkout expands
+  // and scrolls itself into view, then clears this via onFocusDone.
+  const [jump, setJump] = useState(null);
+  const jumpSeq = useRef(0);
+
+  const focusWorkout = (idx) => {
+    jumpSeq.current += 1;
+    setJump({idx, nonce: jumpSeq.current});
+    setFilter('workouts');
+  };
+  const focusNutrition = () => {
+    setJump(null);
+    setFilter('nutrition');
+    setTimeout(() => document.getElementById('app-scroll')?.scrollTo({top:0,behavior:'auto'}), 0);
+  };
 
   const jumpToDay = (d) => {
     setSelected(d);
     setView('day');
+    setJump(null);
+    setFilter('all');            // every day opens on Focus
     setTimeout(() => {
       document.getElementById('app-scroll')?.scrollTo({top:0,behavior:'auto'});
     }, 0);
@@ -1744,9 +1803,45 @@ function App({plan, update}) {
 
   const switchDay = (d) => {
     if (d === selected) return;
+    setJump(null);
+    setFilter('all');            // every day opens on Focus
     setTransitioning(true);
-    setTimeout(() => { setSelected(d); setTransitioning(false); }, 140);
+    setTimeout(() => {
+      setSelected(d);
+      setTransitioning(false);
+      document.getElementById('app-scroll')?.scrollTo({top:0,behavior:'auto'});
+    }, 140);
   };
+
+  // A backgrounded PWA resumes rather than cold-starts, so the mount-time
+  // resolveToday never re-runs — left open overnight, the app would still be
+  // sitting on yesterday. Snap back to today when the date has rolled over or
+  // after a long time away. A quick app-switch is left alone: throwing away
+  // the day being read would be worse than the staleness it prevents.
+  useEffect(() => {
+    let awaySince = null;
+    let lastDay = todayIso();
+    const onVisible = () => {
+      if (document.visibilityState !== 'visible') {
+        awaySince = Date.now();
+        return;
+      }
+      const now = todayIso();
+      const longAway = awaySince != null && Date.now() - awaySince >= RESUME_RESET_MS;
+      awaySince = null;
+      if (now === lastDay && !longAway) return;
+      lastDay = now;
+      setSelected(resolveToday(plan));
+      setJump(null);
+      setFilter('all');
+      setView(v => v === 'plan' ? 'day' : v);   // leave an in-progress analysis alone
+      setTimeout(() => {
+        document.getElementById('app-scroll')?.scrollTo({top:0,behavior:'auto'});
+      }, 0);
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
+  }, [plan]);
 
   if (view === 'analysis') {
     return <AnalysisView onBack={() => setView('day')}/>;
@@ -1795,7 +1890,7 @@ function App({plan, update}) {
     <div id="app-scroll" style={{height:'100vh',overflowY:'auto',background:A.bg}}>
       <div style={{background:A.bg,color:A.text,fontFamily:SANS,minHeight:'100%',paddingBottom:40}}>
         {/* sticky header */}
-        <div style={{position:'sticky',top:0,zIndex:10,background:A.bg,borderBottom:`1px solid ${A.border}`}}>
+        <div id="day-header" style={{position:'sticky',top:0,zIndex:10,background:A.bg,borderBottom:`1px solid ${A.border}`}}>
           <div style={{padding:'14px 16px 6px',display:'flex',alignItems:'center',gap:10}}>
             <div style={{width:36,height:36,borderRadius:10,background:A.surface2,border:`1px solid ${A.border}`,display:'flex',alignItems:'center',justifyContent:'center'}}>
               <Icon name="mountain" size={16} color={A.accent}/>
@@ -1862,11 +1957,11 @@ function App({plan, update}) {
               {allSessions.length > 0 && (
                 <>
                   {allSessions.map((s,i) => (
-                    <HeroWorkoutMinimal key={i} session={s} kind={s.kind}/>
+                    <HeroWorkoutMinimal key={i} session={s} kind={s.kind} onOpen={()=>focusWorkout(i)}/>
                   ))}
                 </>
               )}
-              {day.nutrition && <NutritionCardMinimal nutrition={day.nutrition}/>}
+              {day.nutrition && <NutritionCardMinimal nutrition={day.nutrition} onOpen={focusNutrition}/>}
               {allSessions.length > 0 && <DayTimeline day={day} plan={plan}/>}
             </>
           ) : (
@@ -1902,6 +1997,8 @@ function App({plan, update}) {
                         fueling={fueling}
                         prePost={prePost}
                         workoutLabel={s.kind === 'run' ? runColor(s.subtype).name : strColor(s.subtype).name}
+                        focusNonce={jump && jump.idx === i ? jump.nonce : null}
+                        onFocusDone={()=>setJump(null)}
                       />
                     );
                   })}
