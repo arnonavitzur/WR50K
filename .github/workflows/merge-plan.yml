@@ -5,24 +5,33 @@ name: Merge training plan
 # combined_plan.json at runtime, so a rebuilt plan reaches the device on the
 # next online load with no HTML change and no service worker cache bump.
 #
-# Loop safety — this workflow commits combined_plan.json, which is deliberately
-# NOT in the paths filter below, so its own commit cannot re-trigger it. GitHub
-# additionally suppresses workflow triggers for commits pushed with GITHUB_TOKEN,
-# and the commit message carries [skip ci]. Three independent guards.
+# Loop safety — this workflow commits combined_plan.json, and that file is the
+# sole entry in paths-ignore below, so its own commit cannot re-trigger it.
+# GitHub additionally suppresses workflow triggers for commits pushed with
+# GITHUB_TOKEN, and the commit message carries [skip ci]. Three independent
+# guards.
 
 # Note: a workflow does not run for the push that first adds it. This one was
 # therefore dormant until its second push. To rebuild on demand at any time,
 # use the "Run workflow" button on the Actions tab (workflow_dispatch below).
 
+# Why paths-ignore rather than an allowlist of the plan sources: on 2026-08-06 a
+# push touching only run_plan.json created no run at all — workflow active, repo
+# public, Actions enabled, filter correct, and the Pages build fired for the same
+# push. The cause was never identified. An allowlist that silently fails to match
+# is indistinguishable from "nothing to rebuild", and the plan quietly goes stale
+# on the phone. Matching every push except the bot's own costs ~11s of idempotent
+# work and removes that failure mode. The nightly run below is the second net: if
+# a push trigger is ever missed again, drift self-heals within a day instead of
+# waiting to be noticed.
+
 on:
   push:
     branches: [main]
-    paths:
-      - run_plan.json
-      - strength_plan.json
-      - nutrition_plan.json
-      - merge_plans.py
-      - .github/workflows/merge-plan.yml
+    paths-ignore:
+      - combined_plan.json
+  schedule:
+    - cron: '17 9 * * *'    # 09:17 UTC daily — catches a missed push trigger
   workflow_dispatch:
 
 permissions:
