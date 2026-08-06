@@ -25,11 +25,16 @@ name: Merge training plan
 # a push trigger is ever missed again, drift self-heals within a day instead of
 # waiting to be noticed.
 #
-# What actually restored push triggers on 2026-08-06: disabling and re-enabling
-# this workflow (gh workflow disable/enable merge-plan.yml). Toggling repo-wide
-# Actions permissions did not help, and workflow_dispatch worked throughout —
-# only the push event was dead. If plan pushes ever stop rebuilding again, try
-# that same disable/enable before anything else.
+# Remedies tried on 2026-08-06, none of which restored the push event:
+#   - toggling repo-wide Actions permissions off and on
+#   - gh workflow disable / enable on the old merge-plan.yml (its updated_at moved, so
+#     the record was genuinely touched — push triggers still did not fire)
+#   - modifying this file, which is itself in the trigger set
+# workflow_dispatch and the Pages build worked throughout; only `push` was dead.
+# Renaming this file to plan-merge.yml is the next remedy: a new filename
+# registers as a new workflow rather than reusing the stuck record. Note that a
+# workflow never runs for the push that first adds it, so the renaming push is
+# expected to be silent — the push after it is the real test.
 
 on:
   push:

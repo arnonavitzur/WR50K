@@ -9,7 +9,7 @@ CLAUDE.md
 context_v2.md
 
 # Plan sources and the merge script are TRACKED — CI rebuilds combined_plan.json
-# from them on push. See .github/workflows/merge-plan.yml.
+# from them on push. See .github/workflows/plan-merge.yml.
 # Dated local backups of those sources are not, e.g. "run_plan (07302026).json".
 # No tracked plan file has a space in its name, so this cannot shadow a real one.
 *_plan (*).json
