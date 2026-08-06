@@ -24,6 +24,12 @@ name: Merge training plan
 # work and removes that failure mode. The nightly run below is the second net: if
 # a push trigger is ever missed again, drift self-heals within a day instead of
 # waiting to be noticed.
+#
+# What actually restored push triggers on 2026-08-06: disabling and re-enabling
+# this workflow (gh workflow disable/enable merge-plan.yml). Toggling repo-wide
+# Actions permissions did not help, and workflow_dispatch worked throughout —
+# only the push event was dead. If plan pushes ever stop rebuilding again, try
+# that same disable/enable before anything else.
 
 on:
   push:
