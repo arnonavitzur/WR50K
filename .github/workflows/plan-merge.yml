@@ -50,7 +50,7 @@ permissions:
 
 # Never let two rebuilds race to push.
 concurrency:
-  group: merge-plan
+  group: plan-merge
   cancel-in-progress: false
 
 jobs:
