@@ -7,7 +7,7 @@
     "plan_end": "2026-09-27",
     "sources": {
       "run": {
-        "schema_version": "1.3",
+        "schema_version": "1.4",
         "generated_by": "Performance / Run Coach (Claude)",
         "generated_date": "2026-07-27"
       },
@@ -2402,9 +2402,9 @@
             "hr_cap_bpm": 155,
             "hr_zone": "Z3",
             "poles": false,
-            "key_cue": "6 x 90 s RUNNING at +5..8% grade, HR under 155, walk-down recovery. Cadence over 130 on every rep — running, not power-hiking.",
+            "key_cue": "6 x 90 s RUNNING at +5..8% grade, HR under 155, walk-down recovery. PASS CRITERION: run_pct >= 80% on every rep — running cadence sits at 168-176 spm when genuinely run. A rep at 130-140 spm is half-walked and does not count.",
             "fueling_required": false,
-            "notes": "Intensity: Quality. P2 opens. The point is gait, not effort: stay running at grades where the June data shows the cadence collapse (+4..8%). Reps are short on purpose. No poles — the whole cycle is pole-free."
+            "notes": "Intensity: Quality. P2 opens. TEST ZONE, not a known deficit: +5..8% is exactly the band where the run-vs-hike question is open (Findings Register F-08). Reps are short on purpose. No poles. CADENCE CRITERION CORRECTED rev 1.4: the previous 'cadence over 130' target was inherited from walk-contaminated band averages (F-02, retracted). Pass on run share, report cadence_moving_spm."
           }
         ]
       },
@@ -2797,7 +2797,7 @@
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
-            "key_cue": "Within an easy run: 2 x 0.5 mi at -3..5%, RELAXED running, cadence 170+, quiet feet. Non-technical surface.",
+            "key_cue": "Within an easy run: 2 x 0.5 mi at -3..5%, RELAXED running, median running cadence 175+, quiet feet. Non-technical surface.",
             "fueling_required": false,
             "notes": "Intensity: Easy + skill. P3 opens gently — Gate 1 is cleared, so moderate-grade descent running begins as the tendon-rebuild medium itself. This is form practice, not load. Lower B (tendon HSR) this evening."
           }
@@ -3004,7 +3004,7 @@
             "poles": false,
             "key_cue": "4 x 15 s uphill strides at the end — smooth build to fast-but-relaxed, walk back down. Full recovery.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + strides. Strides gate: only if the week has been symptom-free at the ankle. These are neuromuscular, not cardio — HR is irrelevant on a 15-s rep. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
+            "notes": "Intensity: Easy + strides. Strides gate: only if the week has been symptom-free at the ankle. RATIONALE RE-DERIVED rev 1.4: the original justification cited the +4..8% cadence-collapse finding, which is retracted (F-02) — running cadence is 166-178 spm at every grade. Strides are retained on independent grounds: running economy, and the SSC/elastic-tendon demand of Vermont's 20-28 short climb-descent transitions. Neuromuscular, not cardio — HR is irrelevant on a 15-s rep. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard."
           }
         ]
       },
@@ -3415,7 +3415,7 @@
           {
             "type": "run",
             "subtype": "power_climb",
-            "title": "Hill intervals — 3 min reps",
+            "title": "GRADE-ECONOMY TEST (F-08) + reduced hill reps",
             "duration_min": 50,
             "distance_mi": 4.5,
             "elevation_gain_ft": 800,
@@ -3423,9 +3423,9 @@
             "hr_cap_bpm": 157,
             "hr_zone": "Z3",
             "poles": false,
-            "key_cue": "5 x 3 min at +5..8%, Z3 cap 157, jog-down or rolling recovery. Cadence 130+. Finish with 4 x 20 s hill strides.",
+            "key_cue": "Road or graded fireroad, NOT rolling trail. PRESS LAP at the start and end of every block — non-negotiable. BLOCK 1 flat reference 6 min steady running. BLOCK 2 6 min continuous at +3..4%. BLOCK 3 6 min continuous at +6..7%. BLOCK 4 repeat +3..4% 6 min. Full easy recovery between blocks. RUN EVERY BLOCK TO COMPLETION at steady running effort — do NOT pace to a cap and do not walk. 157 is an ABORT tripwire, not a target. Finish with 4 x 20 s hill strides.",
             "fueling_required": false,
-            "notes": "Intensity: Quality. Reps now long enough to demand rhythm, still capped at Z3 — race day never needs more, the stimulus is economy and gait. Lower A this evening."
+            "notes": "Intensity: Quality / MEASUREMENT. This is the Addendum C s9 test and it is the highest-value measurement in the block (Findings Register F-08). THE QUESTION: running continuously at grade, does HR plateau below the ceiling or rise monotonically until you are forced to walk? Plateau -> P2 becomes volume and execution rehearsal. Monotonic rise -> P2 becomes economy work and Lever C (the ceiling itself) moves to the front. PROTOCOL NOTE: turn OFF auto-lap so manual lap presses are the only block boundaries (Parser spec PC-2). READ-OUT REQUIRED: HR start/end/max and slope in bpm/min within each block, pace, cadence_moving_spm, run_pct, and %% of seconds above cap — not block averages. HEAT GATE (convention C-2): coolest available window. Heat index above 85 F invalidates the HR read entirely — if the forecast breaches it, the session SLIPS TO W5 TUESDAY 8/25 and the hill reps run as originally written. The test must precede the 8/27 Gate 2 and 8/30 calibration package. P1 INTERACTION: uphill running is concentric-dominant and race climbing was pain-free, so this is tendon-compatible; confirm the three symptom sites are clear before starting. VERTICAL-NEUTRAL: 800 ft total is UNCHANGED from rev 1.3 — the test blocks are funded by reducing approach and recovery climbing, not by adding gain. W4 sits exactly at the +500 ft ramp cap and has no headroom. Lower A this evening as scheduled."
           }
         ]
       },
@@ -3817,7 +3817,7 @@
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
-            "key_cue": "3 x 0.75 mi at -4..6%, cadence 170+, controlled but genuinely RUNNING. Non-technical.",
+            "key_cue": "3 x 0.75 mi at -4..6%, median running cadence 175+, controlled but genuinely RUNNING. Non-technical.",
             "fueling_required": false,
             "notes": "Intensity: Easy + skill. Descent dose grows. Note any lateral-ankle or lateral-knee feedback within 24h — that is the progression signal, not just in-session feel. Lower B this evening."
           }
@@ -4022,9 +4022,9 @@
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
-            "key_cue": "6 x 1 min RUNNING at +2..4% inside the run, cadence 140+, easy jog between. Smooth, tall, quick feet.",
+            "key_cue": "6 x 1 min RUNNING at +2..4% inside the run, running cadence 165+, easy jog between. Smooth, tall, quick feet.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + economy. This is the +2..5% band work: at peak fitness you ran it at 13:31 / cadence 138 — the pickups keep that gait pattern rehearsed while volume rebuilds. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
+            "notes": "Intensity: Easy + economy. PROMOTED rev 1.4: this is the densest part of the prize. Running's advantage over hiking shrinks as grade rises, so +2..5% is where the time is — and Vermont has 5.6 mi of it. CITATION CORRECTED rev 1.4: the previous note claimed 'at peak fitness you ran it at 13:31 / cadence 138.' The June 13 re-parse shows that band was run 38.9%% of the time; 13:26-13:31 is a walk/run blend, not a running pace, and 138 spm is a walk-share number. When actually running +4.2%% on June 13 you held 11:45 at HR 141.4 with cadence 170. That is the gait pattern these pickups rehearse. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard."
           }
         ]
       },
@@ -4446,9 +4446,9 @@
             "hr_cap_bpm": 157,
             "hr_zone": "Z3",
             "poles": false,
-            "key_cue": "6 x 3 min at +5..8% in PAIRS with only a short rolling recovery inside each pair; full jog recovery between pairs. Plus 2 x 30 s strong at +12..15%. Finish 4 x 20 s strides.",
+            "key_cue": "6 x 3 min at +5..8% in PAIRS with only a short rolling recovery inside each pair; full jog recovery between pairs. Plus 2 x 30 s strong at +12..15%. Finish 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every +5..8% rep.",
             "fueling_required": false,
-            "notes": "Intensity: Quality. Back-to-back pairs train the Vermont transition rhythm — climb, crest, roll, climb again. The two steep reps cover the brief 12-15% pitches the course profile hides. Lower A this evening."
+            "notes": "Intensity: Quality. Back-to-back pairs train the Vermont transition rhythm — climb, crest, roll, climb again. The two steep reps cover the brief 12-15% pitches the course profile hides. Lower A this evening. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
           }
         ]
       },
@@ -4842,7 +4842,7 @@
             "hr_cap_bpm": 152,
             "hr_zone": "Z2-3",
             "poles": false,
-            "key_cue": "After 15 min warmup: 2 x 1.5 mi SUSTAINED running at -5..8%, cadence 170+, controlled-strong effort, full recovery between. Non-technical surface. Clean FIT recording.",
+            "key_cue": "After 15 min warmup: 2 x 1.5 mi SUSTAINED running at -5..8%, median running cadence 175+, controlled-strong effort, full recovery between. Non-technical surface. Clean FIT recording.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 30 min.",
             "notes": "Intensity: Calibration/Quality. THE GATE 2 SESSION, deferred from last cycle. Pass criteria: both reps completed at cadence 170+, no symptom escalation at ankle/knee within 24h. Pass clears race-specific descent volume from Week 6. The FIT file goes to the Race Strategy project. Reference ceiling for context, not target: June 13 held 10:38/mi at HR 147 over 6.67 mi of this band. Lower B this evening — tendon work, moderate load given the hard morning. CAP RATIONALE: the 152 cap is the White River descent-throttle signal, correctly inherited — a declared tripwire at low Z3 over an intended Z2 execution band. The intended band is stated unambiguously here because this session's FIT file feeds the Vermont pacing plan. FAIL BRANCH: a flag here also demotes Sunday 8/30 to a flat/gentle 10-12 mi easy (no calibration status) and moves the calibration long run to 9/6 — see week notes."
@@ -5482,9 +5482,9 @@
             "hr_cap_bpm": 157,
             "hr_zone": "Z3",
             "poles": false,
-            "key_cue": "4 x 5 min at +5..8% Z3, rolling recoveries; 3 x 30 s at +12..15%; 4 x 20 s strides.",
+            "key_cue": "4 x 5 min at +5..8% Z3, rolling recoveries; 3 x 30 s at +12..15%; 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every 5-min rep.",
             "fueling_required": false,
-            "notes": "Intensity: Quality. Reps now at the top of the Vermont climb-duration range (the 2-8 min shapes from the course brief). Lower A this evening. VERT TRIM (rev 1.2): 1,050 -> 950 ft. Session structure (4 x 5 min at +5..8%, 3 x 30 s steep, 4 x 20 s strides) is UNCHANGED — only the approach/recovery climbing is reduced. Density is still 173 ft/mi, above race. Required because easy-day vertical alone could not bring W6 inside the 10% vert cap; flagged as a deliberate deviation from the easy-days-only trim principle."
+            "notes": "Intensity: Quality. Reps now at the top of the Vermont climb-duration range (the 2-8 min shapes from the course brief). Lower A this evening. VERT TRIM (rev 1.2): 1,050 -> 950 ft. Session structure (4 x 5 min at +5..8%, 3 x 30 s steep, 4 x 20 s strides) is UNCHANGED — only the approach/recovery climbing is reduced. Density is still 173 ft/mi, above race. Required because easy-day vertical alone could not bring W6 inside the 10% vert cap; flagged as a deliberate deviation from the easy-days-only trim principle. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
           }
         ]
       },
@@ -5876,7 +5876,7 @@
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
-            "key_cue": "Rolling route with 4 descents of 0.75-1 mi at -4..8%, RUN all of them strong, cadence 170+, easy everything else.",
+            "key_cue": "Rolling route with 4 descents of 0.75-1 mi at -4..8%, RUN all of them strong, median running cadence 175+, easy everything else.",
             "fueling_required": false,
             "notes": "Intensity: Easy + descent volume. First race-specific descent accumulation — repeated moderate doses under building fatigue, the exact Vermont stimulus. Lower B this evening. VERT TRIM (rev 1.2): 600 -> 500 ft. All 4 descents of 0.75-1 mi at -4..8% are UNCHANGED — the eccentric stimulus is intact; only the connecting gain is reduced. Same rationale as Tuesday: W6 could not otherwise comply."
           }
@@ -6091,9 +6091,9 @@
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
-            "key_cue": "6 x 1 min at +2..4%, cadence 140+.",
+            "key_cue": "6 x 1 min at +2..4%, running cadence 165+.",
             "fueling_required": false,
-            "notes": "Intensity: Easy + economy. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
+            "notes": "Intensity: Easy + economy. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged. CADENCE CORRECTED rev 1.4 (was 140+, a blend-level figure)."
           }
         ]
       },
@@ -6515,9 +6515,9 @@
             "hr_cap_bpm": 157,
             "hr_zone": "Z3",
             "poles": false,
-            "key_cue": "5 x 4 min at +5..8% with two back-to-back pairs; 3 x 30 s steep; 4 x 20 s strides.",
+            "key_cue": "5 x 4 min at +5..8% with two back-to-back pairs; 3 x 30 s steep; 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every rep.",
             "fueling_required": false,
-            "notes": "Intensity: Quality. Peak hill session. Lower A this evening is the LAST HEAVY gym session of the block. VERT REDISTRIBUTION (rev 1.2, Answer B1): 1,100 -> 750 ft. Session structure is UNCHANGED; the 350 ft moves to Sunday's marquee climb. Peak hill density is already banked from the W5-W6 Tuesdays at 190-191 ft/mi, so this costs nothing."
+            "notes": "Intensity: Quality. Peak hill session. Lower A this evening is the LAST HEAVY gym session of the block. VERT REDISTRIBUTION (rev 1.2, Answer B1): 1,100 -> 750 ft. Session structure is UNCHANGED; the 350 ft moves to Sunday's marquee climb. Peak hill density is already banked from the W5-W6 Tuesdays at 190-191 ft/mi, so this costs nothing. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
           }
         ]
       },
@@ -6911,7 +6911,7 @@
             "hr_cap_bpm": 149,
             "hr_zone": "Z2",
             "poles": false,
-            "key_cue": "2 x 1 mi at -5..7%, cadence 170+, smooth.",
+            "key_cue": "2 x 1 mi at -5..7%, median running cadence 175+, smooth.",
             "fueling_required": false,
             "notes": "Intensity: Easy + skill. Descent maintenance, not progression. Lower B this evening shifts isometric-dominant (taper-compatible tendon work begins). VERT REDISTRIBUTION (rev 1.2, Answer B1): 350 -> 250 ft. The 2 x 1 mi at -5..7% descent block is UNCHANGED."
           }
@@ -7540,9 +7540,9 @@
             "hr_cap_bpm": 157,
             "hr_zone": "Z3",
             "poles": false,
-            "key_cue": "4 x 3 min at +5..8% Z3, 4 x 20 s strides. Crisp, not deep.",
+            "key_cue": "4 x 3 min at +5..8% Z3, 4 x 20 s strides. Crisp, not deep. PASS CRITERION: run_pct >= 80%.",
             "fueling_required": false,
-            "notes": "Intensity: Quality (reduced). Lower session this evening — isometric-dominant, moderate."
+            "notes": "Intensity: Quality (reduced). Lower session this evening — isometric-dominant, moderate. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
           }
         ]
       },
