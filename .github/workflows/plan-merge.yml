@@ -25,16 +25,25 @@ name: Merge training plan
 # a push trigger is ever missed again, drift self-heals within a day instead of
 # waiting to be noticed.
 #
-# Remedies tried on 2026-08-06, none of which restored the push event:
+# PUSH TRIGGERS ARE BROKEN ON THIS REPO (as of 2026-08-06). Every remedy below
+# was tried and none restored the push event:
+#   - paths allowlist -> paths-ignore (this file's current form)
 #   - toggling repo-wide Actions permissions off and on
-#   - gh workflow disable / enable on the old merge-plan.yml (its updated_at moved, so
-#     the record was genuinely touched — push triggers still did not fire)
-#   - modifying this file, which is itself in the trigger set
-# workflow_dispatch and the Pages build worked throughout; only `push` was dead.
-# Renaming this file to plan-merge.yml is the next remedy: a new filename
-# registers as a new workflow rather than reusing the stuck record. Note that a
-# workflow never runs for the push that first adds it, so the renaming push is
-# expected to be silent — the push after it is the real test.
+#   - gh workflow disable / enable on the old merge-plan.yml (its updated_at
+#     moved, so the record was genuinely touched — push still did not fire)
+#   - renaming merge-plan.yml -> plan-merge.yml, which did register as a brand
+#     new workflow id, and the push after it still produced no run
+# workflow_dispatch and the Pages build work throughout; only `push` is dead.
+# Nothing in the repo explains it: workflow active, repo public and not a fork,
+# Actions enabled with allowed_actions: all, no rulesets, valid YAML, no queued
+# or waiting runs. This looks like a GitHub-side fault worth a support ticket.
+#
+# UNTIL IT IS FIXED, do not trust a plan push to rebuild anything. Either:
+#   1. run the merge locally and commit combined_plan.json with the source edit
+#      (the "Commit if changed" step below then no-ops when CI does run), or
+#   2. push, then: gh workflow run plan-merge.yml --ref main
+# The nightly schedule below is unproven — schedules arrive through the same
+# event path as push, so it may be just as dead. Verify before relying on it.
 
 on:
   push:
