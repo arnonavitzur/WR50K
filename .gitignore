@@ -27,3 +27,7 @@ section-fit-parser.py
 
 # Test fixtures — real activity files, not needed in the repo
 *.fit
+
+# update_plan.py imports merge_plans.py, so running it byte-compiles the module
+__pycache__/
+*.pyc

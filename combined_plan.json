@@ -5319,7 +5319,7 @@
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "Long run day (Sunday)",
+        "day_type_label": "CALIBRATION LONG RUN (16 mi) — full race-protocol fueling test",
         "phase_adjustment_applied": {
           "phase": "Build",
           "adjustment": "Long runs 10-18 mi. Totals scale with duration; from Week 5 the calibration/dress-rehearsal overrides take over the details.",
@@ -5333,11 +5333,11 @@
         "daily_targets": {
           "calories_total": 3300,
           "carbs_g": 460,
-          "protein_g": 148,
-          "fat_g": 82,
-          "fluid_ml_total": 3500,
-          "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal, every week, same meal. During-run fueling at race cadence. Post-run recovery is the priority meal of the week.",
-          "notes": "The rehearsed breakfast (oatmeal + banana + honey + berries, coffee) is race-proven — it fed an 8-hour ultra. Keep it identical."
+          "protein_g": 145,
+          "fat_g": 80,
+          "fluid_ml_total": 3800,
+          "general_guidance": "Run the proven race protocol end-to-end on the calibration run: rehearsed breakfast, 30-min gel cadence, SaltStick 1/45. Data day for the gut as much as the legs.",
+          "notes": "FIT file goes to the Race Strategy project. Note any GI signal alongside the running data."
         },
         "session_fueling": [
           {
@@ -5346,16 +5346,16 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "90 min before run",
+            "timing": "90 min before",
             "calories": 500,
             "carbs_g": 80,
             "protein_g": 15,
             "fat_g": 10,
             "foods": [
               "oatmeal with banana, honey, and berries",
-              "coffee with splash of milk"
+              "coffee"
             ],
-            "notes": "THE REHEARSED MEAL — unchanged from the White River build; it is now race-proven."
+            "notes": "Rehearsed meal."
           },
           {
             "linked_session": {
@@ -5363,8 +5363,8 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "First gel at 30 min, every 30 min after; SaltStick at 45-min marks",
-            "calories": 210,
+            "timing": "Gel every 30 min from minute 30; SaltStick every 45 min",
+            "calories": 215,
             "sodium_mg": 425,
             "fluid_ml": 550,
             "fueling_schedule": [
@@ -5381,7 +5381,7 @@
                 "sodium_mg": 225
               }
             ],
-            "notes": "PROVEN BASELINE (race-validated): ~210-230 cal/hr at 30-min gel cadence, 1 SaltStick/45 min, ~500-600 ml/hr in cool conditions. This is the floor, not the ceiling — the dress-rehearsal overrides push toward 240-260/hr at 25-30 min cadence for race day. Scale fluid to 600-800 ml/hr if warm."
+            "notes": "Proven baseline protocol, executed exactly. ~2.5-3 h effort: expect 5-6 gels, 3-4 SaltSticks."
           },
           {
             "linked_session": {
@@ -5394,13 +5394,16 @@
             "carbs_g": 55,
             "protein_g": 35,
             "foods": [
-              "whey shake with banana and oats",
-              "whole-food meal within 2 h: chicken/salmon, rice, vegetables"
-            ],
-            "notes": "Priority recovery meal of the week. Rehydrate ~150% of losses; include sodium."
+              "whey shake + banana + oats",
+              "full meal within 2 h"
+            ]
           }
         ],
-        "notes": ""
+        "notes": "",
+        "date_override_applied": {
+          "date": "2026-08-30",
+          "reason": "CALIBRATION LONG RUN (16 mi) — full race-protocol fueling test"
+        }
       }
     },
     "2026-08-31": {
@@ -7377,7 +7380,7 @@
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "Long run day (Sunday)",
+        "day_type_label": "PEAK LONG RUN (20 mi) — full Vermont dress rehearsal",
         "phase_adjustment_applied": {
           "phase": "Peak",
           "adjustment": "20-mi dress rehearsal — highest calorie training day (see 2026-09-13 override).",
@@ -7389,13 +7392,13 @@
           }
         },
         "daily_targets": {
-          "calories_total": 3500,
-          "carbs_g": 490,
+          "calories_total": 3550,
+          "carbs_g": 500,
           "protein_g": 150,
           "fat_g": 84,
-          "fluid_ml_total": 3500,
-          "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal, every week, same meal. During-run fueling at race cadence. Post-run recovery is the priority meal of the week.",
-          "notes": "The rehearsed breakfast (oatmeal + banana + honey + berries, coffee) is race-proven — it fed an 8-hour ultra. Keep it identical."
+          "fluid_ml_total": 4200,
+          "general_guidance": "Complete race-day rehearsal: rehearsed breakfast at race-relative timing, race vest, race-day fueling cadence stepped UP to the 25-30 min pattern, caffeine timing practiced late.",
+          "notes": "This is the day that converts the proven floor (210-230 cal/hr @ 30 min) toward the race target (240-260 cal/hr @ 25-30 min). If the gut accepts the tighter cadence here, it becomes the race protocol; if not, race on the proven floor."
         },
         "session_fueling": [
           {
@@ -7404,16 +7407,17 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "90 min before run",
-            "calories": 500,
-            "carbs_g": 80,
+            "timing": "2.5-3 h before start (rehearse race-morning timing)",
+            "calories": 550,
+            "carbs_g": 90,
             "protein_g": 15,
             "fat_g": 10,
             "foods": [
               "oatmeal with banana, honey, and berries",
-              "coffee with splash of milk"
+              "coffee 1-2 cups",
+              "sip 300-400 ml electrolyte water pre-start"
             ],
-            "notes": "THE REHEARSED MEAL — unchanged from the White River build; it is now race-proven."
+            "notes": "Slightly larger than usual — race-morning sized."
           },
           {
             "linked_session": {
@@ -7421,14 +7425,14 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "First gel at 30 min, every 30 min after; SaltStick at 45-min marks",
-            "calories": 210,
-            "sodium_mg": 425,
-            "fluid_ml": 550,
+            "timing": "Gel every 25-30 min; SaltStick 1/45; caffeine gels in the final 90 min",
+            "calories": 245,
+            "sodium_mg": 475,
+            "fluid_ml": 575,
             "fueling_schedule": [
               {
-                "interval_min": 30,
-                "item": "GU Roctane gel (non-caffeine)",
+                "interval_min": 27,
+                "item": "GU Roctane gel (non-caffeine until final 90 min)",
                 "cal": 100,
                 "sodium_mg": 125
               },
@@ -7437,9 +7441,16 @@
                 "item": "SaltStick capsule",
                 "cal": 0,
                 "sodium_mg": 225
+              },
+              {
+                "interval_min": 150,
+                "item": "Switch to CAFFEINE gels for the final 90 min (2 total today)",
+                "cal": 100,
+                "sodium_mg": 125,
+                "caffeine_mg": 35
               }
             ],
-            "notes": "PROVEN BASELINE (race-validated): ~210-230 cal/hr at 30-min gel cadence, 1 SaltStick/45 min, ~500-600 ml/hr in cool conditions. This is the floor, not the ceiling — the dress-rehearsal overrides push toward 240-260/hr at 25-30 min cadence for race day. Scale fluid to 600-800 ml/hr if warm."
+            "notes": "TEST DAY for the stepped-up cadence: target 240-260 cal/hr. Also carry pretzels (race-proven) and take one handful mid-run — variety rehearsal. Fluid 500-650 ml/hr, scale up if warm."
           },
           {
             "linked_session": {
@@ -7448,17 +7459,21 @@
               "position": "post"
             },
             "timing": "Within 30 min",
-            "calories": 450,
-            "carbs_g": 55,
-            "protein_g": 35,
+            "calories": 500,
+            "carbs_g": 60,
+            "protein_g": 38,
             "foods": [
-              "whey shake with banana and oats",
-              "whole-food meal within 2 h: chicken/salmon, rice, vegetables"
+              "whey shake + banana + oats",
+              "full recovery meal within 2 h"
             ],
-            "notes": "Priority recovery meal of the week. Rehydrate ~150% of losses; include sodium."
+            "notes": "Biggest recovery meal of the block."
           }
         ],
-        "notes": ""
+        "notes": "",
+        "date_override_applied": {
+          "date": "2026-09-13",
+          "reason": "PEAK LONG RUN (20 mi) — full Vermont dress rehearsal"
+        }
       }
     },
     "2026-09-14": {
@@ -8626,7 +8641,7 @@
       },
       "nutrition": {
         "day_type_id": "rest_day",
-        "day_type_label": "Rest day (no training)",
+        "day_type_label": "Carb load day 1 of 3 (moderate ramp)",
         "phase_adjustment_applied": {
           "phase": "Race_week",
           "adjustment": "Race-week rest days before Thursday: normal. Thursday onward, see carb-load date overrides.",
@@ -8638,16 +8653,20 @@
           }
         },
         "daily_targets": {
-          "calories_total": 2400,
-          "carbs_g": 260,
-          "protein_g": 135,
-          "fat_g": 80,
-          "fluid_ml_total": 2500,
-          "general_guidance": "Lower carb, protein held high (~1.7 g/kg at 79 kg). Protein at every meal, 25-35 g per sitting. Vegetables and fats carry satiety.",
-          "notes": "Protein stays high on rest days — tissue remodeling doesn't take days off. Collagen + vitamin C still taken with the morning foot-corrective block."
+          "calories_total": 2800,
+          "carbs_g": 400,
+          "protein_g": 130,
+          "fat_g": 75,
+          "fluid_ml_total": 3000,
+          "general_guidance": "~5 g/kg carbs (~400 g). Normal foods, carb-forward at every meal. Normal fibre today; it tapers tomorrow.",
+          "notes": "Three-day ramp: 400 g -> 550-600 g -> 550-600 g. Familiar foods only."
         },
         "session_fueling": [],
-        "notes": ""
+        "notes": "",
+        "date_override_applied": {
+          "date": "2026-09-24",
+          "reason": "Carb load day 1 of 3 (moderate ramp)"
+        }
       }
     },
     "2026-09-25": {
@@ -8699,16 +8718,16 @@
       },
       "nutrition": {
         "day_type_id": "shakeout_run",
-        "day_type_label": "Shakeout (recovery day)",
+        "day_type_label": "Carb load day 2 of 3 (high)",
         "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 2500,
-          "carbs_g": 300,
-          "protein_g": 140,
-          "fat_g": 78,
-          "fluid_ml_total": 2800,
-          "general_guidance": "Saturday pattern: light day, but begin topping up carbs at dinner — the long run is tomorrow morning.",
-          "notes": "Saturday dinner is quietly the first fueling act of the Sunday long run: carb-forward, familiar, moderate fibre."
+          "calories_total": 3200,
+          "carbs_g": 575,
+          "protein_g": 110,
+          "fat_g": 65,
+          "fluid_ml_total": 3300,
+          "general_guidance": "~7-7.5 g/kg (~550-600 g). Rice, pasta, potatoes, bread, juice, honey. Fat and fibre pull back. Expect 1-2 kg of water weight — that is stored glycogen, not a problem.",
+          "notes": "Graze carbs through the day rather than three giant meals."
         },
         "session_fueling": [
           {
@@ -8727,7 +8746,11 @@
             "notes": "If Upper B is scheduled this evening."
           }
         ],
-        "notes": ""
+        "notes": "",
+        "date_override_applied": {
+          "date": "2026-09-25",
+          "reason": "Carb load day 2 of 3 (high)"
+        }
       }
     },
     "2026-09-26": {
@@ -8763,7 +8786,7 @@
       },
       "nutrition": {
         "day_type_id": "rest_day",
-        "day_type_label": "Rest day (no training)",
+        "day_type_label": "Carb load day 3 of 3 (high, low fibre) — travel/pre-race day",
         "phase_adjustment_applied": {
           "phase": "Race_week",
           "adjustment": "Race-week rest days before Thursday: normal. Thursday onward, see carb-load date overrides.",
@@ -8775,16 +8798,20 @@
           }
         },
         "daily_targets": {
-          "calories_total": 2400,
-          "carbs_g": 260,
-          "protein_g": 135,
-          "fat_g": 80,
-          "fluid_ml_total": 2500,
-          "general_guidance": "Lower carb, protein held high (~1.7 g/kg at 79 kg). Protein at every meal, 25-35 g per sitting. Vegetables and fats carry satiety.",
-          "notes": "Protein stays high on rest days — tissue remodeling doesn't take days off. Collagen + vitamin C still taken with the morning foot-corrective block."
+          "calories_total": 3100,
+          "carbs_g": 550,
+          "protein_g": 105,
+          "fat_g": 60,
+          "fluid_ml_total": 3300,
+          "general_guidance": "~7 g/kg, LOW FIBRE (white rice, white bread, pretzels, juice, sports drink). Dinner early, familiar, boring. Pack race fuel tonight: ~14-16 gels (3-4 caffeine), 8+ SaltSticks, pretzels.",
+          "notes": "Travel day — carry snacks so the load doesn't depend on road food. Hydrate steadily with electrolytes, don't flood. Race meeting is Sunday 7:30 AM per the site; confirm start logistics today."
         },
         "session_fueling": [],
-        "notes": ""
+        "notes": "",
+        "date_override_applied": {
+          "date": "2026-09-26",
+          "reason": "Carb load day 3 of 3 (high, low fibre) — travel/pre-race day"
+        }
       }
     },
     "2026-09-27": {
@@ -8836,7 +8863,7 @@
       },
       "nutrition": {
         "day_type_id": "rest_day",
-        "day_type_label": "Rest day (no training)",
+        "day_type_label": "RACE DAY — Vermont 50K",
         "phase_adjustment_applied": {
           "phase": "Race_week",
           "adjustment": "Race-week rest days before Thursday: normal. Thursday onward, see carb-load date overrides.",
@@ -8848,16 +8875,109 @@
           }
         },
         "daily_targets": {
-          "calories_total": 2400,
-          "carbs_g": 260,
-          "protein_g": 135,
-          "fat_g": 80,
-          "fluid_ml_total": 2500,
-          "general_guidance": "Lower carb, protein held high (~1.7 g/kg at 79 kg). Protein at every meal, 25-35 g per sitting. Vegetables and fats carry satiety.",
-          "notes": "Protein stays high on rest days — tissue remodeling doesn't take days off. Collagen + vitamin C still taken with the morning foot-corrective block."
+          "calories_total": 4100,
+          "carbs_g": 580,
+          "protein_g": 100,
+          "fat_g": 70,
+          "fluid_ml_total": 5000,
+          "general_guidance": "RACE DAY. Execute the rehearsed plan. No new foods, no aid-station experiments — aid fare is UNTESTED, everything you need is on your vest. Eat by the clock, not by hunger.",
+          "notes": "~32-33 mi, ~5,600 ft, no poles, likely 7-8 h. Late-September Vermont: typically 40s-60s F — cool-condition protocol applies; scale fluids/sodium up only if the forecast surprises warm. Start time TBD (7:30 AM race meeting listed) — anchor breakfast 2.5-3 h before the actual gun."
         },
-        "session_fueling": [],
-        "notes": ""
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "race_pace",
+              "position": "pre"
+            },
+            "timing": "Breakfast 2.5-3 h before start; finish eating 2 h out",
+            "calories": 550,
+            "carbs_g": 90,
+            "protein_g": 15,
+            "fat_g": 10,
+            "foods": [
+              "oatmeal with banana, honey, and berries",
+              "coffee 1-2 cups",
+              "sip 300-400 ml electrolyte water until 30 min out"
+            ],
+            "notes": "THE REHEARSED MEAL — identical to every Sunday of the block and to White River race morning. Bathroom before the start."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "race_pace",
+              "position": "during"
+            },
+            "timing": "By the clock: gel every 25-30 min from minute 25-30; SaltStick every 45 min; caffeine from ~hour 4.5",
+            "calories": 250,
+            "sodium_mg": 500,
+            "fluid_ml": 550,
+            "fueling_schedule": [
+              {
+                "interval_min": 27,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 45,
+                "item": "SaltStick capsule",
+                "cal": 0,
+                "sodium_mg": 225
+              },
+              {
+                "interval_min": 90,
+                "item": "Pretzel handful (race-proven, carried)",
+                "cal": 60,
+                "sodium_mg": 180
+              },
+              {
+                "interval_min": 270,
+                "item": "GU Roctane CAFFEINE gel — first at ~hour 4.5 (~mile 19-20)",
+                "cal": 100,
+                "sodium_mg": 125,
+                "caffeine_mg": 35
+              },
+              {
+                "interval_min": 330,
+                "item": "Second caffeine gel ~hour 5.5",
+                "cal": 100,
+                "sodium_mg": 125,
+                "caffeine_mg": 35
+              },
+              {
+                "interval_min": 390,
+                "item": "Third caffeine gel ~hour 6.5 — fuel for the mile-29 climb",
+                "cal": 100,
+                "sodium_mg": 125,
+                "caffeine_mg": 35
+              }
+            ],
+            "notes": "PER-HOUR TARGETS: 240-260 cal (or the proven 210-230 floor if the 9/13 rehearsal said no to the tighter cadence), 450-550 mg Na, 500-650 ml fluid — cool-weather race-proven numbers. CARRY EVERYTHING: ~14-16 gels + pretzels + 8-10 SaltSticks; aid stations are water/top-up only since their fare is untested. The 3rd caffeine gel is deliberately timed ahead of the mile-29.4 Blood Hill climb — the race's decision point."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "race_pace",
+              "position": "post"
+            },
+            "timing": "Immediately after + meal within 2 h",
+            "calories": 800,
+            "carbs_g": 100,
+            "protein_g": 40,
+            "foods": [
+              "finish-line carbs + whatever appeals",
+              "real meal within 2 h: protein + carbs + salt",
+              "rehydrate with electrolytes through the evening"
+            ],
+            "notes": "Then the recovery-week protocol picks up Monday — same shape as post-White River."
+          }
+        ],
+        "notes": "",
+        "date_override_applied": {
+          "date": "2026-09-27",
+          "reason": "RACE DAY — Vermont 50K"
+        }
       }
     }
   }

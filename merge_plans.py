@@ -104,11 +104,19 @@ def resolve_nutrition(date: str, run_day: dict | None, strength_day: dict | None
         if matched:
             break
 
-    # Fallback to rest_day if nothing matched
+    # Fallback to rest_day if nothing matched.
+    #
+    # This is safe for a genuinely empty day, but on a day that HAS sessions it
+    # silently assigns the lowest-carb template in the plan — the failure that
+    # left race day (run_subtype "race_pace", which no trigger covers) sitting
+    # on rest-day targets. The fallback is recorded so callers can flag it
+    # rather than having it disappear into a plausible-looking block.
+    unmatched_fallback = False
     if not matched:
         for dt in day_types:
             if dt.get("id") == "rest_day":
                 matched = dt
+                unmatched_fallback = True
                 break
 
     if not matched:
@@ -126,7 +134,7 @@ def resolve_nutrition(date: str, run_day: dict | None, strength_day: dict | None
             daily_targets.update(adj.get("modified_targets", {}))
             break
 
-    return {
+    block = {
         "day_type_id": matched.get("id"),
         "day_type_label": matched.get("label"),
         "phase_adjustment_applied": phase_adjustment_applied,
@@ -134,6 +142,45 @@ def resolve_nutrition(date: str, run_day: dict | None, strength_day: dict | None
         "session_fueling": matched.get("session_fueling", []),
         "notes": matched.get("notes", ""),
     }
+    if unmatched_fallback and (run_subtype or strength_subtype):
+        block["unmatched_pairing"] = {
+            "run_subtype": run_subtype,
+            "strength_subtype": strength_subtype,
+        }
+    return block
+
+
+def apply_date_override(block: dict | None, override: dict) -> dict:
+    """Apply a nutrition date_override on top of a resolved day block.
+
+    date_overrides are the most specific layer in the plan — they exist for days
+    the day_type triggers cannot express (race day, the three-day carb load, a
+    calibration run with a bespoke protocol), so they win over both the template
+    and any phase adjustment.
+
+    Every override in the plan carries a COMPLETE daily_targets, so targets are
+    replaced wholesale rather than merged — a partial merge would silently blend
+    two different intents. session_fueling is replaced only when the override
+    supplies it; the carb-load days omit it because the day's own session fuelling
+    still applies unchanged.
+
+    day_type_id is left alone so the underlying classification stays visible,
+    but day_type_label is taken from the override reason: the app renders
+    `day_type_label.split(' ')[0]`, so without this race day reads "FUEL · REST".
+    """
+    block = dict(block or {})
+    block["daily_targets"] = dict(override["daily_targets"])
+    if "session_fueling" in override:
+        block["session_fueling"] = override["session_fueling"]
+    block["day_type_label"] = override.get("reason", block.get("day_type_label"))
+    block["date_override_applied"] = {
+        "date": override.get("date"),
+        "reason": override.get("reason"),
+    }
+    # An explicit override is a deliberate answer for this date, so a fallback
+    # that landed here is no longer an unresolved question.
+    block.pop("unmatched_pairing", None)
+    return block
 
 
 # ---------------------------------------------------------------------------
@@ -198,6 +245,10 @@ def merge(run_path: Path, strength_path: Path, nutrition_path: Path) -> dict:
     run_days = weeks_to_days(run_data.get("weeks", []), "run")
     strength_days = weeks_to_days(strength_data.get("weeks", []), "strength")
     day_types = nutrition_data.get("day_types", [])
+    # Keyed by date. These were present in nutrition_plan.json but read by
+    # nothing until now, which is why race day and the three-day carb load were
+    # serving template targets instead of the ones written for them.
+    date_overrides = {o["date"]: o for o in nutrition_data.get("date_overrides", [])}
 
     # --- Collect all dates ---
     all_dates = sorted(set(run_days.keys()) | set(strength_days.keys()))
@@ -243,8 +294,10 @@ def merge(run_path: Path, strength_path: Path, nutrition_path: Path) -> dict:
         else:
             strength_block = None
 
-        # Resolve nutrition
+        # Resolve nutrition, then let a date_override win over the template
         nutrition_block = resolve_nutrition(date, run_day, str_day, day_types)
+        if date in date_overrides:
+            nutrition_block = apply_date_override(nutrition_block, date_overrides[date])
 
         days[date] = {
             "date": date,
@@ -315,6 +368,37 @@ def main():
             print(f"    {d}")
     else:
         print("  Nutrition matched: all days ✓")
+
+    # Report date_overrides. An override naming a date outside the plan window is
+    # a silent no-op otherwise — the usual cause is a typo or a shifted race date.
+    overrides = {o["date"]: o
+                 for o in json.loads(args.nutrition.read_text()).get("date_overrides", [])}
+    applied = [d for d, v in combined["days"].items() if (v["nutrition"] or {}).get("date_override_applied")]
+    if overrides:
+        print(f"\nNutrition date_overrides: {len(applied)}/{len(overrides)} applied")
+        for d in sorted(applied):
+            reason = combined["days"][d]["nutrition"]["date_override_applied"]["reason"]
+            carbs = combined["days"][d]["nutrition"]["daily_targets"].get("carbs_g")
+            print(f"    {d}  {str(carbs) + 'g':<7} {reason[:58]}")
+        orphaned = sorted(set(overrides) - set(applied))
+        if orphaned:
+            print(f"  WARNING: {len(orphaned)} override(s) name a date not in the plan and were IGNORED:")
+            for d in orphaned:
+                print(f"    {d}  {overrides[d].get('reason','')[:58]}")
+
+    # A day with real sessions that fell back to rest_day is almost always a
+    # missing trigger, not a real rest day — it hands a training day the
+    # lowest-carb targets in the plan and looks perfectly normal downstream.
+    unmatched = sorted(
+        (d, v["nutrition"]["unmatched_pairing"])
+        for d, v in combined["days"].items()
+        if (v["nutrition"] or {}).get("unmatched_pairing")
+    )
+    if unmatched:
+        print(f"\n  WARNING: {len(unmatched)} day(s) with sessions matched NO nutrition trigger")
+        print("  and fell back to rest_day targets. Add a trigger, or a date_override:")
+        for d, pair in unmatched:
+            print(f"    {d}  run={pair['run_subtype']} strength={pair['strength_subtype']}")
 
     # Summarise nutrition type distribution
     type_counts = defaultdict(int)
