@@ -15,9 +15,15 @@ staged=$(git diff --cached --name-only --diff-filter=ACM)
 # its push trigger has been dead since roughly 2026-07-30, so the rebuild is
 # local and this hook is what enforces it.
 
+# Fires on ANY of the four plan files, not just the sources. combined_plan.json
+# is often edited on its own — update_plan.py patches one section of it in place
+# from an incoming plan file, which can leave the tracked sources untouched. That
+# drift is invisible to a sources-only trigger, and it is drift in the file the
+# app actually serves, so it is the more dangerous direction of the two.
 sources=$(printf '%s\n' "$staged" | grep -E '^(run|strength|nutrition)_plan\.json$')
+plan_files=$(printf '%s\n' "$staged" | grep -E '^((run|strength|nutrition)_plan|combined_plan)\.json$')
 
-if [ -n "$sources" ]; then
+if [ -n "$plan_files" ]; then
   rebuild_cmd="python3 merge_plans.py --run run_plan.json --strength strength_plan.json --nutrition nutrition_plan.json --output-full combined_plan.json --output-week1 /tmp/week1.json"
 
   # The test is on CONTENT, not on whether combined_plan.json happens to be
@@ -67,9 +73,16 @@ if [ -n "$sources" ]; then
     then
       if ! cmp -s "$tmp/rebuilt.json" "$tmp/combined_plan.json"; then
         echo "pre-commit: combined_plan.json is not the merge of the staged plan sources."
-        printf '  staged source: %s\n' $sources
-        echo "  Either it was never rebuilt, or it was rebuilt and not staged."
-        echo "  Rebuild it and stage the result:"
+        printf '  staged: %s\n' $plan_files
+        echo
+        echo "  Likely causes:"
+        echo "    - it was never rebuilt after the source edit, or was rebuilt but not staged"
+        echo "    - update_plan.py patched it from a plan file that is not the tracked source,"
+        echo "      so combined_plan.json and the sources now describe different plans"
+        echo "    - update_plan.py --run/--strength changed a session subtype: it does NOT"
+        echo "      re-resolve that day's nutrition, so the day_type can be left stale"
+        echo
+        echo "  Rebuild from the three sources and stage the result:"
         echo "    $rebuild_cmd"
         echo "    git add combined_plan.json"
         echo "  Or use --no-verify."
