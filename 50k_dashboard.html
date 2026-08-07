@@ -221,14 +221,43 @@ function FilterChips({filter, setFilter}) {
 }
 
 // ── Big stat ──────────────────────────────────────────────────
-function BigStat({label, value, unit, color, mono}) {
+function BigStat({label, value, unit, color, mono, size}) {
   return (
     <div>
       <div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,marginBottom:4}}>{label}</div>
       <div style={{display:'flex',alignItems:'baseline',gap:3}}>
-        <span style={{fontSize:22,fontWeight:800,color:color||A.text,fontFamily:mono?MONO:DISPLAY,letterSpacing:-0.4,lineHeight:1}}>{value}</span>
+        <span style={{fontSize:size||22,fontWeight:800,color:color||A.text,fontFamily:mono?MONO:DISPLAY,letterSpacing:-0.4,lineHeight:1}}>{value}</span>
         {unit && <span style={{fontSize:11,color:A.textDim,fontFamily:MONO}}>{unit}</span>}
       </div>
+    </div>
+  );
+}
+
+// ── Session stat row ──────────────────────────────────────────
+// Shared by the hero card (collapsed header / top of expanded) and the
+// All-tab minimal card, so both always show the same set of stats.
+const terrainLabel = t => String(t).replace(/_or_/g, '/').replace(/_/g, ' ')
+  .replace(/(^|[\s/])([a-z])/g, (_, sep, c) => sep + c.toUpperCase());
+
+function SessionStats({session, kind}) {
+  const stats = [];
+  if (kind === 'run') {
+    if (session.distance_mi != null) stats.push({label:'DISTANCE', value:session.distance_mi, unit:'mi'});
+    if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
+    if (session.elevation_gain_ft > 0) stats.push({label:'VERT', value:session.elevation_gain_ft.toLocaleString(), unit:'ft'});
+    if (session.terrain) {
+      const t = terrainLabel(session.terrain);
+      // Shrink long terrain names ("ROAD/FIREROAD") so they fit a 4-up column at 390px
+      stats.push({label:'TERRAIN', value:t, mono:true, size:t.length<=6?22:t.length<=9?17:13});
+    }
+  } else {
+    if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
+    stats.push({label:'EXERCISES', value:(session.exercises||[]).length, unit:'moves'});
+  }
+  if (!stats.length) return null;
+  return (
+    <div style={{display:'grid',gridTemplateColumns:`repeat(${Math.max(stats.length,3)},1fr)`,padding:'0 18px 18px',gap:stats.length>3?8:12}}>
+      {stats.map(s => <BigStat key={s.label} {...s}/>)}
     </div>
   );
 }
@@ -297,11 +326,6 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
   }) || (fueling||[]).find(f => f.linked_session?.position==='post' && f.linked_session?.type===kind && !f.linked_session?.subtype);
   const label = workoutLabel || (kind === 'run' ? color.name : color.name);
 
-  // Shared collapsed/minimal header content
-  const dist = kind==='run' ? session.distance_mi : null;
-  const dur = session.duration_min;
-  const elev = kind==='run' ? session.elevation_gain_ft : null;
-
   return (
     <div ref={rootRef} style={{background:`color-mix(in srgb, ${color.hue} 6%, ${A.surface})`,borderRadius:20,overflow:'hidden',border:`1px solid color-mix(in srgb, ${color.hue} 20%, ${A.border})`}}>
       <div style={{height:3,background:color.hue}}/>
@@ -326,21 +350,7 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
       </button>
 
       {/* Stats — always visible */}
-      <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',padding:'0 18px 18px',gap:12}}>
-        {kind==='run' ? (
-          <>
-            {dist != null && <BigStat label="DISTANCE" value={dist} unit="mi"/>}
-            <BigStat label="DURATION" value={dur} unit="min"/>
-            {elev > 0 && <BigStat label="VERT" value={elev.toLocaleString()} unit="ft"/>}
-            {!elev && session.terrain && <BigStat label="TERRAIN" value={session.terrain.toUpperCase()} mono/>}
-          </>
-        ) : (
-          <>
-            <BigStat label="DURATION" value={dur} unit="min"/>
-            <BigStat label="EXERCISES" value={(session.exercises||[]).length} unit="moves"/>
-          </>
-        )}
-      </div>
+      <SessionStats session={session} kind={kind}/>
 
       {/* Expanded content */}
       {!collapsed && (
@@ -770,9 +780,6 @@ function RoutineRow({routine}) {
 // ── Minimal Workout Card (All tab) ───────────────────────────
 function HeroWorkoutMinimal({session, kind, onOpen}) {
   const color = kind === 'run' ? runColor(session.subtype) : strColor(session.subtype);
-  const dist = session.distance_mi;
-  const dur = session.duration_min;
-  const elev = session.elevation_gain_ft;
   return (
     <div
       onClick={onOpen}
@@ -792,21 +799,7 @@ function HeroWorkoutMinimal({session, kind, onOpen}) {
         </div>
         <div style={{fontSize:22,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,lineHeight:1.1,marginBottom:14}}>{session.title}</div>
       </div>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',padding:'0 18px 18px',gap:12}}>
-        {kind==='run' ? (
-          <>
-            {dist != null && <BigStat label="DISTANCE" value={dist} unit="mi"/>}
-            <BigStat label="DURATION" value={dur} unit="min"/>
-            {elev > 0 && <BigStat label="VERT" value={elev.toLocaleString()} unit="ft"/>}
-            {!elev && session.terrain && <BigStat label="TERRAIN" value={session.terrain.toUpperCase()} mono/>}
-          </>
-        ) : (
-          <>
-            <BigStat label="DURATION" value={dur} unit="min"/>
-            <BigStat label="EXERCISES" value={(session.exercises||[]).length} unit="moves"/>
-          </>
-        )}
-      </div>
+      <SessionStats session={session} kind={kind}/>
     </div>
   );
 }
@@ -1855,7 +1848,7 @@ function App({plan, update}) {
           borderBottom:`1px solid ${A.border}`,
           padding:'14px 16px',display:'flex',alignItems:'center',gap:10,
         }}>
-          <button onClick={()=>setView('day')} style={{
+          <button onClick={()=>jumpToDay(resolveToday(plan))} style={{
             height:36,padding:'0 12px',borderRadius:10,background:A.surface2,
             border:`1px solid ${A.border}`,display:'flex',alignItems:'center',
             gap:6,cursor:'pointer',color:A.text,fontFamily:MONO,
@@ -1943,7 +1936,9 @@ function App({plan, update}) {
           transform:transitioning?'translateY(8px)':'translateY(0)',
           transition:'opacity .14s ease,transform .14s ease',
         }}>
-          {isRest && (
+          {/* Rest banner belongs to the workout story — Nutrition and Routines
+              still apply on a rest day, so they open straight to their cards. */}
+          {isRest && showWorkouts && (
             <div style={{padding:'40px 20px',textAlign:'center',background:A.surface,borderRadius:20,border:`1px solid ${A.border}`}}>
               <div style={{fontSize:11,color:A.textDim,fontFamily:MONO,letterSpacing:1.6,marginBottom:6}}>SCHEDULED</div>
               <div style={{fontSize:32,fontWeight:800,color:A.text,fontFamily:DISPLAY,letterSpacing:-1}}>REST</div>
