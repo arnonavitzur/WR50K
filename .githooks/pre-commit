@@ -1,15 +1,98 @@
 #!/bin/sh
-# Refuse a commit that changes a precached asset without bumping CACHE in sw.js.
+# Two independent guards. Bypass either deliberately with: git commit --no-verify
+#
+#   1. A plan source edit must carry its rebuilt combined_plan.json.
+#   2. A precached asset edit must bump CACHE in sw.js.
+
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+
+# ── Guard 1: plan sources and their build output travel together ─────────────
+#
+# combined_plan.json is a BUILD OUTPUT and the only plan file the app actually
+# reads — it is fetched at runtime. A source edit committed without it deploys
+# nothing while the commit looks perfectly successful, which is the failure this
+# catches. .github/workflows/plan-merge.yml was supposed to rebuild on push, but
+# its push trigger has been dead since roughly 2026-07-30, so the rebuild is
+# local and this hook is what enforces it.
+
+sources=$(printf '%s\n' "$staged" | grep -E '^(run|strength|nutrition)_plan\.json$')
+
+if [ -n "$sources" ]; then
+  rebuild_cmd="python3 merge_plans.py --run run_plan.json --strength strength_plan.json --nutrition nutrition_plan.json --output-full combined_plan.json --output-week1 /tmp/week1.json"
+
+  # The test is on CONTENT, not on whether combined_plan.json happens to be
+  # staged: rebuild the merge from the staged sources and compare it to the
+  # staged combined_plan.json. That is the question you actually care about,
+  # and it is right in the two cases a "did you stage it too?" rule gets wrong:
+  #
+  #   - Source edited, rebuilt, then edited AGAIN. Both files staged, output
+  #     silently stale. A staged-together rule passes it. This fails it.
+  #   - Source edited in a way the merger ignores (a field it does not copy),
+  #     so the output is legitimately byte-identical and there is nothing to
+  #     stage. A staged-together rule blocks a correct commit with no way to
+  #     satisfy it. This passes it.
+  #
+  # Everything is read from the index, so uncommitted working-tree scratch
+  # never affects the verdict. The merge is deterministic — generated_date is
+  # copied from source meta rather than stamped at build time — so a byte
+  # comparison is a valid staleness test.
+  if ! command -v python3 >/dev/null 2>&1; then
+    # Degraded check: without python3 the merge cannot be reproduced, so fall
+    # back to the weaker rule rather than waving the commit through.
+    printf '%s\n' "$staged" | grep -qx 'combined_plan.json' || {
+      echo "pre-commit: plan source staged without combined_plan.json:"
+      printf '  %s\n' $sources
+      echo "  Rebuild it and stage the result:"
+      echo "    $rebuild_cmd"
+      echo "  Or use --no-verify."
+      exit 1
+    }
+    echo "pre-commit: python3 not found — confirmed combined_plan.json is staged,"
+    echo "  but could not verify it is current."
+  else
+    tmp=$(mktemp -d) || exit 1
+    ok=1
+    for f in run_plan.json strength_plan.json nutrition_plan.json combined_plan.json; do
+      git show ":$f" > "$tmp/$f" 2>/dev/null || ok=0
+    done
+
+    if [ "$ok" -eq 0 ]; then
+      echo "pre-commit: could not read a plan file from the index — skipping the sync check."
+    elif python3 merge_plans.py \
+           --run "$tmp/run_plan.json" \
+           --strength "$tmp/strength_plan.json" \
+           --nutrition "$tmp/nutrition_plan.json" \
+           --output-full "$tmp/rebuilt.json" \
+           --output-week1 "$tmp/week1.json" >/dev/null 2>&1
+    then
+      if ! cmp -s "$tmp/rebuilt.json" "$tmp/combined_plan.json"; then
+        echo "pre-commit: combined_plan.json is not the merge of the staged plan sources."
+        printf '  staged source: %s\n' $sources
+        echo "  Either it was never rebuilt, or it was rebuilt and not staged."
+        echo "  Rebuild it and stage the result:"
+        echo "    $rebuild_cmd"
+        echo "    git add combined_plan.json"
+        echo "  Or use --no-verify."
+        rm -rf "$tmp"
+        exit 1
+      fi
+    else
+      echo "pre-commit: merge_plans.py failed — skipping the sync check."
+      echo "  Run it by hand to see why:"
+      echo "    $rebuild_cmd"
+    fi
+    rm -rf "$tmp"
+  fi
+fi
+
+# ── Guard 2: precached asset edits must bump the service worker cache ────────
 #
 # The cache name in sw.js is the only PWA invalidation lever. Without a bump the
 # installed app keeps serving the old files and the deploy is invisible on device.
-# Bypass deliberately with: git commit --no-verify
 #
 # combined_plan.json is deliberately NOT in this list. The app fetches it at
 # runtime and sw.js serves it network-first, so a plan edit reaches the device
 # on its own and does not need a cache bump.
-
-staged=$(git diff --cached --name-only --diff-filter=ACM)
 
 assets=$(printf '%s\n' "$staged" | grep -E '^(50k_dashboard\.html|fit-analysis\.js|manifest\.json)$')
 [ -z "$assets" ] && exit 0
