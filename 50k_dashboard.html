@@ -923,6 +923,7 @@ function formatRange(s, e) {
 function WeekCard({week, defaultOpen, onJump}) {
   const [open, setOpen] = useState(!!defaultOpen);
   const ph = phaseStyle(week.phase);
+  const today = todayIso();
   const strengthCount = week.days.reduce((acc,d) => acc + ((d.strength?.sessions?.length)||0), 0);
   const t = week.targets;
   return (
@@ -961,8 +962,16 @@ function WeekCard({week, defaultOpen, onJump}) {
           {week.days.sort((a,b)=>a.date.localeCompare(b.date)).map(d => (
             <button key={d.date} onClick={()=>onJump(d.date)} style={{
               width:'100%',display:'flex',alignItems:'flex-start',gap:12,
-              padding:'12px 4px',background:'transparent',border:'none',
-              borderTop:`1px solid ${A.border}`,cursor:'pointer',textAlign:'left',
+              // Same accent the day strip uses for today, so the two views agree.
+              // Padded and rounded rather than edge-to-edge: the rows are
+              // separated by hairlines, and a flat band would read as a divider.
+              padding:'12px 8px',margin:'0 -4px',borderRadius:10,
+              background:d.date===today?'rgba(255,255,255,0.07)':'transparent',
+              border:'none',
+              // The fill already separates today's row, and the hairline would
+              // cut across its rounded top corners.
+              borderTop:d.date===today?'1px solid transparent':`1px solid ${A.border}`,
+              cursor:'pointer',textAlign:'left',
               color:A.text,fontFamily:SANS,WebkitTapHighlightColor:'transparent',
             }}>
               <div style={{width:36,flexShrink:0,fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:0.8,fontWeight:600,textTransform:'uppercase'}}>
