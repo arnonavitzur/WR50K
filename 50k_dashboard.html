@@ -1559,6 +1559,7 @@ function AnalysisResultDetail({analysis, onBack}) {
 
       <SegmentTable title="10-MINUTE SECTIONS" segments={analysis.segments_10min}/>
       <SegmentTable title="MILE SECTIONS" segments={analysis.segments_by_mile}/>
+      <SegmentTable title="LAPS" segments={analysis.segments_by_lap}/>
       <SegmentTable title="ASCENT SECTIONS" segments={ascentSegs} summaryRow={ascent_summary}/>
       <SegmentTable title="DESCENT SECTIONS" segments={descentSegs} summaryRow={descent_summary}/>
     </div>
