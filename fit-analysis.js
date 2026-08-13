@@ -42,12 +42,73 @@ const GRADE_BAND_MIN_SUB_MI_STRONG = 0.10;               // min length for 2+-ba
 
 // Cadence cleaning (grade sections only)
 const CAD_WALK_SPEED          = 1.5;   // m/s — below this = walking, exclude
-const CAD_PCTILE_LO           = 10;    // drop below this percentile (descent/running sections)
-const CAD_PCTILE_HI           = 90;    // drop above this percentile (ascent/hiking sections)
+const CAD_PCTILE_LO           = 10;    // drop below this percentile (after speed filter)
 const CAD_BIMODAL_VALLEY_RATIO = 0.60;
 const CAD_LEAD_DIST           = 0.05;  // inspect first 5% of section distance
 const CAD_LEAD_BELOW          = 0.15;  // lead avg must be >15% below median to trim
 const CAD_LEAD_MIX            = 0.20;  // if >20% of lead pts above median → skip trim
+
+// Gait / effort classification (rev 10.2)
+const HR_LAG_SEC     = 20;      // HR response lag; below this, HR is not attributable
+const CAD_RUN_MIN    = 140.0;   // spm — at/above this counts as running, below is walking
+const MIN_BUCKET_SEC = 60;      // grade buckets thinner than this are flagged
+const PARSER_VERSION = '10.2';  // must track fit_parser_v10.py's PARSER_VERSION
+const GRADE_SMOOTH_W = 15;      // smoothing window (seconds) used when deriving grade in buildSeries
+
+// Restriction machinery (_apply_mileage_restriction / --include-mi / --exclude-mi
+// / --classify-mi in fit_parser_v10.py) is CLI-only — there is no mileage-range
+// UI in the dashboard, so it is intentionally not ported. _SEG_BREAKS therefore
+// stays permanently null here and clipped_by_restriction is always false.
+const _SEG_BREAKS = null;
+
+// HR bands (LTHR 168) — shared by hr_zones and gap_iso_hr. Z5 is added on top
+// of these four wherever a fifth "at/above LTHR" row is needed.
+const HR_BANDS = [
+  ['Z1', 0,   142],
+  ['Z2', 142, 151],
+  ['Z3', 151, 159],
+  ['Z4', 159, 168],
+];
+
+// Seven standard grade buckets (post_run_analyzer.md section 4d).
+const GRADE_BUCKETS = [
+  ['steep_down',    -100.0, -10.0],
+  ['moderate_down',  -10.0,  -5.0],
+  ['gentle_down',     -5.0,  -2.0],
+  ['flat',            -2.0,   2.0],
+  ['gentle_up',        2.0,   5.0],
+  ['moderate_up',      5.0,  10.0],
+  ['steep_up',        10.0, 100.0],
+];
+
+// Vermont 50K distance-weighted grade distribution (VT50K_Course_Demands_Brief_v1.txt s2).
+// Extracted grades are LOWER BOUNDS — profile smoothing flattens local pitches, so the
+// true distribution shifts roughly one band steeper; shares here are conservative.
+const RACE_COURSE_PROFILE = {
+  race: 'Vermont 50K',
+  source: 'VT50K_Course_Demands_Brief_v1.txt s2',
+  caveat: 'extracted grades are lower bounds; true distribution shifts ~1 band steeper',
+  total_mi: 32.8,
+  bands: {
+    steep_down:    { dist_mi: 0.3, pct:  1.0 },
+    moderate_down: { dist_mi: 7.1, pct: 22.0 },
+    gentle_down:   { dist_mi: 6.9, pct: 21.0 },
+    flat:          { dist_mi: 6.0, pct: 18.0 },
+    gentle_up:     { dist_mi: 5.6, pct: 17.0 },
+    moderate_up:   { dist_mi: 5.3, pct: 16.0 },
+    steep_up:      { dist_mi: 1.6, pct:  5.0 },
+  },
+};
+const TERRAIN_MISMATCH_PTS = 10.0;  // session vs race share delta that triggers a flag
+
+const SEVERITY_SCALES_MI = [0.1, 0.25, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0];
+
+const STEADY_MIN_SEC = 90;   // min CONTIGUOUS seconds before HR reflects the effort
+const ISO_MIN_SEC    = 90;   // min total seconds for a flat-reference cell to be reportable
+const MATCH_TOL_SEC  = 20;   // +/- sec/mi within which GAP is "matches flat"
+
+const CLIMB_BANDS   = [[3.0, 5.0], [5.0, 10.0], [10.0, 15.0], [15.0, 20.0], [20.0, 100.0]];
+const CLIMB_MIN_SEC = 60;
 
 // fit-file-parser returns grade with units '%' (scale 100). The Python
 // fitparse library returned decimal. We accept both — if |g| > 1 → percent.
@@ -66,12 +127,54 @@ const mpsToPace = (mps) => {
   return `${m}:${String(s).padStart(2,'0')}`;
 };
 
-// Minetti GAP factor. gradeDec: 0.10 means +10%.
-const gapFactor = (gradeDec) => {
-  const g = Math.max(-0.30, Math.min(0.30, gradeDec));
+// ---------------------------------------------------------------------------
+// Grade-adjusted pace cost models (rev 10.2)
+// ---------------------------------------------------------------------------
+// The pre-8/6/2026 gapFactor() was docstringed "Minetti" but its polynomial was
+// NOT Minetti — a damped variant roughly 60-80% as grade-sensitive. All models
+// return cost RELATIVE TO FLAT; multiply by actual speed to get GAP speed.
+// Uphill cost > 1 -> GAP pace faster than actual pace.
+
+// Minetti et al. 2002 (J Appl Physiol 93:1039-1046), energy cost of running on
+// gradient, normalised by Cr(0) = 3.6. Valid -0.45..+0.45. Describes RUNNING,
+// not hiking; on descents it tracks metabolic cost only, not eccentric/braking load.
+const costMinetti = (g) => {
+  g = Math.max(-0.45, Math.min(0.45, g));
+  const cr = 155.4*Math.pow(g,5) - 30.4*Math.pow(g,4) - 43.3*Math.pow(g,3)
+           + 46.3*Math.pow(g,2) + 19.5*g + 3.6;
+  return cr > 0 ? cr / 3.6 : 0.01;
+};
+
+// The legacy model (previously mislabelled as Minetti). Retained for continuity
+// with all pre-8/6/2026 analyses. Closer to Strava-style empirical GAP than to
+// Minetti's metabolic curve — less generous on climbs, less punitive on descents.
+const costDamped = (g) => {
+  g = Math.max(-0.30, Math.min(0.30, g));
   const cost = 15.14*Math.pow(g,4) - 2.896*Math.pow(g,3) + 7.624*g*g + 3.310*g + 1.0;
   return cost > 0 ? cost : 1.0;
 };
+
+// Minetti et al. 2002 WALKING gradient cost, normalised by the FLAT RUNNING
+// cost (3.6) so walking and running GAP land on one scale. The running curve
+// over-credits hiked seconds — a +10% pitch hiked costs 4.90 J/kg/m, not the
+// 5.97 the running curve assumes.
+const costMinettiWalk = (g) => {
+  g = Math.max(-0.45, Math.min(0.45, g));
+  const cw = 280.5*Math.pow(g,5) - 58.7*Math.pow(g,4) - 76.8*Math.pow(g,3)
+           + 51.9*Math.pow(g,2) + 19.6*g + 2.5;
+  return cw > 0 ? cw / 3.6 : 0.01;
+};
+
+const COST_MODELS = { minetti: costMinetti, damped: costDamped, minetti_walk: costMinettiWalk };
+const GAP_MODEL = 'minetti';          // default; historical (pre-10.2) GAP figures used 'damped'
+const HR_BASIS_DETREND = true;
+
+const gapFactor = (gradeDec, model) => COST_MODELS[model || GAP_MODEL](gradeDec);
+
+// THE ONLY PLACE GAP DIRECTION IS DECIDED. Call this; never inline the arithmetic.
+// GAP is the equivalent flat SPEED, so uphill (factor>1) gives a faster equivalent,
+// downhill (factor<1) a slower one — on a climb GAP must be FASTER than actual pace.
+const gapSpeed = (v, gradeDec, model) => v * gapFactor(gradeDec, model);
 
 const nanMean = (arr) => {
   let sum = 0, count = 0;
@@ -81,8 +184,85 @@ const nanMean = (arr) => {
   return count ? sum / count : null;
 };
 
+const nanStd = (arr) => {
+  const vals = [];
+  for (const v of arr) if (v != null && !Number.isNaN(v)) vals.push(v);
+  if (!vals.length) return null;
+  const mean = vals.reduce((a,b) => a+b, 0) / vals.length;
+  const variance = vals.reduce((a,b) => a + (b-mean)*(b-mean), 0) / vals.length;
+  return Math.sqrt(variance);
+};
+
+const median = (arr) => {
+  const v = [];
+  for (const x of arr) if (x != null && !Number.isNaN(x)) v.push(x);
+  if (!v.length) return null;
+  v.sort((a,b) => a-b);
+  const n = v.length;
+  return n % 2 ? v[(n-1)/2] : (v[n/2 - 1] + v[n/2]) / 2;
+};
+
+// Round that tolerates null/NaN. nd=0 -> integer.
+const _r = (v, nd) => {
+  if (v == null || Number.isNaN(v)) return null;
+  return nd > 0 ? Math.round(v * Math.pow(10,nd)) / Math.pow(10,nd) : Math.round(v);
+};
+
+// Ordinary least-squares fit. xs/ys must be pre-filtered (no NaN), same length >= 2.
+// Returns [slope, intercept], mirroring numpy.polyfit(x, y, 1).
+const linregSlope = (xs, ys) => {
+  const n = xs.length;
+  if (n < 2) return [null, null];
+  let sx=0, sy=0, sxx=0, sxy=0;
+  for (let i = 0; i < n; i++) { sx += xs[i]; sy += ys[i]; sxx += xs[i]*xs[i]; sxy += xs[i]*ys[i]; }
+  const denom = n*sxx - sx*sx;
+  if (denom === 0) return [0, sy/n];
+  const slope = (n*sxy - sx*sy) / denom;
+  const intercept = (sy - slope*sx) / n;
+  return [slope, intercept];
+};
+
+// numpy.searchsorted(arr, target, side='left') — arr must be sorted ascending.
+const searchSortedLeft = (arr, target, lo=0, hi=arr.length) => {
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (arr[mid] < target) lo = mid + 1; else hi = mid;
+  }
+  return lo;
+};
+
+// max(set(arr), key=arr.count) — most frequent element, ties broken by first-seen order.
+const modeOf = (arr) => {
+  const counts = new Map();
+  for (const x of arr) counts.set(x, (counts.get(x) || 0) + 1);
+  let best = null, bestCount = -1;
+  for (const [k, c] of counts) if (c > bestCount) { best = k; bestCount = c; }
+  return best;
+};
+
+// PC-5/PC2-3. Contiguous runs of `true` in a full-length boolean/0-1 mask.
+// Returns [[startIdx, endIdx], ...] in original-array index space.
+const contiguousRuns = (mask) => {
+  const idx = [];
+  for (let i = 0; i < mask.length; i++) if (mask[i]) idx.push(i);
+  if (!idx.length) return [];
+  const runs = [];
+  let start = idx[0], prev = idx[0];
+  for (let k = 1; k < idx.length; k++) {
+    if (idx[k] !== prev + 1) { runs.push([start, prev]); start = idx[k]; }
+    prev = idx[k];
+  }
+  runs.push([start, prev]);
+  return runs;
+};
+
 const fmt = (val, suffix='', noneStr='—') =>
   (val == null || Number.isNaN(val)) ? noneStr : `${val}${suffix}`;
+
+// mm:ss clock formatting for a seconds-per-mile pace value (gap_iso_hr cells).
+const secToClock = (sec) => (sec != null && sec > 0)
+  ? `${Math.floor(sec/60)}:${String(Math.round(sec%60)).padStart(2,'0')}`
+  : null;
 
 // Build numeric time series arrays from the parser's records.
 // fit-file-parser 'list' mode returns { records: [{timestamp, ...}, ...], ... }
@@ -100,6 +280,11 @@ const buildSeries = (records) => {
   const dist_m      = new Float64Array(n); // cumulative
   const alt_m       = new Float64Array(n);
   const vert_osc_mm = new Float64Array(n);
+  const stance_ms   = new Float64Array(n);
+  const step_len_mm = new Float64Array(n);
+  const vert_ratio  = new Float64Array(n);
+  const power_w     = new Float64Array(n);
+  const temp_c      = new Float64Array(n);
 
   const num = (v) => (v == null || v === '' || Number.isNaN(Number(v))) ? NaN : Number(v);
 
@@ -119,6 +304,11 @@ const buildSeries = (records) => {
     dist_m[i]    = num(r.distance);
     alt_m[i]     = num(r.enhanced_altitude ?? r.altitude);
     vert_osc_mm[i] = num(r.vertical_oscillation);
+    stance_ms[i]   = num(r.stance_time);
+    step_len_mm[i] = num(r.step_length);
+    vert_ratio[i]  = num(r.vertical_ratio);
+    power_w[i]     = num(r.power);
+    temp_c[i]      = num(r.temperature);
   }
 
   // Always derive grade from altitude (ignore Garmin's grade field — altitude is more reliable)
@@ -144,21 +334,26 @@ const buildSeries = (records) => {
     }
   }
 
-  return { t_sec, speed_mps, hr, cadence_spm, grade, dist_m, alt_m, vert_osc_mm };
+  return { t_sec, speed_mps, hr, cadence_spm, grade, dist_m, alt_m, vert_osc_mm,
+            stance_ms, step_len_mm, vert_ratio, power_w, temp_c };
 };
 
-// Clean cadence for grade sections.
-// keepUpper=true  (default, descent / summary): keep the high-cadence running cluster.
-// keepUpper=false (ascent sections):            keep the low-cadence hiking cluster.
-const cleanCadence = (cad, spd, dist, keepUpper = true) => {
+// Clean cadence for grade sections (rev 10.2 — direction-agnostic).
+// The pre-10.2 version took a keepUpper flag and cut the LOW cluster on ascent
+// sections (kept hiking cadence) vs the HIGH cluster elsewhere (kept running
+// cadence). That direction split is gone: every section now keeps the upper
+// (running) cluster and the CAD_RUN_MIN threshold elsewhere in the pipeline is
+// what separates hiked from run seconds.
+const cleanCadence = (cad, spd, dist) => {
   const out = Float64Array.from(cad);
 
-  // Step 1: speed floor — null where stopped / very slow regardless of direction
+  // Step 1: speed floor — null full stops / walk breaks
   for (let i = 0; i < spd.length; i++) {
     if (!Number.isNaN(spd[i]) && spd[i] < CAD_WALK_SPEED) out[i] = NaN;
   }
 
-  // Step 2: bimodal detection — direction-aware
+  // Step 2: bimodal detection — dominant (rightmost high) cluster is running;
+  // scan left from it for the deepest valley and cut everything below.
   const valid1 = Array.from(out).filter(v => !Number.isNaN(v));
   if (valid1.length >= 20) {
     const mn = Math.min(...valid1), mx = Math.max(...valid1);
@@ -171,41 +366,23 @@ const cleanCadence = (cad, spd, dist, keepUpper = true) => {
     }
     let mainPeak = 0;
     for (let i = 1; i < bins; i++) if (counts[i] > counts[mainPeak]) mainPeak = i;
-
-    if (keepUpper) {
-      // Descent: dominant peak is the HIGH (running) cluster.
-      // Scan LEFT for deepest valley; cut everything below it.
-      if (mainPeak > 1) {
-        let valleyIdx = 0, valleyVal = counts[0];
-        for (let i = 1; i < mainPeak; i++) {
-          if (counts[i] < valleyVal) { valleyVal = counts[i]; valleyIdx = i; }
-        }
-        const peakVal = counts[mainPeak];
-        if (peakVal > 0 && valleyVal / peakVal < (1 - CAD_BIMODAL_VALLEY_RATIO)) {
-          const cut = (edges[valleyIdx] + edges[valleyIdx + 1]) / 2;
-          for (let i = 0; i < out.length; i++) if (out[i] < cut) out[i] = NaN;
-        }
+    if (mainPeak > 1) {
+      let valleyIdx = 0, valleyVal = counts[0];
+      for (let i = 1; i < mainPeak; i++) {
+        if (counts[i] < valleyVal) { valleyVal = counts[i]; valleyIdx = i; }
       }
-    } else {
-      // Ascent: dominant peak is the LOW (hiking) cluster.
-      // Scan RIGHT for deepest valley; cut everything above it.
-      if (mainPeak < bins - 2) {
-        let valleyIdx = mainPeak + 1, valleyVal = counts[mainPeak + 1];
-        for (let i = mainPeak + 2; i < bins; i++) {
-          if (counts[i] < valleyVal) { valleyVal = counts[i]; valleyIdx = i; }
-        }
-        const peakVal = counts[mainPeak];
-        if (peakVal > 0 && valleyVal / peakVal < (1 - CAD_BIMODAL_VALLEY_RATIO)) {
-          const cut = (edges[valleyIdx] + edges[valleyIdx + 1]) / 2;
-          for (let i = 0; i < out.length; i++) if (out[i] > cut) out[i] = NaN;
-        }
+      const peakVal = counts[mainPeak];
+      if (peakVal > 0 && valleyVal / peakVal < (1 - CAD_BIMODAL_VALLEY_RATIO)) {
+        const cut = (edges[valleyIdx] + edges[valleyIdx + 1]) / 2;
+        for (let i = 0; i < out.length; i++) if (out[i] < cut) out[i] = NaN;
       }
     }
   }
 
-  // Step 3: leading-ramp trim — descent / runnable sections only (keepUpper=true).
-  // Ascent sections begin at hiking cadence immediately — no ramp to trim.
-  if (keepUpper && dist) {
+  // Step 3: leading-ramp trim — a clean low block in the first 5% of section
+  // distance, well below the rest of the section's median, is a cadence
+  // ramp-up rather than sustained walking; null it.
+  if (dist) {
     const dv = Array.from(dist).filter(v => !Number.isNaN(v));
     if (dv.length >= 2) {
       const dStart = dv[0], dSpan = dv[dv.length-1] - dStart;
@@ -230,26 +407,23 @@ const cleanCadence = (cad, spd, dist, keepUpper = true) => {
     }
   }
 
-  // Step 4: percentile trim on survivors — direction flips with keepUpper
+  // Step 4: percentile floor on survivors — removes residual slow-shuffle noise
   const valid2 = Array.from(out).filter(v => !Number.isNaN(v)).sort((a,b) => a-b);
   if (valid2.length >= 10) {
-    if (keepUpper) {
-      // Running: trim below 10th percentile — removes residual slow-shuffle noise
-      const floor = valid2[Math.floor(valid2.length * CAD_PCTILE_LO / 100)];
-      for (let i = 0; i < out.length; i++) if (out[i] < floor) out[i] = NaN;
-    } else {
-      // Hiking: trim above 90th percentile — removes residual brief-jog spikes
-      const ceiling = valid2[Math.floor(valid2.length * CAD_PCTILE_HI / 100)];
-      for (let i = 0; i < out.length; i++) if (out[i] > ceiling) out[i] = NaN;
-    }
+    const floor = valid2[Math.floor(valid2.length * CAD_PCTILE_LO / 100)];
+    for (let i = 0; i < out.length; i++) if (out[i] < floor) out[i] = NaN;
   }
 
   return out;
 };
 
-// Analyze a single segment. mask is Uint8Array; cleanCad applies cadence cleaning.
-// cadKeepUpper: passed to cleanCadence — true for descent/summary, false for ascent.
-const analyzeMask = (series, mask, label, cleanCad = false, cadKeepUpper = true) => {
+// Analyze a single segment. mask is a full-length Uint8Array; cleanCad applies
+// cadence cleaning. gradeMethod:
+//   'endpoint' — rise over span between mask endpoints. Correct for a
+//                CONTIGUOUS section; meaningless for a fragmented mask.
+//   'weighted' — distance-weighted mean of per-second grade inside the mask.
+//                Required for any non-contiguous mask (grade buckets, etc).
+const analyzeMask = (series, mask, label, cleanCad = false, gradeMethod = 'endpoint') => {
   const idx = [];
   for (let i = 0; i < mask.length; i++) if (mask[i]) idx.push(i);
   if (!idx.length) return null;
@@ -259,46 +433,117 @@ const analyzeMask = (series, mask, label, cleanCad = false, cadKeepUpper = true)
   const spd      = pick(series.speed_mps);
   const hr       = pick(series.hr);
   const rawCad   = pick(series.cadence_spm);
-  const cad      = cleanCad ? cleanCadence(rawCad, spd, pick(series.dist_m), cadKeepUpper) : rawCad;
+  const cad      = cleanCad ? cleanCadence(rawCad, spd, pick(series.dist_m)) : rawCad;
   const grade    = pick(series.grade);
   const dist     = pick(series.dist_m);
   const alt      = pick(series.alt_m);
   const vertOsc  = pick(series.vert_osc_mm);
+  const stance   = pick(series.stance_ms);
+  const stepLen  = pick(series.step_len_mm);
+  const vertRat  = pick(series.vert_ratio);
+  const power    = pick(series.power_w);
 
-  const dValid = Array.from(dist).filter(v => !Number.isNaN(v));
+  // Distance over a possibly-NON-CONTIGUOUS mask (rev 10.2). Sum only steps
+  // where BOTH the point and its predecessor are inside the mask. The prior
+  // heuristic (median*10 step cap on the picked subset) leaked distance
+  // across short gaps — invisible for a few large sections but compounding
+  // badly on heavily fragmented masks like grade buckets.
+  const fullDist = series.dist_m;
   let dist_mi = null;
-  if (dValid.length >= 2) {
-    // Sum per-step distances, ignoring gap jumps between non-contiguous mask sections.
-    // A step > median*10 is a gap between sections (e.g. union of A1.1+A1.2+A1.3),
-    // not real movement — exclude it to avoid over-counting.
-    const diffs = [];
-    for (let i = 1; i < dValid.length; i++) {
-      const d = dValid[i] - dValid[i-1];
-      if (d > 0) diffs.push(d);
+  if (idx.length >= 2) {
+    let sum = 0;
+    for (let i = 1; i < fullDist.length; i++) {
+      if (!mask[i] || !mask[i-1]) continue;
+      const d = fullDist[i] - fullDist[i-1];
+      if (!Number.isNaN(d) && d > 0) sum += d;
     }
-    if (diffs.length > 0) {
-      const sorted = diffs.slice().sort((a, b) => a - b);
-      const mid = Math.floor(sorted.length / 2);
-      const medianStep = sorted.length % 2 === 0
-        ? (sorted[mid-1] + sorted[mid]) / 2
-        : sorted[mid];
-      const stepCap = medianStep * 10;
-      const realSteps = diffs.filter(d => d <= stepCap);
-      dist_mi = Math.round((realSteps.reduce((s, d) => s + d, 0) / M_PER_MI) * 100) / 100;
-    }
+    dist_mi = Math.round((sum / M_PER_MI) * 100) / 100;
   }
+
+  // --- Block continuity of this mask -----------------------------------
+  // A pace/HR pairing assembled from thousands of 3-second fragments is not
+  // the same measurement as one assembled from continuous running. With HR
+  // lagging effort by ~HR_LAG_SEC, an HR attached to a sub-lag-length
+  // fragment was earned during whatever preceded it.
+  const blocks = contiguousRuns(mask);
+  const blockLens = blocks.map(([a,b]) => b - a + 1);
+  const block_count = blockLens.length;
+  const median_block_sec = blockLens.length ? Math.trunc(median(blockLens)) : 0;
+  const longest_block_sec = blockLens.length ? Math.max(...blockLens) : 0;
+  const hr_attribution_unreliable = blockLens.length > 0 && median_block_sec < HR_LAG_SEC;
 
   const avg_spd   = nanMean(spd);
   const avg_hr    = nanMean(hr);
   const avg_cad   = nanMean(cad);
-  // Avg grade from endpoints: (alt_end - alt_start) / (dist_end - dist_start)
-  // Matches Python: avg_grade = (alt_valid[-1] - alt_valid[0]) / (dist_valid[-1] - dist_valid[0])
-  const distValid = Array.from(dist).filter(v => !Number.isNaN(v));
-  const altValid2 = Array.from(alt).filter(v => !Number.isNaN(v));
-  const avg_grade = (distValid.length >= 2 && altValid2.length >= 2)
-    ? (altValid2[altValid2.length-1] - altValid2[0]) / (distValid[distValid.length-1] - distValid[0])
-    : null;
   const avg_vo    = nanMean(vertOsc);
+
+  // --- Cadence triplet ---------------------------------------------------
+  // Raw mean is dragged down by walk breaks and stops. moving/median are the
+  // numbers for comparison against a target; descent flags use median, climb
+  // flags use moving (post_run_analyzer.md). All classification below runs
+  // on the RAW (uncleaned) cadence — cleaning only affects avg_cadence_spm.
+  const movingCadVals = [];
+  let walk_sec = 0;
+  for (let i = 0; i < cad.length; i++) {
+    const c = cad[i];
+    if (c >= CAD_RUN_MIN) movingCadVals.push(c);
+    else if (!Number.isNaN(c)) walk_sec++;
+  }
+  const cad_moving = movingCadVals.length ? nanMean(movingCadVals) : null;
+  const cad_median = movingCadVals.length ? median(movingCadVals) : null;
+
+  // cadence_moving_spm is structurally empty on any hiking mask — report both
+  // gaits explicitly and flag which case a null represents (no seconds of
+  // this gait vs not computed).
+  const runCVals = [], hikeCVals = [];
+  for (let i = 0; i < cad.length; i++) {
+    const c = cad[i], s = spd[i];
+    if (Number.isNaN(c) || Number.isNaN(s) || !(s > MIN_SPEED)) continue;
+    if (c >= CAD_RUN_MIN) runCVals.push(c); else hikeCVals.push(c);
+  }
+  const cadence_running_spm = runCVals.length ? nanMean(runCVals) : null;
+  const cadence_hiking_spm  = hikeCVals.length ? nanMean(hikeCVals) : null;
+  const cadence_basis = {
+    running: runCVals.length ? 'measured' : 'no_seconds_of_this_gait',
+    hiking:  hikeCVals.length ? 'measured' : 'no_seconds_of_this_gait',
+    running_sec: runCVals.length,
+    hiking_sec:  hikeCVals.length,
+  };
+
+  let runCount = 0;
+  for (let i = 0; i < cad.length; i++) if (cad[i] >= CAD_RUN_MIN) runCount++;
+  const run_pct = cad.length ? Math.round((runCount / cad.length) * 1000) / 10 : null;
+
+  // Grade: endpoint rise/span (contiguous sections) or distance-weighted
+  // per-second mean (fragmented masks — see gradeMethod doc above).
+  let avg_grade;
+  if (gradeMethod === 'weighted') {
+    const gIn = series.grade;
+    let wsum = 0, wgsum = 0;
+    for (let i = 1; i < gIn.length; i++) {
+      if (!mask[i] || !mask[i-1]) continue;
+      const w = fullDist[i] - fullDist[i-1];
+      if (Number.isNaN(gIn[i]) || Number.isNaN(w) || !(w > 0)) continue;
+      wsum += w; wgsum += gIn[i] * w;
+    }
+    if (wsum > 0) {
+      avg_grade = wgsum / wsum;
+    } else {
+      let s = 0, c = 0;
+      for (let i = 0; i < gIn.length; i++) if (mask[i] && !Number.isNaN(gIn[i])) { s += gIn[i]; c++; }
+      avg_grade = c ? s / c : null;
+    }
+  } else {
+    const distValid = Array.from(dist).filter(v => !Number.isNaN(v));
+    const altValid2  = Array.from(alt).filter(v => !Number.isNaN(v));
+    avg_grade = (distValid.length >= 2 && altValid2.length >= 2)
+      ? (() => {
+          const riseM = altValid2[altValid2.length-1] - altValid2[0];
+          const spanM = distValid[distValid.length-1] - distValid[0];
+          return spanM > 0 ? riseM / spanM : null;
+        })()
+      : null;
+  }
 
   let avg_gap_spd = avg_spd;
   const spdOkCount = Array.from(spd).filter(v => !Number.isNaN(v)).length;
@@ -348,6 +593,21 @@ const analyzeMask = (series, mask, label, cleanCad = false, cadKeepUpper = true)
     avg_hr_bpm:      avg_hr  != null ? Math.round(avg_hr  * 10) / 10 : null,
     avg_cadence_spm: avg_cad != null ? Math.round(avg_cad * 10) / 10 : null,
     avg_vert_osc_mm: avg_vo  != null ? Math.round(avg_vo  * 10) / 10 : null,
+    cadence_moving_spm:  cad_moving != null ? Math.round(cad_moving * 10) / 10 : null,
+    median_cadence_spm:  cad_median != null ? Math.round(cad_median * 10) / 10 : null,
+    cadence_running_spm: cadence_running_spm != null ? Math.round(cadence_running_spm * 10) / 10 : null,
+    cadence_hiking_spm:  cadence_hiking_spm  != null ? Math.round(cadence_hiking_spm  * 10) / 10 : null,
+    cadence_basis,
+    walk_break_sec: walk_sec,
+    run_pct,
+    block_count,
+    median_block_sec,
+    longest_block_sec,
+    hr_attribution_unreliable,
+    avg_stance_ms:       _r(nanMean(stance), 1),
+    avg_step_length_mm:  _r(nanMean(stepLen), 1),
+    avg_vertical_ratio:  _r(nanMean(vertRat), 2),
+    avg_power_w:         _r(nanMean(power), 0),
     ascent_ft:       ascent  != null ? ascent  : null,
     descent_ft:      descent != null ? descent : null,
   };
@@ -410,90 +670,28 @@ const buildMileSegments = (series) => {
   return out;
 };
 
-// Build summary row — uses Garmin session message for device-computed totals
-// (distance, ascent, descent, pace, HR, cadence). Grade and vert osc are still
-// derived from record data since the session message doesn't expose them reliably.
-const buildSummary = (series, session) => {
-  const sess = session || {};
+// Build summary row — rev 10.2 switches this from the Garmin session message
+// to the SAME analyze_mask() engine as every other breakdown (whole-file mask,
+// no cadence cleaning), so summary numbers use one consistent methodology
+// instead of two. Device-computed totals are surfaced separately for
+// comparison — see deviceTotals() and the stitching in analyzeFitBuffer.
+const buildSummary = (series) => {
+  const mask = new Uint8Array(series.t_sec.length).fill(1);
+  return analyzeMask(series, mask, 'Run total');
+};
 
-  // Distance — session stores metres
-  const rawDist = sess.total_distance;
-  const distMi = rawDist != null ? Math.round(rawDist / M_PER_MI * 100) / 100 : null;
-
-  // Ascent / descent — stored in metres
-  const rawAsc  = sess.total_ascent;
-  const rawDesc = sess.total_descent;
-  const ascentFt  = rawAsc  != null ? Math.round(rawAsc  * M_TO_FT) : null;
-  const descentFt = rawDesc != null ? Math.round(rawDesc * M_TO_FT) : null;
-
-  // Avg pace — session stores avg_speed in m/s
-  const rawSpd = sess.enhanced_avg_speed != null ? sess.enhanced_avg_speed : sess.avg_speed;
-  const avgPace = rawSpd != null ? mpsToPace(rawSpd) : '—';
-
-  // Avg HR
-  const rawHr = sess.avg_heart_rate;
-  const avgHr = rawHr != null ? Math.round(rawHr * 10) / 10 : null;
-
-  // Avg cadence — Garmin stores half-cycles; multiply by 2 for spm
-  const rawCad  = sess.avg_cadence;
-  const rawFrac = sess.avg_fractional_cadence;
-  let avgCadSpm = null;
-  if (rawCad != null) {
-    const baseSpm = rawCad;
-    const fracSpm = rawFrac != null ? rawFrac : 0;
-    avgCadSpm = Math.round((baseSpm + fracSpm) * 2.0 * 10) / 10;
-  }
-
-  // Avg GAP — no session field; derive from record data
-  const spd   = series.speed_mps;
-  const grade = series.grade;
-  let avgGapSpd = rawSpd != null ? rawSpd : null;
-  let validCount = 0;
-  for (let i = 0; i < spd.length; i++) if (!isNaN(spd[i])) validCount++;
-  let allGradeNan = true;
-  for (let i = 0; i < grade.length; i++) if (!isNaN(grade[i])) { allGradeNan = false; break; }
-  if (validCount > 0 && !allGradeNan) {
-    let gapSum = 0, gapCount = 0;
-    for (let i = 0; i < spd.length; i++) {
-      if (isNaN(spd[i])) continue;
-      const g = isNaN(grade[i]) ? 0 : grade[i];
-      gapSum += spd[i] * gapFactor(g);
-      gapCount++;
-    }
-    avgGapSpd = gapCount > 0 ? gapSum / gapCount : avgGapSpd;
-  }
-  const avgGap = mpsToPace(avgGapSpd);
-
-  // avg_grade_pct: endpoint rise / distance span (from record data)
-  const alt  = series.alt_m;
-  const dist = series.dist_m;
-  let avgGrade = null;
-  const altValid = alt.filter(v => !isNaN(v));
-  const disValid = dist.filter(v => !isNaN(v));
-  if (altValid.length >= 2 && disValid.length >= 2) {
-    const riseM = altValid[altValid.length - 1] - altValid[0];
-    const spanM = disValid[disValid.length - 1] - disValid[0];
-    if (spanM > 0) avgGrade = Math.round(riseM / spanM * 1000) / 10;
-  }
-
-  // avg_vert_osc_mm: not in session message
-  const vo = series.vert_osc_mm;
-  const voValid = vo.filter(v => !isNaN(v));
-  const avgVo = voValid.length > 0
-    ? Math.round(voValid.reduce((s, v) => s + v, 0) / voValid.length * 10) / 10
-    : null;
-
+// Device-computed ascent/descent/distance/duration, for comparison against
+// the derived (record-based) summary values.
+const deviceTotals = (session) => {
+  if (!session) return { total_ascent_ft: null, total_descent_ft: null };
+  const a = session.total_ascent, d = session.total_descent;
   return {
-    label:           'Run total',
-    distance_mi:     distMi,
-    avg_grade_pct:   avgGrade,
-    avg_pace:        avgPace,
-    avg_gap:         avgGap,
-    avg_hr_bpm:      avgHr,
-    avg_cadence_spm: avgCadSpm,
-    avg_vert_osc_mm: avgVo,
-    ascent_ft:       ascentFt,
-    descent_ft:      descentFt,
+    total_ascent_ft:  a != null ? Math.round(a * M_TO_FT) : null,
+    total_descent_ft: d != null ? Math.round(d * M_TO_FT) : null,
+    total_distance_mi: session.total_distance != null
+      ? Math.round(session.total_distance / M_PER_MI * 100) / 100 : null,
+    total_timer_sec: session.total_timer_time != null
+      ? Math.round(session.total_timer_time * 10) / 10 : null,
   };
 };
 
@@ -517,9 +715,7 @@ const buildDirectionSummary = (series, gradeSegments, direction) => {
   }
   if (!Array.from(mask).some(v => v)) return null;
 
-  // Ascent summary uses keep_upper=false (hiking cadence); descent uses true (running cadence)
-  const cadKeepUpper = direction !== 'ascent';
-  const result = analyzeMask(series, mask, label, true, cadKeepUpper);
+  const result = analyzeMask(series, mask, label, true);
   if (!result) return null;
 
   // Override grade with distance-weighted average of individual section grades
@@ -571,6 +767,538 @@ const buildElevationProfile = (series, stepM = 10.0) => {
     profile.push([distMi, altFt]);
   }
   return profile;
+};
+
+// ---------------------------------------------------------------------------
+// Grade buckets (7-band) + race course comparison (rev 10.2)
+// ---------------------------------------------------------------------------
+
+// Bin every second into one of the seven GRADE_BUCKETS bands.
+const buildGradeBuckets = (series) => {
+  const grade = series.grade;
+  let total_sec = 0;
+  for (let i = 0; i < grade.length; i++) if (!Number.isNaN(grade[i])) total_sec++;
+
+  const dValid = Array.from(series.dist_m).filter(v => !Number.isNaN(v));
+  const total_mi = dValid.length >= 2 ? (dValid[dValid.length-1] - dValid[0]) / M_PER_MI : null;
+
+  const buckets = [];
+  for (const [label, lo, hi] of GRADE_BUCKETS) {
+    const mask = new Uint8Array(grade.length);
+    let sec = 0;
+    for (let i = 0; i < grade.length; i++) {
+      if (Number.isNaN(grade[i])) continue;
+      const gPct = grade[i] * 100.0;
+      if (gPct >= lo && gPct < hi) { mask[i] = 1; sec++; }
+    }
+    if (sec === 0) {
+      buckets.push({ label, min_grade_pct: lo, max_grade_pct: hi,
+        time_sec: 0, distance_mi: 0.0, sess_pct: 0.0, sufficient_sample: false });
+      continue;
+    }
+    const seg = analyzeMask(series, mask, label, true, 'weighted');
+    if (!seg) continue;
+    const distMi = seg.distance_mi || 0.0;
+    const sessPct = total_mi ? Math.round(distMi / total_mi * 1000) / 10 : null;
+    buckets.push({
+      label,
+      min_grade_pct: lo,
+      max_grade_pct: hi,
+      time_sec: sec,
+      time_pct: total_sec ? Math.round(sec / total_sec * 1000) / 10 : null,
+      distance_mi: distMi,
+      sess_pct: sessPct,
+      avg_grade_pct: seg.avg_grade_pct,
+      avg_pace: seg.avg_pace,
+      avg_gap: seg.avg_gap,
+      avg_hr_bpm: seg.avg_hr_bpm,
+      avg_cadence_spm: seg.avg_cadence_spm,
+      cadence_moving_spm: seg.cadence_moving_spm,
+      median_cadence_spm: seg.median_cadence_spm,
+      cadence_running_spm: seg.cadence_running_spm,
+      cadence_hiking_spm: seg.cadence_hiking_spm,
+      cadence_basis: seg.cadence_basis,
+      walk_break_sec: seg.walk_break_sec,
+      run_pct: seg.run_pct,
+      block_count: seg.block_count,
+      median_block_sec: seg.median_block_sec,
+      longest_block_sec: seg.longest_block_sec,
+      hr_attribution_unreliable: seg.hr_attribution_unreliable,
+      avg_vert_osc_mm: seg.avg_vert_osc_mm,
+      avg_stance_ms: seg.avg_stance_ms,
+      avg_step_length_mm: seg.avg_step_length_mm,
+      sufficient_sample: sec >= MIN_BUCKET_SEC,
+    });
+  }
+  return buckets;
+};
+
+// Buckets cover slightly less than the full session — seconds at the head/tail
+// have no smoothed grade (NaN), and the first step of each bucket fragment is
+// not attributable. Undercount is by design; report it so it's never mistaken
+// for missing terrain.
+const bucketCoverage = (buckets, summary) => {
+  const binned = buckets.reduce((s,b) => s + (b.distance_mi || 0), 0);
+  const total = summary ? summary.distance_mi : null;
+  return {
+    binned_mi: Math.round(binned * 100) / 100,
+    session_mi: total,
+    coverage_pct: total ? Math.round(binned / total * 1000) / 10 : null,
+    note: 'unbinned remainder = grade-smoothing edge seconds. Expect 85-98%; '
+        + 'longer files with more terrain variety sit lower (88.0% observed on the 8-hour WR50K race file).',
+  };
+};
+
+// Compare session grade distribution against the target race profile.
+const buildRaceComparison = (buckets) => {
+  const byLabel = {};
+  for (const b of buckets) byLabel[b.label] = b;
+  const rows = [];
+  for (const [label] of GRADE_BUCKETS) {
+    const sess = byLabel[label] || {};
+    const sessPct = sess.sess_pct || 0.0;
+    const racePct = RACE_COURSE_PROFILE.bands[label].pct;
+    const delta = Math.round((sessPct - racePct) * 10) / 10;
+    rows.push({ label, sess_pct: sessPct, race_pct: racePct, delta_pts: delta,
+                mismatch_flag: Math.abs(delta) >= TERRAIN_MISMATCH_PTS });
+  }
+  return {
+    race: RACE_COURSE_PROFILE.race,
+    source: RACE_COURSE_PROFILE.source,
+    caveat: RACE_COURSE_PROFILE.caveat,
+    rows,
+  };
+};
+
+// ---------------------------------------------------------------------------
+// Iso-HR GAP comparison, severity curves, sustained blocks, climb performance
+// ---------------------------------------------------------------------------
+
+// Time in HR zone. TWO BASES, BOTH REPORTED, because they answer different
+// questions and diverge by the entire recovery block on an interval session.
+// Bands are half-open [lo, hi); Z5 is at or above LTHR.
+const buildHrZones = (series) => {
+  const hr = series.hr, spd = series.speed_mps;
+  const bands = HR_BANDS.concat([['Z5', 168, 10000]]);
+
+  const tally = (maskFn) => {
+    let tot = 0;
+    for (let i = 0; i < hr.length; i++) if (maskFn(i)) tot++;
+    const rows = bands.map(([nm, lo, hi]) => {
+      let s = 0;
+      for (let i = 0; i < hr.length; i++) {
+        if (maskFn(i) && hr[i] >= lo && hr[i] < hi) s++;
+      }
+      return {
+        zone: nm,
+        range_bpm: hi < 10000 ? [lo, hi - 1] : [lo, null],
+        time_in_zone_sec: s,
+        pct_time_in_zone: tot ? Math.round(s / tot * 1000) / 10 : null,
+      };
+    });
+    return { total_sec: tot, zones: rows };
+  };
+
+  const okMask = (i) => !Number.isNaN(hr[i]);
+  const movMask = (i) => !Number.isNaN(hr[i]) && !Number.isNaN(spd[i]) && spd[i] > MIN_SPEED;
+
+  return {
+    lthr_bpm: 168,
+    basis_note: 'all_sec counts every recorded second; moving_sec only seconds above '
+              + 'MIN_SPEED. On a session with scheduled recoveries these differ '
+              + 'materially — say which you used.',
+    all_sec: tally(okMask),
+    moving_sec: tally(movMask),
+  };
+};
+
+// PC3-1. Steepest sustained ascent/descent at a single distance scale L (mi).
+// Descents are NESTED (a 3 mi span can be -8.6% while its steepest 1.5 mi
+// sub-span is -11.9%) — a single grade-segment detector must pick one level
+// and discard the other. This reports every level; the SHAPE of the curve
+// across scales separates a punchy file from a relentlessly steep one.
+// DELIBERATELY NO TOLERANCE PARAMETER — an interruption-tolerance rule is
+// pace-sensitive (fragments a slow file more than a fast one) and was
+// retracted after publication. THE CURVE IS NOT GUARANTEED MONOTONE: at
+// non-integer scale ratios a benched terrain feature can make a wider window
+// score lower than a narrower one that pays fully for the bench — an
+// inversion locates a bench, it is not a bug.
+// The far endpoint is linearly interpolated to exactly L so every window is
+// the same length; comparing drop across equal-length windows is equivalent
+// to comparing grade, which divide-by-actual-span is not.
+const severityAtScale = (d, a, L, ascent) => {
+  const n = d.length;
+  if (d[n-1] - d[0] < L) return null;
+  let bestChange = -Infinity, bestI = -1;
+  for (let i = 0; i < n; i++) {
+    const target = d[i] + L;
+    const j = searchSortedLeft(d, target);
+    if (j >= n) continue;
+    const j0 = Math.max(j - 1, 0);
+    const seg = d[j] - d[j0];
+    const w = seg > 0 ? (target - d[j0]) / seg : 0.0;
+    const aEnd = a[j0] + w * (a[j] - a[j0]);
+    const change = ascent ? (aEnd - a[i]) : (a[i] - aEnd);
+    if (change > bestChange) { bestChange = change; bestI = i; }
+  }
+  if (bestI < 0 || bestChange <= 0) return null;
+  const signed = ascent ? bestChange : -bestChange;
+  return {
+    scale_mi: L,
+    grade_pct: Math.round((signed / (L * 5280.0) * 100.0) * 100) / 100,
+    change_ft: Math.round(bestChange * 10) / 10,
+    start_mi: Math.round(d[bestI] * 1000) / 1000,
+    end_mi: Math.round((d[bestI] + L) * 1000) / 1000,
+  };
+};
+
+const buildSeverityCurves = (series) => {
+  const altRaw = series.alt_m, distRaw = series.dist_m;
+  if (!altRaw || !distRaw || altRaw.length < 2) {
+    return { descent_severity: [], ascent_severity: [], _note: 'no altitude/distance series' };
+  }
+  const a = [], d = [];
+  for (let i = 0; i < altRaw.length; i++) {
+    if (!Number.isNaN(altRaw[i]) && !Number.isNaN(distRaw[i])) {
+      a.push(altRaw[i] * M_TO_FT);
+      d.push(distRaw[i] / M_PER_MI);
+    }
+  }
+  if (d.length < 2) {
+    return { descent_severity: [], ascent_severity: [], _note: 'no valid altitude/distance samples' };
+  }
+  const down = [], up = [];
+  for (const L of SEVERITY_SCALES_MI) {
+    const rd = severityAtScale(d, a, L, false); if (rd) down.push(rd);
+    const ru = severityAtScale(d, a, L, true);  if (ru) up.push(ru);
+  }
+  return {
+    method: 'max net elevation change over any contiguous span of exactly L mi; '
+          + 'far endpoint linearly interpolated. No tolerance parameter.',
+    monotonicity_note: 'THE CURVE IS NOT GUARANTEED MONOTONE IN SCALE. An inversion '
+                      + 'locates a bench and is expected behaviour, not a defect.',
+    descent_severity: down,
+    ascent_severity: up,
+  };
+};
+
+// THE QUESTION: at a given heart rate, is grade-adjusted pace equal to actual
+// pace on the flat? If GAP is SLOWER than the flat pace at the same HR, more
+// is being lost to grade than the cost model predicts.
+//
+// Cells are defined by CONTINUITY OF RUNNING, not by constancy of grade —
+// sustained constant grade does not exist on trail (grade SD inside a
+// contiguous running block averages several points even on a single named
+// descent). A block is >= STEADY_MIN_SEC of contiguous running (cadence >=
+// CAD_RUN_MIN); HR must stay within one band across it; grade is free to vary
+// and GAP is integrated per second across the varying grade. Mean grade and
+// grade SD are reported descriptively, never as a filter.
+const buildGapIsoHr = (series, model, detrend = true) => {
+  const hr = series.hr, grade = series.grade, spd = series.speed_mps, cad = series.cadence_spm, dist = series.dist_m;
+  const n = hr.length;
+
+  const hrAl = new Float64Array(n).fill(NaN);
+  for (let i = 0; i < n - HR_LAG_SEC; i++) hrAl[i] = hr[i + HR_LAG_SEC];
+
+  const usable = new Uint8Array(n);
+  let usableCount = 0;
+  for (let i = 0; i < n; i++) {
+    if (!Number.isNaN(hrAl[i]) && !Number.isNaN(grade[i]) && !Number.isNaN(spd[i])) { usable[i] = 1; usableCount++; }
+  }
+  if (usableCount < 120) return { error: 'insufficient paired HR/grade data' };
+
+  let drift_bpm_per_min = null;
+  let hrBasis = Float64Array.from(hrAl);
+  const runM = new Uint8Array(n);
+  let runMCount = 0;
+  for (let i = 0; i < n; i++) if (usable[i] && cad[i] >= CAD_RUN_MIN) { runM[i] = 1; runMCount++; }
+
+  if (detrend && runMCount > 60) {
+    const xs = [], ys = [];
+    for (let i = 0; i < n; i++) if (runM[i]) { xs.push(i); ys.push(hrAl[i]); }
+    const [slope, intercept] = linregSlope(xs, ys);
+    drift_bpm_per_min = Math.round(slope * 60 * 1000) / 1000;
+    const midT = median(xs);
+    const mid = slope * midT + intercept;
+    for (let i = 0; i < n; i++) hrBasis[i] = hrAl[i] - (slope * i + intercept) + mid;
+  }
+
+  const fn = COST_MODELS[model];
+  const gapSpdArr = new Float64Array(n).fill(NaN);
+  for (let i = 0; i < n; i++) {
+    if (!Number.isNaN(grade[i]) && !Number.isNaN(spd[i])) gapSpdArr[i] = spd[i] * fn(grade[i]);
+  }
+
+  const bandOf = (h) => {
+    for (const [nm, lo, hi] of HR_BANDS) if (h >= lo && h < hi) return nm;
+    return null;
+  };
+
+  const gPct = new Float64Array(n);
+  for (let i = 0; i < n; i++) gPct[i] = grade[i] * 100.0;
+
+  // --- Flat reference per HR band -----------------------------------------
+  const references = {};
+  for (const [nm, lo, hi] of HR_BANDS) {
+    let sec = 0;
+    const vVals = [];
+    for (let i = 0; i < n; i++) {
+      if (runM[i] && hrBasis[i] >= lo && hrBasis[i] < hi && gPct[i] >= -2.0 && gPct[i] < 2.0) {
+        sec++;
+        if (!Number.isNaN(spd[i]) && spd[i] > MIN_SPEED) vVals.push(spd[i]);
+      }
+    }
+    const ref = (vVals.length && sec >= ISO_MIN_SEC)
+      ? M_PER_MI / (vVals.reduce((a,b)=>a+b,0) / vVals.length) : null;
+    references[nm] = {
+      flat_pace: secToClock(ref),
+      flat_pace_sec_per_mi: ref != null ? Math.round(ref * 10) / 10 : null,
+      flat_sec: sec,
+      usable: ref != null,
+    };
+  }
+
+  // --- Cells: contiguous running blocks -----------------------------------
+  const cells = [];
+  for (const [a, b] of contiguousRuns(runM)) {
+    if ((b - a + 1) < STEADY_MIN_SEC) continue;
+    const bandsHere = [];
+    for (let i = a; i <= b; i++) { const bo = bandOf(hrBasis[i]); if (bo != null) bandsHere.push(bo); }
+    if (!bandsHere.length) continue;
+    const nm = modeOf(bandsHere);
+    const bandPct = Math.round((bandsHere.length / (b - a + 1)) * 1000) / 10;
+
+    const spV = [], gpV = [];
+    for (let i = a; i <= b; i++) {
+      if (!Number.isNaN(spd[i]) && spd[i] > MIN_SPEED) spV.push(spd[i]);
+      if (!Number.isNaN(gapSpdArr[i]) && gapSpdArr[i] > MIN_SPEED) gpV.push(gapSpdArr[i]);
+    }
+    if (!spV.length || !gpV.length) continue;
+
+    const pace = M_PER_MI / (spV.reduce((x,y)=>x+y,0) / spV.length);
+    const gap  = M_PER_MI / (gpV.reduce((x,y)=>x+y,0) / gpV.length);
+    const ref  = references[nm].flat_pace_sec_per_mi;
+    const delta = ref != null ? Math.round((gap - ref) * 10) / 10 : null;
+
+    let gSum = 0, gCount = 0;
+    for (let i = a; i <= b; i++) if (!Number.isNaN(gPct[i])) { gSum += gPct[i]; gCount++; }
+    const meanG = gCount ? gSum / gCount : 0;
+
+    let verdict;
+    if (meanG <= -5.0) {
+      verdict = 'DESCENT — GAP not interpretable as economy; see descent_pacing_guard';
+    } else if (delta == null) {
+      verdict = 'no flat reference in this HR band';
+    } else if (Math.abs(delta) <= MATCH_TOL_SEC) {
+      verdict = 'matches flat';
+    } else if (delta > 0) {
+      verdict = 'ECONOMY DEFICIT — GAP slower than flat at same HR';
+    } else {
+      verdict = 'outperforms flat-equivalent';
+    }
+
+    const d0 = dist[a];
+    let hrSlope = null;
+    const hhXs = [], hhYs = [];
+    for (let i = a; i <= b; i++) if (!Number.isNaN(hrAl[i])) { hhXs.push(i - a); hhYs.push(hrAl[i]); }
+    if ((b - a + 1) > 10 && hhXs.length > 10) {
+      const [slope] = linregSlope(hhXs, hhYs);
+      hrSlope = Math.round(slope * 60 * 100) / 100;
+    }
+
+    let hMean=0, hCount=0, hMax=-Infinity;
+    for (let i = a; i <= b; i++) if (!Number.isNaN(hrAl[i])) { hMean += hrAl[i]; hCount++; if (hrAl[i] > hMax) hMax = hrAl[i]; }
+    hMean = hCount ? hMean / hCount : NaN;
+    let hSum2 = 0;
+    for (let i = a; i <= b; i++) if (!Number.isNaN(hrAl[i])) hSum2 += (hrAl[i]-hMean)*(hrAl[i]-hMean);
+    const hSd = hCount ? Math.sqrt(hSum2 / hCount) : null;
+
+    cells.push({
+      hr_band: nm,
+      start_mi: !Number.isNaN(d0) ? Math.round(d0 / M_PER_MI * 100) / 100 : null,
+      duration_sec: b - a + 1,
+      mean_grade_pct: _r(gCount ? meanG : null, 1),
+      grade_sd_pct: _r(nanStd(Array.from(gPct.slice(a, b+1))), 1),
+      avg_pace: secToClock(pace),
+      avg_gap: secToClock(gap),
+      flat_ref_pace: references[nm].flat_pace,
+      gap_minus_flat_sec_per_mi: delta,
+      verdict,
+      avg_hr_bpm: _r(hCount ? hMean : null, 1),
+      hr_sd_bpm: _r(hSd, 1),
+      hr_start_bpm: _r(hrAl[a], 1),
+      hr_end_bpm: _r(hrAl[b], 1),
+      hr_max_bpm: _r(hCount ? hMax : null, 1),
+      hr_slope_bpm_per_min: hrSlope,
+      run_pct: 100.0,
+      hr_band_dominant: nm,
+      hr_band_pct: bandPct,
+      hr_band_pure: bandPct >= 100.0,
+      gap_reliable: meanG > -5.0,
+    });
+  }
+
+  cells.sort((x, y) => {
+    if (x.start_mi == null) return 1;
+    if (y.start_mi == null) return -1;
+    return x.start_mi - y.start_mi;
+  });
+
+  return {
+    cost_model: model,
+    blocking_rule: 'contiguous running >= STEADY_MIN_SEC; grade AND HR band free to vary '
+                 + 'within the block, both reported descriptively. Filter on hr_band_pure for strict iso-HR.',
+    hr_banded_on: detrend ? 'detrended HR' : 'raw HR',
+    drift_bpm_per_min,
+    hr_bands: Object.fromEntries(HR_BANDS.map(([nm, lo, hi]) => [nm, [lo, hi]])),
+    steady_state_min_sec: STEADY_MIN_SEC,
+    match_tolerance_sec_per_mi: MATCH_TOL_SEC,
+    flat_reference: references,
+    cells,
+    block_count: cells.length,
+    total_block_sec: cells.reduce((s,c) => s + c.duration_sec, 0),
+    interpretation: 'uniform offset across all bands => cost model miscalibrated for this '
+                  + 'athlete; band-specific deficit => real economy signature',
+    descent_pacing_guard: 'Do NOT propagate this model into descent PACING targets. Minetti '
+                         + 'predicts metabolically-true but physically-impossible-on-trail '
+                         + 'descent paces — this caveat applies to any pacing use, not only to descent cells.',
+  };
+};
+
+// Sustained-block detector, run for BOTH gaits. gap_iso_hr blocks on RUNNING
+// continuity with grade free to vary, because grade-bucket membership
+// fragments to nothing on trail data — this applies the same logic to
+// hiking, deliberately as a SEPARATE function rather than an option on
+// gap_iso_hr (an option is eventually switched on inside an iso-HR context,
+// reproducing the zero-cell failure that redesign existed to fix). Band
+// membership is assigned on BLOCK MEAN grade, endpoint-to-endpoint, never
+// per-second; grade dispersion is reported, never used as a filter.
+//
+// classifyRanges (PC2-6, optional) tags each block inside/outside/straddler
+// against a set of [lo, hi] mile ranges, computed AFTER blocking rather than
+// by restricting first — restricting first turns a hike that crossed a
+// boundary into a truncated tail whose duration is an artifact of where the
+// line was drawn. Not wired to any UI control; pass null/omit for the
+// default whole-file call.
+const buildSustainedGaitBlocks = (series, model, minSecList = [60, 90], classifyRanges = null) => {
+  const spd = series.speed_mps, cad = series.cadence_spm, hr = series.hr,
+        alt = series.alt_m, dist = series.dist_m, grd = series.grade, t = series.t_sec;
+  const n = spd.length;
+
+  const moving = new Uint8Array(n);
+  for (let i = 0; i < n; i++) if (!Number.isNaN(spd[i]) && spd[i] > MIN_SPEED && !Number.isNaN(cad[i])) moving[i] = 1;
+
+  const running = new Uint8Array(n), hiking = new Uint8Array(n);
+  for (let i = 0; i < n; i++) {
+    if (!moving[i]) continue;
+    if (cad[i] >= CAD_RUN_MIN) running[i] = 1; else hiking[i] = 1;
+  }
+  const gaits = { running, hiking };
+
+  const classify = (a, b) => {
+    if (!classifyRanges || !classifyRanges.length) return [null, null];
+    let insideCount = 0;
+    const total = b - a + 1;
+    for (let i = a; i <= b; i++) {
+      const mi = dist[i] / M_PER_MI;
+      let inside = false;
+      for (const [lo, hi] of classifyRanges) if (mi >= lo && mi <= hi) { inside = true; break; }
+      if (inside) insideCount++;
+    }
+    const frac = insideCount / total;
+    const cls = frac === 1.0 ? 'inside' : (frac === 0.0 ? 'outside' : 'straddler');
+    return [Math.round(frac * 10000) / 10000, cls];
+  };
+
+  const blockRow = (a, b) => {
+    const nSamp = b - a + 1;
+    const d0 = dist[a], d1 = dist[b];
+    if (Number.isNaN(d0) || Number.isNaN(d1) || (d1 - d0) <= 0) return null;
+    const spanM = d1 - d0;
+    const riseM = (!Number.isNaN(alt[a]) && !Number.isNaN(alt[b])) ? alt[b] - alt[a] : NaN;
+    const gE2e = (spanM > 0 && !Number.isNaN(riseM)) ? riseM / spanM : null;
+
+    const hrXs = [], hrYs = [];
+    for (let i = a; i <= b; i++) if (!Number.isNaN(hr[i])) { hrXs.push(t[i]); hrYs.push(hr[i]); }
+    let slope = null;
+    if (hrYs.length >= 30) {
+      const [s] = linregSlope(hrXs, hrYs);
+      slope = s * 60.0;
+    }
+
+    // GAP DIRECTION LIVES IN gapSpeed() ALONE — this line inverted GAP direction
+    // for the whole of v10.0 (a +6.94% block emitted GAP 17:57 against a correct
+    // 8:43). Never inline v / gapFactor(...) or v * gapFactor(...) here.
+    const v = nSamp > 0 ? spanM / nSamp : null;
+    const gapV = v ? gapSpeed(v, gE2e || 0.0, model) : null;
+
+    const cVals = [];
+    let runCount = 0;
+    for (let i = a; i <= b; i++) if (!Number.isNaN(cad[i])) { cVals.push(cad[i]); if (cad[i] >= CAD_RUN_MIN) runCount++; }
+
+    let altSum = 0, altCount = 0;
+    for (let i = a; i <= b; i++) if (!Number.isNaN(alt[i])) { altSum += alt[i]; altCount++; }
+
+    const gSdRaw = nanStd(Array.from(grd.slice(a, b + 1)));
+    const [classifyFrac, classifyClass] = classify(a, b);
+
+    return {
+      start_sec: Math.trunc(t[a]), end_sec: Math.trunc(t[b]), duration_s: nSamp,
+      start_mi: Math.round(d0 / M_PER_MI * 100) / 100,
+      distance_mi: Math.round(spanM / M_PER_MI * 1000) / 1000,
+      grade_e2e_pct: gE2e != null ? Math.round(gE2e * 100 * 100) / 100 : null,
+      grade_sd_pct: gSdRaw != null ? _r(gSdRaw * 100, 2) : null,
+      pace: mpsToPace(v), gap: mpsToPace(gapV),
+      hr_mean: hrYs.length ? _r(hrYs.reduce((s,x) => s+x, 0) / hrYs.length, 1) : null,
+      hr_start: hrYs.length ? Math.trunc(hrYs[0]) : null,
+      hr_end: hrYs.length ? Math.trunc(hrYs[hrYs.length-1]) : null,
+      hr_max: hrYs.length ? Math.trunc(Math.max(...hrYs)) : null,
+      hr_slope_bpm_min: _r(slope, 3),
+      cadence_spm: cVals.length ? _r(cVals.reduce((s,x) => s+x, 0) / cVals.length, 1) : null,
+      run_pct: cVals.length ? Math.round((runCount / cVals.length) * 1000) / 10 : null,
+      mean_altitude_ft: _r(altCount ? (altSum / altCount) * M_TO_FT : null, 0),
+      elapsed_hour: Math.round(t[a] / 3600.0 * 100) / 100,
+      classify_frac: classifyFrac,
+      classify_class: classifyClass,
+      clipped_by_restriction: false,
+    };
+  };
+
+  const out = {
+    gap_model: model, cad_run_min: CAD_RUN_MIN, grade_smooth_w: GRADE_SMOOTH_W,
+    band_membership: 'block mean grade, endpoint-to-endpoint',
+    grade_sd_use: 'REPORTED ONLY — never filters',
+  };
+  if (classifyRanges && classifyRanges.length) {
+    out.classify_ranges_mi = classifyRanges.map(([lo, hi]) => [lo, hi]);
+    out.classify_rule = 'PURITY — keep inside/outside, DROP straddlers. Report the drop count beside any aggregate.';
+  }
+  for (const [gait, mask] of Object.entries(gaits)) {
+    const runs = contiguousRuns(mask);
+    let movingSec = 0;
+    for (let i = 0; i < mask.length; i++) if (mask[i]) movingSec++;
+    out[`${gait}_moving_sec`] = movingSec;
+    for (const floor of minSecList) {
+      const rows = [];
+      for (const [a, b] of runs) if (b - a + 1 >= floor) { const r = blockRow(a, b); if (r) rows.push(r); }
+      const key = `${gait}_blocks_ge_${floor}s`;
+      out[key] = rows;
+      out[`${key}_count`] = rows.length;
+      out[`${key}_total_sec`] = rows.reduce((s,r) => s + r.duration_s, 0);
+      if (classifyRanges && classifyRanges.length && rows.length) {
+        for (const cl of ['inside', 'outside', 'straddler']) {
+          const sel = rows.filter(r => r.classify_class === cl);
+          out[`${key}_${cl}_count`] = sel.length;
+          out[`${key}_${cl}_sec`] = sel.reduce((s,r) => s + r.duration_s, 0);
+        }
+      }
+      if (!rows.length) {
+        out[`${key}_note`] = `NO ${gait.toUpperCase()} BLOCK REACHED ${floor}s. This is a `
+          + `structural null, not evidence of absence: total ${gait} moving seconds = ${movingSec}.`;
+      }
+    }
+  }
+  return out;
 };
 
 // Extract (startMs, endMs) windows for laps with intensity === 'active'.
@@ -847,8 +1575,7 @@ const buildGradeSegments = (series) => {
     }
     lastDir = dir;
 
-    const isAscent = dir === 1;
-    const seg = analyzeMask(series, mask, label, true, !isAscent); // cadKeepUpper=false for ascent
+    const seg = analyzeMask(series, mask, label, true);
     if (seg) {
       seg.direction    = dir === 1 ? 'ascent' : 'descent';
       seg.dist_start_m = dStart;
@@ -857,6 +1584,283 @@ const buildGradeSegments = (series) => {
     }
   }
   return segments;
+};
+
+// PC-2. Per-lap segment table — the athlete presses lap at the start/end of
+// each sustained grade block in test-protocol sessions, making purpose-built
+// test sessions deterministic to analyse independent of any grade-detection
+// heuristic (the athlete declares the boundaries, not the parser). `records`
+// must be the SAME active-filtered array that built `series` — series.t_sec
+// is already each record's elapsed seconds from records[0].timestamp, so it
+// doubles as the `stamps` array without recomputing it.
+const buildLapSegments = (series, laps, records) => {
+  if (!laps || !laps.length || !records || !records.length) return [];
+  const t0 = records[0] && records[0].timestamp;
+  if (t0 == null) return [];
+  const t0Ms = new Date(t0).getTime();
+  const stamps = series.t_sec;
+
+  const marks = laps.filter(l => l.start_time != null)
+    .map(l => new Date(l.start_time).getTime())
+    .sort((a,b) => a - b);
+  if (!marks.length) return [];
+
+  let maxStamp = -Infinity;
+  for (let i = 0; i < stamps.length; i++) if (!Number.isNaN(stamps[i]) && stamps[i] > maxStamp) maxStamp = stamps[i];
+
+  const bounds = marks.map(m => (m - t0Ms) / 1000);
+  bounds.push(maxStamp + 1);
+
+  const out = [];
+  for (let i = 0; i < bounds.length - 1; i++) {
+    const mask = new Uint8Array(stamps.length);
+    let any = false;
+    for (let j = 0; j < stamps.length; j++) {
+      if (stamps[j] >= bounds[i] && stamps[j] < bounds[i+1]) { mask[j] = 1; any = true; }
+    }
+    if (!any) continue;
+    const seg = analyzeMask(series, mask, `Lap ${i+1}`, true);
+    if (!seg) continue;
+    seg.lap_number = i + 1;
+    seg.start_sec = Math.round(bounds[i] * 10) / 10;
+    let durSec = 0;
+    for (let j = 0; j < mask.length; j++) if (mask[j]) durSec++;
+    seg.duration_sec = durSec;
+    const gVals = [];
+    for (let j = 0; j < mask.length; j++) if (mask[j] && !Number.isNaN(series.grade[j])) gVals.push(series.grade[j] * 100.0);
+    seg.grade_sd_pct = gVals.length ? Math.round(nanStd(gVals) * 10) / 10 : null;
+    out.push(seg);
+  }
+  return out;
+};
+
+// Climb capability that works whether the athlete RAN or HIKED. The iso-HR
+// GAP test is a running-economy test and goes silent on hiked climbs by
+// design — that's not the same as having no climb data. Vertical rate
+// (ft/hr) and its HR-normalised form ft_per_beat are defined identically for
+// hiking, running and everything between, which makes them the right things
+// to track session over session. run_pct is reported but NEVER filters — a
+// fully hiked climb is a valid datapoint about hiking, which is what the
+// athlete will do on race climbs.
+const buildClimbPerformance = (series, gradeSegments) => {
+  const grade = series.grade;
+  const n = grade.length;
+  const gPct = new Float64Array(n);
+  for (let i = 0; i < n; i++) gPct[i] = grade[i] * 100.0;
+  const hr = series.hr, cad = series.cadence_spm, alt = series.alt_m, dist = series.dist_m;
+
+  const gain = new Float64Array(n);
+  for (let i = 1; i < n; i++) {
+    const dAlt = alt[i] - alt[i-1];
+    gain[i] = (!Number.isNaN(dAlt) && dAlt > 0) ? dAlt * M_TO_FT : 0.0;
+  }
+
+  const nanMeanMasked = (arr, mask) => {
+    let s = 0, c = 0;
+    for (let i = 0; i < mask.length; i++) if (mask[i] && !Number.isNaN(arr[i])) { s += arr[i]; c++; }
+    return c ? s / c : null;
+  };
+
+  const block = (mask, label) => {
+    let sec = 0;
+    for (let i = 0; i < mask.length; i++) if (mask[i]) sec++;
+    if (sec < 1) return null;
+
+    let asc = 0;
+    for (let i = 0; i < mask.length; i++) if (mask[i]) asc += gain[i];
+    const vr = sec ? asc / (sec / 3600.0) : null;
+
+    const h = nanMeanMasked(hr, mask);
+    const fpb = (h && sec) ? asc / (h * (sec / 60.0)) : null;
+
+    let runCount = 0;
+    const hikeVals = [], runVals = [];
+    for (let i = 0; i < mask.length; i++) {
+      if (!mask[i]) continue;
+      const c = cad[i];
+      if (Number.isNaN(c)) continue;
+      if (c >= CAD_RUN_MIN) { runCount++; runVals.push(c); } else { hikeVals.push(c); }
+    }
+    const run = sec ? (runCount / sec) * 100 : null;
+    const locomotion = (run != null && run < 20) ? 'hiked' : (run != null && run < 80) ? 'mixed' : 'run';
+
+    const meanGradePct = nanMeanMasked(gPct, mask);
+    const blocks = contiguousRuns(mask);
+    const lens = blocks.map(([a,b]) => b - a + 1);
+
+    return {
+      label,
+      duration_sec: sec,
+      ascent_ft: Math.round(asc),
+      vertical_rate_ft_per_hr: vr ? Math.round(vr) : null,
+      avg_hr_bpm: h ? _r(h, 1) : null,
+      ft_per_beat: fpb ? _r(fpb, 4) : null,
+      run_pct: run != null ? _r(run, 1) : null,
+      locomotion,
+      mean_grade_pct: _r(meanGradePct, 1),
+      cadence_hiking_spm: hikeVals.length ? _r(hikeVals.reduce((s,v)=>s+v,0) / hikeVals.length, 1) : null,
+      cadence_moving_spm: runVals.length  ? _r(runVals.reduce((s,v)=>s+v,0)  / runVals.length,  1) : null,
+      avg_stance_ms:      _r(nanMeanMasked(series.stance_ms, mask), 1),
+      avg_step_length_mm: _r(nanMeanMasked(series.step_len_mm, mask), 1),
+      block_count: lens.length,
+      median_block_sec: lens.length ? Math.trunc(median(lens)) : 0,
+    };
+  };
+
+  // --- Per named ascent section (uses the existing merge/trim logic) -------
+  const climbs = [];
+  for (const seg of gradeSegments) {
+    if (seg.direction !== 'ascent') continue;
+    const d0 = seg.dist_start_m, d1 = seg.dist_end_m;
+    if (d0 == null || d1 == null) continue;
+    const m = new Uint8Array(dist.length);
+    for (let i = 0; i < dist.length; i++) if (!Number.isNaN(dist[i]) && dist[i] >= d0 && dist[i] <= d1) m[i] = 1;
+    const b = block(m, seg.label);
+    if (b && b.duration_sec >= CLIMB_MIN_SEC) {
+      b.start_mi = Math.round(d0 / M_PER_MI * 100) / 100;
+      b.distance_mi = seg.distance_mi;
+      b.avg_pace = seg.avg_pace;
+      climbs.push(b);
+    }
+  }
+
+  // --- By climb grade band (all climbing seconds, not only sections) ------
+  const bandLabel = (lo, hi) => hi < 100 ? `+${lo.toFixed(0)}..${hi.toFixed(0)}%` : `+${lo.toFixed(0)}%+`;
+  const bands = [];
+  for (const [lo, hi] of CLIMB_BANDS) {
+    const m = new Uint8Array(n);
+    for (let i = 0; i < n; i++) if (!Number.isNaN(grade[i]) && gPct[i] >= lo && gPct[i] < hi) m[i] = 1;
+    const b = block(m, bandLabel(lo, hi));
+    if (b) { b.sufficient_sample = b.duration_sec >= CLIMB_MIN_SEC; bands.push(b); }
+  }
+
+  // --- Aggregate + fade ------------------------------------------------
+  const allClimbMask = new Uint8Array(n);
+  for (let i = 0; i < n; i++) if (!Number.isNaN(grade[i]) && gPct[i] >= 3.0) allClimbMask[i] = 1;
+  const aggregate = block(allClimbMask, 'all climbing');
+
+  // Band-wise fade controls for grade geometry: ft_per_beat rises with grade
+  // for purely geometric reasons, so an early-vs-late comparison across
+  // climbs with different grade mixes is confounded. Split each band's own
+  // seconds at the session midpoint instead.
+  const mid = n / 2.0;
+  const bandFade = [];
+  for (const [lo, hi] of CLIMB_BANDS) {
+    const bm = new Uint8Array(n);
+    for (let i = 0; i < n; i++) if (!Number.isNaN(grade[i]) && gPct[i] >= lo && gPct[i] < hi) bm[i] = 1;
+    const eMask = new Uint8Array(n), lMask = new Uint8Array(n);
+    for (let i = 0; i < n; i++) { if (!bm[i]) continue; if (i < mid) eMask[i] = 1; else lMask[i] = 1; }
+    const e = block(eMask, 'early'), l = block(lMask, 'late');
+    if (!e || !l || e.duration_sec < 60 || l.duration_sec < 60) continue;
+    if (!e.ft_per_beat || !l.ft_per_beat) continue;
+    bandFade.push({
+      band: bandLabel(lo, hi),
+      early_sec: e.duration_sec, late_sec: l.duration_sec,
+      early_ft_per_beat: e.ft_per_beat, late_ft_per_beat: l.ft_per_beat,
+      ft_per_beat_change_pct: Math.round((l.ft_per_beat - e.ft_per_beat) / e.ft_per_beat * 1000) / 10,
+      early_vertical_rate_ft_per_hr: e.vertical_rate_ft_per_hr,
+      late_vertical_rate_ft_per_hr: l.vertical_rate_ft_per_hr,
+      early_avg_hr: e.avg_hr_bpm, late_avg_hr: l.avg_hr_bpm,
+      early_run_pct: e.run_pct, late_run_pct: l.run_pct,
+    });
+  }
+
+  let fade = null;
+  if (climbs.length >= 4) {
+    const half = Math.floor(climbs.length / 2);
+    const early = climbs.slice(0, half);
+    const late  = climbs.slice(climbs.length - half);
+    const wavg = (rows, key) => {
+      const tot = rows.reduce((s,r) => s + r.duration_sec, 0);
+      if (!tot) return null;
+      return rows.reduce((s,r) => s + (r[key] || 0) * r.duration_sec, 0) / tot;
+    };
+    const eVr = wavg(early, 'vertical_rate_ft_per_hr'), lVr = wavg(late, 'vertical_rate_ft_per_hr');
+    const eFb = wavg(early, 'ft_per_beat'),             lFb = wavg(late, 'ft_per_beat');
+    const eHr = wavg(early, 'avg_hr_bpm'),               lHr = wavg(late, 'avg_hr_bpm');
+    const eG  = wavg(early, 'mean_grade_pct'),           lG  = wavg(late, 'mean_grade_pct');
+    fade = {
+      early_climbs: early.length, late_climbs: late.length,
+      early_vertical_rate_ft_per_hr: eVr ? Math.round(eVr) : null,
+      late_vertical_rate_ft_per_hr:  lVr ? Math.round(lVr) : null,
+      vertical_rate_change_pct: (eVr && lVr) ? Math.round((lVr - eVr) / eVr * 1000) / 10 : null,
+      early_ft_per_beat: eFb ? _r(eFb, 4) : null,
+      late_ft_per_beat:  lFb ? _r(lFb, 4) : null,
+      ft_per_beat_change_pct: (eFb && lFb) ? Math.round((lFb - eFb) / eFb * 1000) / 10 : null,
+      early_avg_hr: eHr ? _r(eHr, 1) : null,
+      late_avg_hr:  lHr ? _r(lHr, 1) : null,
+      early_mean_grade_pct: eG ? _r(eG, 1) : null,
+      late_mean_grade_pct:  lG ? _r(lG, 1) : null,
+      note: "ft_per_beat is the fairer fade signal: it is HR-normalised, so it separates "
+          + "'slowed down' from 'slowed down while also working harder'. CHECK the two "
+          + "mean_grade_pct values before trusting this — if they differ materially the "
+          + "comparison is confounded by grade geometry and by_band_fade is the number to read instead.",
+    };
+  }
+
+  return {
+    definition: 'vertical rate and ft_per_beat over sustained climbing (grade >= +3%). '
+              + 'Locomotion-agnostic: valid for hiking, running and mixed. run_pct describes, never filters.',
+    climbs, by_grade_band: bands, aggregate, fade, by_band_fade: bandFade,
+    comparability_note: 'ft_per_beat rises with grade for geometric reasons — steeper terrain '
+      + 'yields more vertical per horizontal metre. It is therefore valid to compare WITHIN a '
+      + 'grade band (across sessions, or early vs late within one) and NOT valid to compare '
+      + 'across bands within a session. A low ft_per_beat at +3..5% does not by itself indicate poor economy.',
+  };
+};
+
+// Environmental conditions. Many Garmin watches do not log temperature at all,
+// and none log humidity — when absent this MUST be filled in manually (HR is
+// uninterpretable without it). FIT timestamps are UTC; activity.local_timestamp
+// is what Garmin Connect displays, device_settings.time_offset is a cross-check
+// only — never hardcode a timezone offset.
+const buildConditions = (series, session, activity, deviceSettings) => {
+  const toMs  = (v) => v == null ? null : (v instanceof Date ? v.getTime() : new Date(v).getTime());
+  const toIso = (v) => v == null ? null : (v instanceof Date ? v.toISOString() : String(v));
+
+  const t = series.temp_c;
+  let tSum = 0, tCount = 0;
+  for (let i = 0; i < t.length; i++) if (!Number.isNaN(t[i])) { tSum += t[i]; tCount++; }
+  const have = tCount > 0;
+  const tMean = tCount ? tSum / tCount : null;
+
+  const localTs = activity ? activity.local_timestamp : null;
+  const utcTs = (activity && activity.timestamp) || (session && session.start_time) || null;
+
+  let offsetS = null;
+  if (localTs != null && utcTs != null) offsetS = Math.round((toMs(localTs) - toMs(utcTs)) / 1000);
+
+  let devOff = null;
+  if (deviceSettings && deviceSettings.time_offset != null) {
+    const raw = deviceSettings.time_offset >>> 0;
+    devOff = raw > 0x7fffffff ? raw - 0x100000000 : raw;
+  }
+
+  const out = {
+    temp_c_device: have ? _r(tMean, 1) : null,
+    temp_f_device: have ? _r(tMean * 9 / 5 + 32, 1) : null,
+    humidity_pct: null,
+    heat_index_f: null,
+    start_time_local: toIso(localTs),
+    start_time_utc: toIso(utcTs),
+    utc_offset_sec: offsetS,
+    utc_offset_sec_device_crosscheck: devOff,
+    manual_entry_required: !have,
+  };
+  if (localTs == null) {
+    out.start_time_local_missing = 'activity.local_timestamp absent. Time-of-day is a mandatory '
+      + 'conditions input and MUST NOT be inferred from the UTC field. Supply it manually before '
+      + 'any heat or scheduling reasoning.';
+  }
+  if (offsetS != null && devOff != null && offsetS !== devOff) {
+    out.utc_offset_disagreement = `local_timestamp implies ${offsetS}s, device_settings reports `
+      + `${devOff}s. local_timestamp wins; investigate the device.`;
+  }
+  if (!have) {
+    out.warning = 'No temperature in file. Log temp + RH manually. Heat index >85F -> HR not '
+      + 'comparable to cool baselines.';
+  }
+  return out;
 };
 
 // Parse a FIT file ArrayBuffer and return the analysis structure.
@@ -893,12 +1897,17 @@ const analyzeFitBuffer = (buf) => new Promise((resolve, reject) => {
       const series = buildSeries(records);
       if (!series) { reject(new Error('Could not build time series.')); return; }
 
-      // Activity metadata from sessions/file_id
-      const sessions   = parsed.sessions   || [];
-      const activities = parsed.activities || [];
+      // Activity metadata from sessions/activity/file_id. `activity` and
+      // `device_settings` are SINGULAR objects in fit-file-parser's 'list'
+      // mode output, not arrays — confirmed empirically against a real FIT
+      // file. (The prior `parsed.activities || []` here always evaluated to
+      // an empty array — a latent no-op that happened to be harmless because
+      // every field it fed had a working fallback.)
+      const sessions   = parsed.sessions        || [];
+      const firstActivity     = parsed.activity        || {};
+      const deviceSettingsObj = parsed.device_settings || {};
       const fileIdArr  = parsed.file_ids   || parsed.fileIds || [];
       const firstSession  = sessions[0]  || {};
-      const firstActivity = activities[0] || {};
       const firstFileId   = fileIdArr[0]  || {};
 
       const startTime = firstSession.start_time
@@ -909,14 +1918,51 @@ const analyzeFitBuffer = (buf) => new Promise((resolve, reject) => {
       const sport = firstSession.sport || firstActivity.sport || firstFileId.type || null;
 
       const gradeSegs = buildGradeSegments(series);
+      const buckets   = buildGradeBuckets(series);
+
+      const summary = buildSummary(series);
+      const dev = deviceTotals(firstSession);
+      const conditions = buildConditions(series, firstSession, firstActivity, deviceSettingsObj);
+      if (summary) {
+        summary.start_time_local = conditions.start_time_local;
+        summary.ascent_ft_device = dev.total_ascent_ft;
+        summary.descent_ft_device = dev.total_descent_ft;
+        if (summary.ascent_ft && dev.total_ascent_ft) {
+          summary.ascent_derived_vs_device_pct =
+            Math.round((summary.ascent_ft - dev.total_ascent_ft) / dev.total_ascent_ft * 1000) / 10;
+        }
+      }
+
       resolve({
         meta: {
           start_time: startTime ? new Date(startTime).toISOString() : null,
           sport: sport ? String(sport) : null,
           laps_total: laps.length,
           laps_active: windows.length,
+          parser_version: PARSER_VERSION,
+          grade_smooth_w: GRADE_SMOOTH_W,
+          gap_model: GAP_MODEL,
         },
-        summary:           buildSummary(series, firstSession),
+        restriction: null,
+        conditions,
+        device_totals: dev,
+        active_windows: windows.map(([s, e]) => [
+          new Date(s).toISOString(),
+          Number.isFinite(e) ? new Date(e).toISOString()
+            : (records.length ? new Date(records[records.length-1].timestamp).toISOString() : null),
+        ]),
+        summary,
+        hr_zones:         buildHrZones(series),
+        severity_curves:  buildSeverityCurves(series),
+        segments_by_lap:  buildLapSegments(series, laps, records),
+        climb_performance: buildClimbPerformance(series, gradeSegs),
+        grade_buckets:    buckets,
+        grade_bucket_coverage: bucketCoverage(buckets, summary),
+        gap_iso_hr:       buildGapIsoHr(series, GAP_MODEL, HR_BASIS_DETREND),
+        sustained_gait_blocks: buildSustainedGaitBlocks(series, GAP_MODEL),
+        gap_model_note: `GAP computed with '${GAP_MODEL}'. The pre-rev-10.2 dashboard used the `
+          + `'damped' model while labelling it Minetti; historical GAP figures are not comparable.`,
+        race_course_comparison: buildRaceComparison(buckets),
         ascent_summary:    buildDirectionSummary(series, gradeSegs, 'ascent'),
         descent_summary:   buildDirectionSummary(series, gradeSegs, 'descent'),
         segments_10min:    buildTimeSegments(series),
@@ -930,4 +1976,9 @@ const analyzeFitBuffer = (buf) => new Promise((resolve, reject) => {
   });
 });
 
-window.FitAnalysis = { analyzeFitBuffer, buildSeries, buildGradeSegments, buildDirectionSummary, buildElevationProfile };
+window.FitAnalysis = {
+  analyzeFitBuffer, buildSeries, buildGradeSegments, buildDirectionSummary, buildElevationProfile,
+  buildSummary, deviceTotals, buildConditions, buildGradeBuckets, bucketCoverage, buildRaceComparison,
+  buildHrZones, buildSeverityCurves, buildGapIsoHr, buildSustainedGaitBlocks, buildLapSegments,
+  buildClimbPerformance,
+};
