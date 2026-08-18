@@ -22,114 +22,26 @@
   "pre_run": {
    "duration_min": 8,
    "exercises": [
-    {
-     "name": "Walking knee hugs",
-     "category": "mobility",
-     "reps": 10,
-     "side": "alternating",
-     "cue": "Pull knee to chest, balance on standing leg for 1 second."
-    },
-    {
-     "name": "Walking quad pulls",
-     "category": "mobility",
-     "reps": 10,
-     "side": "alternating",
-     "cue": "Tall posture, knee points down."
-    },
-    {
-     "name": "Leg swings — front/back",
-     "category": "mobility",
-     "reps": 12,
-     "side": "alternating",
-     "cue": "Hold something for balance; relaxed, full range."
-    },
-    {
-     "name": "Leg swings — side/side",
-     "category": "mobility",
-     "reps": 12,
-     "side": "alternating",
-     "cue": "Open the hip, don't twist the spine."
-    },
-    {
-     "name": "Walking lunges",
-     "category": "activation",
-     "reps": 8,
-     "side": "alternating",
-     "cue": "Front knee tracks over second toe; keep torso tall."
-    },
-    {
-     "name": "Glute bridges",
-     "category": "activation",
-     "reps": 10,
-     "side": "both",
-     "cue": "Squeeze glutes at the top; ribs down."
-    },
-    {
-     "name": "High knees",
-     "category": "activation",
-     "duration_sec": 30,
-     "side": "both",
-     "cue": "Quick turnover; emphasize lift, not speed."
-    },
-    {
-     "name": "Strides (quality days only)",
-     "category": "activation",
-     "sets": 3,
-     "duration_sec": 20,
-     "side": "both",
-     "cue": "Build to ~85% of 5K pace over 20 sec. 60 sec full recovery between. Skip on easy days."
-    }
+    {"name": "Walking knee hugs", "category": "mobility", "reps": 10, "side": "alternating", "cue": "Pull knee to chest, balance on standing leg for 1 second."},
+    {"name": "Walking quad pulls", "category": "mobility", "reps": 10, "side": "alternating", "cue": "Tall posture, knee points down."},
+    {"name": "Leg swings — front/back", "category": "mobility", "reps": 12, "side": "alternating", "cue": "Hold something for balance; relaxed, full range."},
+    {"name": "Leg swings — side/side", "category": "mobility", "reps": 12, "side": "alternating", "cue": "Open the hip, don't twist the spine."},
+    {"name": "Walking lunges", "category": "activation", "reps": 8, "side": "alternating", "cue": "Front knee tracks over second toe; keep torso tall."},
+    {"name": "Glute bridges", "category": "activation", "reps": 10, "side": "both", "cue": "Squeeze glutes at the top; ribs down."},
+    {"name": "High knees", "category": "activation", "duration_sec": 30, "side": "both", "cue": "Quick turnover; emphasize lift, not speed."},
+    {"name": "Strides (quality days only)", "category": "activation", "sets": 3, "duration_sec": 20, "side": "both", "cue": "Build to ~85% of 5K pace over 20 sec. 60 sec full recovery between. Skip on easy days."}
    ],
    "notes": "Do this BEFORE every run. On easy/shakeout days, omit strides. On quality days (hill intervals, race-rhythm sessions), include the 3 x strides. During recovery weeks 1-2, do the mobility items only, gently."
   },
   "post_run": {
    "duration_min": 10,
    "exercises": [
-    {
-     "name": "Walking cooldown",
-     "category": "mobility",
-     "duration_sec": 180,
-     "side": "both",
-     "cue": "Walk until HR is below 110 bpm before stretching."
-    },
-    {
-     "name": "Standing quad stretch",
-     "category": "mobility",
-     "duration_sec": 30,
-     "sets": 2,
-     "side": "alternating",
-     "cue": "Tuck pelvis under to feel the stretch in the front of the hip too."
-    },
-    {
-     "name": "Standing calf stretch (bent + straight knee)",
-     "category": "calf",
-     "duration_sec": 30,
-     "sets": 2,
-     "side": "alternating",
-     "cue": "Two angles per side: knee straight (gastroc) and knee bent (soleus)."
-    },
-    {
-     "name": "Half-kneeling hip flexor stretch",
-     "category": "mobility",
-     "duration_sec": 30,
-     "sets": 2,
-     "side": "alternating",
-     "cue": "Squeeze the back glute first, THEN lean forward."
-    },
-    {
-     "name": "Pigeon stretch",
-     "category": "mobility",
-     "duration_sec": 45,
-     "side": "alternating",
-     "cue": "Square hips. If knee complains, lie back instead (figure-4 supine)."
-    },
-    {
-     "name": "Foam roll quads, IT band, calves (optional)",
-     "category": "mobility",
-     "duration_sec": 180,
-     "side": "both",
-     "cue": "60 seconds per area; pause and breathe on tender spots."
-    }
+    {"name": "Walking cooldown", "category": "mobility", "duration_sec": 180, "side": "both", "cue": "Walk until HR is below 110 bpm before stretching."},
+    {"name": "Standing quad stretch", "category": "mobility", "duration_sec": 30, "sets": 2, "side": "alternating", "cue": "Tuck pelvis under to feel the stretch in the front of the hip too."},
+    {"name": "Standing calf stretch (bent + straight knee)", "category": "calf", "duration_sec": 30, "sets": 2, "side": "alternating", "cue": "Two angles per side: knee straight (gastroc) and knee bent (soleus)."},
+    {"name": "Half-kneeling hip flexor stretch", "category": "mobility", "duration_sec": 30, "sets": 2, "side": "alternating", "cue": "Squeeze the back glute first, THEN lean forward."},
+    {"name": "Pigeon stretch", "category": "mobility", "duration_sec": 45, "side": "alternating", "cue": "Square hips. If knee complains, lie back instead (figure-4 supine)."},
+    {"name": "Foam roll quads, IT band, calves (optional)", "category": "mobility", "duration_sec": 180, "side": "both", "cue": "60 seconds per area; pause and breathe on tender spots."}
    ],
    "notes": "Do within 15 minutes of finishing the run. Especially important after long runs and power-climb days — eccentric load + walking cooldown protects the quads."
   }
@@ -150,111 +62,13 @@
    },
    "week_notes": "Days 2-8 post-White River. The job this week is circulation and tissue protection, not fitness. Elevation and gentle walking early; short jog intervals only from Friday, only if walking is fully comfortable. No NSAIDs around any loading (blunts collagen remodeling). Strength plan carries the P1 tendon-entry work (isometrics, no HSR).",
    "days": [
-    {
-     "date": "2026-07-27",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Full rest. Short walks around the house, elevation when sitting, pre-stand mobility. Day 2 post-race."
-    },
-    {
-     "date": "2026-07-28",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Recovery walk",
-       "duration_min": 30,
-       "terrain": "road",
-       "hr_cap_bpm": 120,
-       "hr_zone": "Z1",
-       "poles": false,
-       "key_cue": "Flat, supportive shoes, conversational stroll. This is circulation, not training.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Walk only. Note how the right lateral ankle and left knee feel at the start vs. end — this is baseline data for the week.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-07-29",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Recovery walk",
-       "duration_min": 40,
-       "terrain": "road",
-       "hr_cap_bpm": 120,
-       "hr_zone": "Z1",
-       "poles": false,
-       "key_cue": "Slightly longer. Still flat. Stop early without guilt if anything localizes.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Tendon-entry strength session this evening (see strength plan) — isometrics only.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-07-30",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Rest from walking volume. Daily routines + evening isometrics only. Assess: is walking symptom-free? That answer gates Friday."
-    },
-    {
-     "date": "2026-07-31",
-     "day_of_week": "Friday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Walk + first jog steps (gated)",
-       "duration_min": 45,
-       "terrain": "road",
-       "hr_cap_bpm": 135,
-       "hr_zone": "Z1",
-       "poles": false,
-       "key_cue": "6 x 1 min VERY easy jog inside a 45-min walk — ONLY if walking has been fully symptom-free since Wednesday.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Day 6 post-race. If any of the three sites (right lateral ankle, left outer knee, right forefoot) speaks up on the jog steps, drop back to walking and retry Sunday.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-08-01",
-     "day_of_week": "Saturday",
-     "flex": true,
-     "rest_day": true,
-     "day_notes": "Rest or optional 25-30 min flat walk. Flex day — listen to the legs."
-    },
-    {
-     "date": "2026-08-02",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Long walk + jog intervals",
-       "duration_min": 60,
-       "terrain": "mixed",
-       "hr_cap_bpm": 138,
-       "hr_zone": "Z1",
-       "poles": false,
-       "key_cue": "8 x 1 min easy jog inside a 60-min walk if Friday was clean. Gentle terrain OK, nothing steep or technical.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. End-of-week checkpoint: report symptom status — it sets Week 2's walk/run ratios.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    }
+    {"date": "2026-07-27", "day_of_week": "Monday", "flex": false, "rest_day": true, "day_notes": "Full rest. Short walks around the house, elevation when sitting, pre-stand mobility. Day 2 post-race."},
+    {"date": "2026-07-28", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Recovery walk", "duration_min": 30, "terrain": "road", "hr_cap_bpm": 120, "hr_zone": "Z1", "poles": false, "key_cue": "Flat, supportive shoes, conversational stroll. This is circulation, not training.", "fueling_required": false, "notes": "Intensity: Recovery. Walk only. Note how the right lateral ankle and left knee feel at the start vs. end — this is baseline data for the week.", "elevation_gain_ft": 0}]},
+    {"date": "2026-07-29", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Recovery walk", "duration_min": 40, "terrain": "road", "hr_cap_bpm": 120, "hr_zone": "Z1", "poles": false, "key_cue": "Slightly longer. Still flat. Stop early without guilt if anything localizes.", "fueling_required": false, "notes": "Intensity: Recovery. Tendon-entry strength session this evening (see strength plan) — isometrics only.", "elevation_gain_ft": 0}]},
+    {"date": "2026-07-30", "day_of_week": "Thursday", "flex": false, "rest_day": true, "day_notes": "Rest from walking volume. Daily routines + evening isometrics only. Assess: is walking symptom-free? That answer gates Friday."},
+    {"date": "2026-07-31", "day_of_week": "Friday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Walk + first jog steps (gated)", "duration_min": 45, "terrain": "road", "hr_cap_bpm": 135, "hr_zone": "Z1", "poles": false, "key_cue": "6 x 1 min VERY easy jog inside a 45-min walk — ONLY if walking has been fully symptom-free since Wednesday.", "fueling_required": false, "notes": "Intensity: Recovery. Day 6 post-race. If any of the three sites (right lateral ankle, left outer knee, right forefoot) speaks up on the jog steps, drop back to walking and retry Sunday.", "elevation_gain_ft": 0}]},
+    {"date": "2026-08-01", "day_of_week": "Saturday", "flex": true, "rest_day": true, "day_notes": "Rest or optional 25-30 min flat walk. Flex day — listen to the legs."},
+    {"date": "2026-08-02", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Long walk + jog intervals", "duration_min": 60, "terrain": "mixed", "hr_cap_bpm": 138, "hr_zone": "Z1", "poles": false, "key_cue": "8 x 1 min easy jog inside a 60-min walk if Friday was clean. Gentle terrain OK, nothing steep or technical.", "fueling_required": false, "notes": "Intensity: Recovery. End-of-week checkpoint: report symptom status — it sets Week 2's walk/run ratios.", "elevation_gain_ft": 0}]}
    ]
   },
   {
@@ -272,130 +86,13 @@
    },
    "week_notes": "Rebuild week. The pre-race walk/run protocol proved this pathway works — same structure, faster timeline because there is no acute injury, only post-race tissue caution. By Sunday the goal is ~70 min mostly-running. Any regression at the three sites resets to Week 1 Friday level and flags a message to the coach. DECISION POINT AT WEEK'S END (rev 1.3): the W2->W3 step is pre-approved at full size ONLY if Weeks 1 and 2 clear all three symptom gates with no flags. Review the two weeks on Sunday 8/9 before Week 3 starts. Clean = Week 3 runs exactly as written, no further approval needed. Any flag = the pre-approval is void, the ladder re-solves downward, and the 9/13 rehearsal reverts to its 2,600 ft profile. This is the last open human item in the package; everything else is verified and accepted.",
    "days": [
-    {
-     "date": "2026-08-03",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Rest. Daily routines + evening isometrics."
-    },
-    {
-     "date": "2026-08-04",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Walk/run 2:2",
-       "duration_min": 40,
-       "distance_mi": 3.0,
-       "terrain": "road",
-       "hr_cap_bpm": 142,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "key_cue": "2 min easy run / 2 min walk x 10. Flat. Cadence relaxed, no watch-chasing.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. First structured run/walk. Tendon-entry lower session this evening.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-08-05",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Recovery walk",
-       "duration_min": 30,
-       "terrain": "road",
-       "hr_cap_bpm": 120,
-       "hr_zone": "Z1",
-       "poles": false,
-       "key_cue": "Pure walk between run/walk days.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Upper strength this evening if energy is normal.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-08-06",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Walk/run 4:2",
-       "duration_min": 45,
-       "distance_mi": 3.5,
-       "terrain": "mixed",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "key_cue": "4 min easy run / 2 min walk x 7-8. Gentle rolling OK, avoid sustained descent.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Second tendon-entry lower session this evening. 48h from Tuesday's.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-08-07",
-     "day_of_week": "Friday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Rest."
-    },
-    {
-     "date": "2026-08-08",
-     "day_of_week": "Saturday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "shakeout",
-       "title": "First continuous run",
-       "duration_min": 25,
-       "distance_mi": 2.5,
-       "terrain": "road",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "25 min continuous easy. Flat. Stop at 25 even if it feels great — it should feel great.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Milestone session: first continuous run post-race.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-08-09",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "long",
-       "title": "Rebuild long walk/run",
-       "duration_min": 70,
-       "distance_mi": 5.5,
-       "elevation_gain_ft": 300,
-       "terrain": "trail",
-       "hr_cap_bpm": 147,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "Mostly easy running with a 2-min walk break every 15 min. Rolling non-technical trail or gravel.",
-       "fueling_required": true,
-       "fueling_notes": "Bring 1 gel + water; practice taking it at 30 min even on a short effort — keeps the habit warm.",
-       "notes": "Intensity: Recovery. End of recovery block. Clean execution here opens the Build phase: hills return Tuesday."
-      }
-     ]
-    }
+    {"date": "2026-08-03", "day_of_week": "Monday", "flex": false, "rest_day": true, "day_notes": "Rest. Daily routines + evening isometrics."},
+    {"date": "2026-08-04", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Walk/run 2:2", "duration_min": 40, "distance_mi": 3.0, "terrain": "road", "hr_cap_bpm": 142, "hr_zone": "Z1-2", "poles": false, "key_cue": "2 min easy run / 2 min walk x 10. Flat. Cadence relaxed, no watch-chasing.", "fueling_required": false, "notes": "Intensity: Recovery. First structured run/walk. Tendon-entry lower session this evening.", "elevation_gain_ft": 0}]},
+    {"date": "2026-08-05", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Recovery walk", "duration_min": 30, "terrain": "road", "hr_cap_bpm": 120, "hr_zone": "Z1", "poles": false, "key_cue": "Pure walk between run/walk days.", "fueling_required": false, "notes": "Intensity: Recovery. Upper strength this evening if energy is normal.", "elevation_gain_ft": 0}]},
+    {"date": "2026-08-06", "day_of_week": "Thursday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Walk/run 4:2", "duration_min": 45, "distance_mi": 3.5, "terrain": "mixed", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "key_cue": "4 min easy run / 2 min walk x 7-8. Gentle rolling OK, avoid sustained descent.", "fueling_required": false, "notes": "Intensity: Recovery. Second tendon-entry lower session this evening. 48h from Tuesday's.", "elevation_gain_ft": 0}]},
+    {"date": "2026-08-07", "day_of_week": "Friday", "flex": false, "rest_day": true, "day_notes": "Rest."},
+    {"date": "2026-08-08", "day_of_week": "Saturday", "flex": false, "sessions": [{"type": "run", "subtype": "shakeout", "title": "First continuous run", "duration_min": 25, "distance_mi": 2.5, "terrain": "road", "hr_cap_bpm": 145, "hr_zone": "Z2", "poles": false, "key_cue": "25 min continuous easy. Flat. Stop at 25 even if it feels great — it should feel great.", "fueling_required": false, "notes": "Intensity: Recovery. Milestone session: first continuous run post-race.", "elevation_gain_ft": 0}]},
+    {"date": "2026-08-09", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "long", "title": "Rebuild long walk/run", "duration_min": 70, "distance_mi": 5.5, "elevation_gain_ft": 300, "terrain": "trail", "hr_cap_bpm": 147, "hr_zone": "Z2", "poles": false, "key_cue": "Mostly easy running with a 2-min walk break every 15 min. Rolling non-technical trail or gravel.", "fueling_required": true, "fueling_notes": "Bring 1 gel + water; practice taking it at 30 min even on a short effort — keeps the habit warm.", "notes": "Intensity: Recovery. End of recovery block. Clean execution here opens the Build phase: hills return Tuesday."}]}
    ]
   },
   {
@@ -413,133 +110,13 @@
    },
    "week_notes": "The 9-week shape starts here: Tue hill intervals + PM Lower A (hill strength), Wed easy + upper, Thu easy with descent block + PM Lower B (tendon HSR begins), Fri easy + strides, Sat shakeout/rest + upper, Sun rolling long. INTENSITY MODEL for the block: hill intervals are Z3-capped (the validated HR-led model); short uphill strides (15-20 s) are the only faster work — alactic, low-eccentric, aimed at the +4..8% gait-collapse finding. Strides are pulled first if the lateral ankle objects. ENTRY CONDITION (rev 1.3): this week is conditional on Weeks 1-2 clearing all three symptom gates with no flags. It is the largest single step in the block (+9.5 mi / +2,150 ft on session sums) and is exempt from the ramp guard by settled rule — which means the symptom gates, not arithmetic, are what protect it. If the gates were not clean, do not start this week as written.",
    "days": [
-    {
-     "date": "2026-08-10",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Rest. Post-long-run recovery slot for the rest of the plan."
-    },
-    {
-     "date": "2026-08-11",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "power_climb",
-       "title": "Hill intervals — intro",
-       "duration_min": 40,
-       "distance_mi": 3.5,
-       "elevation_gain_ft": 600,
-       "terrain": "trail",
-       "hr_cap_bpm": 155,
-       "hr_zone": "Z3",
-       "poles": false,
-       "key_cue": "6 x 90 s RUNNING at +5..8% grade, HR under 155, walk-down recovery. PASS CRITERION: run_pct >= 80% on every rep — running cadence sits at 168-176 spm when genuinely run. A rep at 130-140 spm is half-walked and does not count.",
-       "fueling_required": false,
-       "notes": "Intensity: Quality. P2 opens. TEST ZONE, not a known deficit: +5..8% is exactly the band where the run-vs-hike question is open (Findings Register F-08). Reps are short on purpose. No poles. TERRAIN: trail, but NON-TECHNICAL — smooth trail, dirt or gravel road all qualify. Uphill running is low-eccentric so the climb itself is tendon-friendly, but technical footing is exactly what provokes the right lateral ankle. Simple footing, consistent pitch. CADENCE CRITERION CORRECTED rev 1.4: the previous 'cadence over 130' target was inherited from walk-contaminated band averages (F-02, retracted). Pass on run share, report cadence_moving_spm."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM hills + PM Lower A (hill strength). Run first."
-    },
-    {
-     "date": "2026-08-12",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z2",
-       "duration_min": 35,
-       "distance_mi": 3.5,
-       "elevation_gain_ft": 300,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "Conversational. Nose-breathing test on the flats.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
-      }
-     ]
-    },
-    {
-     "date": "2026-08-13",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy + descent skill block",
-       "duration_min": 45,
-       "distance_mi": 4.5,
-       "elevation_gain_ft": 350,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "Within an easy run: 2 x 0.5 mi at -3..5%, RELAXED running, median running cadence 175+, quiet feet. Non-technical surface.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + skill. P3 opens gently — Gate 1 is cleared, so moderate-grade descent running begins as the tendon-rebuild medium itself. This is form practice, not load. Lower B (tendon HSR) this evening."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B. Run first."
-    },
-    {
-     "date": "2026-08-14",
-     "day_of_week": "Friday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy + first hill strides",
-       "duration_min": 25,
-       "distance_mi": 2.5,
-       "elevation_gain_ft": 200,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "4 x 15 s uphill strides at the end — smooth build to fast-but-relaxed, walk back down. Full recovery.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + strides. Strides gate: only if the week has been symptom-free at the ankle. RATIONALE RE-DERIVED rev 1.4: the original justification cited the +4..8% cadence-collapse finding, which is retracted (F-02) — running cadence is 166-178 spm at every grade. Strides are retained on independent grounds: running economy, and the SSC/elastic-tendon demand of Vermont's 20-28 short climb-descent transitions. Neuromuscular, not cardio — HR is irrelevant on a 15-s rep. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard."
-      }
-     ]
-    },
-    {
-     "date": "2026-08-15",
-     "day_of_week": "Saturday",
-     "flex": true,
-     "rest_day": true,
-     "day_notes": "Rest (or optional 20 min shakeout). Upper B this evening — upper is fine the day before a long run."
-    },
-    {
-     "date": "2026-08-16",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "long",
-       "title": "Rolling long run",
-       "duration_min": 120,
-       "distance_mi": 10,
-       "elevation_gain_ft": 1000,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "Rolling runnable terrain, ~100 ft/mi. RUN everything up to ~8% — walking is a choice, not a default. Hike only the genuinely steep. GAIT RULE: on any climb where you do switch to hiking, hold the hike for >= 60 CONTINUOUS SECONDS rather than oscillating. Gait oscillation is what hid a usable hiking comparator inside the race file for two weeks — 60-second minimum blocks make those seconds analysable at no cost on the day.",
-       "fueling_required": true,
-       "fueling_notes": "Race-cadence habit: gel every 30 min, SaltStick at 45 min, ~500 ml/hr.",
-       "notes": "Intensity: Long Z2. Vermont-shaped from day one: gravel/dirt rolling routes, NOT the technical-descent mountain routes that produced the June injury. Load-pattern guard is active for the whole block: no technical 20+ milers, minimum 6 days between long runs, terrain rotated. ANALYSIS NOTE (rev 1.5): the >=60 s gait rule exists because PC-1 block construction requires contiguous gait; sub-60 s alternation is unanalysable no matter how much of it there is."
-      }
-     ]
-    }
+    {"date": "2026-08-10", "day_of_week": "Monday", "flex": false, "rest_day": true, "day_notes": "Rest. Post-long-run recovery slot for the rest of the plan."},
+    {"date": "2026-08-11", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "power_climb", "title": "Hill intervals — intro", "duration_min": 40, "distance_mi": 3.5, "elevation_gain_ft": 600, "terrain": "trail", "hr_cap_bpm": 155, "hr_zone": "Z3", "poles": false, "key_cue": "6 x 90 s RUNNING at +5..8% grade, HR under 155, walk-down recovery. PASS CRITERION: run_pct >= 80% on every rep — running cadence sits at 168-176 spm when genuinely run. A rep at 130-140 spm is half-walked and does not count.", "fueling_required": false, "notes": "Intensity: Quality. P2 opens. TEST ZONE, not a known deficit: +5..8% is exactly the band where the run-vs-hike question is open (Findings Register F-08). Reps are short on purpose. No poles. TERRAIN: trail, but NON-TECHNICAL — smooth trail, dirt or gravel road all qualify. Uphill running is low-eccentric so the climb itself is tendon-friendly, but technical footing is exactly what provokes the right lateral ankle. Simple footing, consistent pitch. CADENCE CRITERION CORRECTED rev 1.4: the previous 'cadence over 130' target was inherited from walk-contaminated band averages (F-02, retracted). Pass on run share, report cadence_moving_spm."}], "day_notes": "DOUBLE DAY — AM hills + PM Lower A (hill strength). Run first."},
+    {"date": "2026-08-12", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z2", "duration_min": 35, "distance_mi": 3.5, "elevation_gain_ft": 300, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "Conversational. Nose-breathing test on the flats.", "fueling_required": false, "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."}]},
+    {"date": "2026-08-13", "day_of_week": "Thursday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy + descent skill block", "duration_min": 45, "distance_mi": 4.5, "elevation_gain_ft": 350, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "Within an easy run: 2 x 0.5 mi at -3..5%, RELAXED running, median running cadence 175+, quiet feet. Non-technical surface.", "fueling_required": false, "notes": "Intensity: Easy + skill. P3 opens gently — Gate 1 is cleared, so moderate-grade descent running begins as the tendon-rebuild medium itself. This is form practice, not load. Lower B (tendon HSR) this evening."}], "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B. Run first."},
+    {"date": "2026-08-14", "day_of_week": "Friday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy + first hill strides", "duration_min": 25, "distance_mi": 2.5, "elevation_gain_ft": 200, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "4 x 15 s uphill strides at the end — smooth build to fast-but-relaxed, walk back down. Full recovery.", "fueling_required": false, "notes": "Intensity: Easy + strides. Strides gate: only if the week has been symptom-free at the ankle. RATIONALE RE-DERIVED rev 1.4: the original justification cited the +4..8% cadence-collapse finding, which is retracted (F-02) — running cadence is 166-178 spm at every grade. Strides are retained on independent grounds: running economy, and the SSC/elastic-tendon demand of Vermont's 20-28 short climb-descent transitions. Neuromuscular, not cardio — HR is irrelevant on a 15-s rep. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard."}]},
+    {"date": "2026-08-15", "day_of_week": "Saturday", "flex": true, "rest_day": true, "day_notes": "Rest (or optional 20 min shakeout). Upper B this evening — upper is fine the day before a long run."},
+    {"date": "2026-08-16", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "long", "title": "Rolling long run", "duration_min": 120, "distance_mi": 10, "elevation_gain_ft": 1000, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "Rolling runnable terrain, ~100 ft/mi. RUN everything up to ~8% — walking is a choice, not a default. Hike only the genuinely steep. GAIT RULE: on any climb where you do switch to hiking, hold the hike for >= 60 CONTINUOUS SECONDS rather than oscillating. Gait oscillation is what hid a usable hiking comparator inside the race file for two weeks — 60-second minimum blocks make those seconds analysable at no cost on the day.", "fueling_required": true, "fueling_notes": "Race-cadence habit: gel every 30 min, SaltStick at 45 min, ~500 ml/hr.", "notes": "Intensity: Long Z2. Vermont-shaped from day one: gravel/dirt rolling routes, NOT the technical-descent mountain routes that produced the June injury. Load-pattern guard is active for the whole block: no technical 20+ milers, minimum 6 days between long runs, terrain rotated. ANALYSIS NOTE (rev 1.5): the >=60 s gait rule exists because PC-1 block construction requires contiguous gait; sub-60 s alternation is unanalysable no matter how much of it there is."}]}
    ]
   },
   {
@@ -557,145 +134,13 @@
    },
    "week_notes": "Second build week. Everything progresses one notch. Watch the cumulative-fatigue signal on Thursday descents — that is the Vermont-relevant read.",
    "days": [
-    {
-     "date": "2026-08-17",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true
-    },
-    {
-     "date": "2026-08-18",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "power_climb",
-       "title": "GRADE-ECONOMY TEST (F-08) + reduced hill reps",
-       "duration_min": 70,
-       "distance_mi": 4.5,
-       "elevation_gain_ft": 800,
-       "terrain": "road_or_fireroad",
-       "hr_cap_bpm": 157,
-       "hr_zone": "Z3",
-       "poles": false,
-       "key_cue": "ROAD CLIMB (Garmin course 499037395, scouted). CONTINUOUS LAPPING — press lap at EVERY transition so work and recovery alternate with no un-lapped time. Auto-lap OFF. L1 flat reference 6 min steady running on the 1% terrain. L2 block A climb 0.00-0.50 @ +5.0%. L3 recovery, walk 0.25 down and 0.25 back up, settle 60-90 s at the 0.50 mark before pressing. L4 block B climb 0.50-1.00 @ +8.5%. L5 recovery, walk down to base. L6 block C repeat 0.00-0.50 @ +5.0%. L7 walk down. L8 4 x 20 s strides. RUN EVERY BLOCK TO COMPLETION at steady running effort — do NOT pace to a cap and do not walk. 157 is an ABORT tripwire, not a target. WALK the recoveries, do not jog them — a jogged recovery lets PC-1 merge block-recovery-block into one running stream with grade floating; walking segments the blocks for free. This changes the parse, not only the load.",
-       "fueling_required": false,
-       "notes": "Intensity: Quality / MEASUREMENT. This is the Addendum C s9 test and it is the highest-value measurement in the block (Findings Register F-08). THE QUESTION: running continuously at grade, does HR plateau below the ceiling or rise monotonically until you are forced to walk? Plateau -> P2 becomes volume and execution rehearsal. Monotonic rise -> P2 becomes economy work and Lever C (the ceiling itself) moves to the front. TERRAIN FIELD CORRECTED rev 1.4a: was 'trail', which contradicted the cue. Rolling trail cannot produce a stable continuous grade — grade SD within running blocks averages 4.1 percentage points, which is what defeated the v7 iso-HR rule in the first place. This session REQUIRES a road or graded fireroad climb. PROTOCOL NOTE: turn OFF auto-lap so manual lap presses are the only block boundaries (Parser spec PC-2). READ-OUT REQUIRED: HR start/end/max and slope in bpm/min within each block, pace, cadence_moving_spm, run_pct, and %% of seconds above cap — not block averages. HEAT GATE (convention C-2): coolest available window. Heat index above 85 F invalidates the HR read entirely — if the forecast breaches it, the session SLIPS TO W5 TUESDAY 8/25 and the hill reps run as originally written. The test must precede the 8/27 Gate 2 and 8/30 calibration package. P1 INTERACTION: uphill running is concentric-dominant and race climbing was pain-free, so this is tendon-compatible; confirm the three symptom sites are clear before starting. VERTICAL-NEUTRAL: 800 ft total is UNCHANGED from rev 1.3 — the test blocks are funded by reducing approach and recovery climbing, not by adding gain. W4 sits exactly at the +500 ft ramp cap and has no headroom. COURSE LOCKED rev 1.4b: Garmin course 499037395, road. Measured profile — 1.245 mi, 422 ft, continuous ascent. Block A mi 0.00-0.50 mean +5.0%, grade SD 1.3 pts. Block B mi 0.50-1.00 mean +8.5%, grade SD 0.9 pts. Separation 3.5 percentage points. CUT AT 0.50 (rev 1.4c), replacing an earlier 0.55 offset — same grade quality, cleaner boundary, and 19 ft cheaper on the approach re-climb. REJECTED ALTERNATIVE: 'rest of ascent' mi 0.50-1.245 averages +7.3%, closer to the original +6..7% target, but grade SD doubles to 2.3 pts because the road crests — per-0.1-mi it runs 8.4, 8.3, 8.9, 9.4, 7.5, 7.6, 3.5, 2.8. That average is a steep-plus-flat blend, the same class of artifact as a walk-contaminated band mean. A block whose grade shifts six points partway cannot answer a stable-grade HR question. Trail comparison SD is 4.1 pts, so this road delivers the grade stability the test requires. DESIGN NOTE: the two blocks BRACKET the +5..8% test zone rather than sampling inside it. Both plateau -> the whole zone is runnable. A plateaus and B does not -> the boundary sits inside the zone, interpolate. Neither plateaus -> the boundary is below +5% and P2 reshapes substantially. A pass at +5.0% generalises downward to +3..4%, so the gentle end is covered. Block B at +8.6% is above the rev 1.4 hike line; 'could not run it' is a valid and informative result there. SECOND GENTLE BLOCK RESTORED (rev 1.4d). An earlier draft cut it on budget grounds, using a descend-to-base plus jog-up recovery costing 1.00 mi and 133 ft of re-climb. Athlete proposed walking 0.25 down and 0.25 back up instead — same recovery effect at half the distance and ~60 ft less climbing, and walking descent recovers better than jogging. That saving funds block C. Planned total 4.55 mi / 562 ft against 4.5 / 800. BLOCK C VALUE: repeating +5.0% after block B and a mile of descending is a within-session check on whether the same grade costs more under accumulated work — a cheap partial read on the fatigue question Addendum B v4 s11 withdrew, and the closest approximation to race conditions in the session. First thing dropped if the right lateral ankle responds on the walk-downs. DESCENT LOAD: 1.75 mi of descending, all easy-paced recovery rather than descent work, on a day carrying Lower A in the evening. Keep every descent genuinely easy. FLAT REFERENCE: 1% terrain at the base, confirmed available. Use the longest continuous straight or the widest loop — tight loops depress flat pace through braking and acceleration, which would bias BOTH climb comparisons favourably and corrupt the anchor the whole test rests on. If the loop is tight, note it and the flat figure is treated as a floor rather than a value. FLAT REFERENCE CONFIRMED (athlete, 2026-08-10): 1% terrain available at the base for the reference block. Route starts at 5 ft elevation. DATA CAVEAT: Garmin course elevation is DEM-derived at ~27 m point spacing; real road may undulate slightly more than the profile shows. DURATION CHANGED rev 1.4e: 50 -> 70 min. THIS IS A LOAD-FIELD CHANGE and the only one in rev 1.4; distance_mi and elevation_gain_ft remain untouched across the whole revision. Driver is 2.0 mi of recovery walking at ~15-20 min/mi, roughly 30-35 min on its own. Work blocks total ~28 min. The ramp guard governs mileage and vertical, not duration, so weekly compliance is unaffected; walking recovery carries near-zero physiological load. Consequences that DO matter: greater heat exposure, which makes the coolest-window instruction and the 85 F gate more binding, and a longer gap needed before Lower A. BLOCKS ARE DISTANCE-DEFINED, NOT TIME-DEFINED (changed from the original 6-min spec): a physical landmark is a more reliable lap boundary than a timer and keeps each block's grade matched to the measured road segment. Expected durations: L1 6:00 time-capped, L2 6:15-7:30, L4 7:15-9:00, L6 6:30-7:45. Longer than 6 min is an improvement — plateau vs monotonic rise reads more clearly over 8 min. If block B turns into a hike partway, STOP the block there, press lap, and note the distance. That is a result, not a failed session. STRIDES moved from hill to flat (logistics — avoids re-climbing); the session already carries 490 ft of climbing so the climbing-specific stimulus is covered. FLAT REFERENCE TARGET: let HR settle at 140-145, ideally ~142, and let pace be the output. Do NOT set a pace target — fixing pace on the flat fixes the wrong variable and biases both climb comparisons. Expect roughly 11:00-11:30/mi. Carry the same perceived effort into block A. Lower A this evening as scheduled, with adequate gap. READ-OUT ADDITION (rev 1.5, Dispositions s3): report the steep block BOTH uncorrected AND decay-corrected. Estimate time decay linearly between the BLOCK A and BLOCK C midpoints (both +5.0%) and interpolate MULTIPLICATIVELY to BLOCK B — the 8/9 session showed decay as a proportional penalty on a common pace scale (16.1-16.7% across three non-climbing grade bins), not an additive grade term. STATE that the A->C slope contains any fatigue BLOCK B itself induced, so the correction is an UPPER BOUND on decay and the corrected figures are optimistic. The read must hold across BOTH bounds or the session did not settle it. DECLARED ASSUMPTION: the 8/9 climbing bin (+3..+6%) ran 19.8% against 16.1-16.7% for the three non-climbing bins — about 3 points clear on 166 late seconds. If decay RATE differs between +5.0% and +8.5%, the multiplicative interpolation to BLOCK B carries an additional unquantified error. Small sample, stated as an assumption rather than discovered in the read-out. BLOCK NAMING RECONCILED rev 1.5: the disposition was written against the retired 4-block design (BLOCK 2/4 at +3..4%, BLOCK 3 at +6..7%); it maps onto the locked course as A/C and B respectively. Method unchanged. READ-OUT ADDITION (rev 1.6, Rulings 20260810 s3): report WITHIN-BLOCK HR SLOPE in bpm/min for BLOCK A, BLOCK B and BLOCK C SEPARATELY. This is a free falsification test of the residual assumption above and needs no change to the session. If the climbing bin genuinely carries a grade-dependent decay term, BLOCK B's within-block slope should EXCEED both BLOCK A's and BLOCK C's. If all three are comparable, the 19.8% separation is more likely a small-sample artifact of 166 seconds and the multiplicative interpolation is safe. RESIDUAL STATED PRECISELY, so it is falsifiable rather than merely disclosed: the risk is NOT 'decay might behave differently on climbs', it is 'the decay RATE may differ between +5.0% and +8.5%, in which case multiplicative interpolation from BLOCK A and BLOCK C to BLOCK B carries an unquantified error ON TOP OF the fatigue-contamination bound.' Block names remapped from the ruling's retired BLOCK 2/3/4 exactly as in rev 1.5; method unchanged."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM hills + PM Lower A."
-    },
-    {
-     "date": "2026-08-19",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z2",
-       "duration_min": 30,
-       "distance_mi": 3.0,
-       "elevation_gain_ft": 150,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
-      }
-     ]
-    },
-    {
-     "date": "2026-08-20",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy + descent blocks",
-       "duration_min": 50,
-       "distance_mi": 5.0,
-       "elevation_gain_ft": 400,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "3 x 0.75 mi at -4..6%, median running cadence 175+, controlled but genuinely RUNNING. Non-technical.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + skill. Descent dose grows. Note any lateral-ankle or lateral-knee feedback within 24h — that is the progression signal, not just in-session feel. Lower B this evening."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B."
-    },
-    {
-     "date": "2026-08-21",
-     "day_of_week": "Friday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy + gear-change pickups",
-       "duration_min": 25,
-       "distance_mi": 2.5,
-       "elevation_gain_ft": 100,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "6 x 1 min RUNNING at +2..4% inside the run, running cadence 165+, easy jog between. Smooth, tall, quick feet.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + economy. PROMOTED rev 1.4: this is the densest part of the prize. Running's advantage over hiking shrinks as grade rises, so +2..5% is where the time is — and Vermont has 5.6 mi of it. CITATION CORRECTED rev 1.4: the previous note claimed 'at peak fitness you ran it at 13:31 / cadence 138.' The June 13 re-parse shows that band was run 38.9%% of the time; 13:26-13:31 is a walk/run blend, not a running pace, and 138 spm is a walk-share number. When actually running +4.2%% on June 13 you held 11:45 at HR 141.4 with cadence 170. That is the gait pattern these pickups rehearse. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard."
-      }
-     ]
-    },
-    {
-     "date": "2026-08-22",
-     "day_of_week": "Saturday",
-     "flex": true,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "shakeout",
-       "title": "Shakeout",
-       "duration_min": 10,
-       "distance_mi": 1.0,
-       "terrain": "road",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-08-23",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "long",
-       "title": "Rolling long run",
-       "duration_min": 156,
-       "distance_mi": 13,
-       "elevation_gain_ft": 1500,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "~110-130 ft/mi rolling. Run-everything intent. Practice the transition rhythm: no settling — every crest changes gear.",
-       "fueling_required": true,
-       "fueling_notes": "Gel every 30 min, SaltStick 1/45 min, 500-600 ml/hr.",
-       "notes": "Intensity: Long Z2. Vermont is constant gear changes; long runs train the rhythm as much as the legs."
-      }
-     ]
-    }
+    {"date": "2026-08-17", "day_of_week": "Monday", "flex": false, "rest_day": true},
+    {"date": "2026-08-18", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "power_climb", "title": "GRADE-ECONOMY TEST (F-08) + reduced hill reps", "duration_min": 70, "distance_mi": 4.5, "elevation_gain_ft": 800, "terrain": "road_or_fireroad", "hr_cap_bpm": 157, "hr_zone": "Z3", "poles": false, "key_cue": "ROAD CLIMB (Garmin course 499037395, scouted). CONTINUOUS LAPPING — press lap at EVERY transition so work and recovery alternate with no un-lapped time. Auto-lap OFF. L1 flat reference 6 min steady running on the 1% terrain. L2 block A climb 0.00-0.50 @ +5.0%. L3 recovery, walk 0.25 down and 0.25 back up, settle 60-90 s at the 0.50 mark before pressing. L4 block B climb 0.50-1.00 @ +8.5%. L5 recovery, walk down to base. L6 block C repeat 0.00-0.50 @ +5.0%. L7 walk down. L8 4 x 20 s strides. RUN EVERY BLOCK TO COMPLETION at steady running effort — do NOT pace to a cap and do not walk. 157 is an ABORT tripwire, not a target. WALK the recoveries, do not jog them — a jogged recovery lets PC-1 merge block-recovery-block into one running stream with grade floating; walking segments the blocks for free. This changes the parse, not only the load.", "fueling_required": false, "notes": "Intensity: Quality / MEASUREMENT. This is the Addendum C s9 test and it is the highest-value measurement in the block (Findings Register F-08). THE QUESTION: running continuously at grade, does HR plateau below the ceiling or rise monotonically until you are forced to walk? Plateau -> P2 becomes volume and execution rehearsal. Monotonic rise -> P2 becomes economy work and Lever C (the ceiling itself) moves to the front. TERRAIN FIELD CORRECTED rev 1.4a: was 'trail', which contradicted the cue. Rolling trail cannot produce a stable continuous grade — grade SD within running blocks averages 4.1 percentage points, which is what defeated the v7 iso-HR rule in the first place. This session REQUIRES a road or graded fireroad climb. PROTOCOL NOTE: turn OFF auto-lap so manual lap presses are the only block boundaries (Parser spec PC-2). READ-OUT REQUIRED: HR start/end/max and slope in bpm/min within each block, pace, cadence_moving_spm, run_pct, and % of seconds above cap — not block averages. HEAT GATE (convention C-2): coolest available window. Heat index above 85 F invalidates the HR read entirely — if the forecast breaches it, the session SLIPS TO W5 TUESDAY 8/25 and the hill reps run as originally written. The test must precede the 8/27 Gate 2 and 8/30 calibration package. P1 INTERACTION: uphill running is concentric-dominant and race climbing was pain-free, so this is tendon-compatible; confirm the three symptom sites are clear before starting. VERTICAL-NEUTRAL: 800 ft total is UNCHANGED from rev 1.3 — the test blocks are funded by reducing approach and recovery climbing, not by adding gain. W4 sits exactly at the +500 ft ramp cap and has no headroom. COURSE LOCKED rev 1.4b: Garmin course 499037395, road. Measured profile — 1.245 mi, 422 ft, continuous ascent. Block A mi 0.00-0.50 mean +5.0%, grade SD 1.3 pts. Block B mi 0.50-1.00 mean +8.5%, grade SD 0.9 pts. Separation 3.5 percentage points. CUT AT 0.50 (rev 1.4c), replacing an earlier 0.55 offset — same grade quality, cleaner boundary, and 19 ft cheaper on the approach re-climb. REJECTED ALTERNATIVE: 'rest of ascent' mi 0.50-1.245 averages +7.3%, closer to the original +6..7% target, but grade SD doubles to 2.3 pts because the road crests — per-0.1-mi it runs 8.4, 8.3, 8.9, 9.4, 7.5, 7.6, 3.5, 2.8. That average is a steep-plus-flat blend, the same class of artifact as a walk-contaminated band mean. A block whose grade shifts six points partway cannot answer a stable-grade HR question. Trail comparison SD is 4.1 pts, so this road delivers the grade stability the test requires. DESIGN NOTE: the two blocks BRACKET the +5..8% test zone rather than sampling inside it. Both plateau -> the whole zone is runnable. A plateaus and B does not -> the boundary sits inside the zone, interpolate. Neither plateaus -> the boundary is below +5% and P2 reshapes substantially. A pass at +5.0% generalises downward to +3..4%, so the gentle end is covered. Block B at +8.6% is above the rev 1.4 hike line; 'could not run it' is a valid and informative result there. SECOND GENTLE BLOCK RESTORED (rev 1.4d). An earlier draft cut it on budget grounds, using a descend-to-base plus jog-up recovery costing 1.00 mi and 133 ft of re-climb. Athlete proposed walking 0.25 down and 0.25 back up instead — same recovery effect at half the distance and ~60 ft less climbing, and walking descent recovers better than jogging. That saving funds block C. Planned total 4.55 mi / 562 ft against 4.5 / 800. BLOCK C VALUE: repeating +5.0% after block B and a mile of descending is a within-session check on whether the same grade costs more under accumulated work — a cheap partial read on the fatigue question Addendum B v4 s11 withdrew, and the closest approximation to race conditions in the session. First thing dropped if the right lateral ankle responds on the walk-downs. DESCENT LOAD: 1.75 mi of descending, all easy-paced recovery rather than descent work, on a day carrying Lower A in the evening. Keep every descent genuinely easy. FLAT REFERENCE: 1% terrain at the base, confirmed available. Use the longest continuous straight or the widest loop — tight loops depress flat pace through braking and acceleration, which would bias BOTH climb comparisons favourably and corrupt the anchor the whole test rests on. If the loop is tight, note it and the flat figure is treated as a floor rather than a value. FLAT REFERENCE CONFIRMED (athlete, 2026-08-10): 1% terrain available at the base for the reference block. Route starts at 5 ft elevation. DATA CAVEAT: Garmin course elevation is DEM-derived at ~27 m point spacing; real road may undulate slightly more than the profile shows. DURATION CHANGED rev 1.4e: 50 -> 70 min. THIS IS A LOAD-FIELD CHANGE and the only one in rev 1.4; distance_mi and elevation_gain_ft remain untouched across the whole revision. Driver is 2.0 mi of recovery walking at ~15-20 min/mi, roughly 30-35 min on its own. Work blocks total ~28 min. The ramp guard governs mileage and vertical, not duration, so weekly compliance is unaffected; walking recovery carries near-zero physiological load. Consequences that DO matter: greater heat exposure, which makes the coolest-window instruction and the 85 F gate more binding, and a longer gap needed before Lower A. BLOCKS ARE DISTANCE-DEFINED, NOT TIME-DEFINED (changed from the original 6-min spec): a physical landmark is a more reliable lap boundary than a timer and keeps each block's grade matched to the measured road segment. Expected durations: L1 6:00 time-capped, L2 6:15-7:30, L4 7:15-9:00, L6 6:30-7:45. Longer than 6 min is an improvement — plateau vs monotonic rise reads more clearly over 8 min. If block B turns into a hike partway, STOP the block there, press lap, and note the distance. That is a result, not a failed session. STRIDES moved from hill to flat (logistics — avoids re-climbing); the session already carries 490 ft of climbing so the climbing-specific stimulus is covered. FLAT REFERENCE TARGET: let HR settle at 140-145, ideally ~142, and let pace be the output. Do NOT set a pace target — fixing pace on the flat fixes the wrong variable and biases both climb comparisons. Expect roughly 11:00-11:30/mi. Carry the same perceived effort into block A. Lower A this evening as scheduled, with adequate gap. READ-OUT ADDITION (rev 1.5, Dispositions s3): report the steep block BOTH uncorrected AND decay-corrected. Estimate time decay linearly between the BLOCK A and BLOCK C midpoints (both +5.0%) and interpolate MULTIPLICATIVELY to BLOCK B — the 8/9 session showed decay as a proportional penalty on a common pace scale (16.1-16.7% across three non-climbing grade bins), not an additive grade term. STATE that the A->C slope contains any fatigue BLOCK B itself induced, so the correction is an UPPER BOUND on decay and the corrected figures are optimistic. The read must hold across BOTH bounds or the session did not settle it. DECLARED ASSUMPTION: the 8/9 climbing bin (+3..+6%) ran 19.8% against 16.1-16.7% for the three non-climbing bins — about 3 points clear on 166 late seconds. If decay RATE differs between +5.0% and +8.5%, the multiplicative interpolation to BLOCK B carries an additional unquantified error. Small sample, stated as an assumption rather than discovered in the read-out. BLOCK NAMING RECONCILED rev 1.5: the disposition was written against the retired 4-block design (BLOCK 2/4 at +3..4%, BLOCK 3 at +6..7%); it maps onto the locked course as A/C and B respectively. Method unchanged. READ-OUT ADDITION (rev 1.6, Rulings 20260810 s3): report WITHIN-BLOCK HR SLOPE in bpm/min for BLOCK A, BLOCK B and BLOCK C SEPARATELY. This is a free falsification test of the residual assumption above and needs no change to the session. If the climbing bin genuinely carries a grade-dependent decay term, BLOCK B's within-block slope should EXCEED both BLOCK A's and BLOCK C's. If all three are comparable, the 19.8% separation is more likely a small-sample artifact of 166 seconds and the multiplicative interpolation is safe. RESIDUAL STATED PRECISELY, so it is falsifiable rather than merely disclosed: the risk is NOT 'decay might behave differently on climbs', it is 'the decay RATE may differ between +5.0% and +8.5%, in which case multiplicative interpolation from BLOCK A and BLOCK C to BLOCK B carries an unquantified error ON TOP OF the fatigue-contamination bound.' Block names remapped from the ruling's retired BLOCK 2/3/4 exactly as in rev 1.5; method unchanged."}], "day_notes": "DOUBLE DAY — AM hills + PM Lower A."},
+    {"date": "2026-08-19", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z2", "duration_min": 30, "distance_mi": 3.0, "elevation_gain_ft": 150, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "fueling_required": false, "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."}]},
+    {"date": "2026-08-20", "day_of_week": "Thursday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy + descent blocks", "duration_min": 50, "distance_mi": 5.0, "elevation_gain_ft": 400, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "3 x 0.75 mi at -4..6%, median running cadence 175+, controlled but genuinely RUNNING. Non-technical.", "fueling_required": false, "notes": "Intensity: Easy + skill. Descent dose grows. Note any lateral-ankle or lateral-knee feedback within 24h — that is the progression signal, not just in-session feel. Lower B this evening."}], "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B."},
+    {"date": "2026-08-21", "day_of_week": "Friday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy + gear-change pickups", "duration_min": 25, "distance_mi": 2.5, "elevation_gain_ft": 100, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "6 x 1 min RUNNING at +2..4% inside the run, running cadence 165+, easy jog between. Smooth, tall, quick feet.", "fueling_required": false, "notes": "Intensity: Easy + economy. PROMOTED rev 1.4: this is the densest part of the prize. Running's advantage over hiking shrinks as grade rises, so +2..5% is where the time is — and Vermont has 5.6 mi of it. CITATION CORRECTED rev 1.4: the previous note claimed 'at peak fitness you ran it at 13:31 / cadence 138.' The June 13 re-parse shows that band was run 38.9% of the time; 13:26-13:31 is a walk/run blend, not a running pace, and 138 spm is a walk-share number. When actually running +4.2% on June 13 you held 11:45 at HR 141.4 with cadence 170. That is the gait pattern these pickups rehearse. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard."}]},
+    {"date": "2026-08-22", "day_of_week": "Saturday", "flex": true, "sessions": [{"type": "run", "subtype": "shakeout", "title": "Shakeout", "duration_min": 10, "distance_mi": 1.0, "terrain": "road", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "fueling_required": false, "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.", "elevation_gain_ft": 0}]},
+    {"date": "2026-08-23", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "long", "title": "Rolling long run", "duration_min": 156, "distance_mi": 13, "elevation_gain_ft": 1500, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "~110-130 ft/mi rolling. Run-everything intent. Practice the transition rhythm: no settling — every crest changes gear.", "fueling_required": true, "fueling_notes": "Gel every 30 min, SaltStick 1/45 min, 500-600 ml/hr.", "notes": "Intensity: Long Z2. Vermont is constant gear changes; long runs train the rhythm as much as the legs."}]}
    ]
   },
   {
@@ -714,145 +159,13 @@
    },
    "week_notes": "Checkpoint week per the cover note. Gate 2 (descent calibration) sits Thursday: it clears the ramp to race-specific descent volume AND produces the grade-banded descent data. Sunday's long run is the rolling-terrain calibration. Both need clean GPS recording (no pauses mid-effort) and the established parser workflow afterwards. GATE 2 FAIL BRANCH (covers the Sunday calibration run): if Gate 2 flags — symptom escalation at ankle/knee within 24 h — then Sunday 8/30 DROPS to a flat/gentle 10-12 mi easy run WITHOUT calibration status; the calibration long run reschedules to Sunday 9/6 (swapping with the W6 long run), and the coach is messaged before either run happens. Rationale: (1) load — a symptomatic ankle/knee does not get a 16-mi rolling run 72 h later; (2) data — a protective-state FIT file must never feed the Vermont pacing plan (the White River race-matrix lesson). Pacing-plan delivery slips ~1 week in this branch — acceptable, still ~2.5 weeks pre-race.",
    "days": [
-    {
-     "date": "2026-08-24",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true
-    },
-    {
-     "date": "2026-08-25",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "power_climb",
-       "title": "Hill intervals — back-to-back sets",
-       "duration_min": 55,
-       "distance_mi": 5.0,
-       "elevation_gain_ft": 950,
-       "terrain": "trail",
-       "hr_cap_bpm": 157,
-       "hr_zone": "Z3",
-       "poles": false,
-       "key_cue": "6 x 3 min at +5..8% in PAIRS with only a short rolling recovery inside each pair; full jog recovery between pairs. Plus 2 x 30 s strong at +12..15%. Finish 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every +5..8% rep.",
-       "fueling_required": false,
-       "notes": "Intensity: Quality. Back-to-back pairs train the Vermont transition rhythm — climb, crest, roll, climb again. The two steep reps cover the brief 12-15% pitches the course profile hides. Lower A this evening. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM hills + PM Lower A."
-    },
-    {
-     "date": "2026-08-26",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z2",
-       "duration_min": 30,
-       "distance_mi": 3.0,
-       "elevation_gain_ft": 100,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
-      }
-     ]
-    },
-    {
-     "date": "2026-08-27",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "GATE 2 — Descent calibration session",
-       "duration_min": 60,
-       "distance_mi": 6.0,
-       "elevation_gain_ft": 500,
-       "terrain": "trail",
-       "hr_cap_bpm": 152,
-       "hr_zone": "Z2-3",
-       "poles": false,
-       "key_cue": "After 15 min warmup: 2 x 1.5 mi SUSTAINED running at -5..8%, median running cadence 175+, controlled-strong effort, full recovery between. Non-technical surface. Clean FIT recording.",
-       "fueling_required": true,
-       "fueling_notes": "1 gel at 30 min.",
-       "notes": "Intensity: Calibration/Quality. THE GATE 2 SESSION, deferred from last cycle. Pass criteria: both reps completed at cadence 170+, no symptom escalation at ankle/knee within 24h. Pass clears race-specific descent volume from Week 6. The FIT file goes to the Race Strategy project. Reference ceiling for context, not target: June 13 held 10:38/mi at HR 147 over 6.67 mi of this band. Lower B this evening — tendon work, moderate load given the hard morning. CAP RATIONALE: the 152 cap is the White River descent-throttle signal, correctly inherited — a declared tripwire at low Z3 over an intended Z2 execution band. The intended band is stated unambiguously here because this session's FIT file feeds the Vermont pacing plan. FAIL BRANCH: a flag here also demotes Sunday 8/30 to a flat/gentle 10-12 mi easy (no calibration status) and moves the calibration long run to 9/6 — see week notes. READ-OUT ADDITION (rev 1.8, Strategist_Response_ImplNote_20260812 s3): report RUNNING-ONLY STEP LENGTH, first rep versus second rep, at matched grade. RECORDED METRIC ONLY — THE PASS CRITERIA ARE UNCHANGED and remain cadence plus 24 h symptom response. WHY: on the 06/20 matched repeats, cadence sat at 172.7 / 173.7 / 173.7 — inside this card's cadence criterion at every point — while running-only pace decayed 27 s/mi through STEP LENGTH falling 763 -> 736 mm at preserved turnover. Holding cadence while stride shortens is not an intact gait; it is a shortening gait at preserved turnover, which on descent is the eccentric-protective signature. THE CADENCE CRITERION AS WRITTEN IS BLIND TO THE ONLY DESCENT DEGRADATION MODE THE ARCHIVE DOCUMENTS: a session can fail this way and pass the gate. Costs nothing on the day, needs no extra dose, and no parser key beyond what v10.1 already emits. STATED LIMIT: this measures the ONSET of the protective response at a SUB-RACE DOSE. It does NOT certify tolerance at race dose — 2 x 1.5 mi remains roughly a third of one 06/20 descent block — and the read-out must not be quoted as if it did. REPORT ON RUNNING SECONDS ONLY: on the all-moving basis step length RISES across the same repeats (772 -> 791 mm), inverting the sign of the finding (Addendum B C-5 as extended, Amendment 5). Applies whether the session runs at 2 x 1.5 mi on sourced road or a shortened block on the default loop."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM Gate 2 descent session + PM Lower B (moderate)."
-    },
-    {
-     "date": "2026-08-28",
-     "day_of_week": "Friday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Recovery easy",
-       "duration_min": 25,
-       "distance_mi": 2.5,
-       "elevation_gain_ft": 0,
-       "terrain": "trail",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Genuinely easy between the two calibration efforts. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
-      }
-     ]
-    },
-    {
-     "date": "2026-08-29",
-     "day_of_week": "Saturday",
-     "flex": true,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "shakeout",
-       "title": "Shakeout",
-       "duration_min": 15,
-       "distance_mi": 1.5,
-       "terrain": "road",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-08-30",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "long",
-       "title": "CALIBRATION rolling long run",
-       "duration_min": 192,
-       "distance_mi": 16,
-       "elevation_gain_ft": 1900,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "Rolling runnable, ~120 ft/mi, run-everything. Steady clean recording, minimal stops. This is the Vermont fitness snapshot.",
-       "fueling_required": true,
-       "fueling_notes": "FULL RACE PROTOCOL TEST — see nutrition date override for 2026-08-30.",
-       "notes": "Intensity: Long Z2 / calibration. FIT file to the Race Strategy project with Thursday's — together they rebuild the grade-banded tables on current fitness (the June tables are stale, the race matrix is a protective state; this replaces both). CONDITIONAL: only runs as the calibration session if Gate 2 (Thu) passed cleanly. If Gate 2 flagged: this becomes a flat/gentle 10-12 mi easy run, NO calibration status, and the calibration long run moves to Sunday 9/6 (coach messaged first)."
-      }
-     ]
-    }
+    {"date": "2026-08-24", "day_of_week": "Monday", "flex": false, "rest_day": true},
+    {"date": "2026-08-25", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "power_climb", "title": "Hill intervals — back-to-back sets", "duration_min": 55, "distance_mi": 5.0, "elevation_gain_ft": 950, "terrain": "trail", "hr_cap_bpm": 157, "hr_zone": "Z3", "poles": false, "key_cue": "6 x 3 min at +5..8% in PAIRS with only a short rolling recovery inside each pair; full jog recovery between pairs. Plus 2 x 30 s strong at +12..15%. Finish 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every +5..8% rep.", "fueling_required": false, "notes": "Intensity: Quality. Back-to-back pairs train the Vermont transition rhythm — climb, crest, roll, climb again. The two steep reps cover the brief 12-15% pitches the course profile hides. Lower A this evening. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."}], "day_notes": "DOUBLE DAY — AM hills + PM Lower A."},
+    {"date": "2026-08-26", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z2", "duration_min": 30, "distance_mi": 3.0, "elevation_gain_ft": 100, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "fueling_required": false, "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."}]},
+    {"date": "2026-08-27", "day_of_week": "Thursday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "GATE 2 — Descent calibration session", "duration_min": 60, "distance_mi": 6.0, "elevation_gain_ft": 500, "terrain": "trail", "hr_cap_bpm": 152, "hr_zone": "Z2-3", "poles": false, "key_cue": "After 15 min warmup: 2 x 1.5 mi SUSTAINED running at -5..8%, median running cadence 175+, controlled-strong effort, full recovery between. Non-technical surface. Clean FIT recording.", "fueling_required": true, "fueling_notes": "1 gel at 30 min.", "notes": "Intensity: Calibration/Quality. THE GATE 2 SESSION, deferred from last cycle. Pass criteria: both reps completed at cadence 170+, no symptom escalation at ankle/knee within 24h. Pass clears race-specific descent volume from Week 6. The FIT file goes to the Race Strategy project. Reference ceiling for context, not target: June 13 held 10:38/mi at HR 147 over 6.67 mi of this band. Lower B this evening — tendon work, moderate load given the hard morning. CAP RATIONALE: the 152 cap is the White River descent-throttle signal, correctly inherited — a declared tripwire at low Z3 over an intended Z2 execution band. The intended band is stated unambiguously here because this session's FIT file feeds the Vermont pacing plan. FAIL BRANCH: a flag here also demotes Sunday 8/30 to a flat/gentle 10-12 mi easy (no calibration status) and moves the calibration long run to 9/6 — see week notes. READ-OUT ADDITION (rev 1.8, Strategist_Response_ImplNote_20260812 s3): report RUNNING-ONLY STEP LENGTH, first rep versus second rep, at matched grade. RECORDED METRIC ONLY — THE PASS CRITERIA ARE UNCHANGED and remain cadence plus 24 h symptom response. WHY: on the 06/20 matched repeats, cadence sat at 172.7 / 173.7 / 173.7 — inside this card's cadence criterion at every point — while running-only pace decayed 27 s/mi through STEP LENGTH falling 763 -> 736 mm at preserved turnover. Holding cadence while stride shortens is not an intact gait; it is a shortening gait at preserved turnover, which on descent is the eccentric-protective signature. THE CADENCE CRITERION AS WRITTEN IS BLIND TO THE ONLY DESCENT DEGRADATION MODE THE ARCHIVE DOCUMENTS: a session can fail this way and pass the gate. Costs nothing on the day, needs no extra dose, and no parser key beyond what v10.1 already emits. STATED LIMIT: this measures the ONSET of the protective response at a SUB-RACE DOSE. It does NOT certify tolerance at race dose — 2 x 1.5 mi remains roughly a third of one 06/20 descent block — and the read-out must not be quoted as if it did. REPORT ON RUNNING SECONDS ONLY: on the all-moving basis step length RISES across the same repeats (772 -> 791 mm), inverting the sign of the finding (Addendum B C-5 as extended, Amendment 5). Applies whether the session runs at 2 x 1.5 mi on sourced road or a shortened block on the default loop."}], "day_notes": "DOUBLE DAY — AM Gate 2 descent session + PM Lower B (moderate)."},
+    {"date": "2026-08-28", "day_of_week": "Friday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Recovery easy", "duration_min": 25, "distance_mi": 2.5, "elevation_gain_ft": 0, "terrain": "trail", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "fueling_required": false, "notes": "Intensity: Recovery. Genuinely easy between the two calibration efforts. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."}]},
+    {"date": "2026-08-29", "day_of_week": "Saturday", "flex": true, "sessions": [{"type": "run", "subtype": "shakeout", "title": "Shakeout", "duration_min": 15, "distance_mi": 1.5, "terrain": "road", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "fueling_required": false, "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.", "elevation_gain_ft": 0}]},
+    {"date": "2026-08-30", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "long", "title": "CALIBRATION rolling long run", "duration_min": 192, "distance_mi": 16, "elevation_gain_ft": 1900, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "Rolling runnable, ~120 ft/mi, run-everything. Steady clean recording, minimal stops. This is the Vermont fitness snapshot.", "fueling_required": true, "fueling_notes": "FULL RACE PROTOCOL TEST — see nutrition date override for 2026-08-30.", "notes": "Intensity: Long Z2 / calibration. FIT file to the Race Strategy project with Thursday's — together they rebuild the grade-banded tables on current fitness (the June tables are stale, the race matrix is a protective state; this replaces both). CONDITIONAL: only runs as the calibration session if Gate 2 (Thu) passed cleanly. If Gate 2 flagged: this becomes a flat/gentle 10-12 mi easy run, NO calibration status, and the calibration long run moves to Sunday 9/6 (coach messaged first)."}]}
    ]
   },
   {
@@ -870,145 +183,13 @@
    },
    "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
    "days": [
-    {
-     "date": "2026-08-31",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true
-    },
-    {
-     "date": "2026-09-01",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "power_climb",
-       "title": "Hill intervals — 5 min reps",
-       "duration_min": 60,
-       "distance_mi": 5.5,
-       "elevation_gain_ft": 950,
-       "terrain": "trail",
-       "hr_cap_bpm": 157,
-       "hr_zone": "Z3",
-       "poles": false,
-       "key_cue": "4 x 5 min at +5..8% Z3, rolling recoveries; 3 x 30 s at +12..15%; 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every 5-min rep.",
-       "fueling_required": false,
-       "notes": "Intensity: Quality. Reps now at the top of the Vermont climb-duration range (the 2-8 min shapes from the course brief). Lower A this evening. VERT TRIM (rev 1.2): 1,050 -> 950 ft. Session structure (4 x 5 min at +5..8%, 3 x 30 s steep, 4 x 20 s strides) is UNCHANGED — only the approach/recovery climbing is reduced. Density is still 173 ft/mi, above race. Required because easy-day vertical alone could not bring W6 inside the 10% vert cap; flagged as a deliberate deviation from the easy-days-only trim principle. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM hills + PM Lower A."
-    },
-    {
-     "date": "2026-09-02",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z2",
-       "duration_min": 30,
-       "distance_mi": 3.0,
-       "elevation_gain_ft": 0,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-03",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Descent volume run",
-       "duration_min": 60,
-       "distance_mi": 6.0,
-       "elevation_gain_ft": 500,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "Rolling route with 4 descents of 0.75-1 mi at -4..8%, RUN all of them strong, median running cadence 175+, easy everything else.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + descent volume. First race-specific descent accumulation — repeated moderate doses under building fatigue, the exact Vermont stimulus. Lower B this evening. VERT TRIM (rev 1.2): 600 -> 500 ft. All 4 descents of 0.75-1 mi at -4..8% are UNCHANGED — the eccentric stimulus is intact; only the connecting gain is reduced. Same rationale as Tuesday: W6 could not otherwise comply."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM descent volume + PM Lower B."
-    },
-    {
-     "date": "2026-09-04",
-     "day_of_week": "Friday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy + gear-change pickups",
-       "duration_min": 25,
-       "distance_mi": 2.5,
-       "elevation_gain_ft": 100,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "6 x 1 min at +2..4%, running cadence 165+.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + economy. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged. CADENCE CORRECTED rev 1.4 (was 140+, a blend-level figure)."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-05",
-     "day_of_week": "Saturday",
-     "flex": true,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "shakeout",
-       "title": "Shakeout",
-       "duration_min": 20,
-       "distance_mi": 2.0,
-       "terrain": "road",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-09-06",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "long",
-       "title": "Rolling long run — race density",
-       "duration_min": 216,
-       "distance_mi": 18,
-       "elevation_gain_ft": 2200,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "~120-150 ft/mi. Run everything. Count the transitions, not the miles.",
-       "fueling_required": true,
-       "fueling_notes": "Race protocol: gel every 25-30 min, SaltStick 1/45, 500-600 ml/hr.",
-       "notes": "Intensity: Long Z2. Cumulative descent load now approaches race density — the fatigue-state descents in the back half are the highest-value miles of the week."
-      }
-     ]
-    }
+    {"date": "2026-08-31", "day_of_week": "Monday", "flex": false, "rest_day": true},
+    {"date": "2026-09-01", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "power_climb", "title": "Hill intervals — 5 min reps", "duration_min": 60, "distance_mi": 5.5, "elevation_gain_ft": 950, "terrain": "trail", "hr_cap_bpm": 157, "hr_zone": "Z3", "poles": false, "key_cue": "4 x 5 min at +5..8% Z3, rolling recoveries; 3 x 30 s at +12..15%; 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every 5-min rep.", "fueling_required": false, "notes": "Intensity: Quality. Reps now at the top of the Vermont climb-duration range (the 2-8 min shapes from the course brief). Lower A this evening. VERT TRIM (rev 1.2): 1,050 -> 950 ft. Session structure (4 x 5 min at +5..8%, 3 x 30 s steep, 4 x 20 s strides) is UNCHANGED — only the approach/recovery climbing is reduced. Density is still 173 ft/mi, above race. Required because easy-day vertical alone could not bring W6 inside the 10% vert cap; flagged as a deliberate deviation from the easy-days-only trim principle. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."}], "day_notes": "DOUBLE DAY — AM hills + PM Lower A."},
+    {"date": "2026-09-02", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z2", "duration_min": 30, "distance_mi": 3.0, "elevation_gain_ft": 0, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "fueling_required": false, "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."}]},
+    {"date": "2026-09-03", "day_of_week": "Thursday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Descent volume run", "duration_min": 60, "distance_mi": 6.0, "elevation_gain_ft": 500, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "Rolling route with 4 descents of 0.75-1 mi at -4..8%, RUN all of them strong, median running cadence 175+, easy everything else.", "fueling_required": false, "notes": "Intensity: Easy + descent volume. First race-specific descent accumulation — repeated moderate doses under building fatigue, the exact Vermont stimulus. Lower B this evening. VERT TRIM (rev 1.2): 600 -> 500 ft. All 4 descents of 0.75-1 mi at -4..8% are UNCHANGED — the eccentric stimulus is intact; only the connecting gain is reduced. Same rationale as Tuesday: W6 could not otherwise comply."}], "day_notes": "DOUBLE DAY — AM descent volume + PM Lower B."},
+    {"date": "2026-09-04", "day_of_week": "Friday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy + gear-change pickups", "duration_min": 25, "distance_mi": 2.5, "elevation_gain_ft": 100, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "6 x 1 min at +2..4%, running cadence 165+.", "fueling_required": false, "notes": "Intensity: Easy + economy. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged. CADENCE CORRECTED rev 1.4 (was 140+, a blend-level figure)."}]},
+    {"date": "2026-09-05", "day_of_week": "Saturday", "flex": true, "sessions": [{"type": "run", "subtype": "shakeout", "title": "Shakeout", "duration_min": 20, "distance_mi": 2.0, "terrain": "road", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "fueling_required": false, "notes": "Intensity: Recovery. Upper B this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged.", "elevation_gain_ft": 0}]},
+    {"date": "2026-09-06", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "long", "title": "Rolling long run — race density", "duration_min": 216, "distance_mi": 18, "elevation_gain_ft": 2200, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "~120-150 ft/mi. Run everything. Count the transitions, not the miles.", "fueling_required": true, "fueling_notes": "Race protocol: gel every 25-30 min, SaltStick 1/45, 500-600 ml/hr.", "notes": "Intensity: Long Z2. Cumulative descent load now approaches race density — the fatigue-state descents in the back half are the highest-value miles of the week."}]}
    ]
   },
   {
@@ -1027,144 +208,13 @@
    },
    "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and a deliberately hard final-quarter climb to rehearse the mile-29 Blood Hill moment.",
    "days": [
-    {
-     "date": "2026-09-07",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true
-    },
-    {
-     "date": "2026-09-08",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "power_climb",
-       "title": "Hill intervals — peak session",
-       "duration_min": 60,
-       "distance_mi": 5.5,
-       "elevation_gain_ft": 750,
-       "terrain": "trail",
-       "hr_cap_bpm": 157,
-       "hr_zone": "Z3",
-       "poles": false,
-       "key_cue": "5 x 4 min at +5..8% with two back-to-back pairs; 3 x 30 s steep; 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every rep.",
-       "fueling_required": false,
-       "notes": "Intensity: Quality. Peak hill session. Lower A this evening is the LAST HEAVY gym session of the block. VERT REDISTRIBUTION (rev 1.2, Answer B1): 1,100 -> 750 ft. Session structure is UNCHANGED; the 350 ft moves to Sunday's marquee climb. Peak hill density is already banked from the W5-W6 Tuesdays at 190-191 ft/mi, so this costs nothing. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM hills + PM Lower A (last heavy)."
-    },
-    {
-     "date": "2026-09-09",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z2",
-       "duration_min": 45,
-       "distance_mi": 4.5,
-       "elevation_gain_ft": 50,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-10",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy + moderate descent block",
-       "duration_min": 45,
-       "distance_mi": 4.5,
-       "elevation_gain_ft": 250,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "2 x 1 mi at -5..7%, median running cadence 175+, smooth.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + skill. Descent maintenance, not progression. Lower B this evening shifts isometric-dominant (taper-compatible tendon work begins). VERT REDISTRIBUTION (rev 1.2, Answer B1): 350 -> 250 ft. The 2 x 1 mi at -5..7% descent block is UNCHANGED."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B (moderate/iso)."
-    },
-    {
-     "date": "2026-09-11",
-     "day_of_week": "Friday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Recovery easy",
-       "duration_min": 35,
-       "distance_mi": 3.5,
-       "elevation_gain_ft": 50,
-       "terrain": "trail",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-12",
-     "day_of_week": "Saturday",
-     "flex": true,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "shakeout",
-       "title": "Shakeout",
-       "duration_min": 20,
-       "distance_mi": 2.0,
-       "terrain": "road",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Recovery. Upper B this evening.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-09-13",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "long",
-       "title": "PEAK long run — Vermont dress rehearsal (S1-S5 spec)",
-       "duration_min": 240,
-       "distance_mi": 20,
-       "elevation_gain_ft": 3000,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "S1 FINAL 8 MILES at >=150 ft/mi (>=1,200 ft between mi 12 and 20). S2 MARQUEE CLIMB at mi 17-18: 1.0-1.2 mi at 6-8%, gaining ~350-400 ft — matched to the race's mi-29.4 Blood Hill climb, not a generic hill. S3 SETUP: the marquee climb must be preceded by 1.5-2.5 mi of sustained RUNNABLE descent at ~4-6%. The descend-then-climb sequence IS the rehearsal — an average-density day cannot reproduce it. S4 DAY TOTAL ~3,000 ft (~150 ft/mi); front half stays at the gentler current density to control total eccentric load. S5 Time the caffeine gel so the marquee climb arrives 15-20 min after it, mirroring the race-day rule. S6 POLE-FREE HIKING BLOCK (rev 1.5, Dispositions s6.1): in the FINAL THIRD, take one 6-minute block of deliberate pole-free HIKING at +5..8%, lap-pressed at both ends. It SUBSTITUTES for running in that stretch — it does not add load or vertical. Read out on the F-08 template: pace, HR start/end/max and slope in bpm/min, cadence_hiking_spm, and % of seconds above cap.",
-       "fueling_required": true,
-       "fueling_notes": "FULL RACE DRESS REHEARSAL — see nutrition date override 2026-09-13. Practice caffeine-gel timing in the final 90 min.",
-       "notes": "Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. SPEC SOURCE: Race_Strategy_Response_v1 Answer B1 — the spec is a DISTRIBUTION, not an average; 130 ft/mi was never the problem and 172 was never the answer. ROUTE CONSTRAINT (non-negotiable): all added or steepened descent must be runnable (<10%); the technical-descent ban stands. Added climbing on a loop means added descending — route selection must absorb it at runnable grades. GATE CONDITION: this spec is conditional on Gate 2 (8/27) passing unflagged AND the 8/30 calibration reading clean. If either flags, this session REVERTS to 20 mi / 2,600 ft / 130 ft/mi and the spec is dropped without discussion — a gentler rehearsal is a smaller loss than a re-injury six days before taper. The revert is also guard-safe: 3,700 ft for the week is a decrease from W6. HIKING BLOCK RATIONALE (rev 1.5): the only sustained pole-free hiking data on this athlete comes from WR50K at 5,600-5,900 ft in a detrained state, race hours 4.9-6.9. Both bias that arm SLOW, i.e. conservatively toward running. This block measures it in current trained state at Vermont-like altitude and late-race fatigue, inside a session already on the calendar. The standalone W5 calibration was DECLINED (Dispositions s6) — the 8/25 slip window stays available as the 8/18 heat fallback and its hill-interval session is UNCHANGED. RUN/HIKE DECISION RULE (rev 1.6, Rulings 20260810 s4) — REHEARSE THIS, it is the rule for race day. 1. HR CAP GOVERNS. ALWAYS. [constraint] 2. Running pace at or under ~18:00/mi -> KEEP RUNNING. [PACE] 3. Running pace at or over ~18:00/mi -> HIKE. [PACE] 4. LATE IN THE RACE, SWITCH EARLIER THAN RULE 3 SAYS. [DAMAGE] RULE 4 OVERRIDES RULE 3 — it does not extend it. Stated plainly because the two rest on DIFFERENT AXES AND POINT IN OPPOSITE DIRECTIONS at exactly the point the decision matters most, the mi 29.4 climb. On PACE alone the threshold LOOSENS late: hiking slows by roughly 1:46/mi within a long effort, so running keeps winning longer, and rule 3 by itself would say run MORE late in the race. Rule 4 resolves toward TISSUE COST, not pace, because the documented failure mode is structural — WR descent HR 136-141 in deep Z1 with pace 2-3 min/mi off plan. The pace argument is worth about a minute on one late climb; the damage argument governs every descending mile after it. NOTE: the ~18:00 threshold is grade-dependent in reality (pole-free sustained hiking is 16:55/mi at +3.5% and 18:08/mi at +6.5%), so at gentle grades the flat threshold switches slightly late. Immaterial while rule 1 binds."
-      }
-     ]
-    }
+    {"date": "2026-09-07", "day_of_week": "Monday", "flex": false, "rest_day": true},
+    {"date": "2026-09-08", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "power_climb", "title": "Hill intervals — peak session", "duration_min": 60, "distance_mi": 5.5, "elevation_gain_ft": 750, "terrain": "trail", "hr_cap_bpm": 157, "hr_zone": "Z3", "poles": false, "key_cue": "5 x 4 min at +5..8% with two back-to-back pairs; 3 x 30 s steep; 4 x 20 s strides. PASS CRITERION: run_pct >= 80% on every rep.", "fueling_required": false, "notes": "Intensity: Quality. Peak hill session. Lower A this evening is the LAST HEAVY gym session of the block. VERT REDISTRIBUTION (rev 1.2, Answer B1): 1,100 -> 750 ft. Session structure is UNCHANGED; the 350 ft moves to Sunday's marquee climb. Peak hill density is already banked from the W5-W6 Tuesdays at 190-191 ft/mi, so this costs nothing. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."}], "day_notes": "DOUBLE DAY — AM hills + PM Lower A (last heavy)."},
+    {"date": "2026-09-09", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z2", "duration_min": 45, "distance_mi": 4.5, "elevation_gain_ft": 50, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "fueling_required": false, "notes": "Intensity: Easy. Upper A this evening. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."}]},
+    {"date": "2026-09-10", "day_of_week": "Thursday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy + moderate descent block", "duration_min": 45, "distance_mi": 4.5, "elevation_gain_ft": 250, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "2 x 1 mi at -5..7%, median running cadence 175+, smooth.", "fueling_required": false, "notes": "Intensity: Easy + skill. Descent maintenance, not progression. Lower B this evening shifts isometric-dominant (taper-compatible tendon work begins). VERT REDISTRIBUTION (rev 1.2, Answer B1): 350 -> 250 ft. The 2 x 1 mi at -5..7% descent block is UNCHANGED."}], "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B (moderate/iso)."},
+    {"date": "2026-09-11", "day_of_week": "Friday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Recovery easy", "duration_min": 35, "distance_mi": 3.5, "elevation_gain_ft": 50, "terrain": "trail", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "fueling_required": false, "notes": "Intensity: Recovery. TRIM (rev 1.2, Answer A2): volume reduced to bring the week's session sum inside the ramp guard on the nominated denominator. Easy-day volume only; the session's purpose is unchanged."}]},
+    {"date": "2026-09-12", "day_of_week": "Saturday", "flex": true, "sessions": [{"type": "run", "subtype": "shakeout", "title": "Shakeout", "duration_min": 20, "distance_mi": 2.0, "terrain": "road", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "fueling_required": false, "notes": "Intensity: Recovery. Upper B this evening.", "elevation_gain_ft": 0}]},
+    {"date": "2026-09-13", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "long", "title": "PEAK long run — Vermont dress rehearsal (S1-S5 spec)", "duration_min": 240, "distance_mi": 20, "elevation_gain_ft": 3000, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "S1 FINAL 8 MILES at >=150 ft/mi (>=1,200 ft between mi 12 and 20). S2 MARQUEE CLIMB at mi 17-18: 1.0-1.2 mi at 6-8%, gaining ~350-400 ft — matched to the race's mi-29.4 Blood Hill climb, not a generic hill. S3 SETUP: the marquee climb must be preceded by 1.5-2.5 mi of sustained RUNNABLE descent at ~4-6%. The descend-then-climb sequence IS the rehearsal — an average-density day cannot reproduce it. S4 DAY TOTAL ~3,000 ft (~150 ft/mi); front half stays at the gentler current density to control total eccentric load. S5 Time the caffeine gel so the marquee climb arrives 15-20 min after it, mirroring the race-day rule. S6 POLE-FREE HIKING BLOCK (rev 1.5, Dispositions s6.1): in the FINAL THIRD, take one 6-minute block of deliberate pole-free HIKING at +5..8%, lap-pressed at both ends. It SUBSTITUTES for running in that stretch — it does not add load or vertical. Read out on the F-08 template: pace, HR start/end/max and slope in bpm/min, cadence_hiking_spm, and % of seconds above cap.", "fueling_required": true, "fueling_notes": "FULL RACE DRESS REHEARSAL — see nutrition date override 2026-09-13. Practice caffeine-gel timing in the final 90 min.", "notes": "Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. SPEC SOURCE: Race_Strategy_Response_v1 Answer B1 — the spec is a DISTRIBUTION, not an average; 130 ft/mi was never the problem and 172 was never the answer. ROUTE CONSTRAINT (non-negotiable): all added or steepened descent must be runnable (<10%); the technical-descent ban stands. Added climbing on a loop means added descending — route selection must absorb it at runnable grades. GATE CONDITION: this spec is conditional on Gate 2 (8/27) passing unflagged AND the 8/30 calibration reading clean. If either flags, this session REVERTS to 20 mi / 2,600 ft / 130 ft/mi and the spec is dropped without discussion — a gentler rehearsal is a smaller loss than a re-injury six days before taper. The revert is also guard-safe: 3,700 ft for the week is a decrease from W6. HIKING BLOCK RATIONALE (rev 1.5): the only sustained pole-free hiking data on this athlete comes from WR50K at 5,600-5,900 ft in a detrained state, race hours 4.9-6.9. Both bias that arm SLOW, i.e. conservatively toward running. This block measures it in current trained state at Vermont-like altitude and late-race fatigue, inside a session already on the calendar. The standalone W5 calibration was DECLINED (Dispositions s6) — the 8/25 slip window stays available as the 8/18 heat fallback and its hill-interval session is UNCHANGED. RUN/HIKE DECISION RULE (rev 1.6, Rulings 20260810 s4) — REHEARSE THIS, it is the rule for race day. 1. HR CAP GOVERNS. ALWAYS. [constraint] 2. Running pace at or under ~18:00/mi -> KEEP RUNNING. [PACE] 3. Running pace at or over ~18:00/mi -> HIKE. [PACE] 4. LATE IN THE RACE, SWITCH EARLIER THAN RULE 3 SAYS. [DAMAGE] RULE 4 OVERRIDES RULE 3 — it does not extend it. Stated plainly because the two rest on DIFFERENT AXES AND POINT IN OPPOSITE DIRECTIONS at exactly the point the decision matters most, the mi 29.4 climb. On PACE alone the threshold LOOSENS late: hiking slows by roughly 1:46/mi within a long effort, so running keeps winning longer, and rule 3 by itself would say run MORE late in the race. Rule 4 resolves toward TISSUE COST, not pace, because the documented failure mode is structural — WR descent HR 136-141 in deep Z1 with pace 2-3 min/mi off plan. The pace argument is worth about a minute on one late climb; the damage argument governs every descending mile after it. NOTE: the ~18:00 threshold is grade-dependent in reality (pole-free sustained hiking is 16:55/mi at +3.5% and 18:08/mi at +6.5%), so at gentle grades the flat threshold switches slightly late. Immaterial while rule 1 binds."}]}
    ]
   },
   {
@@ -1182,127 +232,13 @@
    },
    "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
    "days": [
-    {
-     "date": "2026-09-14",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true
-    },
-    {
-     "date": "2026-09-15",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "power_climb",
-       "title": "Hill intervals — taper dose",
-       "duration_min": 45,
-       "distance_mi": 4.0,
-       "elevation_gain_ft": 650,
-       "terrain": "trail",
-       "hr_cap_bpm": 157,
-       "hr_zone": "Z3",
-       "poles": false,
-       "key_cue": "4 x 3 min at +5..8% Z3, 4 x 20 s strides. Crisp, not deep. PASS CRITERION: run_pct >= 80%.",
-       "fueling_required": false,
-       "notes": "Intensity: Quality (reduced). Lower session this evening — isometric-dominant, moderate. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
-      }
-     ],
-     "day_notes": "DOUBLE DAY — AM hills + PM lower (iso-dominant)."
-    },
-    {
-     "date": "2026-09-16",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z2",
-       "duration_min": 40,
-       "distance_mi": 4.0,
-       "elevation_gain_ft": 250,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Easy."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-17",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z2",
-       "duration_min": 35,
-       "distance_mi": 3.5,
-       "elevation_gain_ft": 200,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Easy. Upper session this evening (last of the block)."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-18",
-     "day_of_week": "Friday",
-     "flex": false,
-     "rest_day": true
-    },
-    {
-     "date": "2026-09-19",
-     "day_of_week": "Saturday",
-     "flex": true,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "shakeout",
-       "title": "Shakeout",
-       "duration_min": 20,
-       "distance_mi": 2.0,
-       "terrain": "road",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Recovery.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-09-20",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "long",
-       "title": "Race-rhythm long run",
-       "duration_min": 144,
-       "distance_mi": 12,
-       "elevation_gain_ft": 1400,
-       "terrain": "trail",
-       "hr_cap_bpm": 149,
-       "hr_zone": "Z2",
-       "poles": false,
-       "key_cue": "Rolling, run-everything, race fueling cadence. Rehearse the rhythm one last time at distance.",
-       "fueling_required": true,
-       "fueling_notes": "Race cadence: gel every 25-30 min, SaltStick 1/45.",
-       "notes": "Intensity: Long Z2 (taper). Last meaningful long run."
-      }
-     ]
-    }
+    {"date": "2026-09-14", "day_of_week": "Monday", "flex": false, "rest_day": true},
+    {"date": "2026-09-15", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "power_climb", "title": "Hill intervals — taper dose", "duration_min": 45, "distance_mi": 4.0, "elevation_gain_ft": 650, "terrain": "trail", "hr_cap_bpm": 157, "hr_zone": "Z3", "poles": false, "key_cue": "4 x 3 min at +5..8% Z3, 4 x 20 s strides. Crisp, not deep. PASS CRITERION: run_pct >= 80%.", "fueling_required": false, "notes": "Intensity: Quality (reduced). Lower session this evening — isometric-dominant, moderate. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."}], "day_notes": "DOUBLE DAY — AM hills + PM lower (iso-dominant)."},
+    {"date": "2026-09-16", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z2", "duration_min": 40, "distance_mi": 4.0, "elevation_gain_ft": 250, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "fueling_required": false, "notes": "Intensity: Easy."}]},
+    {"date": "2026-09-17", "day_of_week": "Thursday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z2", "duration_min": 35, "distance_mi": 3.5, "elevation_gain_ft": 200, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "fueling_required": false, "notes": "Intensity: Easy. Upper session this evening (last of the block)."}]},
+    {"date": "2026-09-18", "day_of_week": "Friday", "flex": false, "rest_day": true},
+    {"date": "2026-09-19", "day_of_week": "Saturday", "flex": true, "sessions": [{"type": "run", "subtype": "shakeout", "title": "Shakeout", "duration_min": 20, "distance_mi": 2.0, "terrain": "road", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "fueling_required": false, "notes": "Intensity: Recovery.", "elevation_gain_ft": 0}]},
+    {"date": "2026-09-20", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "long", "title": "Race-rhythm long run", "duration_min": 144, "distance_mi": 12, "elevation_gain_ft": 1400, "terrain": "trail", "hr_cap_bpm": 149, "hr_zone": "Z2", "poles": false, "key_cue": "Rolling, run-everything, race fueling cadence. Rehearse the rhythm one last time at distance.", "fueling_required": true, "fueling_notes": "Race cadence: gel every 25-30 min, SaltStick 1/45.", "notes": "Intensity: Long Z2 (taper). Last meaningful long run."}]}
    ]
   },
   {
@@ -1320,114 +256,13 @@
    },
    "week_notes": "Race week. Legs stay awake, nothing costs anything. The pacing plan arrives from the Race Strategy project — read it early in the week, then race the internalized principles HR-led, exactly like White River.",
    "days": [
-    {
-     "date": "2026-09-21",
-     "day_of_week": "Monday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Rest from running. Isometric maintenance strength session (the week's single session) — tendon stiffness without recovery cost."
-    },
-    {
-     "date": "2026-09-22",
-     "day_of_week": "Tuesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy + race-rhythm touches",
-       "duration_min": 35,
-       "distance_mi": 3.5,
-       "elevation_gain_ft": 250,
-       "terrain": "trail",
-       "hr_cap_bpm": 152,
-       "hr_zone": "Z2-3",
-       "poles": false,
-       "key_cue": "4 x 2 min at race rhythm on rolling grades + 4 x 20 s strides.",
-       "fueling_required": false,
-       "notes": "Intensity: Easy + touches. Brief race-rhythm reps may brush low Z3 — the label says so; the cap is the ceiling."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-23",
-     "day_of_week": "Wednesday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "easy",
-       "title": "Easy Z1-2",
-       "duration_min": 30,
-       "distance_mi": 3.0,
-       "elevation_gain_ft": 150,
-       "terrain": "trail",
-       "hr_cap_bpm": 147,
-       "hr_zone": "Z2",
-       "poles": false,
-       "fueling_required": false,
-       "notes": "Intensity: Easy."
-      }
-     ]
-    },
-    {
-     "date": "2026-09-24",
-     "day_of_week": "Thursday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Rest. Pack, prep, travel planning. Carb load begins (see nutrition plan)."
-    },
-    {
-     "date": "2026-09-25",
-     "day_of_week": "Friday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "shakeout",
-       "title": "Shakeout + strides",
-       "duration_min": 20,
-       "distance_mi": 2.0,
-       "terrain": "road",
-       "hr_cap_bpm": 145,
-       "hr_zone": "Z1-2",
-       "poles": false,
-       "key_cue": "4 x 20 s strides at the end.",
-       "fueling_required": false,
-       "notes": "Intensity: Recovery + strides.",
-       "elevation_gain_ft": 0
-      }
-     ]
-    },
-    {
-     "date": "2026-09-26",
-     "day_of_week": "Saturday",
-     "flex": false,
-     "rest_day": true,
-     "day_notes": "Travel / pre-race day. 15-20 min leg-stretch walk. Race meeting per site 7:30 AM Sunday — confirm actual start time, bib pickup, aid list. Kit laid out, rehearsed breakfast ingredients confirmed."
-    },
-    {
-     "date": "2026-09-27",
-     "day_of_week": "Sunday",
-     "flex": false,
-     "sessions": [
-      {
-       "type": "run",
-       "subtype": "race_pace",
-       "title": "RACE — Vermont 50K",
-       "distance_mi": 32.5,
-       "elevation_gain_ft": 5600,
-       "terrain": "mixed",
-       "hr_cap_bpm": 158,
-       "hr_zone": "Z2-3",
-       "poles": false,
-       "key_cue": "HR-led, exactly like White River. Run everything the grade allows; walking is a fatigue-management choice, not a terrain requirement. The race is decided on the mi-29 climb — budget for it all day.",
-       "fueling_required": true,
-       "fueling_notes": "Full race protocol — see nutrition date override 2026-09-27.",
-       "notes": "Intensity: RACE. Detailed stage/pacing plan comes from the Race Strategy project (~2 weeks out) and supersedes the generic caps here. 32-33 mi, ~5,600 ft as 20+ short climbs/descents, 37% gravel road, no poles. HR band note: the race is not a Z2-only event — White River executed as low/mid-Z2 average with designed Z3 excursions; 158 is the never-cross ceiling, exactly the top of Z3 under the corrected table. The Race Strategy pacing plan supersedes this generic cap when delivered."
-      }
-     ]
-    }
+    {"date": "2026-09-21", "day_of_week": "Monday", "flex": false, "rest_day": true, "day_notes": "Rest from running. Isometric maintenance strength session (the week's single session) — tendon stiffness without recovery cost."},
+    {"date": "2026-09-22", "day_of_week": "Tuesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy + race-rhythm touches", "duration_min": 35, "distance_mi": 3.5, "elevation_gain_ft": 250, "terrain": "trail", "hr_cap_bpm": 152, "hr_zone": "Z2-3", "poles": false, "key_cue": "4 x 2 min at race rhythm on rolling grades + 4 x 20 s strides.", "fueling_required": false, "notes": "Intensity: Easy + touches. Brief race-rhythm reps may brush low Z3 — the label says so; the cap is the ceiling."}]},
+    {"date": "2026-09-23", "day_of_week": "Wednesday", "flex": false, "sessions": [{"type": "run", "subtype": "easy", "title": "Easy Z1-2", "duration_min": 30, "distance_mi": 3.0, "elevation_gain_ft": 150, "terrain": "trail", "hr_cap_bpm": 147, "hr_zone": "Z2", "poles": false, "fueling_required": false, "notes": "Intensity: Easy."}]},
+    {"date": "2026-09-24", "day_of_week": "Thursday", "flex": false, "rest_day": true, "day_notes": "Rest. Pack, prep, travel planning. Carb load begins (see nutrition plan)."},
+    {"date": "2026-09-25", "day_of_week": "Friday", "flex": false, "sessions": [{"type": "run", "subtype": "shakeout", "title": "Shakeout + strides", "duration_min": 20, "distance_mi": 2.0, "terrain": "road", "hr_cap_bpm": 145, "hr_zone": "Z1-2", "poles": false, "key_cue": "4 x 20 s strides at the end.", "fueling_required": false, "notes": "Intensity: Recovery + strides.", "elevation_gain_ft": 0}]},
+    {"date": "2026-09-26", "day_of_week": "Saturday", "flex": false, "rest_day": true, "day_notes": "Travel / pre-race day. 15-20 min leg-stretch walk. Race meeting per site 7:30 AM Sunday — confirm actual start time, bib pickup, aid list. Kit laid out, rehearsed breakfast ingredients confirmed."},
+    {"date": "2026-09-27", "day_of_week": "Sunday", "flex": false, "sessions": [{"type": "run", "subtype": "race_pace", "title": "RACE — Vermont 50K", "distance_mi": 32.5, "elevation_gain_ft": 5600, "terrain": "mixed", "hr_cap_bpm": 158, "hr_zone": "Z2-3", "poles": false, "key_cue": "HR-led, exactly like White River. Run everything the grade allows; walking is a fatigue-management choice, not a terrain requirement. The race is decided on the mi-29 climb — budget for it all day.", "fueling_required": true, "fueling_notes": "Full race protocol — see nutrition date override 2026-09-27.", "notes": "Intensity: RACE. Detailed stage/pacing plan comes from the Race Strategy project (~2 weeks out) and supersedes the generic caps here. 32-33 mi, ~5,600 ft as 20+ short climbs/descents, 37% gravel road, no poles. HR band note: the race is not a Z2-only event — White River executed as low/mid-Z2 average with designed Z3 excursions; 158 is the never-cross ceiling, exactly the top of Z3 under the corrected table. The Race Strategy pacing plan supersedes this generic cap when delivered."}]}
    ]
   }
  ]
