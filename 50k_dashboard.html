@@ -237,28 +237,47 @@ function BigStat({label, value, unit, color, mono, size}) {
 // Shared by the hero card (collapsed header / top of expanded) and the
 // All-tab minimal card, so both always show the same set of stats.
 const terrainLabel = t => String(t).replace(/_or_/g, '/').replace(/_/g, ' ')
-  .replace(/(^|[\s/])([a-z])/g, (_, sep, c) => sep + c.toUpperCase());
+  .replace(/(^|[\s/+])([a-z])/g, (_, sep, c) => sep + c.toUpperCase());
 
-function SessionStats({session, kind}) {
+function SessionStats({session, kind, expanded}) {
   const stats = [];
   if (kind === 'run') {
     if (session.distance_mi != null) stats.push({label:'DISTANCE', value:session.distance_mi, unit:'mi'});
     if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
     if (session.elevation_gain_ft > 0) stats.push({label:'VERT', value:session.elevation_gain_ft.toLocaleString(), unit:'ft'});
-    if (session.terrain) {
-      const t = terrainLabel(session.terrain);
-      // Shrink long terrain names ("ROAD/FIREROAD") so they fit a 4-up column at 390px
-      stats.push({label:'TERRAIN', value:t, mono:true, size:t.length<=6?22:t.length<=9?17:13});
-    }
   } else {
     if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
     stats.push({label:'EXERCISES', value:(session.exercises||[]).length, unit:'moves'});
   }
-  if (!stats.length) return null;
+  // Second row — expanded cards only. terrain_intent governs and terrain is
+  // advisory/provenance (run_plan rev 1.9), so both are shown together. An
+  // ABSENT terrain_intent means UNCLASSIFIED, never "free" — do not default it.
+  const detail = [];
+  if (expanded && kind === 'run' && (session.terrain || session.terrain_intent)) {
+    // Shrink long values ("Road/Fireroad", "Relief+Grade") to fit a 2-up column at 390px
+    const sized = v => v.length<=9 ? 18 : 14;
+    if (session.terrain) {
+      const t = terrainLabel(session.terrain);
+      detail.push({label:'TERRAIN', value:t, mono:true, size:sized(t)});
+    }
+    const ti = session.terrain_intent ? terrainLabel(session.terrain_intent) : 'Unclassified';
+    detail.push({label:'TERRAIN INTENT', value:ti, mono:true, size:sized(ti),
+                 color:session.terrain_intent ? undefined : A.textDim});
+  }
+  if (!stats.length && !detail.length) return null;
   return (
-    <div style={{display:'grid',gridTemplateColumns:`repeat(${Math.max(stats.length,3)},1fr)`,padding:'0 18px 18px',gap:stats.length>3?8:12}}>
-      {stats.map(s => <BigStat key={s.label} {...s}/>)}
-    </div>
+    <>
+      {stats.length > 0 && (
+        <div style={{display:'grid',gridTemplateColumns:`repeat(${Math.max(stats.length,3)},1fr)`,padding:`0 18px ${detail.length?12:18}px`,gap:12}}>
+          {stats.map(s => <BigStat key={s.label} {...s}/>)}
+        </div>
+      )}
+      {detail.length > 0 && (
+        <div style={{display:'grid',gridTemplateColumns:`repeat(${detail.length},1fr)`,padding:'0 18px 18px',gap:12}}>
+          {detail.map(s => <BigStat key={s.label} {...s}/>)}
+        </div>
+      )}
+    </>
   );
 }
 
@@ -349,8 +368,8 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
         <div style={{fontSize:22,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,lineHeight:1.1,marginBottom:14}}>{session.title}</div>
       </button>
 
-      {/* Stats — always visible */}
-      <SessionStats session={session} kind={kind}/>
+      {/* Stats — core three always visible; terrain row only when expanded */}
+      <SessionStats session={session} kind={kind} expanded={!collapsed}/>
 
       {/* Expanded content */}
       {!collapsed && (
