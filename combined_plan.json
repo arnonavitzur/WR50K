@@ -6122,89 +6122,7 @@
           "notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
         "week_notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics.",
-        "day_notes": "Routines only.",
-        "sessions": []
-      },
-      "nutrition": {
-        "day_type_id": "easy_run_only",
-        "day_type_label": "Easy run / recovery walk (no strength)",
-        "phase_adjustment_applied": null,
-        "daily_targets": {
-          "calories_total": 2550,
-          "carbs_g": 300,
-          "protein_g": 140,
-          "fat_g": 80,
-          "fluid_ml_total": 2800,
-          "general_guidance": "Moderate day. Carbs at breakfast and the post-run meal.",
-          "notes": "Runs under 60 min need no during-fuel; water only."
-        },
-        "session_fueling": [
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "pre"
-            },
-            "timing": "60-90 min before (or run fasted-light if under 45 min easy)",
-            "calories": 250,
-            "carbs_g": 45,
-            "protein_g": 8,
-            "fat_g": 5,
-            "foods": [
-              "toast with honey and banana",
-              "coffee"
-            ],
-            "notes": "Short easy runs are flexible — don't force a pre-meal for a 35-min jog."
-          },
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "post"
-            },
-            "timing": "Within 45 min",
-            "calories": 300,
-            "carbs_g": 45,
-            "protein_g": 25,
-            "foods": [
-              "whey shake + fruit",
-              "or normal meal if mealtime"
-            ],
-            "notes": "Creatine 5 g post-run."
-          }
-        ],
-        "notes": ""
-      }
-    },
-    "2026-09-05": {
-      "date": "2026-09-05",
-      "day_of_week": "Saturday",
-      "week_number": 6,
-      "flex": true,
-      "rest_day": false,
-      "run": {
-        "phase": "Build",
-        "weekly_targets": {
-          "mileage_mi": 37.0,
-          "vertical_ft": 3750,
-          "long_run_mi": 18,
-          "strength_sessions": 4,
-          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
-          "derived_from": "session_sums",
-          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
-        },
-        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
-        "day_notes": "REST from running (rev 1.12; shakeout merged into Friday). Upper B this evening as scheduled.",
-        "sessions": []
-      },
-      "strength": {
-        "phase": "Build",
-        "weekly_targets": {
-          "strength_sessions": 4,
-          "notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
-        },
-        "week_notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics.",
-        "day_notes": "Evening. Upper is fine the day before the long run; lower is not.",
+        "day_notes": "Routines only. MOVED (rev 1.2): Upper B relocated from Saturday so the day before the long run is full rest. Run first, lift in the evening.",
         "sessions": [
           {
             "type": "strength",
@@ -6271,49 +6189,114 @@
         ]
       },
       "nutrition": {
-        "day_type_id": "strength_only",
-        "day_type_label": "Strength only (no run)",
+        "day_type_id": "easy_run_upper_strength",
+        "day_type_label": "Easy run + upper strength (double-day)",
         "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 2450,
-          "carbs_g": 260,
-          "protein_g": 145,
-          "fat_g": 85,
-          "fluid_ml_total": 2700,
-          "general_guidance": "Moderate carbs, high protein. Carbs concentrated in the meals flanking the session.",
-          "notes": "Common in recovery weeks 1-2 and race week."
+          "calories_total": 2700,
+          "carbs_g": 320,
+          "protein_g": 150,
+          "fat_g": 82,
+          "fluid_ml_total": 3000,
+          "general_guidance": "Double-day: carbs around the run, protein through the day, real meal between sessions.",
+          "notes": ""
         },
         "session_fueling": [
           {
             "linked_session": {
-              "type": "strength",
-              "subtype": null,
+              "type": "run",
+              "subtype": "easy",
               "position": "pre"
             },
-            "timing": "30-60 min before session",
+            "timing": "60-90 min before",
+            "calories": 250,
+            "carbs_g": 45,
+            "protein_g": 8,
+            "fat_g": 5,
             "foods": [
-              "collagen + vitamin C in water",
-              "optional: banana or toast with honey"
-            ],
-            "notes": "Collagen 15 g + vitamin C 250 mg, 30-60 min before ANY lower/tendon session — the collagen-synthesis window is the point. Light carb snack if 3+ h since last meal."
+              "toast with honey and banana",
+              "coffee"
+            ]
           },
           {
             "linked_session": {
-              "type": "strength",
-              "subtype": null,
+              "type": "run",
+              "subtype": "easy",
               "position": "post"
             },
             "timing": "Within 45 min",
             "calories": 300,
-            "carbs_g": 30,
-            "protein_g": 30,
+            "carbs_g": 45,
+            "protein_g": 25,
             "foods": [
-              "whey shake with milk",
-              "or Greek yogurt + fruit"
+              "whey shake + fruit"
             ],
-            "notes": "Protein 25-30 g. Creatine 5 g goes here."
+            "notes": "Creatine 5 g."
+          },
+          {
+            "linked_session": {
+              "type": "strength",
+              "subtype": "upper",
+              "position": "post"
+            },
+            "timing": "Within 45 min",
+            "calories": 250,
+            "carbs_g": 30,
+            "protein_g": 28,
+            "foods": [
+              "whey or Greek yogurt + fruit",
+              "dinner counts if within the window"
+            ]
           }
         ],
+        "notes": ""
+      }
+    },
+    "2026-09-05": {
+      "date": "2026-09-05",
+      "day_of_week": "Saturday",
+      "week_number": 6,
+      "flex": true,
+      "rest_day": true,
+      "run": {
+        "phase": "Build",
+        "weekly_targets": {
+          "mileage_mi": 37.0,
+          "vertical_ft": 3750,
+          "long_run_mi": 18,
+          "strength_sessions": 4,
+          "notes": "Biggest full build week. Descent volume ramps (Gate 2 passed). Long run 18 mi with race-density rolling load. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
+        },
+        "week_notes": "Post-checkpoint build. If Gate 2 flagged anything, Thursday reverts to Week 4's descent dose and the coach gets a message before Sunday. If the W5 Gate 2 fail branch fired, the Sunday 9/6 long run runs AS the calibration long run (16 mi rolling, race-protocol fueling per the 8/30 nutrition override applied to 9/6) and its FIT file goes to the Race Strategy project.",
+        "day_notes": "REST from running (rev 1.12; shakeout merged into Friday). Upper B this evening as scheduled.",
+        "sessions": []
+      },
+      "strength": {
+        "phase": "Build",
+        "weekly_targets": {
+          "strength_sessions": 4,
+          "notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+        },
+        "week_notes": "Heaviest squat week. Everything else holds or nudges. If Gate 2 flagged anything, Lower B eversion work reverts to isometrics.",
+        "day_notes": "REST (rev 1.2; Upper B moved to Friday).",
+        "sessions": []
+      },
+      "nutrition": {
+        "day_type_id": "rest_day",
+        "day_type_label": "Rest day (no training)",
+        "phase_adjustment_applied": null,
+        "daily_targets": {
+          "calories_total": 2300,
+          "carbs_g": 230,
+          "protein_g": 140,
+          "fat_g": 85,
+          "fluid_ml_total": 2500,
+          "general_guidance": "Lower carb, protein held high (~1.7 g/kg at 79 kg). Protein at every meal, 25-35 g per sitting. Vegetables and fats carry satiety.",
+          "notes": "Protein stays high on rest days — tissue remodeling doesn't take days off. Collagen + vitamin C still taken with the morning foot-corrective block."
+        },
+        "session_fueling": [],
         "notes": ""
       }
     },
@@ -6478,9 +6461,9 @@
         "phase": "Peak",
         "weekly_targets": {
           "strength_sessions": 4,
-          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
         "day_notes": "Routines only — post-long-run day.",
         "sessions": []
       },
@@ -6544,9 +6527,9 @@
         "phase": "Peak",
         "weekly_targets": {
           "strength_sessions": 4,
-          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
         "day_notes": "DOUBLE DAY — AM hill intervals + PM Lower A. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -6765,9 +6748,9 @@
         "phase": "Peak",
         "weekly_targets": {
           "strength_sessions": 4,
-          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
         "day_notes": "Evening after easy run.",
         "sessions": [
           {
@@ -6942,27 +6925,43 @@
         "phase": "Peak",
         "weekly_targets": {
           "strength_sessions": 4,
-          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
-        "day_notes": "DOUBLE DAY — AM run + PM Lower B. 48h from Tuesday's lower. No lower-body strength after this until Tuesday (long-run window protected).",
+        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+        "day_notes": "DOUBLE DAY — AM run + PM Lower B (TRUE isometrics from today). 48h from Tuesday's lower. No lower-body strength after this until Tuesday (long-run window protected).",
         "sessions": [
           {
             "type": "strength",
             "subtype": "lower",
             "title": "Lower B — Tendon Isometrics (taper-compatible)",
-            "duration_min": 50,
+            "duration_min": 45,
             "exercises": [
               {
-                "name": "Single-leg calf raise, bent knee (soleus HSR)",
+                "name": "Single-leg calf raise isometric, straight knee (loaded, mid-range)",
                 "category": "calf",
                 "sets": 4,
-                "reps": 6,
-                "tempo": "3-1-3",
+                "duration_sec": 40,
+                "load": "heavy",
+                "side": "alternating",
+                "cue": "Hold a heavy dumbbell, mid-range hold on one leg, fingertips on wall for balance. Strong effort, zero movement — stiffness stimulus without eccentric cost."
+              },
+              {
+                "name": "Bent-knee soleus isometric hold (loaded)",
+                "category": "calf",
+                "sets": 3,
+                "duration_sec": 40,
                 "load": "moderate",
                 "side": "alternating",
-                "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load — the descent tendon builder.",
-                "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+                "cue": "Knee bent ~30 deg, heel high, dumbbell in same-side hand. The descent tendon, held not lowered."
+              },
+              {
+                "name": "Resisted eversion isometric at load (band or cable)",
+                "category": "corrective",
+                "sets": 3,
+                "duration_sec": 25,
+                "load": "moderate",
+                "side": "right",
+                "cue": "Press outward against meaningful resistance and HOLD — the peroneal/lateral-ankle work goes isometric from here to race day. Sub-symptom always; both sides, right +1 set."
               },
               {
                 "name": "Spanish squat isometric (band behind knees)",
@@ -6971,37 +6970,25 @@
                 "duration_sec": 45,
                 "load": "moderate",
                 "side": "both",
-                "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+                "cue": "Familiar band tension, shins vertical, sit back and hold."
               },
               {
-                "name": "Resisted eversion, heavy slow (band or cable)",
-                "category": "corrective",
+                "name": "Split-squat isometric hold (bottom position)",
+                "category": "eccentric_quad",
                 "sets": 3,
-                "reps": 10,
-                "tempo": "3-1-3",
-                "load": "moderate",
-                "side": "right",
-                "cue": "Slow controlled eversion against meaningful resistance — the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
-                "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
-              },
-              {
-                "name": "Tibialis raises (loaded)",
-                "category": "corrective",
-                "sets": 3,
-                "reps": 12,
+                "duration_sec": 30,
                 "load": "light",
-                "side": "both",
-                "cue": "Add a light plate on the toes or use band resistance."
+                "side": "alternating",
+                "cue": "Hold 2 in above bottom position, light dumbbells. Replaces the loaded step-down — same pattern, no eccentric. Knee-gate applies: fully warm first."
               },
               {
-                "name": "Lateral step-down",
-                "category": "hip_stability",
+                "name": "Tibialis isometric hold (wall lean)",
+                "category": "corrective",
                 "sets": 3,
-                "reps": 8,
-                "tempo": "3-1-1",
-                "load": "moderate",
-                "side": "alternating",
-                "cue": "Off-axis knee/hip control. Pelvis level — glute med owns this. Knee-gate applies."
+                "duration_sec": 30,
+                "load": "bodyweight",
+                "side": "both",
+                "cue": "Toes pulled up and held against the wall-lean position."
               },
               {
                 "name": "Copenhagen plank (short lever)",
@@ -7010,18 +6997,18 @@
                 "duration_sec": 20,
                 "load": "bodyweight",
                 "side": "alternating",
-                "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+                "cue": "Adductor/lateral-chain isometric. Short lever."
               },
               {
-                "name": "Single-leg balance — unstable surface progression",
+                "name": "Single-leg balance — unstable surface",
                 "category": "balance",
                 "sets": 3,
                 "duration_sec": 45,
                 "side": "alternating",
-                "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+                "cue": "Maintain the proprioception work; zero recovery cost."
               }
             ],
-            "notes": "P1 flagship session. Isometric-dominant from this week: taper-compatible tendon stimulus (stiffness without eccentric recovery cost). Collagen + vitamin C 30-60 min before (see nutrition plan).",
+            "notes": "P1 flagship session, TAPER MODE (per Training_Plan_Review_Notes_v1 Note 1, option a): every dynamic/HSR item is converted to a loaded isometric from 9/10 onward — the bridge's own logic is that isometrics hold tendon stiffness without the eccentric recovery cost, so from here to race day the tendon work is genuinely isometric, not retitled HSR. Last true HSR exposure was W6. Collagen + vitamin C 30-60 min before, as always.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -7148,93 +7135,10 @@
         "phase": "Peak",
         "weekly_targets": {
           "strength_sessions": 4,
-          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
-        "day_notes": "Routines only.",
-        "sessions": []
-      },
-      "nutrition": {
-        "day_type_id": "easy_run_only",
-        "day_type_label": "Easy run / recovery walk (no strength)",
-        "phase_adjustment_applied": null,
-        "daily_targets": {
-          "calories_total": 2550,
-          "carbs_g": 300,
-          "protein_g": 140,
-          "fat_g": 80,
-          "fluid_ml_total": 2800,
-          "general_guidance": "Moderate day. Carbs at breakfast and the post-run meal.",
-          "notes": "Runs under 60 min need no during-fuel; water only."
-        },
-        "session_fueling": [
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "pre"
-            },
-            "timing": "60-90 min before (or run fasted-light if under 45 min easy)",
-            "calories": 250,
-            "carbs_g": 45,
-            "protein_g": 8,
-            "fat_g": 5,
-            "foods": [
-              "toast with honey and banana",
-              "coffee"
-            ],
-            "notes": "Short easy runs are flexible — don't force a pre-meal for a 35-min jog."
-          },
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "post"
-            },
-            "timing": "Within 45 min",
-            "calories": 300,
-            "carbs_g": 45,
-            "protein_g": 25,
-            "foods": [
-              "whey shake + fruit",
-              "or normal meal if mealtime"
-            ],
-            "notes": "Creatine 5 g post-run."
-          }
-        ],
-        "notes": ""
-      }
-    },
-    "2026-09-12": {
-      "date": "2026-09-12",
-      "day_of_week": "Saturday",
-      "week_number": 7,
-      "flex": true,
-      "rest_day": false,
-      "run": {
-        "phase": "Peak",
-        "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4050,
-          "long_run_mi": 20.7,
-          "strength_sessions": 4,
-          "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Perkins Memorial (rev 1.11). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
-          "derived_from": "session_sums",
-          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
-        },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
-        "day_notes": "REST from running (rev 1.12; shakeout merged into Friday). Upper B this evening as scheduled. Lay out race kit and fueling for Sunday.",
-        "sessions": []
-      },
-      "strength": {
-        "phase": "Peak",
-        "weekly_targets": {
-          "strength_sessions": 4,
-          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
-        },
-        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
-        "day_notes": "Evening. Upper is fine the day before the long run; lower is not.",
+        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+        "day_notes": "Routines only. MOVED (rev 1.2): Upper B relocated from Saturday so the day before the long run is full rest. Run first, lift in the evening. PEAK WEEK: keep the loaded carries light - Sunday 9/13 is the priority.",
         "sessions": [
           {
             "type": "strength",
@@ -7301,49 +7205,115 @@
         ]
       },
       "nutrition": {
-        "day_type_id": "strength_only",
-        "day_type_label": "Strength only (no run)",
+        "day_type_id": "easy_run_upper_strength",
+        "day_type_label": "Easy run + upper strength (double-day)",
         "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 2450,
-          "carbs_g": 260,
-          "protein_g": 145,
-          "fat_g": 85,
-          "fluid_ml_total": 2700,
-          "general_guidance": "Moderate carbs, high protein. Carbs concentrated in the meals flanking the session.",
-          "notes": "Common in recovery weeks 1-2 and race week."
+          "calories_total": 2700,
+          "carbs_g": 320,
+          "protein_g": 150,
+          "fat_g": 82,
+          "fluid_ml_total": 3000,
+          "general_guidance": "Double-day: carbs around the run, protein through the day, real meal between sessions.",
+          "notes": ""
         },
         "session_fueling": [
           {
             "linked_session": {
-              "type": "strength",
-              "subtype": null,
+              "type": "run",
+              "subtype": "easy",
               "position": "pre"
             },
-            "timing": "30-60 min before session",
+            "timing": "60-90 min before",
+            "calories": 250,
+            "carbs_g": 45,
+            "protein_g": 8,
+            "fat_g": 5,
             "foods": [
-              "collagen + vitamin C in water",
-              "optional: banana or toast with honey"
-            ],
-            "notes": "Collagen 15 g + vitamin C 250 mg, 30-60 min before ANY lower/tendon session — the collagen-synthesis window is the point. Light carb snack if 3+ h since last meal."
+              "toast with honey and banana",
+              "coffee"
+            ]
           },
           {
             "linked_session": {
-              "type": "strength",
-              "subtype": null,
+              "type": "run",
+              "subtype": "easy",
               "position": "post"
             },
             "timing": "Within 45 min",
             "calories": 300,
-            "carbs_g": 30,
-            "protein_g": 30,
+            "carbs_g": 45,
+            "protein_g": 25,
             "foods": [
-              "whey shake with milk",
-              "or Greek yogurt + fruit"
+              "whey shake + fruit"
             ],
-            "notes": "Protein 25-30 g. Creatine 5 g goes here."
+            "notes": "Creatine 5 g."
+          },
+          {
+            "linked_session": {
+              "type": "strength",
+              "subtype": "upper",
+              "position": "post"
+            },
+            "timing": "Within 45 min",
+            "calories": 250,
+            "carbs_g": 30,
+            "protein_g": 28,
+            "foods": [
+              "whey or Greek yogurt + fruit",
+              "dinner counts if within the window"
+            ]
           }
         ],
+        "notes": ""
+      }
+    },
+    "2026-09-12": {
+      "date": "2026-09-12",
+      "day_of_week": "Saturday",
+      "week_number": 7,
+      "flex": true,
+      "rest_day": true,
+      "run": {
+        "phase": "Peak",
+        "weekly_targets": {
+          "mileage_mi": 40.7,
+          "vertical_ft": 4050,
+          "long_run_mi": 20.7,
+          "strength_sessions": 4,
+          "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
+          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Perkins Memorial (rev 1.11). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
+        },
+        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "day_notes": "REST from running (rev 1.12; shakeout merged into Friday). Upper B this evening as scheduled. Lay out race kit and fueling for Sunday.",
+        "sessions": []
+      },
+      "strength": {
+        "phase": "Peak",
+        "weekly_targets": {
+          "strength_sessions": 4,
+          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+        },
+        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+        "day_notes": "REST (rev 1.2; Upper B moved to Friday).",
+        "sessions": []
+      },
+      "nutrition": {
+        "day_type_id": "rest_day",
+        "day_type_label": "Rest day (no training)",
+        "phase_adjustment_applied": null,
+        "daily_targets": {
+          "calories_total": 2300,
+          "carbs_g": 230,
+          "protein_g": 140,
+          "fat_g": 85,
+          "fluid_ml_total": 2500,
+          "general_guidance": "Lower carb, protein held high (~1.7 g/kg at 79 kg). Protein at every meal, 25-35 g per sitting. Vegetables and fats carry satiety.",
+          "notes": "Protein stays high on rest days — tissue remodeling doesn't take days off. Collagen + vitamin C still taken with the morning foot-corrective block."
+        },
+        "session_fueling": [],
         "notes": ""
       }
     },
@@ -7391,9 +7361,9 @@
         "phase": "Peak",
         "weekly_targets": {
           "strength_sessions": 4,
-          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+          "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B shifts isometric-dominant — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
+        "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
         "day_notes": "Long run day — no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens.",
         "sessions": []
       },
@@ -7522,7 +7492,7 @@
           "strength_sessions": 2,
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost — the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
         "day_notes": "",
         "sessions": []
       },
@@ -7587,25 +7557,41 @@
           "strength_sessions": 2,
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost — the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
-        "day_notes": "Single lower session of the week, after the AM taper hill session. Moderate throughout.",
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
+        "day_notes": "Single lower session of the week, after the AM taper hill session. True isometrics throughout.",
         "sessions": [
           {
             "type": "strength",
             "subtype": "lower",
             "title": "Lower B — Tendon Isometrics (taper-compatible)",
-            "duration_min": 50,
+            "duration_min": 45,
             "exercises": [
               {
-                "name": "Single-leg calf raise, bent knee (soleus HSR)",
+                "name": "Single-leg calf raise isometric, straight knee (loaded, mid-range)",
                 "category": "calf",
                 "sets": 4,
-                "reps": 6,
-                "tempo": "3-1-3",
+                "duration_sec": 40,
+                "load": "heavy",
+                "side": "alternating",
+                "cue": "Hold a heavy dumbbell, mid-range hold on one leg, fingertips on wall for balance. Strong effort, zero movement — stiffness stimulus without eccentric cost."
+              },
+              {
+                "name": "Bent-knee soleus isometric hold (loaded)",
+                "category": "calf",
+                "sets": 3,
+                "duration_sec": 40,
                 "load": "moderate",
                 "side": "alternating",
-                "cue": "Knee bent ~30 deg throughout. Soleus/Achilles complex under heavy slow load — the descent tendon builder.",
-                "progression_note": "Progress load weekly while pain-free; 48h from any other heavy calf work."
+                "cue": "Knee bent ~30 deg, heel high, dumbbell in same-side hand. The descent tendon, held not lowered."
+              },
+              {
+                "name": "Resisted eversion isometric at load (band or cable)",
+                "category": "corrective",
+                "sets": 3,
+                "duration_sec": 25,
+                "load": "moderate",
+                "side": "right",
+                "cue": "Press outward against meaningful resistance and HOLD — the peroneal/lateral-ankle work goes isometric from here to race day. Sub-symptom always; both sides, right +1 set."
               },
               {
                 "name": "Spanish squat isometric (band behind knees)",
@@ -7614,37 +7600,25 @@
                 "duration_sec": 45,
                 "load": "moderate",
                 "side": "both",
-                "cue": "Band anchored, shins vertical, sit back and HOLD. Patellar-tendon loading that the anterior knee history tolerates well."
+                "cue": "Familiar band tension, shins vertical, sit back and hold."
               },
               {
-                "name": "Resisted eversion, heavy slow (band or cable)",
-                "category": "corrective",
+                "name": "Split-squat isometric hold (bottom position)",
+                "category": "eccentric_quad",
                 "sets": 3,
-                "reps": 10,
-                "tempo": "3-1-3",
-                "load": "moderate",
-                "side": "right",
-                "cue": "Slow controlled eversion against meaningful resistance — the peroneal/lateral-ankle rebuild, now loaded, not just isometric. Sub-symptom always; both sides, right +1 set.",
-                "progression_note": "If any lateral-ankle response within 24h, revert to isometric holds for a week."
-              },
-              {
-                "name": "Tibialis raises (loaded)",
-                "category": "corrective",
-                "sets": 3,
-                "reps": 12,
+                "duration_sec": 30,
                 "load": "light",
-                "side": "both",
-                "cue": "Add a light plate on the toes or use band resistance."
+                "side": "alternating",
+                "cue": "Hold 2 in above bottom position, light dumbbells. Replaces the loaded step-down — same pattern, no eccentric. Knee-gate applies: fully warm first."
               },
               {
-                "name": "Lateral step-down",
-                "category": "hip_stability",
+                "name": "Tibialis isometric hold (wall lean)",
+                "category": "corrective",
                 "sets": 3,
-                "reps": 8,
-                "tempo": "3-1-1",
-                "load": "moderate",
-                "side": "alternating",
-                "cue": "Off-axis knee/hip control. Pelvis level — glute med owns this. Knee-gate applies."
+                "duration_sec": 30,
+                "load": "bodyweight",
+                "side": "both",
+                "cue": "Toes pulled up and held against the wall-lean position."
               },
               {
                 "name": "Copenhagen plank (short lever)",
@@ -7653,18 +7627,18 @@
                 "duration_sec": 20,
                 "load": "bodyweight",
                 "side": "alternating",
-                "cue": "Adductor/lateral-chain isometric. Short lever (knee on bench)."
+                "cue": "Adductor/lateral-chain isometric. Short lever."
               },
               {
-                "name": "Single-leg balance — unstable surface progression",
+                "name": "Single-leg balance — unstable surface",
                 "category": "balance",
                 "sets": 3,
                 "duration_sec": 45,
                 "side": "alternating",
-                "cue": "Folded mat -> pillow -> eyes-closed firm ground across the weeks. Foot/ankle proprioception for repeated footing adjustment."
+                "cue": "Maintain the proprioception work; zero recovery cost."
               }
             ],
-            "notes": "P1 flagship session. Isometric-dominant from this week: taper-compatible tendon stimulus (stiffness without eccentric recovery cost). Collagen + vitamin C 30-60 min before (see nutrition plan).",
+            "notes": "P1 flagship session, TAPER MODE (per Training_Plan_Review_Notes_v1 Note 1, option a): every dynamic/HSR item is converted to a loaded isometric from 9/10 onward — the bridge's own logic is that isometrics hold tendon stiffness without the eccentric recovery cost, so from here to race day the tendon work is genuinely isometric, not retitled HSR. Last true HSR exposure was W6. Collagen + vitamin C 30-60 min before, as always.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -7813,7 +7787,7 @@
           "strength_sessions": 2,
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost — the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
         "day_notes": "Routines only.",
         "sessions": []
       },
@@ -7911,7 +7885,7 @@
           "strength_sessions": 2,
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost — the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
         "day_notes": "Last upper session of the block. Moderate loads.",
         "sessions": [
           {
@@ -8086,7 +8060,7 @@
           "strength_sessions": 2,
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost — the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
         "day_notes": "",
         "sessions": []
       },
@@ -8168,7 +8142,7 @@
           "strength_sessions": 2,
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost — the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
         "day_notes": "Routines only.",
         "sessions": []
       },
@@ -8234,7 +8208,7 @@
           "strength_sessions": 2,
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
-        "week_notes": "Taper weeks use isometrics to hold tendon stiffness with zero soreness cost — the whole point of the bridge's weeks 8-9 design. Nothing heavy, nothing new.",
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
         "day_notes": "Race-rhythm long run day. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens.",
         "sessions": []
       },
