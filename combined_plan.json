@@ -6444,16 +6444,16 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4000,
-          "long_run_mi": 20.7,
+          "mileage_mi": 20.0,
+          "vertical_ft": 1100,
+          "long_run_mi": 5.5,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): the 20.7-mi peak long run moved to Monday 9/14 for weather, i.e. across the week boundary into Week 8. Targets REGENERATED FROM SUMS per the derivation rule (40.7 mi / 4000 ft -> 20.0 mi / 1100 ft); the ramp-guard ladder is NOT changed - the 7-day rolling load 9/8-9/14 is 40.7 mi / 4000 ft, identical to the intended peak week, only the calendar-week split moved. Read the Week 7 + Week 8 pair together. SUNDAY VERTICAL CHECK for 9/13 evening is VOID (the long run had not happened); run it on 9/20 against Week 8. || PRIOR: Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "week_notes": "REV 1.14: peak long run postponed to Monday 9/14 for weather; the dress rehearsal is unchanged in content. || PRIOR: Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
         "day_notes": "",
         "sessions": []
       },
@@ -6493,16 +6493,16 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4000,
-          "long_run_mi": 20.7,
+          "mileage_mi": 20.0,
+          "vertical_ft": 1100,
+          "long_run_mi": 5.5,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): the 20.7-mi peak long run moved to Monday 9/14 for weather, i.e. across the week boundary into Week 8. Targets REGENERATED FROM SUMS per the derivation rule (40.7 mi / 4000 ft -> 20.0 mi / 1100 ft); the ramp-guard ladder is NOT changed - the 7-day rolling load 9/8-9/14 is 40.7 mi / 4000 ft, identical to the intended peak week, only the calendar-week split moved. Read the Week 7 + Week 8 pair together. SUNDAY VERTICAL CHECK for 9/13 evening is VOID (the long run had not happened); run it on 9/20 against Week 8. || PRIOR: Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "week_notes": "REV 1.14: peak long run postponed to Monday 9/14 for weather; the dress rehearsal is unchanged in content. || PRIOR: Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
         "day_notes": "DOUBLE DAY — AM hills + PM Lower A (last heavy).",
         "sessions": [
           {
@@ -6715,16 +6715,16 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4000,
-          "long_run_mi": 20.7,
+          "mileage_mi": 20.0,
+          "vertical_ft": 1100,
+          "long_run_mi": 5.5,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): the 20.7-mi peak long run moved to Monday 9/14 for weather, i.e. across the week boundary into Week 8. Targets REGENERATED FROM SUMS per the derivation rule (40.7 mi / 4000 ft -> 20.0 mi / 1100 ft); the ramp-guard ladder is NOT changed - the 7-day rolling load 9/8-9/14 is 40.7 mi / 4000 ft, identical to the intended peak week, only the calendar-week split moved. Read the Week 7 + Week 8 pair together. SUNDAY VERTICAL CHECK for 9/13 evening is VOID (the long run had not happened); run it on 9/20 against Week 8. || PRIOR: Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "week_notes": "REV 1.14: peak long run postponed to Monday 9/14 for weather; the dress rehearsal is unchanged in content. || PRIOR: Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
         "day_notes": "",
         "sessions": [
           {
@@ -6891,16 +6891,16 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4000,
-          "long_run_mi": 20.7,
+          "mileage_mi": 20.0,
+          "vertical_ft": 1100,
+          "long_run_mi": 5.5,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): the 20.7-mi peak long run moved to Monday 9/14 for weather, i.e. across the week boundary into Week 8. Targets REGENERATED FROM SUMS per the derivation rule (40.7 mi / 4000 ft -> 20.0 mi / 1100 ft); the ramp-guard ladder is NOT changed - the 7-day rolling load 9/8-9/14 is 40.7 mi / 4000 ft, identical to the intended peak week, only the calendar-week split moved. Read the Week 7 + Week 8 pair together. SUNDAY VERTICAL CHECK for 9/13 evening is VOID (the long run had not happened); run it on 9/20 against Week 8. || PRIOR: Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "week_notes": "REV 1.14: peak long run postponed to Monday 9/14 for weather; the dress rehearsal is unchanged in content. || PRIOR: Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
         "day_notes": "DOUBLE DAY — AM easy/descent + PM Lower B (moderate/iso).",
         "sessions": [
           {
@@ -7102,16 +7102,16 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4000,
-          "long_run_mi": 20.7,
+          "mileage_mi": 20.0,
+          "vertical_ft": 1100,
+          "long_run_mi": 5.5,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): the 20.7-mi peak long run moved to Monday 9/14 for weather, i.e. across the week boundary into Week 8. Targets REGENERATED FROM SUMS per the derivation rule (40.7 mi / 4000 ft -> 20.0 mi / 1100 ft); the ramp-guard ladder is NOT changed - the 7-day rolling load 9/8-9/14 is 40.7 mi / 4000 ft, identical to the intended peak week, only the calendar-week split moved. Read the Week 7 + Week 8 pair together. SUNDAY VERTICAL CHECK for 9/13 evening is VOID (the long run had not happened); run it on 9/20 against Week 8. || PRIOR: Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "week_notes": "REV 1.14: peak long run postponed to Monday 9/14 for weather; the dress rehearsal is unchanged in content. || PRIOR: Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
         "day_notes": "",
         "sessions": [
           {
@@ -7277,16 +7277,16 @@
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4000,
-          "long_run_mi": 20.7,
+          "mileage_mi": 20.0,
+          "vertical_ft": 1100,
+          "long_run_mi": 5.5,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): the 20.7-mi peak long run moved to Monday 9/14 for weather, i.e. across the week boundary into Week 8. Targets REGENERATED FROM SUMS per the derivation rule (40.7 mi / 4000 ft -> 20.0 mi / 1100 ft); the ramp-guard ladder is NOT changed - the 7-day rolling load 9/8-9/14 is 40.7 mi / 4000 ft, identical to the intended peak week, only the calendar-week split moved. Read the Week 7 + Week 8 pair together. SUNDAY VERTICAL CHECK for 9/13 evening is VOID (the long run had not happened); run it on 9/20 against Week 8. || PRIOR: Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "week_notes": "REV 1.14: peak long run postponed to Monday 9/14 for weather; the dress rehearsal is unchanged in content. || PRIOR: Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
         "day_notes": "REST from running (rev 1.12; shakeout merged into Friday). Upper B this evening as scheduled. Lay out race kit and fueling for Sunday.",
         "sessions": []
       },
@@ -7322,40 +7322,22 @@
       "day_of_week": "Sunday",
       "week_number": 7,
       "flex": false,
-      "rest_day": false,
+      "rest_day": true,
       "run": {
         "phase": "Peak",
         "weekly_targets": {
-          "mileage_mi": 40.7,
-          "vertical_ft": 4000,
-          "long_run_mi": 20.7,
+          "mileage_mi": 20.0,
+          "vertical_ft": 1100,
+          "long_run_mi": 5.5,
           "strength_sessions": 4,
           "key_fueling_test": "Sunday peak long run = full race dress rehearsal (breakfast, kit, fueling — see nutrition override 2026-09-13)",
-          "notes": "Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): the 20.7-mi peak long run moved to Monday 9/14 for weather, i.e. across the week boundary into Week 8. Targets REGENERATED FROM SUMS per the derivation rule (40.7 mi / 4000 ft -> 20.0 mi / 1100 ft); the ramp-guard ladder is NOT changed - the 7-day rolling load 9/8-9/14 is 40.7 mi / 4000 ft, identical to the intended peak week, only the calendar-week split moved. Read the Week 7 + Week 8 pair together. SUNDAY VERTICAL CHECK for 9/13 evening is VOID (the long run had not happened); run it on 9/20 against Week 8. || PRIOR: Peak week. Tuesday is the last heavy hill-strength session (gym). Sunday is the ~20.7-mi dress rehearsal at Boat Basin, start at the top (rev 1.13; Perkins retired 9/7). After Sunday, everything descends toward race day. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
-        "day_notes": "",
-        "sessions": [
-          {
-            "type": "run",
-            "subtype": "long",
-            "title": "PEAK long run — Vermont dress rehearsal (Boat Basin, D3 + Lever C)",
-            "duration_min": 270,
-            "distance_mi": 20.7,
-            "elevation_gain_ft": 2900,
-            "terrain": "road",
-            "terrain_intent": "relief+grade",
-            "hr_cap_bpm": 149,
-            "hr_zone": "Z2 (low Z3 permitted on the final-climb run arm only)",
-            "poles": false,
-            "key_cue": "ROUTE (rev 1.13): BOAT BASIN road climb, START AT THE TOP (parking both ends). One side = 1.50 mi / 484 ft at 6.1% (0.0-0.5 mi from the bottom 3-6%, 0.5-1.0 mi 7-9%, 1.0-1.5 mi 4-5%); max 9.8%, nothing at or above 10%. Flat road at the bottom. LAP = down 1.5 + up 1.5 = 3.0 mi / 484 ft. Source GPX: Boat_Basin_to_Palisades.gpx, parsed gpx_parser_05282026 (5 m grid, W=15), independently verified by Race Strategy 9/7. SEQUENCE ~20.7 mi / ~2,900 ft / ~4.5 h: [0.0] WARM-UP: 3-5 min easy jog at the top before descending; the lap-1 descent is then run explicitly as warm-up at a conservative pace - it is -5..-9% on cold tissue. [0-3.0] LAP 1 down/up, cap 149. [3.0-6.0] LAP 2 down/up. [6.0-7.5] LAP 3 down. [7.5-10.2] FLAT 2.7 mi on the bottom road (gravel-road analogue; hours 0-2 end about here). USE THE FINAL ~0.3 mi OF THE FLAT TO BRING HR INTO THE 140-145 ENTRY GATE before the climb - this is the race's road-into-climb situation and the 8/30 break was an entry failure, not a cap failure. LAP-PRESS at the climb base; HR at the base is a reported figure. [10.2-11.7] LAP 3 up. [11.7-14.7] LAP 4 down/up (RUN). TIME CHECK at the top of lap 4 (~mi 14.7): remaining block is ~6 mi, ~80 min. If elapsed + 80 min is short of 270, run the shortfall on the flat at the bottom after the next descent, BEFORE the hike arm. Duration governs, not distance; add flat, never vertical; stop at 270-275 min regardless. [14.7-16.2] down. [16.2-17.7] HIKE ARM: deliberate pole-free hike the full 1.5 mi, LAP-PRESS AT BOTH ENDS, entry gate 140-145 at the base. [17.7-19.2] D3 REHEARSAL: 1.5 mi continuous descent at -6.1% - the mi 25.0-29.5 analogue, shortened (RS D1 accepted). [19.2-20.7] RUN ARM: turn at the bottom WITHOUT STOPPING and run the 1.5 mi up to the top - the mi 29.5-30.9 analogue (1.4 mi at ~6%). Run at drifted HR, LOW Z3 PERMITTED, tripwire 156. Walk steps in the 7-9% middle third are THE FINDING, not a deviation: do not correct in-session, log and continue. LAP-PRESS at the turn and at the crest. [after the crest] RECOVERY CAPTURE: keep the watch running >= 6 min with easy walk/jog. 'Finish at the top' does NOT mean stop the watch at the top - ask (c) needs time-to-<145 bpm. CEILING SCHEDULE (rev 1.11, unchanged): hours 0-2 cap 149; thereafter ~+3 bpm/hr drift allowance on flat and descent bands; HARD TRIPWIRE 156 all day; CLIMB ENTRY GATE 140-145 enforced at every climb base all day - walk/settle before a climb starts, not after. Time over 149 is reported informationally, not as a deviation. CAFFEINE GEL around mi 14 so it lands 15-20 min before the run arm. READ-OUT (rev 1.13, RS s2): both arms in THIRDS (0.0-0.5 / 0.5-1.0 / 1.0-1.5 mi from the bottom) - mean HR, pace, run/walk share (cadence >= 140 spm rule) per third; the 7-9% middle third is the headline sample (the 8/30 +5..10% collapse band). Both arms on the F-08 template (pace, HR start/end/max, slope bpm/min, running-only cadence, % seconds above cap). Run arm additionally: did the run hold, finishing HR, time-to-<145 after the crest, time >156, entry-gate HR at the base, hike-vs-run HR delta at matched third. Bias note for the ruling: the run arm is one lap more fatigued than the hike arm, so the delta is biased against running - a run arm that holds is a conservative positive. Middle third (7-9%) is sampled 6x across the day: RS builds fresh/mid/late columns from it - no extra lap-presses needed beyond the arms, the flat and the lap-3 climb base. Hours 4+ fueling and HR decay remain required outputs. || PRIOR (rev 1.11) KEY_CUE RETAINED FOR PROVENANCE: ROUTE (rev 1.11): Perkins Memorial Drive, START AT THE SUMMIT. Long side = 3.0 mi / 900 ft at 5.7% avg (top 0.4 mi 8-9%, middle 1.5 mi 3-5%, bottom 0.4 mi 5-8%). Short side = 1.37 mi / 370 ft at 5.3% avg. Paved, all descending under 10%. Source GPX: Perking_Memorial.gpx, parsed gpx_parser_05282026 (5 m grid, W=15). SEQUENCE ~20.7 mi / ~2,950 ft / ~4.5 h: [0-0.5] easy jog on the summit loop, settle HR. [0.5-3.2] short side down, short side up (warm-up pair, cap 149). [3.2-9.2] long side down, long side up. Hours 0-2 end about here. [9.2-12.0] short side down, short side up (RUN). [12.0-13.4] short side down. [13.4-14.8] HIKE ARM: short side up, deliberate pole-free hike the whole 1.37 mi, LAP-PRESS AT BOTH ENDS. [14.8-17.8] D3 REHEARSAL: long side down, 3.0 mi continuous at -5.7% - the mi 25.0-29.5 analogue. [17.8-20.7] RUN ARM: turn at the bottom WITHOUT STOPPING and run the long side up, finishing at the summit. The first 1.4 mi (+376 ft at 5.1%) is the mi 29.5-30.9 analogue: run it at drifted HR, LOW Z3 PERMITTED, tripwire 156. Above that the run/hike rule governs as normal; the upper 0.4 mi at 8-9% is where it will bite. LAP-PRESS at the turn and at 1.4 mi. CEILING SCHEDULE (rev 1.11, replaces the flat 149 cap): hours 0-2 cap 149; thereafter ~+3 bpm/hr drift allowance on flat and descent bands; HARD TRIPWIRE 156 all day; CLIMB ENTRY GATE 140-145 enforced all day - walk/settle before a climb starts, not after. Time over 149 is reported informationally, not as a deviation. CAFFEINE GEL around mi 14 so it lands 15-20 min before the final climb. READ-OUT: hike arm and run arm on the F-08 template (pace, HR start/end/max, slope bpm/min, running-only cadence, % seconds above cap), plus for the run arm: did the run hold, finishing HR, time to recover under 145 after the summit, and the hike-vs-run HR delta at matched grade. Hours 4+ fueling and HR decay are the other required outputs.",
-            "fueling_required": true,
-            "fueling_notes": "FULL RACE DRESS REHEARSAL - see nutrition date override 2026-09-13. Rev 1.11: the 8/30 protocol (gel + half-portion Roctane mix) extends in DURATION ONLY; no new fueling variable. The 25-min gel-cadence step-up previously reserved for this session is DROPPED - hours-4+ decay is the missing input and a cadence change would confound it. Caffeine gel ~mi 14.",
-            "notes": "Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. REV 1.13 (2026-09-07) ROUTE CHANGE: the Perkins Memorial GPX behind rev 1.11 was not runnable end to end. The corrected file reads, from the summit, long side 1.80 mi / -587 ft (-6.2%) with two -9..-10% sections, short side 1.27 mi / -349 ft; the 3.0 mi / 900 ft D3 side no longer exists. Route moved to Boat Basin (TP proposal 9/7, RS_to_TP_Memo_0913_Route_Response_v1 D1-D3 ACCEPTED, Perkins NOT directed). RS basis: the Perkins extra 0.3 mi / ~100 ft is delivered as braking sections that contradict the course D3 character (-4.5%, no walls) and load the binding limiter on a novel road; Boat Basin's climb is a near-exact mi 29.5-30.9 analogue and the identical hike/run pair is decisive for ask (c). Terrain held constant with every prior Boat Basin session so DURATION (hours 3-4.5) is the single new variable. WHAT CHANGED vs rev 1.11: D3 continuous descent 3.0 mi / 900 ft -> 1.5 mi / 484 ft (shortfall vs the 4.5 mi course D3 to be logged in the Findings Register; RS finish prediction will carry a D3-extrapolation caveat). Lever C arms now matched on the identical segment (1.5 mi at 6.1%) instead of 5.3% vs 5.1% on two roads. Mid-session 2.7 mi flat added at the bottom of lap 3 with an entry-gate rehearsal on its last 0.3 mi (RS D2). Recovery capture >= 6 min after the run-arm crest (RS 2a). Thirds read-out (RS 2b-2f). Duration-governs rule with the mi-14.7 time check. Warm-up jog at the top before the lap-1 descent (RS s3, TP call). Cross-site mixing (Perkins + Boat Basin in one day) REJECTED by RS on principle: a drive resets the fatigue state that makes a late D3 meaningful. LOAD DELTA vs rev 1.11: 0 mi, -50 ft (6 x 484 ft = 2,904, written as 2,900), 0 min; week 7 derived targets regenerated from sums. ROUTE CONSTRAINT (unchanged): all descent runnable, technical-descent ban stands - satisfied by a paved road with max 9.8%. Post-session: FIT file to Race Strategy with the 8/30 FIT and vt50k_band_model_20260906_output.txt. || PRIOR (rev 1.11) NOTES RETAINED FOR PROVENANCE: Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. REV 1.11 (2026-08-31) SPEC SOURCE: Course Demands Brief v1.1 s4a (D3) and RS->TP 9/13 Session Asks rev 1 (a-e). GATE CONDITION SATISFIED: Gate 2 (8/27) passed and the 8/30 calibration read clean, both accepted by Race Strategy; the 2,600 ft revert clause is retired. WHAT REPLACED WHAT: S1 (>=1,200 ft in the final 8 mi) is RETIRED - the corrected course profile makes the last 8 race miles descent-heavy (-1,060 ft scaled over 4.5 mi into a +480 ft climb), not climb-dense; peak hill density now lives at mi 3-9 and 9-12. S2/S3 (marquee climb after 1.5-2.5 mi descent) are replaced by the D3 block: 3.0 mi continuous descent turning directly into a 1.4 mi runnable climb, no recovery segment. S6 (6-min hiking block) becomes the Lever C paired gait test: hike arm 1.37 mi at 5.3% vs run arm 1.4 mi at 5.1%, matched length and grade, both in the final hour. S4 day total ~2,950 ft (~140 ft/mi) and S5 caffeine timing carry. MECHANISM ON RECORD (RS memo s2): the 8/30 late +5..10% run-share collapse was HR-governed under drift, not leg failure; run-vs-hike on late moderate climbs is an open ceiling question this session tests, not a capacity gap. STEEP DESCENT SAMPLING (RS ask d, >=3 min at <=-10%) DECLINED by athlete 8/31: it would breach the <10% route constraint; the route holds nothing near -10%. LOAD DELTA vs rev 1.10: +0.7 mi, -50 ft, +30 min; week 7 derived targets regenerated from sums. ROUTE CONSTRAINT (unchanged): all descent runnable, technical-descent ban stands - satisfied by a paved road. || PRIOR (rev 1.5-1.10) TEXT RETAINED FOR PROVENANCE: Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. SPEC SOURCE: Race_Strategy_Response_v1 Answer B1 — the spec is a DISTRIBUTION, not an average; 130 ft/mi was never the problem and 172 was never the answer. ROUTE CONSTRAINT (non-negotiable): all added or steepened descent must be runnable (<10%); the technical-descent ban stands. Added climbing on a loop means added descending — route selection must absorb it at runnable grades. GATE CONDITION: this spec is conditional on Gate 2 (8/27) passing unflagged AND the 8/30 calibration reading clean. If either flags, this session REVERTS to 20 mi / 2,600 ft / 130 ft/mi and the spec is dropped without discussion — a gentler rehearsal is a smaller loss than a re-injury six days before taper. The revert is also guard-safe: 3,700 ft for the week is a decrease from W6. HIKING BLOCK RATIONALE (rev 1.5): the only sustained pole-free hiking data on this athlete comes from WR50K at 5,600-5,900 ft in a detrained state, race hours 4.9-6.9. Both bias that arm SLOW, i.e. conservatively toward running. This block measures it in current trained state at Vermont-like altitude and late-race fatigue, inside a session already on the calendar. The standalone W5 calibration was DECLINED (Dispositions s6) — the 8/25 slip window stays available as the 8/18 heat fallback and its hill-interval session is UNCHANGED. RUN/HIKE DECISION RULE (rev 1.6, Rulings 20260810 s4) — REHEARSE THIS, it is the rule for race day. 1. HR CAP GOVERNS. ALWAYS. [constraint] 2. Running pace at or under ~18:00/mi -> KEEP RUNNING. [PACE] 3. Running pace at or over ~18:00/mi -> HIKE. [PACE] 4. LATE IN THE RACE, SWITCH EARLIER THAN RULE 3 SAYS. [DAMAGE] RULE 4 OVERRIDES RULE 3 — it does not extend it. Stated plainly because the two rest on DIFFERENT AXES AND POINT IN OPPOSITE DIRECTIONS at exactly the point the decision matters most, the mi 29.4 climb. On PACE alone the threshold LOOSENS late: hiking slows by roughly 1:46/mi within a long effort, so running keeps winning longer, and rule 3 by itself would say run MORE late in the race. Rule 4 resolves toward TISSUE COST, not pace, because the documented failure mode is structural — WR descent HR 136-141 in deep Z1 with pace 2-3 min/mi off plan. The pace argument is worth about a minute on one late climb; the damage argument governs every descending mile after it. NOTE: the ~18:00 threshold is grade-dependent in reality (pole-free sustained hiking is 16:55/mi at +3.5% and 18:08/mi at +6.5%), so at gentle grades the flat threshold switches slightly late. Immaterial while rule 1 binds."
-          }
-        ]
+        "week_notes": "REV 1.14: peak long run postponed to Monday 9/14 for weather; the dress rehearsal is unchanged in content. || PRIOR: Peak. The Sunday long run rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution, and (rev 1.11) a 3-mi continuous descent turning straight into the final climb to rehearse the mi 25-31 sequence, with the paired hike/run gait test in the final hour.",
+        "day_notes": "REST (rev 1.14): peak long run POSTPONED to Monday 9/14 for weather (pouring rain; wet-road repeated descent declined two weeks out). Upper B was Friday; kit and fueling laid out for Monday instead.",
+        "sessions": []
       },
       "strength": {
         "phase": "Peak",
@@ -7364,22 +7346,13 @@
           "notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off). COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
         "week_notes": "PEAK: Tuesday Lower A is the LAST HEAVY session of the block (match Week 6, no new maxes). Thursday Lower B converts to TRUE isometrics (all dynamic items become loaded holds) — the taper-compatible tendon mode starts here, per the bridge design (week 7 = last heavy, then back off).",
-        "day_notes": "Long run day — no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens.",
+        "day_notes": "REV 1.3: long run postponed to Monday 9/14 for weather - still no strength today; compliance check as scheduled. || PRIOR: Long run day — no strength. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens.",
         "sessions": []
       },
       "nutrition": {
-        "day_type_id": "long_run",
+        "day_type_id": "rest_day",
         "day_type_label": "PEAK LONG RUN (20 mi) — full Vermont dress rehearsal",
-        "phase_adjustment_applied": {
-          "phase": "Peak",
-          "adjustment": "20-mi dress rehearsal — highest calorie training day (see 2026-09-13 override).",
-          "modified_targets": {
-            "calories_total": 3500,
-            "carbs_g": 490,
-            "protein_g": 150,
-            "fat_g": 84
-          }
-        },
+        "phase_adjustment_applied": null,
         "daily_targets": {
           "calories_total": 3550,
           "carbs_g": 500,
@@ -7470,20 +7443,155 @@
       "day_of_week": "Monday",
       "week_number": 8,
       "flex": false,
+      "rest_day": false,
+      "run": {
+        "phase": "Taper_1",
+        "weekly_targets": {
+          "mileage_mi": 42.2,
+          "vertical_ft": 5150,
+          "long_run_mi": 20.7,
+          "strength_sessions": 2,
+          "notes": "REV 1.14 (2026-09-14): Week 8 now carries the postponed peak long run on Monday 9/14 (20.7 mi / 2900 ft), the hill intervals move Tue->Wed, Tuesday is full rest, and the Wednesday easy Z2 (4.0 mi / 250 ft) is dropped. Targets REGENERATED FROM SUMS (25.5 mi / 2500 ft -> 42.2 mi / 5150 ft). This is calendar accounting, not a load increase: 9/15-9/20 sums to 21.5 mi / 2250 ft against the prior 25.5 / 2500, i.e. the taper is slightly LIGHTER than written. SUNDAY VERTICAL CHECK 9/20: compare actual GPS vertical 9/14-9/20 against 5150 ft; the +100 ft rule stands. || PRIOR: Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
+        },
+        "week_notes": "REV 1.14: Monday is the postponed peak long run; Tuesday rest; Wednesday hill intervals + Lower B; Wednesday easy dropped. Long-run-to-long-run spacing is 6 days (9/14 -> 9/20), which is sufficient at Z2. || PRIOR: Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
+        "day_notes": "PEAK LONG RUN (rev 1.14; moved from Sunday 9/13 for weather). No strength today (long-run day rule). Post-session: FIT to the Drive inbox; watchlist report Tuesday morning.",
+        "sessions": [
+          {
+            "type": "run",
+            "subtype": "long",
+            "title": "PEAK long run — Vermont dress rehearsal (Boat Basin, D3 + Lever C)",
+            "duration_min": 270,
+            "distance_mi": 20.7,
+            "elevation_gain_ft": 2900,
+            "terrain": "road",
+            "terrain_intent": "relief+grade",
+            "hr_cap_bpm": 149,
+            "hr_zone": "Z2 (low Z3 permitted on the final-climb run arm only)",
+            "poles": false,
+            "key_cue": "ROUTE (rev 1.13): BOAT BASIN road climb, START AT THE TOP (parking both ends). One side = 1.50 mi / 484 ft at 6.1% (0.0-0.5 mi from the bottom 3-6%, 0.5-1.0 mi 7-9%, 1.0-1.5 mi 4-5%); max 9.8%, nothing at or above 10%. Flat road at the bottom. LAP = down 1.5 + up 1.5 = 3.0 mi / 484 ft. Source GPX: Boat_Basin_to_Palisades.gpx, parsed gpx_parser_05282026 (5 m grid, W=15), independently verified by Race Strategy 9/7. SEQUENCE ~20.7 mi / ~2,900 ft / ~4.5 h: [0.0] WARM-UP: 3-5 min easy jog at the top before descending; the lap-1 descent is then run explicitly as warm-up at a conservative pace - it is -5..-9% on cold tissue. [0-3.0] LAP 1 down/up, cap 149. [3.0-6.0] LAP 2 down/up. [6.0-7.5] LAP 3 down. [7.5-10.2] FLAT 2.7 mi on the bottom road (gravel-road analogue; hours 0-2 end about here). USE THE FINAL ~0.3 mi OF THE FLAT TO BRING HR INTO THE 140-145 ENTRY GATE before the climb - this is the race's road-into-climb situation and the 8/30 break was an entry failure, not a cap failure. LAP-PRESS at the climb base; HR at the base is a reported figure. [10.2-11.7] LAP 3 up. [11.7-14.7] LAP 4 down/up (RUN). TIME CHECK at the top of lap 4 (~mi 14.7): remaining block is ~6 mi, ~80 min. If elapsed + 80 min is short of 270, run the shortfall on the flat at the bottom after the next descent, BEFORE the hike arm. Duration governs, not distance; add flat, never vertical; stop at 270-275 min regardless. [14.7-16.2] down. [16.2-17.7] HIKE ARM: deliberate pole-free hike the full 1.5 mi, LAP-PRESS AT BOTH ENDS, entry gate 140-145 at the base. [17.7-19.2] D3 REHEARSAL: 1.5 mi continuous descent at -6.1% - the mi 25.0-29.5 analogue, shortened (RS D1 accepted). [19.2-20.7] RUN ARM: turn at the bottom WITHOUT STOPPING and run the 1.5 mi up to the top - the mi 29.5-30.9 analogue (1.4 mi at ~6%). Run at drifted HR, LOW Z3 PERMITTED, tripwire 156. Walk steps in the 7-9% middle third are THE FINDING, not a deviation: do not correct in-session, log and continue. LAP-PRESS at the turn and at the crest. [after the crest] RECOVERY CAPTURE: keep the watch running >= 6 min with easy walk/jog. 'Finish at the top' does NOT mean stop the watch at the top - ask (c) needs time-to-<145 bpm. CEILING SCHEDULE (rev 1.11, unchanged): hours 0-2 cap 149; thereafter ~+3 bpm/hr drift allowance on flat and descent bands; HARD TRIPWIRE 156 all day; CLIMB ENTRY GATE 140-145 enforced at every climb base all day - walk/settle before a climb starts, not after. Time over 149 is reported informationally, not as a deviation. CAFFEINE GEL around mi 14 so it lands 15-20 min before the run arm. READ-OUT (rev 1.13, RS s2): both arms in THIRDS (0.0-0.5 / 0.5-1.0 / 1.0-1.5 mi from the bottom) - mean HR, pace, run/walk share (cadence >= 140 spm rule) per third; the 7-9% middle third is the headline sample (the 8/30 +5..10% collapse band). Both arms on the F-08 template (pace, HR start/end/max, slope bpm/min, running-only cadence, % seconds above cap). Run arm additionally: did the run hold, finishing HR, time-to-<145 after the crest, time >156, entry-gate HR at the base, hike-vs-run HR delta at matched third. Bias note for the ruling: the run arm is one lap more fatigued than the hike arm, so the delta is biased against running - a run arm that holds is a conservative positive. Middle third (7-9%) is sampled 6x across the day: RS builds fresh/mid/late columns from it - no extra lap-presses needed beyond the arms, the flat and the lap-3 climb base. Hours 4+ fueling and HR decay remain required outputs. || PRIOR (rev 1.11) KEY_CUE RETAINED FOR PROVENANCE: ROUTE (rev 1.11): Perkins Memorial Drive, START AT THE SUMMIT. Long side = 3.0 mi / 900 ft at 5.7% avg (top 0.4 mi 8-9%, middle 1.5 mi 3-5%, bottom 0.4 mi 5-8%). Short side = 1.37 mi / 370 ft at 5.3% avg. Paved, all descending under 10%. Source GPX: Perking_Memorial.gpx, parsed gpx_parser_05282026 (5 m grid, W=15). SEQUENCE ~20.7 mi / ~2,950 ft / ~4.5 h: [0-0.5] easy jog on the summit loop, settle HR. [0.5-3.2] short side down, short side up (warm-up pair, cap 149). [3.2-9.2] long side down, long side up. Hours 0-2 end about here. [9.2-12.0] short side down, short side up (RUN). [12.0-13.4] short side down. [13.4-14.8] HIKE ARM: short side up, deliberate pole-free hike the whole 1.37 mi, LAP-PRESS AT BOTH ENDS. [14.8-17.8] D3 REHEARSAL: long side down, 3.0 mi continuous at -5.7% - the mi 25.0-29.5 analogue. [17.8-20.7] RUN ARM: turn at the bottom WITHOUT STOPPING and run the long side up, finishing at the summit. The first 1.4 mi (+376 ft at 5.1%) is the mi 29.5-30.9 analogue: run it at drifted HR, LOW Z3 PERMITTED, tripwire 156. Above that the run/hike rule governs as normal; the upper 0.4 mi at 8-9% is where it will bite. LAP-PRESS at the turn and at 1.4 mi. CEILING SCHEDULE (rev 1.11, replaces the flat 149 cap): hours 0-2 cap 149; thereafter ~+3 bpm/hr drift allowance on flat and descent bands; HARD TRIPWIRE 156 all day; CLIMB ENTRY GATE 140-145 enforced all day - walk/settle before a climb starts, not after. Time over 149 is reported informationally, not as a deviation. CAFFEINE GEL around mi 14 so it lands 15-20 min before the final climb. READ-OUT: hike arm and run arm on the F-08 template (pace, HR start/end/max, slope bpm/min, running-only cadence, % seconds above cap), plus for the run arm: did the run hold, finishing HR, time to recover under 145 after the summit, and the hike-vs-run HR delta at matched grade. Hours 4+ fueling and HR decay are the other required outputs.",
+            "fueling_required": true,
+            "fueling_notes": "FULL RACE DRESS REHEARSAL - see nutrition date override 2026-09-13. Rev 1.11: the 8/30 protocol (gel + half-portion Roctane mix) extends in DURATION ONLY; no new fueling variable. The 25-min gel-cadence step-up previously reserved for this session is DROPPED - hours-4+ decay is the missing input and a cadence change would confound it. Caffeine gel ~mi 14.",
+            "notes": "MOVED (rev 1.14, 2026-09-14) from Sunday 9/13 to Monday 9/14 - athlete ruling 9/12: pouring rain forecast; repeated -6..-9% descents on wet pavement two weeks before the race declined as severity-for-no-reason. Session content, load, route and every read-out UNCHANGED; only the date moves. Consequence: the 48-h spacer to the hill intervals is gone, so Tuesday 9/15 becomes full rest and the hill intervals + Lower B move to Wednesday 9/16. Race is 13 days out instead of 14 - immaterial for a Z2-capped session; watchlist-site report gates 9/17 rather than 9/15. || Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. REV 1.13 (2026-09-07) ROUTE CHANGE: the Perkins Memorial GPX behind rev 1.11 was not runnable end to end. The corrected file reads, from the summit, long side 1.80 mi / -587 ft (-6.2%) with two -9..-10% sections, short side 1.27 mi / -349 ft; the 3.0 mi / 900 ft D3 side no longer exists. Route moved to Boat Basin (TP proposal 9/7, RS_to_TP_Memo_0913_Route_Response_v1 D1-D3 ACCEPTED, Perkins NOT directed). RS basis: the Perkins extra 0.3 mi / ~100 ft is delivered as braking sections that contradict the course D3 character (-4.5%, no walls) and load the binding limiter on a novel road; Boat Basin's climb is a near-exact mi 29.5-30.9 analogue and the identical hike/run pair is decisive for ask (c). Terrain held constant with every prior Boat Basin session so DURATION (hours 3-4.5) is the single new variable. WHAT CHANGED vs rev 1.11: D3 continuous descent 3.0 mi / 900 ft -> 1.5 mi / 484 ft (shortfall vs the 4.5 mi course D3 to be logged in the Findings Register; RS finish prediction will carry a D3-extrapolation caveat). Lever C arms now matched on the identical segment (1.5 mi at 6.1%) instead of 5.3% vs 5.1% on two roads. Mid-session 2.7 mi flat added at the bottom of lap 3 with an entry-gate rehearsal on its last 0.3 mi (RS D2). Recovery capture >= 6 min after the run-arm crest (RS 2a). Thirds read-out (RS 2b-2f). Duration-governs rule with the mi-14.7 time check. Warm-up jog at the top before the lap-1 descent (RS s3, TP call). Cross-site mixing (Perkins + Boat Basin in one day) REJECTED by RS on principle: a drive resets the fatigue state that makes a late D3 meaningful. LOAD DELTA vs rev 1.11: 0 mi, -50 ft (6 x 484 ft = 2,904, written as 2,900), 0 min; week 7 derived targets regenerated from sums. ROUTE CONSTRAINT (unchanged): all descent runnable, technical-descent ban stands - satisfied by a paved road with max 9.8%. Post-session: FIT file to Race Strategy with the 8/30 FIT and vt50k_band_model_20260906_output.txt. || PRIOR (rev 1.11) NOTES RETAINED FOR PROVENANCE: Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. REV 1.11 (2026-08-31) SPEC SOURCE: Course Demands Brief v1.1 s4a (D3) and RS->TP 9/13 Session Asks rev 1 (a-e). GATE CONDITION SATISFIED: Gate 2 (8/27) passed and the 8/30 calibration read clean, both accepted by Race Strategy; the 2,600 ft revert clause is retired. WHAT REPLACED WHAT: S1 (>=1,200 ft in the final 8 mi) is RETIRED - the corrected course profile makes the last 8 race miles descent-heavy (-1,060 ft scaled over 4.5 mi into a +480 ft climb), not climb-dense; peak hill density now lives at mi 3-9 and 9-12. S2/S3 (marquee climb after 1.5-2.5 mi descent) are replaced by the D3 block: 3.0 mi continuous descent turning directly into a 1.4 mi runnable climb, no recovery segment. S6 (6-min hiking block) becomes the Lever C paired gait test: hike arm 1.37 mi at 5.3% vs run arm 1.4 mi at 5.1%, matched length and grade, both in the final hour. S4 day total ~2,950 ft (~140 ft/mi) and S5 caffeine timing carry. MECHANISM ON RECORD (RS memo s2): the 8/30 late +5..10% run-share collapse was HR-governed under drift, not leg failure; run-vs-hike on late moderate climbs is an open ceiling question this session tests, not a capacity gap. STEEP DESCENT SAMPLING (RS ask d, >=3 min at <=-10%) DECLINED by athlete 8/31: it would breach the <10% route constraint; the route holds nothing near -10%. LOAD DELTA vs rev 1.10: +0.7 mi, -50 ft, +30 min; week 7 derived targets regenerated from sums. ROUTE CONSTRAINT (unchanged): all descent runnable, technical-descent ban stands - satisfied by a paved road. || PRIOR (rev 1.5-1.10) TEXT RETAINED FOR PROVENANCE: Intensity: Long Z2 / dress rehearsal. Rehearses the whole race day: rehearsed breakfast, race vest, race shoes, race fueling cadence, run-everything execution. SPEC SOURCE: Race_Strategy_Response_v1 Answer B1 — the spec is a DISTRIBUTION, not an average; 130 ft/mi was never the problem and 172 was never the answer. ROUTE CONSTRAINT (non-negotiable): all added or steepened descent must be runnable (<10%); the technical-descent ban stands. Added climbing on a loop means added descending — route selection must absorb it at runnable grades. GATE CONDITION: this spec is conditional on Gate 2 (8/27) passing unflagged AND the 8/30 calibration reading clean. If either flags, this session REVERTS to 20 mi / 2,600 ft / 130 ft/mi and the spec is dropped without discussion — a gentler rehearsal is a smaller loss than a re-injury six days before taper. The revert is also guard-safe: 3,700 ft for the week is a decrease from W6. HIKING BLOCK RATIONALE (rev 1.5): the only sustained pole-free hiking data on this athlete comes from WR50K at 5,600-5,900 ft in a detrained state, race hours 4.9-6.9. Both bias that arm SLOW, i.e. conservatively toward running. This block measures it in current trained state at Vermont-like altitude and late-race fatigue, inside a session already on the calendar. The standalone W5 calibration was DECLINED (Dispositions s6) — the 8/25 slip window stays available as the 8/18 heat fallback and its hill-interval session is UNCHANGED. RUN/HIKE DECISION RULE (rev 1.6, Rulings 20260810 s4) — REHEARSE THIS, it is the rule for race day. 1. HR CAP GOVERNS. ALWAYS. [constraint] 2. Running pace at or under ~18:00/mi -> KEEP RUNNING. [PACE] 3. Running pace at or over ~18:00/mi -> HIKE. [PACE] 4. LATE IN THE RACE, SWITCH EARLIER THAN RULE 3 SAYS. [DAMAGE] RULE 4 OVERRIDES RULE 3 — it does not extend it. Stated plainly because the two rest on DIFFERENT AXES AND POINT IN OPPOSITE DIRECTIONS at exactly the point the decision matters most, the mi 29.4 climb. On PACE alone the threshold LOOSENS late: hiking slows by roughly 1:46/mi within a long effort, so running keeps winning longer, and rule 3 by itself would say run MORE late in the race. Rule 4 resolves toward TISSUE COST, not pace, because the documented failure mode is structural — WR descent HR 136-141 in deep Z1 with pace 2-3 min/mi off plan. The pace argument is worth about a minute on one late climb; the damage argument governs every descending mile after it. NOTE: the ~18:00 threshold is grade-dependent in reality (pole-free sustained hiking is 16:55/mi at +3.5% and 18:08/mi at +6.5%), so at gentle grades the flat threshold switches slightly late. Immaterial while rule 1 binds."
+          }
+        ]
+      },
+      "strength": {
+        "phase": "Taper_1",
+        "weekly_targets": {
+          "strength_sessions": 2,
+          "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
+        },
+        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
+        "day_notes": "Long run day (peak long run moved here from 9/13, run_plan rev 1.14) - no strength. Routines only.",
+        "sessions": []
+      },
+      "nutrition": {
+        "day_type_id": "long_run",
+        "day_type_label": "Long run day (Sunday)",
+        "phase_adjustment_applied": {
+          "phase": "Taper_1",
+          "adjustment": "12-mi race-rhythm run: totals down, during-run cadence stays at race protocol.",
+          "modified_targets": {
+            "calories_total": 2900,
+            "carbs_g": 390,
+            "protein_g": 145,
+            "fat_g": 78
+          }
+        },
+        "daily_targets": {
+          "calories_total": 2900,
+          "carbs_g": 390,
+          "protein_g": 145,
+          "fat_g": 78,
+          "fluid_ml_total": 3500,
+          "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal, every week, same meal. During-run fueling at race cadence. Post-run recovery is the priority meal of the week.",
+          "notes": "The rehearsed breakfast (oatmeal + banana + honey + berries, coffee) is race-proven — it fed an 8-hour ultra. Keep it identical."
+        },
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "long",
+              "position": "pre"
+            },
+            "timing": "90 min before run",
+            "calories": 500,
+            "carbs_g": 80,
+            "protein_g": 15,
+            "fat_g": 10,
+            "foods": [
+              "oatmeal with banana, honey, and berries",
+              "coffee with splash of milk"
+            ],
+            "notes": "THE REHEARSED MEAL — unchanged from the White River build; it is now race-proven."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "long",
+              "position": "during"
+            },
+            "timing": "First gel at 30 min, every 30 min after; SaltStick at 45-min marks",
+            "calories": 210,
+            "sodium_mg": 425,
+            "fluid_ml": 550,
+            "fueling_schedule": [
+              {
+                "interval_min": 30,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 45,
+                "item": "SaltStick capsule",
+                "cal": 0,
+                "sodium_mg": 225
+              }
+            ],
+            "notes": "PROVEN BASELINE (race-validated): ~210-230 cal/hr at 30-min gel cadence, 1 SaltStick/45 min, ~500-600 ml/hr in cool conditions. This is the floor, not the ceiling — the dress-rehearsal overrides push toward 240-260/hr at 25-30 min cadence for race day. Scale fluid to 600-800 ml/hr if warm."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "long",
+              "position": "post"
+            },
+            "timing": "Within 30 min",
+            "calories": 450,
+            "carbs_g": 55,
+            "protein_g": 35,
+            "foods": [
+              "whey shake with banana and oats",
+              "whole-food meal within 2 h: chicken/salmon, rice, vegetables"
+            ],
+            "notes": "Priority recovery meal of the week. Rehydrate ~150% of losses; include sodium."
+          }
+        ],
+        "notes": ""
+      }
+    },
+    "2026-09-15": {
+      "date": "2026-09-15",
+      "day_of_week": "Tuesday",
+      "week_number": 8,
+      "flex": false,
       "rest_day": true,
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 2500,
-          "long_run_mi": 12,
+          "mileage_mi": 42.2,
+          "vertical_ft": 5150,
+          "long_run_mi": 20.7,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): Week 8 now carries the postponed peak long run on Monday 9/14 (20.7 mi / 2900 ft), the hill intervals move Tue->Wed, Tuesday is full rest, and the Wednesday easy Z2 (4.0 mi / 250 ft) is dropped. Targets REGENERATED FROM SUMS (25.5 mi / 2500 ft -> 42.2 mi / 5150 ft). This is calendar accounting, not a load increase: 9/15-9/20 sums to 21.5 mi / 2250 ft against the prior 25.5 / 2500, i.e. the taper is slightly LIGHTER than written. SUNDAY VERTICAL CHECK 9/20: compare actual GPS vertical 9/14-9/20 against 5150 ft; the +100 ft rule stands. || PRIOR: Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
-        "day_notes": "",
+        "week_notes": "REV 1.14: Monday is the postponed peak long run; Tuesday rest; Wednesday hill intervals + Lower B; Wednesday easy dropped. Long-run-to-long-run spacing is 6 days (9/14 -> 9/20), which is sufficient at Z2. || PRIOR: Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
+        "day_notes": "REST (rev 1.14): 48-h spacer after the Monday peak long run. Hill intervals moved to Wednesday 9/16. Morning: watchlist-site report to the coach.",
         "sessions": []
       },
       "strength": {
@@ -7493,7 +7601,7 @@
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
         "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
-        "day_notes": "",
+        "day_notes": "Routines only (rev 1.3): Lower B moved to Wednesday 9/16 with the hill intervals. Full rest from running and lifting - the day after the peak long run.",
         "sessions": []
       },
       "nutrition": {
@@ -7513,25 +7621,25 @@
         "notes": ""
       }
     },
-    "2026-09-15": {
-      "date": "2026-09-15",
-      "day_of_week": "Tuesday",
+    "2026-09-16": {
+      "date": "2026-09-16",
+      "day_of_week": "Wednesday",
       "week_number": 8,
       "flex": false,
       "rest_day": false,
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 2500,
-          "long_run_mi": 12,
+          "mileage_mi": 42.2,
+          "vertical_ft": 5150,
+          "long_run_mi": 20.7,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): Week 8 now carries the postponed peak long run on Monday 9/14 (20.7 mi / 2900 ft), the hill intervals move Tue->Wed, Tuesday is full rest, and the Wednesday easy Z2 (4.0 mi / 250 ft) is dropped. Targets REGENERATED FROM SUMS (25.5 mi / 2500 ft -> 42.2 mi / 5150 ft). This is calendar accounting, not a load increase: 9/15-9/20 sums to 21.5 mi / 2250 ft against the prior 25.5 / 2500, i.e. the taper is slightly LIGHTER than written. SUNDAY VERTICAL CHECK 9/20: compare actual GPS vertical 9/14-9/20 against 5150 ft; the +100 ft rule stands. || PRIOR: Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
-        "day_notes": "DOUBLE DAY — AM hills + PM lower (iso-dominant).",
+        "week_notes": "REV 1.14: Monday is the postponed peak long run; Tuesday rest; Wednesday hill intervals + Lower B; Wednesday easy dropped. Long-run-to-long-run spacing is 6 days (9/14 -> 9/20), which is sufficient at Z2. || PRIOR: Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
+        "day_notes": "MOVED (rev 1.14): hill intervals from Tuesday; Lower B this evening. The original Wednesday easy Z2 is dropped.",
         "sessions": [
           {
             "type": "run",
@@ -7547,7 +7655,7 @@
             "poles": false,
             "key_cue": "4 x 3 min at +5..8% Z3, 4 x 20 s strides. Crisp, not deep. PASS CRITERION: run_pct >= 80%.",
             "fueling_required": false,
-            "notes": "Intensity: Quality (reduced). Lower session this evening — isometric-dominant, moderate. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
+            "notes": "MOVED (rev 1.14) from Tuesday 9/15 to Wednesday 9/16 so the 48-h spacer after the Monday peak long run is preserved. Content, load and pass criterion UNCHANGED. Lower B tendon isometrics this evening (strength_plan rev 1.3, moved with the run; run first, 4+ h gap). The Wednesday 40-min easy Z2 (4.0 mi / 250 ft) is DROPPED, not relocated - athlete ruling 9/14 (Tuesday is full rest). || Intensity: Quality (reduced). Lower session this evening — isometric-dominant, moderate. CADENCE CRITERION rev 1.4: pass on run_pct >= 80%, not on a cadence number; report cadence_moving_spm (expect 166-176 when genuinely run)."
           }
         ]
       },
@@ -7558,7 +7666,7 @@
           "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
         },
         "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
-        "day_notes": "Single lower session of the week, after the AM taper hill session. True isometrics throughout.",
+        "day_notes": "MOVED (rev 1.3): Lower B tendon isometrics, PM after the hill intervals (run_plan rev 1.14). Upper A remains Thursday - upper the day after lower is fine.",
         "sessions": [
           {
             "type": "strength",
@@ -7638,7 +7746,7 @@
                 "cue": "Maintain the proprioception work; zero recovery cost."
               }
             ],
-            "notes": "P1 flagship session, TAPER MODE (per Training_Plan_Review_Notes_v1 Note 1, option a): every dynamic/HSR item is converted to a loaded isometric from 9/10 onward — the bridge's own logic is that isometrics hold tendon stiffness without the eccentric recovery cost, so from here to race day the tendon work is genuinely isometric, not retitled HSR. Last true HSR exposure was W6. Collagen + vitamin C 30-60 min before, as always.",
+            "notes": "MOVED (rev 1.3, 2026-09-14) from Tuesday 9/15 to Wednesday 9/16, companion to run_plan rev 1.14: the peak long run was postponed to Monday 9/14 for weather and the hill intervals moved to Wednesday; Lower B stays paired with the hill session as the PM double (run first, 4+ h gap). Content and load UNCHANGED. || P1 flagship session, TAPER MODE (per Training_Plan_Review_Notes_v1 Note 1, option a): every dynamic/HSR item is converted to a loaded isometric from 9/10 onward — the bridge's own logic is that isometrics hold tendon stiffness without the eccentric recovery cost, so from here to race day the tendon work is genuinely isometric, not retitled HSR. Last true HSR exposure was W6. Collagen + vitamin C 30-60 min before, as always.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -7744,104 +7852,6 @@
         "notes": ""
       }
     },
-    "2026-09-16": {
-      "date": "2026-09-16",
-      "day_of_week": "Wednesday",
-      "week_number": 8,
-      "flex": false,
-      "rest_day": false,
-      "run": {
-        "phase": "Taper_1",
-        "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 2500,
-          "long_run_mi": 12,
-          "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
-          "derived_from": "session_sums",
-          "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
-        },
-        "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
-        "day_notes": "",
-        "sessions": [
-          {
-            "type": "run",
-            "subtype": "easy",
-            "title": "Easy Z2",
-            "duration_min": 40,
-            "distance_mi": 4.0,
-            "elevation_gain_ft": 250,
-            "terrain": "trail",
-            "terrain_intent": "free",
-            "hr_cap_bpm": 149,
-            "hr_zone": "Z2",
-            "poles": false,
-            "fueling_required": false,
-            "notes": "Intensity: Easy."
-          }
-        ]
-      },
-      "strength": {
-        "phase": "Taper_1",
-        "weekly_targets": {
-          "strength_sessions": 2,
-          "notes": "Taper: 1 lower (isometric-dominant, moderate) + 1 upper. COMPLIANCE CHECK (Sunday evening): mark every named strength session and every daily-routine day done/missed for the week. Two misses of P1 work in a week = message the coach. This is the highest-leverage behavioral fix from the debrief — the work only protects you if it happens."
-        },
-        "week_notes": "Taper weeks use TRUE isometrics to hold tendon stiffness with zero eccentric recovery cost — the whole point of the bridge's weeks 8-9 design. All tendon work is loaded holds from 9/10 onward; last HSR exposure was Week 6. Nothing heavy, nothing new.",
-        "day_notes": "Routines only.",
-        "sessions": []
-      },
-      "nutrition": {
-        "day_type_id": "easy_run_only",
-        "day_type_label": "Easy run / recovery walk (no strength)",
-        "phase_adjustment_applied": null,
-        "daily_targets": {
-          "calories_total": 2550,
-          "carbs_g": 300,
-          "protein_g": 140,
-          "fat_g": 80,
-          "fluid_ml_total": 2800,
-          "general_guidance": "Moderate day. Carbs at breakfast and the post-run meal.",
-          "notes": "Runs under 60 min need no during-fuel; water only."
-        },
-        "session_fueling": [
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "pre"
-            },
-            "timing": "60-90 min before (or run fasted-light if under 45 min easy)",
-            "calories": 250,
-            "carbs_g": 45,
-            "protein_g": 8,
-            "fat_g": 5,
-            "foods": [
-              "toast with honey and banana",
-              "coffee"
-            ],
-            "notes": "Short easy runs are flexible — don't force a pre-meal for a 35-min jog."
-          },
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "post"
-            },
-            "timing": "Within 45 min",
-            "calories": 300,
-            "carbs_g": 45,
-            "protein_g": 25,
-            "foods": [
-              "whey shake + fruit",
-              "or normal meal if mealtime"
-            ],
-            "notes": "Creatine 5 g post-run."
-          }
-        ],
-        "notes": ""
-      }
-    },
     "2026-09-17": {
       "date": "2026-09-17",
       "day_of_week": "Thursday",
@@ -7851,15 +7861,15 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 2500,
-          "long_run_mi": 12,
+          "mileage_mi": 42.2,
+          "vertical_ft": 5150,
+          "long_run_mi": 20.7,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): Week 8 now carries the postponed peak long run on Monday 9/14 (20.7 mi / 2900 ft), the hill intervals move Tue->Wed, Tuesday is full rest, and the Wednesday easy Z2 (4.0 mi / 250 ft) is dropped. Targets REGENERATED FROM SUMS (25.5 mi / 2500 ft -> 42.2 mi / 5150 ft). This is calendar accounting, not a load increase: 9/15-9/20 sums to 21.5 mi / 2250 ft against the prior 25.5 / 2500, i.e. the taper is slightly LIGHTER than written. SUNDAY VERTICAL CHECK 9/20: compare actual GPS vertical 9/14-9/20 against 5150 ft; the +100 ft rule stands. || PRIOR: Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
+        "week_notes": "REV 1.14: Monday is the postponed peak long run; Tuesday rest; Wednesday hill intervals + Lower B; Wednesday easy dropped. Long-run-to-long-run spacing is 6 days (9/14 -> 9/20), which is sufficient at Z2. || PRIOR: Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
         "sessions": [
           {
@@ -8026,15 +8036,15 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 2500,
-          "long_run_mi": 12,
+          "mileage_mi": 42.2,
+          "vertical_ft": 5150,
+          "long_run_mi": 20.7,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): Week 8 now carries the postponed peak long run on Monday 9/14 (20.7 mi / 2900 ft), the hill intervals move Tue->Wed, Tuesday is full rest, and the Wednesday easy Z2 (4.0 mi / 250 ft) is dropped. Targets REGENERATED FROM SUMS (25.5 mi / 2500 ft -> 42.2 mi / 5150 ft). This is calendar accounting, not a load increase: 9/15-9/20 sums to 21.5 mi / 2250 ft against the prior 25.5 / 2500, i.e. the taper is slightly LIGHTER than written. SUNDAY VERTICAL CHECK 9/20: compare actual GPS vertical 9/14-9/20 against 5150 ft; the +100 ft rule stands. || PRIOR: Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
+        "week_notes": "REV 1.14: Monday is the postponed peak long run; Tuesday rest; Wednesday hill intervals + Lower B; Wednesday easy dropped. Long-run-to-long-run spacing is 6 days (9/14 -> 9/20), which is sufficient at Z2. || PRIOR: Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
         "sessions": [
           {
@@ -8124,15 +8134,15 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 2500,
-          "long_run_mi": 12,
+          "mileage_mi": 42.2,
+          "vertical_ft": 5150,
+          "long_run_mi": 20.7,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): Week 8 now carries the postponed peak long run on Monday 9/14 (20.7 mi / 2900 ft), the hill intervals move Tue->Wed, Tuesday is full rest, and the Wednesday easy Z2 (4.0 mi / 250 ft) is dropped. Targets REGENERATED FROM SUMS (25.5 mi / 2500 ft -> 42.2 mi / 5150 ft). This is calendar accounting, not a load increase: 9/15-9/20 sums to 21.5 mi / 2250 ft against the prior 25.5 / 2500, i.e. the taper is slightly LIGHTER than written. SUNDAY VERTICAL CHECK 9/20: compare actual GPS vertical 9/14-9/20 against 5150 ft; the +100 ft rule stands. || PRIOR: Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
+        "week_notes": "REV 1.14: Monday is the postponed peak long run; Tuesday rest; Wednesday hill intervals + Lower B; Wednesday easy dropped. Long-run-to-long-run spacing is 6 days (9/14 -> 9/20), which is sufficient at Z2. || PRIOR: Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "REST (rev 1.12; shakeout moved to Friday).",
         "sessions": []
       },
@@ -8172,15 +8182,15 @@
       "run": {
         "phase": "Taper_1",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 2500,
-          "long_run_mi": 12,
+          "mileage_mi": 42.2,
+          "vertical_ft": 5150,
+          "long_run_mi": 20.7,
           "strength_sessions": 2,
-          "notes": "Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
+          "notes": "REV 1.14 (2026-09-14): Week 8 now carries the postponed peak long run on Monday 9/14 (20.7 mi / 2900 ft), the hill intervals move Tue->Wed, Tuesday is full rest, and the Wednesday easy Z2 (4.0 mi / 250 ft) is dropped. Targets REGENERATED FROM SUMS (25.5 mi / 2500 ft -> 42.2 mi / 5150 ft). This is calendar accounting, not a load increase: 9/15-9/20 sums to 21.5 mi / 2250 ft against the prior 25.5 / 2500, i.e. the taper is slightly LIGHTER than written. SUNDAY VERTICAL CHECK 9/20: compare actual GPS vertical 9/14-9/20 against 5150 ft; the +100 ft rule stands. || PRIOR: Taper week 1: volume down ~35%, intensity touches retained (short hill reps + strides). Strength drops to 2 sessions; tendon work goes isometric. SUNDAY VERTICAL CHECK (rev 1.3): compare actual GPS weekly vertical against this week's derived vertical_ft. Over by more than ~100 ft, next week's ceiling recomputes off the actual sum and the coach is messaged. There is no spare vertical in the ladder.",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD — regenerated from this week's session sums (race excluded). Never hand-author. Loaders should assert mileage_mi and vertical_ft equal the session sums within +/-0.5 mi / +/-50 ft and flag on failure. LOADER CONVENTION: a session omitting elevation_gain_ft or distance_mi is treated as 0; as of rev 1.3 all such fields are written explicitly, so an absent field now indicates a malformed record rather than a zero."
         },
-        "week_notes": "Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
+        "week_notes": "REV 1.14: Monday is the postponed peak long run; Tuesday rest; Wednesday hill intervals + Lower B; Wednesday easy dropped. Long-run-to-long-run spacing is 6 days (9/14 -> 9/20), which is sufficient at Z2. || PRIOR: Taper begins. The engine is built; the job now is arriving fresh with tendon stiffness maintained. Isometrics carry the tendon stimulus without eccentric recovery cost — that is the whole taper logic from the connective-tissue block.",
         "day_notes": "",
         "sessions": [
           {
