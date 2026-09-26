@@ -1187,7 +1187,6 @@ const AID_ACTION = {
 };
 const aidAction = (act) => AID_ACTION[(act||'').toLowerCase().replace('*','')] || null;
 const gradeHue = (g) => g >= 3 ? '#ff5a3c' : g <= -3 ? '#60a5fa' : A.textDim;
-const signed = (g) => (g > 0 ? '+' : '') + g.toFixed(1) + '%';
 const hms = (s) => (s||'').replace(/^(\d+:\d\d):\d\d$/, '$1');  // 1:21:44 → 1:21
 
 // Stations (start, aid stations, finish), each with the stages up to the next one.
@@ -1200,31 +1199,30 @@ const RACE_LEGS = (() => {
   return legs;
 })();
 
+// Fixed columns so values line up across rows: dist · gait · grade avg/max · pace.
+const STAGE_COLS = '56px 56px 1fr 62px';
+
 function StageRow({s, i}) {
-  const [gait, gaitNote] = s.gait.startsWith('RUN ') ? ['RUN', s.gait.slice(4).replace('>=','≥')] : [s.gait, null];
+  const gait = /mix/i.test(s.gait) ? 'MIX' : s.gait.split(' ')[0];  // 'RUN/mix', 'MIXED' → 'MIX'; 'RUN cad>=175' → 'RUN'
   const hike = /HIKE/.test(gait);
-  const cell = (label, value, color=A.text, sub=null) => (
-    <div style={{minWidth:0}}>
-      <div style={{fontSize:8.5,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>{label}</div>
-      <div style={{fontSize:14,color,fontFamily:MONO,fontWeight:700,marginTop:2,whiteSpace:'nowrap'}}>{value}</div>
-      {sub && <div style={{fontSize:9.5,color:A.textDim,fontFamily:MONO,marginTop:1,whiteSpace:'nowrap'}}>{sub}</div>}
-    </div>
-  );
+  const num = (g) => (g > 0 ? '+' : '') + g.toFixed(1);
+  const val = {fontSize:13,fontFamily:MONO,fontWeight:700,whiteSpace:'nowrap'};
   return (
     <div style={{padding:'12px 14px',borderTop:`1px solid ${A.border}`}}>
-      <div style={{display:'flex',alignItems:'baseline',gap:8,marginBottom:10}}>
+      <div style={{display:'flex',alignItems:'baseline',gap:8,marginBottom:8}}>
         <span style={{fontSize:10,color:A.textFaint,fontFamily:MONO,fontWeight:700}}>{i+1}</span>
         <span style={{flex:1,fontSize:13,color:A.text,fontWeight:600,lineHeight:1.3}}>{s.name}</span>
         <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,whiteSpace:'nowrap'}}>mi {s.m0.toFixed(2)}–{s.m1.toFixed(2)}</span>
       </div>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(4, 1fr)',rowGap:10,columnGap:8}}>
-        {cell('DIST', s.d.toFixed(2), A.text, `mi`)}
-        {cell('AVG', signed(s.avg), gradeHue(s.avg), `+${s.up} / −${s.dn} ft`)}
-        {cell('MAX', signed(s.max), gradeHue(s.max))}
-        {cell('PACE', s.pace, A.text, '/mi')}
-        {cell('GAIT', gait, hike ? '#ffb020' : '#4ade80', gaitNote)}
-        {cell('HR', s.hr, '#ff5a3c', s.zone)}
-        {cell('ETA OUT', hms(s.eta), A.textDim)}
+      <div style={{display:'grid',gridTemplateColumns:STAGE_COLS,columnGap:8,alignItems:'baseline'}}>
+        <span style={{...val,color:A.text}}>{s.d.toFixed(2)}<span style={{fontSize:10,color:A.textDim,fontWeight:500}}> mi</span></span>
+        <span style={{...val,color:hike ? '#ffb020' : '#4ade80'}}>{gait}</span>
+        <span style={val}>
+          <span style={{color:gradeHue(s.avg)}}>{num(s.avg)}</span>
+          <span style={{color:A.textFaint}}> / </span>
+          <span style={{color:gradeHue(s.max)}}>{num(s.max)}%</span>
+        </span>
+        <span style={{...val,color:A.text,textAlign:'right'}}>{s.pace}<span style={{fontSize:10,color:A.textDim,fontWeight:500}}>/mi</span></span>
       </div>
     </div>
   );
@@ -1275,6 +1273,9 @@ function RaceStagesView() {
               <div style={{background:A.surface2}}>
                 <div style={{padding:'10px 14px',fontSize:11,color:A.textDim,fontFamily:MONO,borderTop:`1px solid ${A.border}`}}>
                   → <span style={{color:A.text,fontWeight:700}}>{next.name}</span> · {(next.m-leg.m).toFixed(1)} mi · +{up} / −{dn} ft · ETA {hms(next.eta)}
+                </div>
+                <div style={{display:'grid',gridTemplateColumns:STAGE_COLS,columnGap:8,padding:'8px 14px',borderTop:`1px solid ${A.border}`,fontSize:8.5,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>
+                  <span>DIST</span><span>GAIT</span><span>GRADE AVG / MAX</span><span style={{textAlign:'right'}}>PACE</span>
                 </div>
                 {leg.stages.map((s, j) => <StageRow key={j} s={s} i={j}/>)}
               </div>
