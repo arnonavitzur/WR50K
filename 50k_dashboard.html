@@ -1132,6 +1132,160 @@ function PlanView({plan, currentDate, onJumpToDay, update}) {
   );
 }
 
+// ── Race stages (aid-station legs) ────────────────────────────
+// Source: VT50K_stage_table_v2.csv (B-pace plan). Inlined rather than fetched
+// so it is available offline on the course. k: 's' stage, 'a' aid, 'f' finish.
+const RACE_STAGES = [
+  {"k": "s", "name": "Opening descent (free)", "m0": 0.0, "m1": 0.62, "d": 0.62, "up": 0, "dn": 175, "avg": -5.3, "max": -10.9, "pace": "9:53", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:06:08"},
+  {"k": "s", "name": "Rollers to the low point", "m0": 0.62, "m1": 1.09, "d": 0.47, "up": 46, "dn": 49, "avg": -0.1, "max": -6.1, "pace": "11:11", "gait": "RUN", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:11:23"},
+  {"k": "s", "name": "Climb 1 — from the gun", "m0": 1.09, "m1": 1.76, "d": 0.67, "up": 463, "dn": 0, "avg": 13.1, "max": 24.7, "pace": "16:02", "gait": "HIKE", "zone": "Z2", "hr": "140-149", "eta": "0:22:08"},
+  {"k": "s", "name": "Drop", "m0": 1.76, "m1": 2.13, "d": 0.37, "up": 0, "dn": 111, "avg": -5.7, "max": -6.8, "pace": "9:21", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:25:36"},
+  {"k": "s", "name": "Climb 2", "m0": 2.13, "m1": 2.52, "d": 0.39, "up": 250, "dn": 0, "avg": 12.1, "max": 18.3, "pace": "15:37", "gait": "HIKE", "zone": "Z2", "hr": "140-149", "eta": "0:31:41"},
+  {"k": "s", "name": "Steepest descent of the day *", "m0": 2.52, "m1": 2.85, "d": 0.33, "up": 0, "dn": 251, "avg": -14.4, "max": -20.8, "pace": "9:31", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:34:50"},
+  {"k": "s", "name": "Climb 3", "m0": 2.85, "m1": 3.29, "d": 0.44, "up": 251, "dn": 0, "avg": 10.8, "max": 17.3, "pace": "15:22", "gait": "HIKE", "zone": "Z2", "hr": "140-149", "eta": "0:41:36"},
+  {"k": "s", "name": "Descent to Coon Club", "m0": 3.29, "m1": 3.7, "d": 0.41, "up": 12, "dn": 230, "avg": -10.1, "max": -22.7, "pace": "10:00", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:45:42"},
+  {"k": "a", "name": "Coon Club", "m": 3.7, "act": "pass", "dwell": "0:15", "closes": "9:15 AM", "eta": "0:45:57"},
+  {"k": "s", "name": "Descent (cont.)", "m0": 3.7, "m1": 3.86, "d": 0.16, "up": 0, "dn": 42, "avg": -4.9, "max": -7.9, "pace": "9:44", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:47:31"},
+  {"k": "s", "name": "Climb 4 — steepest of the day *", "m0": 3.86, "m1": 4.37, "d": 0.51, "up": 465, "dn": 1, "avg": 17.2, "max": 33.5, "pace": "17:40", "gait": "HIKE", "zone": "Z2", "hr": "140-149", "eta": "0:56:32"},
+  {"k": "s", "name": "Roll and descent", "m0": 4.37, "m1": 5.34, "d": 0.97, "up": 88, "dn": 366, "avg": -5.4, "max": -18.7, "pace": "10:33", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "1:06:46"},
+  {"k": "s", "name": "Climb 5", "m0": 5.34, "m1": 5.87, "d": 0.53, "up": 303, "dn": 0, "avg": 10.8, "max": 23.5, "pace": "15:15", "gait": "HIKE", "zone": "Z2", "hr": "140-149", "eta": "1:14:51"},
+  {"k": "s", "name": "Descent and roll to Ralph's", "m0": 5.87, "m1": 6.4, "d": 0.53, "up": 10, "dn": 100, "avg": -3.2, "max": -8.0, "pace": "10:10", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "1:20:14"},
+  {"k": "a", "name": "Ralph's (drop bag)", "m": 6.4, "act": "REFILL", "dwell": "1:30", "closes": "10:10 AM", "eta": "1:21:44"},
+  {"k": "s", "name": "Rollers out of Ralph's", "m0": 6.4, "m1": 7.53, "d": 1.13, "up": 126, "dn": 93, "avg": 0.6, "max": 12.4, "pace": "11:32", "gait": "RUN", "zone": "Z1-Z2", "hr": "137-149", "eta": "1:34:47"},
+  {"k": "s", "name": "Long easy descent (easiest stretch)", "m0": 7.53, "m1": 9.72, "d": 2.19, "up": 74, "dn": 370, "avg": -2.6, "max": -11.1, "pace": "10:18", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "1:57:22"},
+  {"k": "s", "name": "Mid-race climb A + drop", "m0": 9.72, "m1": 10.75, "d": 1.03, "up": 369, "dn": 74, "avg": 5.4, "max": 27.8, "pace": "13:42", "gait": "RUN", "zone": "Z2", "hr": "140-149", "eta": "2:11:30"},
+  {"k": "s", "name": "Mid-race climb B to M-Ville", "m0": 10.75, "m1": 11.1, "d": 0.35, "up": 274, "dn": 0, "avg": 14.8, "max": 31.2, "pace": "17:26", "gait": "HIKE", "zone": "Z2-lowZ3", "hr": "142-152", "eta": "2:17:36"},
+  {"k": "a", "name": "M-Ville", "m": 11.1, "act": "pass", "dwell": "0:15", "closes": "1:10 PM", "eta": "2:17:51"},
+  {"k": "s", "name": "Climb B (cont.) + descent", "m0": 11.1, "m1": 11.91, "d": 0.81, "up": 36, "dn": 183, "avg": -3.4, "max": -12.1, "pace": "10:38", "gait": "RUN cad>=175", "zone": "Z2-lowZ3", "hr": "142-152", "eta": "2:26:28"},
+  {"k": "s", "name": "Climb and descent to Greenall's", "m0": 11.91, "m1": 13.7, "d": 1.79, "up": 472, "dn": 180, "avg": 3.1, "max": 13.1, "pace": "13:31", "gait": "RUN/mix", "zone": "Z2-lowZ3", "hr": "142-152", "eta": "2:50:41"},
+  {"k": "a", "name": "Greenall's (crew, drop bag)", "m": 13.7, "act": "REFILL", "dwell": "2:00", "closes": "2:15 PM", "eta": "2:52:41"},
+  {"k": "s", "name": "Climb to the high point", "m0": 13.7, "m1": 14.0, "d": 0.3, "up": 87, "dn": 0, "avg": 5.5, "max": 10.5, "pace": "14:05", "gait": "MIXED", "zone": "Z2-lowZ3", "hr": "142-152", "eta": "2:56:54"},
+  {"k": "s", "name": "Descent dose #2 (2.5 mi)", "m0": 14.0, "m1": 16.35, "d": 2.35, "up": 37, "dn": 667, "avg": -5.1, "max": -20.6, "pace": "10:15", "gait": "RUN cad>=175", "zone": "Z2-lowZ3", "hr": "142-152", "eta": "3:21:01"},
+  {"k": "s", "name": "Bump and steep drop *", "m0": 16.35, "m1": 16.87, "d": 0.52, "up": 121, "dn": 164, "avg": -1.6, "max": -25.1, "pace": "12:32", "gait": "RUN", "zone": "Z2-lowZ3", "hr": "142-152", "eta": "3:27:32"},
+  {"k": "s", "name": "Biggest single climb", "m0": 16.87, "m1": 17.7, "d": 0.83, "up": 494, "dn": 0, "avg": 11.2, "max": 23.2, "pace": "16:30", "gait": "HIKE", "zone": "Z2-lowZ3", "hr": "142-152", "eta": "3:41:14"},
+  {"k": "s", "name": "Drop, then long gentle climb", "m0": 17.7, "m1": 19.18, "d": 1.48, "up": 263, "dn": 120, "avg": 1.8, "max": 10.1, "pace": "13:00", "gait": "RUN", "zone": "Z2-Z3", "hr": "145-155", "eta": "4:00:29"},
+  {"k": "s", "name": "Descent and rise to Fallon's", "m0": 19.18, "m1": 19.7, "d": 0.52, "up": 0, "dn": 227, "avg": -8.3, "max": -20.1, "pace": "10:01", "gait": "RUN cad>=175", "zone": "Z2-Z3", "hr": "145-155", "eta": "4:05:41"},
+  {"k": "a", "name": "Fallon's", "m": 19.7, "act": "REFILL", "dwell": "2:30", "closes": "3:40 PM", "eta": "4:08:11"},
+  {"k": "s", "name": "Gentle climb (one steep pitch)", "m0": 19.7, "m1": 21.38, "d": 1.68, "up": 238, "dn": 163, "avg": 0.8, "max": 17.9, "pace": "12:25", "gait": "RUN", "zone": "Z2-Z3", "hr": "145-155", "eta": "4:29:04"},
+  {"k": "s", "name": "Descent", "m0": 21.38, "m1": 22.39, "d": 1.01, "up": 0, "dn": 416, "avg": -7.8, "max": -19.7, "pace": "10:01", "gait": "RUN cad>=175", "zone": "Z2-Z3", "hr": "145-155", "eta": "4:39:12"},
+  {"k": "s", "name": "The +5% climb — to Stone's", "m0": 22.39, "m1": 22.9, "d": 0.51, "up": 203, "dn": 0, "avg": 7.5, "max": 12.5, "pace": "16:07", "gait": "HIKE", "zone": "Z2-Z3", "hr": "145-155", "eta": "4:47:25"},
+  {"k": "a", "name": "Stone's", "m": 22.9, "act": "top-up*", "dwell": "0:15", "closes": "4:30 PM", "eta": "4:47:40"},
+  {"k": "s", "name": "The +5% climb — from Stone's", "m0": 22.9, "m1": 23.89, "d": 0.99, "up": 244, "dn": 0, "avg": 4.7, "max": 10.4, "pace": "14:31", "gait": "RUN <150", "zone": "Z2-Z3", "hr": "145-150", "eta": "5:02:03"},
+  {"k": "s", "name": "D3 — the long descent (4.5 mi)", "m0": 23.89, "m1": 28.21, "d": 4.32, "up": 0, "dn": 1064, "avg": -4.7, "max": -15.4, "pace": "10:47", "gait": "RUN cad>=175", "zone": "Z2-Z3", "hr": "145-155", "eta": "5:48:40"},
+  {"k": "s", "name": "THE STING — to Johnson's", "m0": 28.21, "m1": 28.6, "d": 0.39, "up": 124, "dn": 0, "avg": 6.1, "max": 14.4, "pace": "15:36", "gait": "HIKE", "zone": "Z2-Z3", "hr": "145-155", "eta": "5:54:45"},
+  {"k": "a", "name": "Johnson's (crew, drop bag)", "m": 28.6, "act": "REFILL", "dwell": "1:00", "closes": "5:50 PM", "eta": "5:55:45"},
+  {"k": "s", "name": "THE STING — from Johnson's", "m0": 28.6, "m1": 29.61, "d": 1.01, "up": 360, "dn": 0, "avg": 6.8, "max": 13.2, "pace": "16:54", "gait": "HIKE", "zone": "Z2-Z3", "hr": "145-155", "eta": "6:12:50"},
+  {"k": "s", "name": "Roll and last bump", "m0": 29.61, "m1": 30.54, "d": 0.93, "up": 110, "dn": 54, "avg": 1.1, "max": 14.6, "pace": "13:35", "gait": "RUN", "zone": "Z2-Z3", "hr": "145-155", "eta": "6:25:28"},
+  {"k": "s", "name": "Finish descent", "m0": 30.54, "m1": 31.6, "d": 1.06, "up": 0, "dn": 353, "avg": -6.3, "max": -15.3, "pace": "11:18", "gait": "RUN cad>=175", "zone": "Z2-Z3", "hr": "145-155", "eta": "6:37:27"},
+  {"k": "f", "name": "Finish", "m": 31.6, "eta": "6:37:27"},
+];
+
+const AID_ACTION = {
+  refill:   { label: 'FILL UP', hue: '#4ade80', bg: 'rgba(74,222,128,0.14)' },
+  'top-up': { label: 'TOP UP',  hue: '#ffb020', bg: 'rgba(255,176,32,0.14)' },
+  pass:     { label: 'SKIP',    hue: '#a3a3a3', bg: 'rgba(163,163,163,0.12)' },
+};
+const aidAction = (act) => AID_ACTION[(act||'').toLowerCase().replace('*','')] || null;
+const gradeHue = (g) => g >= 3 ? '#ff5a3c' : g <= -3 ? '#60a5fa' : A.textDim;
+const signed = (g) => (g > 0 ? '+' : '') + g.toFixed(1) + '%';
+const hms = (s) => (s||'').replace(/^(\d+:\d\d):\d\d$/, '$1');  // 1:21:44 → 1:21
+
+// Stations (start, aid stations, finish), each with the stages up to the next one.
+const RACE_LEGS = (() => {
+  const legs = [{ name: 'Start', m: 0, eta: '0:00:00', stages: [] }];
+  for (const r of RACE_STAGES) {
+    if (r.k === 's') legs[legs.length-1].stages.push(r);
+    else legs.push({ ...r, stages: [] });
+  }
+  return legs;
+})();
+
+function StageRow({s, i}) {
+  const [gait, gaitNote] = s.gait.startsWith('RUN ') ? ['RUN', s.gait.slice(4).replace('>=','≥')] : [s.gait, null];
+  const hike = /HIKE/.test(gait);
+  const cell = (label, value, color=A.text, sub=null) => (
+    <div style={{minWidth:0}}>
+      <div style={{fontSize:8.5,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>{label}</div>
+      <div style={{fontSize:14,color,fontFamily:MONO,fontWeight:700,marginTop:2,whiteSpace:'nowrap'}}>{value}</div>
+      {sub && <div style={{fontSize:9.5,color:A.textDim,fontFamily:MONO,marginTop:1,whiteSpace:'nowrap'}}>{sub}</div>}
+    </div>
+  );
+  return (
+    <div style={{padding:'12px 14px',borderTop:`1px solid ${A.border}`}}>
+      <div style={{display:'flex',alignItems:'baseline',gap:8,marginBottom:10}}>
+        <span style={{fontSize:10,color:A.textFaint,fontFamily:MONO,fontWeight:700}}>{i+1}</span>
+        <span style={{flex:1,fontSize:13,color:A.text,fontWeight:600,lineHeight:1.3}}>{s.name}</span>
+        <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,whiteSpace:'nowrap'}}>mi {s.m0.toFixed(2)}–{s.m1.toFixed(2)}</span>
+      </div>
+      <div style={{display:'grid',gridTemplateColumns:'repeat(4, 1fr)',rowGap:10,columnGap:8}}>
+        {cell('DIST', s.d.toFixed(2), A.text, `mi`)}
+        {cell('AVG', signed(s.avg), gradeHue(s.avg), `+${s.up} / −${s.dn} ft`)}
+        {cell('MAX', signed(s.max), gradeHue(s.max))}
+        {cell('PACE', s.pace, A.text, '/mi')}
+        {cell('GAIT', gait, hike ? '#ffb020' : '#4ade80', gaitNote)}
+        {cell('HR', s.hr, '#ff5a3c', s.zone)}
+        {cell('ETA OUT', hms(s.eta), A.textDim)}
+      </div>
+    </div>
+  );
+}
+
+function RaceStagesView() {
+  const [open, setOpen] = useState(null);
+  const toggle = (i) => {
+    setOpen(o => o === i ? null : i);
+    setTimeout(() => scrollUnderHeader(document.getElementById(`leg-${i}`), 8), 0);
+  };
+  return (
+    <div style={{padding:'12px 16px 40px',color:A.text,fontFamily:SANS,display:'flex',flexDirection:'column',gap:8}}>
+      {RACE_LEGS.map((leg, i) => {
+        const next = RACE_LEGS[i+1];
+        const act = aidAction(leg.act);
+        const isOpen = open === i;
+        const up = leg.stages.reduce((t,s)=>t+s.up,0), dn = leg.stages.reduce((t,s)=>t+s.dn,0);
+        return (
+          <div key={i} id={`leg-${i}`} style={{background:A.surface,border:`1px solid ${isOpen?A.borderStrong:A.border}`,borderRadius:14,overflow:'hidden'}}>
+            <button onClick={() => next && toggle(i)} style={{
+              width:'100%',display:'flex',alignItems:'center',gap:12,padding:'12px 14px',
+              background:'transparent',border:'none',color:A.text,textAlign:'left',
+              cursor:next?'pointer':'default',WebkitTapHighlightColor:'transparent',fontFamily:SANS,
+            }}>
+              <div style={{width:48,flexShrink:0}}>
+                <div style={{fontSize:8.5,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>MILE</div>
+                <div style={{fontSize:16,fontFamily:MONO,fontWeight:700,color:A.accent}}>{leg.m.toFixed(1)}</div>
+              </div>
+              <div style={{flex:1,minWidth:0}}>
+                <div style={{fontSize:15,fontWeight:700,lineHeight:1.25}}>{leg.name}</div>
+                <div style={{fontSize:10,color:A.textDim,fontFamily:MONO,marginTop:3}}>
+                  ETA {hms(leg.eta)}{leg.closes ? ` · closes ${leg.closes}` : ''}{leg.dwell ? ` · stop ${leg.dwell}` : ''}
+                </div>
+              </div>
+              {act && (
+                <span style={{fontSize:10,fontFamily:MONO,fontWeight:700,letterSpacing:1.2,color:act.hue,background:act.bg,padding:'5px 8px',borderRadius:6,display:'flex',alignItems:'center',gap:4,flexShrink:0}}>
+                  {act.label !== 'SKIP' && <Icon name="drop" size={11} color={act.hue}/>}{act.label}
+                </span>
+              )}
+              {next && (
+                <span style={{transform:isOpen?'rotate(180deg)':'none',transition:'transform .15s',flexShrink:0,display:'flex'}}>
+                  <Icon name="down" size={16} color={A.textDim}/>
+                </span>
+              )}
+            </button>
+            {isOpen && next && (
+              <div style={{background:A.surface2}}>
+                <div style={{padding:'10px 14px',fontSize:11,color:A.textDim,fontFamily:MONO,borderTop:`1px solid ${A.border}`}}>
+                  → <span style={{color:A.text,fontWeight:700}}>{next.name}</span> · {(next.m-leg.m).toFixed(1)} mi · +{up} / −{dn} ft · ETA {hms(next.eta)}
+                </div>
+                {leg.stages.map((s, j) => <StageRow key={j} s={s} i={j}/>)}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ── IndexedDB persistence ─────────────────────────────────────
 const DB_NAME = 'wr50k-analysis';
 const STORE  = 'workouts';
@@ -1799,7 +1953,7 @@ function App({plan, update}) {
   const [selected, setSelected] = useState(() => resolveToday(plan));
   const [filter, setFilter] = useState('all');
   const [transitioning, setTransitioning] = useState(false);
-  const [view, setView] = useState('day'); // 'day' | 'plan' | 'analysis'
+  const [view, setView] = useState('day'); // 'day' | 'plan' | 'race' | 'analysis'
   // Focus-tab → detail-tab jump. {idx, nonce}; the matching HeroWorkout expands
   // and scrolls itself into view, then clears this via onFocusDone.
   const [jump, setJump] = useState(null);
@@ -1872,6 +2026,32 @@ function App({plan, update}) {
     return <AnalysisView onBack={() => setView('day')}/>;
   }
 
+  if (view === 'race') {
+    return (
+      <div id="app-scroll" style={{background:A.bg,height:'100vh',overflowY:'auto'}}>
+        <div id="day-header" style={{
+          position:'sticky',top:0,zIndex:10,background:A.bg,
+          borderBottom:`1px solid ${A.border}`,
+          padding:'14px 16px',display:'flex',alignItems:'center',gap:10,
+        }}>
+          <button onClick={()=>setView('day')} style={{
+            height:36,padding:'0 12px',borderRadius:10,background:A.surface2,
+            border:`1px solid ${A.border}`,display:'flex',alignItems:'center',
+            gap:6,cursor:'pointer',color:A.text,fontFamily:MONO,
+            fontSize:10,letterSpacing:1.4,fontWeight:700,
+            WebkitTapHighlightColor:'transparent',
+          }}>
+            <Icon name="back" size={14} color={A.text}/>
+            TODAY
+          </button>
+          <div style={{flex:1}}/>
+          <div style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1.4,fontWeight:700}}>AID STATIONS</div>
+        </div>
+        <RaceStagesView/>
+      </div>
+    );
+  }
+
   if (view === 'plan') {
     return (
       <div id="app-scroll" style={{background:A.bg,height:'100vh',overflowY:'auto'}}>
@@ -1937,6 +2117,14 @@ function App({plan, update}) {
             }}>
               <Icon name="list" size={14} color={A.text}/>
               PLAN
+            </button>
+            <button onClick={()=>setView('race')} aria-label="Race aid stations" style={{
+              width:36,height:36,borderRadius:10,background:A.surface2,
+              border:`1px solid ${A.border}`,display:'flex',alignItems:'center',
+              justifyContent:'center',cursor:'pointer',color:A.text,
+              WebkitTapHighlightColor:'transparent',padding:0,
+            }}>
+              <Icon name="route" size={16} color={A.accent}/>
             </button>
             <button onClick={()=>setView('analysis')} aria-label="Workout analysis" style={{
               width:36,height:36,borderRadius:10,background:A.surface2,
