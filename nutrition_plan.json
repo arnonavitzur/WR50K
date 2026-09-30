@@ -10,8 +10,8 @@
   "generated_by": "Nutrition Coach (Claude)",
   "generated_date": "2026-09-30",
   "notes": "TUSCANY CROSSING 103K CYCLE - nutrition (rev 2.0). 29 weeks, 9/28/2026 -> 4/18/2027, matched to run_plan / strength_plan rev 2.0 subtypes. Arnon: 50 M, 175 lb / 79 kg. || THE PROBLEM TO SOLVE (FR-w): at Vermont the gut signalled FULL at ~365 cal/hr by hour 4 (gels every 25 min + half-strength drink + 500 ml/hr); he then ran on gels alone at ~240 cal/hr with no energy cost to 6:40. Tuscany is a ~15:40-17:00 planning day. The fix is the calorie MIX - more solids, less concentrated liquid carbohydrate - not more volume. Target race intake ~260-300 cal/hr, from ~50% gels / ~25% half-strength drink / ~25% real food. || GUT-TRAINING LADDER (long_run notes + overrides): Base W3-13 proven protocol + one real-food item per long run from W7 | Build W14-22 the MIX at 250-280 cal/hr, cup drinking at car stops | Oracle 1/30 = J-2, the real-food and aid-station rehearsal on an ~11 h day | Peak: race protocol v1 on 3/7, final on 3/21, nothing new after. One new variable per run; hour 1 always on the proven baseline. || STATION FLUID vs OWN MIX (Arnon's question): with powder pre-portioned per bottle, mixing your own at a cup-only aid costs roughly 20-40 s more than taking station drink - small next to the dwell Vermont actually lost (~4 min of crew chat and toilet queue). The bigger variable is the gut: the station product at Tuscany is unknown (race documents should list it - open item), and your own mix is proven over two ultras. DEFAULT: own powder + station water; station coke/tea/broth as late-race additions only after they pass in training. Tested head-to-head at Oracle (one timed aid, one-hour gut read). || SODIUM & FLUID BY TEMPERATURE (not a flat rate): < 12 C -> 400-600 mg Na/hr, 400-500 ml/hr (no scheduled SaltStick) | 12-22 C -> 600-800 mg, 500-650 ml (SaltStick 1/60 min) | > 22 C -> 800-1,000 mg, 650-800 ml (SaltStick 1/40-45 min). Tuscany's regulation warns of near 0 C at night and > 30 C midday. || EARLY-START FUELING: Tuscany breakfast lands at ~02:45-03:00. Rehearsed on 11/15 (04:00) and 2/21 (03:00, identical to race timing). || CAFFEINE for a dark finish: tested at dusk on 1/10, then at Oracle and in the March rehearsals; race cap ~5 mg/kg (~400 mg). || DAILY EATING: protein 1.8-1.9 g/kg (~145-155 g) every day including rest days - tendon remodeling at 50 is protein-hungry. Carbs scale with the day (~3.3 g/kg rest -> ~8 g/kg on the biggest long runs; day-type phase_adjustments raise totals as hours climb from ~6 to ~13 run h/week). ENERGY AVAILABILITY: weekly hours roughly double from October to March - if body weight drifts down > ~1.5 kg, or sleep, mood or resting HR worsen, eat more before training less. COLLAGEN 15 g + vitamin C 250 mg 30-60 min before every Lower A/B session, otherwise with the morning foot routine. NO NSAIDs around loading. Alcohol: Friday evening is the window in normal weeks (36 h before a Sunday long run); none in the Oracle or Tuscany race weeks. || AeT TESTS: nutrition is held identical at every drift test (10/13, 11/24, 1/5, 2/16) so the only variable is fitness. || SWIM DAYS (rev 2.1): three day types resolve Total Immersion swim days (Monday swim-only; Friday swim + Upper B, with or without an easy run). They are listed FIRST because triggers are first-match: a trigger with cross_subtype matches only when that cross session is scheduled; a trigger without cross_subtype ignores cross sessions (backward compatible). Easy swim ~250-400 kcal. || date_overrides are the source of truth on test, gate, headlamp, rehearsal, carb-load and race days.",
-  "revision": "2.1",
-  "revision_notes": "CURRENT REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || CURRENT REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
+  "revision": "2.2",
+  "revision_notes": "CURRENT REVISION 2.2 (2026-09-30). 2027-03-07 override rescaled to the 30-mi G2 shoe-gate run (run_plan rev 2.1): 4300 -> 4700 kcal, 650 -> 740 g carbs, fluid 4500 -> 5000 ml; backup-date note. Nothing else changed. || CURRENT REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || CURRENT REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
  },
  "day_types": [
   {
@@ -2123,14 +2123,14 @@
   },
   {
    "date": "2027-03-07",
-   "reason": "PEAK LONG RUN (25 mi) - RACE FUELING PROTOCOL v1",
+   "reason": "G2 SHOE GATE - 30-mi hard-dirt long run (~6.5-7 h) - RACE FUELING PROTOCOL v1",
    "daily_targets": {
-    "calories_total": 4300,
-    "carbs_g": 650,
+    "calories_total": 4700,
+    "carbs_g": 740,
     "protein_g": 150,
-    "fat_g": 95,
-    "fluid_ml_total": 4500,
-    "general_guidance": "Run the full provisional race protocol end to end. Carb-rich dinner Saturday after the 12-mi medium-long."
+    "fat_g": 100,
+    "fluid_ml_total": 5000,
+    "general_guidance": "Longest training day of the cycle: run the full provisional race protocol end to end for ~6.5-7 h. Carb-rich dinner Saturday (the medium-long is only 7 mi this week - eat as if it were a long-run eve). Backup date Sat 3/6 if weather moves the run: apply this override to that day instead."
    },
    "session_fueling": [
     {
@@ -2194,7 +2194,7 @@
        "caffeine_mg": 35
       }
      ],
-     "notes": "Only items that passed at Oracle / the Jan-Feb runs. Hourly fullness rating."
+     "notes": "Only items that passed at Oracle / the Jan-Feb runs. Hourly fullness rating. ~6.5-7 h: expect ~11 gels, 6-7 bottles of half-strength mix, 7-8 real-food items - carry or cache accordingly."
     },
     {
      "linked_session": {
