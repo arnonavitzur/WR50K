@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Vermont 50K — Training Plan</title>
-<meta name="description" content="Training plan and FIT file analysis for the Vermont 50K.">
+<title>Training Plan</title>
+<meta name="description" content="Ultramarathon training plan and FIT file analysis.">
 
 <!-- PWA -->
 <link rel="manifest" href="./manifest.json">
@@ -73,16 +73,79 @@ const RUN_COLORS = {
   power_climb: { hue: '#ffb020', name: 'POWER CLIMB', bg: 'rgba(255,176,32,0.12)',  ring: '#ffb020' },
   shakeout:    { hue: '#60a5fa', name: 'SHAKEOUT',    bg: 'rgba(96,165,250,0.12)',  ring: '#60a5fa' },
   long:        { hue: '#c084fc', name: 'LONG',        bg: 'rgba(192,132,252,0.12)', ring: '#c084fc' },
+  back_to_back:{ hue: '#f472b6', name: 'BACK-TO-BACK',bg: 'rgba(244,114,182,0.12)', ring: '#f472b6' },
+  time_trial:  { hue: '#facc15', name: 'AeT TEST',    bg: 'rgba(250,204,21,0.12)',  ring: '#facc15' },
+  race_pace:   { hue: '#f43f5e', name: 'RACE',        bg: 'rgba(244,63,94,0.14)',   ring: '#f43f5e' },
   rest:        { hue: '#71717a', name: 'REST',        bg: 'rgba(113,113,122,0.12)', ring: '#71717a' },
   default:     { hue: '#a3a3a3', name: 'RUN',         bg: 'rgba(163,163,163,0.12)', ring: '#a3a3a3' },
 };
 const STRENGTH_COLORS = {
   lower:   { hue: '#a78bfa', name: 'LOWER',    bg: 'rgba(167,139,250,0.12)', ring: '#a78bfa' },
   upper:   { hue: '#22d3ee', name: 'UPPER',    bg: 'rgba(34,211,238,0.12)',  ring: '#22d3ee' },
+  mobility_session: { hue: '#a3e635', name: 'MOBILITY', bg: 'rgba(163,230,53,0.12)', ring: '#a3e635' },
   default: { hue: '#a78bfa', name: 'STRENGTH', bg: 'rgba(167,139,250,0.12)', ring: '#a78bfa' },
+};
+// Cross-training (schema v1.7 type "cross"). Swims live in the strength plan.
+const CROSS_COLORS = {
+  swim:    { hue: '#2dd4bf', name: 'SWIM',     bg: 'rgba(45,212,191,0.12)',  ring: '#2dd4bf' },
+  default: { hue: '#2dd4bf', name: 'CROSS',    bg: 'rgba(45,212,191,0.12)',  ring: '#2dd4bf' },
 };
 const runColor = (s) => RUN_COLORS[s] || RUN_COLORS.default;
 const strColor = (s) => STRENGTH_COLORS[s] || STRENGTH_COLORS.default;
+const crossColor = (s) => CROSS_COLORS[s] || { ...CROSS_COLORS.default, name: (s||'CROSS').toUpperCase() };
+// Discriminates on session.type ("run" | "strength" | "cross") — never on which
+// plan file the session came from, since the strength plan also carries swims.
+const sessionColor = (s) => s.type === 'run' ? runColor(s.subtype)
+  : s.type === 'cross' ? crossColor(s.subtype) : strColor(s.subtype);
+const sessionIcon = (s) => s.type === 'cross' ? (s.subtype === 'swim' ? 'swim' : 'heart')
+  : s.type === 'strength' ? 'dumbbell'
+  : s.subtype === 'power_climb' ? 'mountain'
+  : s.subtype === 'race_pace' ? 'flag'
+  : s.subtype === 'time_trial' ? 'heart' : 'run';
+
+// Spec 3.4: run (AM) -> cross (swim) -> strength (PM). The strength file lists
+// the swim before the lift, and run/strength are separate files, so sort by type
+// rather than trusting file order. Array.sort is stable.
+const SESSION_ORDER = { run: 0, cross: 1, strength: 2 };
+const daySessions = (day) => [
+  ...(day?.run?.sessions || []),
+  ...(day?.strength?.sessions || []),
+].map(s => ({ ...s, kind: s.type || 'run' }))
+ .sort((a, b) => (SESSION_ORDER[a.kind] ?? 9) - (SESSION_ORDER[b.kind] ?? 9));
+// rest_day is per-plan (a run-plan rest Monday can carry a swim), so the UI
+// calls a day rest only when NO plan has a session on it.
+const isRestDay = (day) => daySessions(day).length === 0;
+
+// Short chip labels for nutrition day_type ids (nutrition rev 2.1). Unknown ids
+// fall back to the first word of the label, so a new day_type still renders.
+const NUTRITION_TYPE_LABEL = {
+  rest_day_swim: 'SWIM DAY', strength_only_swim: 'SWIM + LIFT', easy_run_upper_swim: 'TRIPLE',
+  rest_day: 'REST', strength_only: 'LIFT', aet_test_day: 'AeT TEST',
+  climb_lower_strength: 'CLIMB', easy_run_lower_strength: 'DOUBLE', easy_run_upper_strength: 'DOUBLE',
+  easy_run_only: 'EASY', medium_long_run: 'MED-LONG', long_run: 'LONG', race_or_rehearsal: 'RACE',
+};
+const nutritionChip = (n) => n?.date_override_applied ? 'KEY DAY'
+  : NUTRITION_TYPE_LABEL[n?.day_type_id] || (n?.day_type_label?.split(' ')[0] || 'TRAINING').toUpperCase();
+
+// session_fueling entry for one session at one position (pre | during | post).
+// An entry with the session's own subtype wins over a subtype-null one, which
+// means "any session of that type" (spec 4.4).
+const fuelFor = (fueling, session, position) => {
+  const list = (fueling || []).filter(f => f.linked_session?.position === position
+    && (f.linked_session?.type || 'run') === session.type);
+  return list.find(f => f.linked_session.subtype === session.subtype)
+      || list.find(f => f.linked_session.subtype == null)
+      || null;
+};
+
+// hr_anchor labels what hr_cap_bpm is tied to. The cap itself is authoritative
+// and precomputed — the app never derives it (spec 2.1).
+const HR_ANCHOR_LABEL = {
+  AeT: 'cap = AeT', AeT_minus_10pct: 'cap = AeT −10%', AeT_to_LT: 'cap = AeT→LT', AeT_test: 'AeT test',
+};
+
+// Strength cooldown matches the warm-up (spec 3.5).
+const STRENGTH_COOLDOWN = { pre_lower: 'post_lower', pre_upper: 'post_upper' };
 
 const PHASE_STYLE = {
   Base:      { label: 'BASE',    hue: '#4ade80' },
@@ -104,10 +167,13 @@ const todayIso = () => {
   const d = new Date();
   return new Date(d.getTime() - d.getTimezoneOffset()*60000).toISOString().slice(0,10);
 };
+// "1-29", "18", or a comma list of either ("1-2,18").
 const weekActive = (rangeStr, week) => {
   if (!rangeStr) return true;
-  const parts = rangeStr.split('-').map(Number);
-  return week >= parts[0] && week <= (parts[1]||parts[0]);
+  return String(rangeStr).split(',').some(part => {
+    const [lo, hi] = part.trim().split('-').map(Number);
+    return week >= lo && week <= (hi || lo);
+  });
 };
 // Scrolls an element to just under the sticky day header inside #app-scroll.
 const scrollUnderHeader = (el, extra = 12) => {
@@ -147,6 +213,8 @@ function Icon({name, size=16, color='currentColor', stroke=2}) {
     case 'back': return <svg {...s} viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>;
     case 'heart': return <svg {...s} viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0112 6a5.5 5.5 0 019.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>;
     case 'analyze': return <svg {...s} viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-7"/></svg>;
+    case 'swim': return <svg {...s} viewBox="0 0 24 24"><circle cx="16" cy="6" r="2"/><path d="M4 12l5-3 3 3 3-2"/><path d="M2 17c2 1.3 3.3 1.3 5 0s3.3-1.3 5 0 3.3 1.3 5 0 3.3-1.3 5 0"/></svg>;
+    case 'flag': return <svg {...s} viewBox="0 0 24 24"><path d="M5 22V3"/><path d="M5 4h13l-3 4 3 4H5"/></svg>;
     default: return null;
   }
 }
@@ -166,11 +234,7 @@ function DayStrip({dates, selected, onSelect, plan}) {
         const day = plan.days[d];
         const isSel = d === selected;
         const isToday = d === today;
-        const run = day.run?.sessions?.[0];
-        const str = day.strength?.sessions?.[0];
-        const dots = [];
-        if (run) dots.push(runColor(run.subtype).hue);
-        if (str) dots.push(strColor(str.subtype).hue);
+        const dots = daySessions(day).map(s => sessionColor(s).hue);
         if (!dots.length) dots.push(A.textFaint);
         return (
           <button key={d} data-day={d} onClick={()=>onSelect(d)} style={{
@@ -242,9 +306,15 @@ const terrainLabel = t => String(t).replace(/_or_/g, '/').replace(/_/g, ' ')
 function SessionStats({session, kind, expanded}) {
   const stats = [];
   if (kind === 'run') {
-    if (session.distance_mi != null) stats.push({label:'DISTANCE', value:session.distance_mi, unit:'mi'});
+    // Walks carry distance_mi 0.0 by convention — show duration only.
+    if (session.distance_mi > 0) stats.push({label:'DISTANCE', value:session.distance_mi, unit:'mi'});
+    // race_pace sessions have no duration_min.
     if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
     if (session.elevation_gain_ft > 0) stats.push({label:'VERT', value:session.elevation_gain_ft.toLocaleString(), unit:'ft'});
+  } else if (kind === 'cross') {
+    if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
+    if (session.distance_m > 0) stats.push({label:'DISTANCE', value:session.distance_m.toLocaleString(), unit:'m'});
+    if (session.intensity) stats.push({label:'EFFORT', value:session.intensity.toUpperCase(), mono:true, size:16});
   } else {
     if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
     stats.push({label:'EXERCISES', value:(session.exercises||[]).length, unit:'moves'});
@@ -283,9 +353,17 @@ function SessionStats({session, kind, expanded}) {
 
 // ── Hero Workout Card ─────────────────────────────────────────
 // ── Workout fueling collapsible ───────────────────────────────
-function WorkoutFueling({preFuel, postFuel, workoutLabel, color}) {
+const FUEL_POS = {
+  pre:    { label: 'PRE',    color: '#60a5fa' },
+  during: { label: 'DURING', color: '#ffb020' },
+  post:   { label: 'POST',   color: '#4ade80' },
+};
+const FUEL_POSITIONS = ['pre', 'during', 'post'];
+
+function WorkoutFueling({fuel, workoutLabel}) {
   const [open, setOpen] = useState(false);
-  if (!preFuel && !postFuel) return null;
+  const windows = FUEL_POSITIONS.filter(p => fuel[p]);
+  if (!windows.length) return null;
   return (
     <div style={{background:A.surface2,borderRadius:14,overflow:'hidden',border:`1px solid ${A.border}`,marginBottom:8}}>
       <button onClick={()=>setOpen(o=>!o)} style={{
@@ -296,25 +374,84 @@ function WorkoutFueling({preFuel, postFuel, workoutLabel, color}) {
         <div style={{width:28,height:28,borderRadius:7,background:'rgba(255,176,32,0.14)',border:'1px solid rgba(255,176,32,0.3)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
           <Icon name="flame" size={13} color="#ffb020"/>
         </div>
-        <div style={{flex:1,minWidth:0}}>
+        <div style={{flex:1,minWidth:0,textAlign:'left'}}>
           <div style={{fontSize:9,color:'#ffb020',fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>{workoutLabel} FUELING</div>
-          <div style={{fontSize:12,color:A.textDim}}>{[preFuel,postFuel].filter(Boolean).length} windows</div>
+          <div style={{fontSize:12,color:A.textDim}}>{windows.map(p => FUEL_POS[p].label.toLowerCase()).join(' · ')}</div>
         </div>
         <span style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform .2s'}}>
           <Icon name="down" size={14} color={A.textFaint}/>
         </span>
       </button>
       {open && (
-        <div style={{borderTop:`1px solid ${A.border}`,padding:'4px 14px 14px'}}>
-          {preFuel && <FuelChip fuel={preFuel} label="PRE" color="#60a5fa"/>}
-          {postFuel && <div style={{marginTop:preFuel?8:0}}><FuelChip fuel={postFuel} label="POST" color="#4ade80"/></div>}
+        <div style={{borderTop:`1px solid ${A.border}`,padding:'10px 14px 14px',display:'flex',flexDirection:'column',gap:8}}>
+          {windows.map(p => <FuelChip key={p} fuel={fuel[p]} label={FUEL_POS[p].label} color={FUEL_POS[p].color}/>)}
         </div>
       )}
     </div>
   );
 }
 
-function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel, focusNonce, onFocusDone}) {
+function NoteBox({label, color, italic, children}) {
+  return (
+    <div style={{margin:'0 18px 14px',padding:'10px 12px',background:'rgba(255,255,255,0.03)',borderRadius:8,border:`1px solid ${A.border}`}}>
+      <div style={{fontSize:9,color:color||A.textDim,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,marginBottom:4}}>{label}</div>
+      <div style={{fontSize:12,color:italic?A.text:A.textDim,lineHeight:italic?1.5:1.6,fontFamily:SANS,fontStyle:italic?'italic':'normal'}}>{children}</div>
+    </div>
+  );
+}
+
+// aet_gate (run_plan rev 2.0): the top-level fields are ALWAYS the active
+// version. if_pass is informational and stays collapsed — a plan patch copies it
+// over the top-level fields and sets active_version, the app never swaps (2.2).
+function AetGate({gate, gateBpm}) {
+  const [open, setOpen] = useState(false);
+  if (!gate?.if_pass) return null;
+  const promoted = gate.active_version === 'if_pass';
+  const alt = gate.if_pass;
+  const altColor = runColor(alt.subtype);
+  const hue = promoted ? '#4ade80' : A.textDim;
+  const threshold = gateBpm ? `AeT ≥ ${gateBpm}` : 'the AeT gate passes';
+  return (
+    <div style={{margin:'0 18px 14px',background:A.surface2,borderRadius:10,border:`1px dashed ${A.borderStrong}`,overflow:'hidden'}}>
+      <button onClick={()=>setOpen(o=>!o)} style={{
+        width:'100%',padding:'10px 12px',background:'transparent',border:'none',textAlign:'left',
+        display:'flex',alignItems:'center',gap:8,cursor:'pointer',WebkitTapHighlightColor:'transparent',
+      }}>
+        <span style={{fontSize:9,padding:'2px 6px',borderRadius:3,border:`1px solid ${hue}`,color:hue,fontFamily:MONO,fontWeight:700,letterSpacing:1.2,flexShrink:0}}>
+          {promoted ? 'GATE PASSED' : 'GATED'}
+        </span>
+        <span style={{flex:1,minWidth:0,fontSize:11,color:A.textDim,fontFamily:SANS,lineHeight:1.35}}>
+          {promoted
+            ? 'The AeT-gated version is active.'
+            : `Shows the ${alt.hr_zone || altColor.name} version once ${threshold}.`}
+        </span>
+        <span style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform .2s',flexShrink:0}}>
+          <Icon name="down" size={12} color={A.textFaint}/>
+        </span>
+      </button>
+      {open && (
+        <div style={{borderTop:`1px solid ${A.border}`,padding:'10px 12px',fontSize:12,color:A.textDim,lineHeight:1.5,fontFamily:SANS}}>
+          {!promoted && (
+            <div style={{marginBottom:10}}>
+              <div style={{display:'flex',alignItems:'center',gap:6,flexWrap:'wrap',marginBottom:4}}>
+                <span style={{fontSize:9,padding:'2px 6px',borderRadius:3,background:altColor.bg,color:altColor.hue,fontFamily:MONO,fontWeight:700,letterSpacing:1}}>{altColor.name}</span>
+                {alt.hr_cap_bpm != null && <span style={{fontSize:11,fontFamily:MONO,color:A.text}}>≤{alt.hr_cap_bpm} bpm</span>}
+                {alt.hr_zone && <span style={{fontSize:10,fontFamily:MONO,color:A.textFaint}}>{alt.hr_zone}</span>}
+                {HR_ANCHOR_LABEL[alt.hr_anchor] && <span style={{fontSize:10,fontFamily:MONO,color:A.textFaint}}>· {HR_ANCHOR_LABEL[alt.hr_anchor]}</span>}
+              </div>
+              {alt.title && <div style={{fontSize:13,color:A.text,fontWeight:600,marginBottom:4}}>{alt.title}</div>}
+              {alt.key_cue && <div style={{fontStyle:'italic'}}>{alt.key_cue}</div>}
+            </div>
+          )}
+          {!promoted && gate.default_rationale && <div style={{marginBottom:6}}><span style={{fontFamily:MONO,fontSize:9,color:A.textFaint,letterSpacing:1}}>NOW </span>{gate.default_rationale}</div>}
+          {gate.pass_rule && <div><span style={{fontFamily:MONO,fontSize:9,color:A.textFaint,letterSpacing:1}}>RULE </span>{gate.pass_rule}</div>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel, focusNonce, onFocusDone, aetGateBpm}) {
   const [collapsed, setCollapsed] = useState(false);
   const rootRef = useRef(null);
   // A focus request from the Focus tab: expand this card and scroll it into view.
@@ -328,22 +465,10 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
     }, 0);
     return () => clearTimeout(t);
   }, [focusNonce]);
-  const color = kind === 'run' ? runColor(session.subtype) : strColor(session.subtype);
-  const preFuel = (fueling||[]).find(f => {
-    const ls = f.linked_session || {};
-    if (ls.position !== 'pre') return false;
-    if (ls.type && ls.type !== kind) return false;
-    if (ls.subtype && ls.subtype !== session.subtype) return false;
-    return true;
-  }) || (fueling||[]).find(f => f.linked_session?.position==='pre' && f.linked_session?.type===kind && !f.linked_session?.subtype);
-  const postFuel = (fueling||[]).find(f => {
-    const ls = f.linked_session || {};
-    if (ls.position !== 'post') return false;
-    if (ls.type && ls.type !== kind) return false;
-    if (ls.subtype && ls.subtype !== session.subtype) return false;
-    return true;
-  }) || (fueling||[]).find(f => f.linked_session?.position==='post' && f.linked_session?.type===kind && !f.linked_session?.subtype);
-  const label = workoutLabel || (kind === 'run' ? color.name : color.name);
+  const color = sessionColor(session);
+  const fuel = Object.fromEntries(FUEL_POSITIONS.map(p => [p, fuelFor(fueling, session, p)]));
+  const label = workoutLabel || color.name;
+  const anchor = HR_ANCHOR_LABEL[session.hr_anchor];
 
   return (
     <div ref={rootRef} style={{background:`color-mix(in srgb, ${color.hue} 6%, ${A.surface})`,borderRadius:20,overflow:'hidden',border:`1px solid color-mix(in srgb, ${color.hue} 20%, ${A.border})`}}>
@@ -360,6 +485,7 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
             {color.name}
           </span>
           {kind==='run' && session.poles && <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1}}>+ POLES</span>}
+          {kind==='cross' && session.method && <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1}}>{session.method.toUpperCase()}</span>}
           <div style={{flex:1}}/>
           <span style={{transform:collapsed?'rotate(0)':'rotate(180deg)',transition:'transform .2s',display:'flex',alignItems:'center'}}>
             <Icon name="down" size={14} color={A.textFaint}/>
@@ -374,43 +500,38 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
       {/* Expanded content */}
       {!collapsed && (
         <>
-          {kind==='run' && (
-            <>
-              {session.hr_cap_bpm && (
-                <div style={{margin:'0 18px 16px',background:A.surface2,borderRadius:10,padding:'10px 12px',border:`1px solid ${A.border}`}}>
-                  <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:6}}>
-                    <span style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>HR TARGET</span>
-                    <div style={{display:'flex',alignItems:'center',gap:6}}>
-                      <span style={{fontSize:16,fontWeight:700,color:color.hue,fontFamily:DISPLAY}}>≤{session.hr_cap_bpm}</span>
-                      <span style={{fontSize:10,color:A.textDim,fontFamily:MONO}}>bpm</span>
-                      {session.hr_zone && <span style={{fontSize:9,padding:'2px 6px',borderRadius:3,background:color.bg,color:color.hue,fontFamily:MONO,fontWeight:700,letterSpacing:1}}>{session.hr_zone}</span>}
-                    </div>
-                  </div>
-                  <div style={{height:4,borderRadius:2,background:A.surface3,overflow:'hidden'}}>
-                    <div style={{height:'100%',width:'70%',background:`linear-gradient(90deg,${color.hue}88,${color.hue})`,borderRadius:2}}/>
-                  </div>
+          {session.hr_cap_bpm != null && (
+            <div style={{margin:'0 18px 16px',background:A.surface2,borderRadius:10,padding:'10px 12px',border:`1px solid ${A.border}`}}>
+              <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:6,gap:8}}>
+                <span style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>HR CAP</span>
+                <div style={{display:'flex',alignItems:'center',gap:6,flexWrap:'wrap',justifyContent:'flex-end'}}>
+                  {anchor && <span style={{fontSize:9,padding:'2px 6px',borderRadius:3,border:`1px solid ${A.borderStrong}`,color:A.textDim,fontFamily:MONO,letterSpacing:0.6}}>{anchor}</span>}
+                  <span style={{fontSize:16,fontWeight:700,color:color.hue,fontFamily:DISPLAY}}>≤{session.hr_cap_bpm}</span>
+                  <span style={{fontSize:10,color:A.textDim,fontFamily:MONO}}>bpm</span>
+                  {session.hr_zone && <span style={{fontSize:9,padding:'2px 6px',borderRadius:3,background:color.bg,color:color.hue,fontFamily:MONO,fontWeight:700,letterSpacing:1}}>{session.hr_zone}</span>}
                 </div>
-              )}
-              {session.pace_target && (
-                <div style={{margin:'0 18px 16px',display:'flex',gap:12,alignItems:'center'}}>
-                  <div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>PACE</div>
-                  <div style={{fontSize:13,color:A.textDim,fontFamily:MONO}}>{session.pace_target.min_per_mi_fast}–{session.pace_target.min_per_mi_slow} /mi</div>
-                </div>
-              )}
-              {session.key_cue && (
-                <div style={{margin:'0 18px 14px',padding:'10px 12px',background:'rgba(255,255,255,0.03)',borderRadius:8,border:`1px solid ${A.border}`}}>
-                  <div style={{fontSize:9,color:color.hue,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,marginBottom:4}}>KEY CUE</div>
-                  <div style={{fontSize:12,color:A.text,lineHeight:1.5,fontFamily:SANS,fontStyle:'italic'}}>{session.key_cue}</div>
-                </div>
-              )}
-              {session.notes && (
-                <div style={{margin:'0 18px 14px',padding:'10px 12px',background:'rgba(255,255,255,0.03)',borderRadius:8,border:`1px solid ${A.border}`}}>
-                  <div style={{fontSize:9,color:A.textDim,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,marginBottom:4}}>DETAILS</div>
-                  <div style={{fontSize:12,color:A.textDim,lineHeight:1.6,fontFamily:SANS}}>{session.notes}</div>
-                </div>
-              )}
-            </>
+              </div>
+              <div style={{height:4,borderRadius:2,background:A.surface3,overflow:'hidden'}}>
+                <div style={{height:'100%',width:'70%',background:`linear-gradient(90deg,${color.hue}88,${color.hue})`,borderRadius:2}}/>
+              </div>
+            </div>
           )}
+          {kind==='cross' && session.hr_cap_bpm == null && (
+            <div style={{margin:'0 18px 14px',display:'flex',gap:12,alignItems:'center'}}>
+              <div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>HR</div>
+              <div style={{fontSize:12,color:A.textDim,fontFamily:MONO}}>No cap — go by feel</div>
+            </div>
+          )}
+          {kind==='run' && session.pace_target && (
+            <div style={{margin:'0 18px 16px',display:'flex',gap:12,alignItems:'center'}}>
+              <div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>PACE</div>
+              <div style={{fontSize:13,color:A.textDim,fontFamily:MONO}}>{session.pace_target.min_per_mi_fast}–{session.pace_target.min_per_mi_slow} /mi</div>
+            </div>
+          )}
+          {kind==='run' && <AetGate gate={session.aet_gate} gateBpm={aetGateBpm}/>}
+          {session.key_cue && <NoteBox label="KEY CUE" color={color.hue} italic>{session.key_cue}</NoteBox>}
+          {kind==='run' && session.fueling_notes && <NoteBox label="FUELING NOTE" color="#ffb020">{session.fueling_notes}</NoteBox>}
+          {session.notes && <NoteBox label="DETAILS">{session.notes}</NoteBox>}
 
           {kind==='strength' && (
             <div style={{padding:'0 18px 4px'}}>
@@ -428,7 +549,7 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
 
           {/* Workout fueling — last */}
           <div style={{padding:'0 18px 4px'}}>
-            <WorkoutFueling preFuel={preFuel} postFuel={postFuel} workoutLabel={label} color={color}/>
+            <WorkoutFueling fuel={fuel} workoutLabel={label}/>
           </div>
           <div style={{height:14}}/>
         </>
@@ -478,19 +599,48 @@ function ExercisesCollapsible({exercises, color}) {
 }
 
 // ── Fuel Chip ─────────────────────────────────────────────────
+// "60c 20p 5f · 400mg Na · 500ml" — only the fields that are present and non-zero.
+// (A bare {x && ...} would render a literal 0 for zero-valued fields.)
+const fuelMacros = (f) => [
+  [f.carbs_g && `${f.carbs_g}c`, f.protein_g && `${f.protein_g}p`, f.fat_g && `${f.fat_g}f`].filter(Boolean).join(' '),
+  f.sodium_mg ? `${f.sodium_mg}mg Na` : '',
+  f.fluid_ml ? `${f.fluid_ml}ml` : '',
+].filter(Boolean).join(' · ');
+
+// fueling_schedule items for a "during" window. May be empty (the AeT test is
+// water only); items may carry caffeine_mg.
+function FuelSchedule({items}) {
+  if (!items?.length) return null;
+  return (
+    <div style={{marginTop:6,display:'flex',flexDirection:'column',gap:3}}>
+      {items.map((it,i) => (
+        <div key={i} style={{display:'flex',gap:8,alignItems:'baseline',fontSize:11,lineHeight:1.35}}>
+          <span style={{fontFamily:MONO,color:'#ffb020',fontWeight:700,flexShrink:0,minWidth:58}}>{it.interval_min != null ? `every ${it.interval_min}′` : '·'}</span>
+          <span style={{flex:1,minWidth:0,color:A.text}}>{it.item}</span>
+          <span style={{fontFamily:MONO,color:A.textFaint,flexShrink:0,fontSize:10}}>
+            {[it.cal ? `${it.cal}kcal` : '', it.sodium_mg ? `${it.sodium_mg}Na` : '', it.caffeine_mg ? `${it.caffeine_mg}mg caf` : ''].filter(Boolean).join(' ')}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function FuelChip({fuel, label, color}) {
+  const macros = fuelMacros(fuel);
   return (
     <div style={{display:'flex',gap:10,alignItems:'flex-start',padding:'8px 10px',borderRadius:8,background:`rgba(255,255,255,0.02)`,border:`1px solid ${A.border}`}}>
       <span style={{fontSize:9,padding:'2px 6px',borderRadius:3,background:`${color}22`,color,fontFamily:MONO,fontWeight:700,letterSpacing:1.2,flexShrink:0,marginTop:1}}>{label}</span>
       <div style={{flex:1,minWidth:0}}>
-        <div style={{fontSize:11,color:A.textDim,fontFamily:MONO,marginBottom:2}}>{fuel.timing}</div>
-        <div style={{display:'flex',gap:8,alignItems:'baseline',marginBottom:4}}>
-          <span style={{fontSize:16,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.3}}>{fuel.calories}<span style={{fontSize:10,color:A.textDim,marginLeft:2}}>kcal</span></span>
-          <span style={{fontSize:10,color:A.textDim,fontFamily:MONO}}>
-            {fuel.carbs_g && `${fuel.carbs_g}c`}{fuel.protein_g && ` ${fuel.protein_g}p`}{fuel.fat_g && ` ${fuel.fat_g}f`}
-          </span>
-        </div>
-        <div style={{fontSize:12,color:A.text,lineHeight:1.4}}>{(fuel.foods||[]).join(' · ')}</div>
+        {fuel.timing && <div style={{fontSize:11,color:A.textDim,fontFamily:MONO,marginBottom:2}}>{fuel.timing}</div>}
+        {(fuel.calories > 0 || macros) && (
+          <div style={{display:'flex',gap:8,alignItems:'baseline',marginBottom:4,flexWrap:'wrap'}}>
+            {fuel.calories > 0 && <span style={{fontSize:16,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.3}}>{fuel.calories}<span style={{fontSize:10,color:A.textDim,marginLeft:2}}>kcal{label === 'DURING' ? '/h' : ''}</span></span>}
+            {macros && <span style={{fontSize:10,color:A.textDim,fontFamily:MONO}}>{macros}</span>}
+          </div>
+        )}
+        {fuel.foods?.length > 0 && <div style={{fontSize:12,color:A.text,lineHeight:1.4}}>{fuel.foods.join(' · ')}</div>}
+        <FuelSchedule items={fuel.fueling_schedule}/>
         {fuel.notes && <div style={{fontSize:11,color:A.textFaint,fontStyle:'italic',marginTop:4}}>{fuel.notes}</div>}
       </div>
     </div>
@@ -535,6 +685,24 @@ function PrePostCard({block, kind, label, accent}) {
 }
 
 // ── Nutrition Card ────────────────────────────────────────────
+// What today's nutrition was resolved from: the date_override reason, or the
+// matched day_type label (+ its phase adjustment).
+function NutritionSource({nutrition}) {
+  const ov = nutrition.date_override_applied;
+  const adj = nutrition.phase_adjustment_applied;
+  return (
+    <div style={{fontSize:12,color:A.textDim,lineHeight:1.45,fontFamily:SANS,marginTop:-8,marginBottom:14}}>
+      {ov ? <><span style={{fontFamily:MONO,fontSize:9,letterSpacing:1,color:'#ffb020',fontWeight:700}}>DATE OVERRIDE </span>{ov.reason}</>
+          : nutrition.day_type_label}
+      {!ov && adj && (
+        <div style={{marginTop:3,fontSize:11,color:A.textFaint}}>
+          <span style={{fontFamily:MONO,fontSize:9,letterSpacing:1,fontWeight:700}}>{phaseStyle(adj.phase).label} ADJ </span>{adj.adjustment}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function NutritionCard({nutrition}) {
   const t = nutrition.daily_targets || {};
   return (
@@ -543,12 +711,13 @@ function NutritionCard({nutrition}) {
       <div style={{padding:18}}>
       <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4}}>
         <span style={{padding:'3px 8px',borderRadius:4,fontSize:10,fontWeight:700,letterSpacing:1.4,color:'#ffb020',background:'rgba(255,176,32,0.12)',fontFamily:MONO}}>
-          FUEL · {nutrition.day_type_label?.split(' ')[0]?.toUpperCase() || 'TRAINING'}
+          FUEL · {nutritionChip(nutrition)}
         </span>
         <div style={{flex:1}}/>
         <Icon name="flame" size={16} color={A.textFaint}/>
       </div>
       <div style={{fontSize:22,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,lineHeight:1.15,marginBottom:14}}>Daily nutrition</div>
+      <NutritionSource nutrition={nutrition}/>
 
       {/* Big calorie number */}
       <div style={{marginBottom:16}}>
@@ -569,7 +738,7 @@ function NutritionCard({nutrition}) {
       </div>
 
       {/* Fluid row */}
-      {t.fluid_ml_total && (
+      {t.fluid_ml_total > 0 && (
         <div style={{display:'flex',alignItems:'center',gap:10,padding:'10px 12px',background:'rgba(96,165,250,0.06)',borderRadius:10,border:'1px solid rgba(96,165,250,0.18)',marginBottom:14}}>
           <Icon name="drop" size={16} color="#60a5fa"/>
           <span style={{fontSize:12,color:A.textDim,fontFamily:MONO,letterSpacing:0.6,flex:1}}>FLUID TARGET</span>
@@ -579,9 +748,10 @@ function NutritionCard({nutrition}) {
         </div>
       )}
 
-      {t.general_guidance && (
+      {(t.general_guidance || t.notes) && (
         <div style={{padding:'12px 14px',background:'rgba(255,255,255,0.02)',borderRadius:10,border:`1px solid ${A.border}`,fontSize:12,color:A.textDim,lineHeight:1.5,fontFamily:SANS}}>
           {t.general_guidance}
+          {t.notes && <div style={{marginTop:t.general_guidance?8:0,fontSize:11,color:A.textFaint,fontStyle:'italic'}}>{t.notes}</div>}
         </div>
       )}
       </div>
@@ -605,9 +775,12 @@ function MacroCard({label, value, color, pct}) {
 
 // ── Fueling Timeline ──────────────────────────────────────────
 function FuelingTimeline({items}) {
-  if (!items?.length) return null;
   const [open, setOpen] = useState(false);
-  const totalCal = items.reduce((s,f) => s+(f.calories||0), 0);
+  if (!items?.length) return null;
+  const rank = f => (SESSION_ORDER[f.linked_session?.type] ?? 9) * 10 + FUEL_POSITIONS.indexOf(f.linked_session?.position);
+  const sorted = [...items].sort((a, b) => rank(a) - rank(b));
+  // "during" calories are per hour, so they are not summed into the window total.
+  const totalCal = items.filter(f => f.linked_session?.position !== 'during').reduce((s,f) => s+(f.calories||0), 0);
   return (
     <div style={{background:A.surface2,borderRadius:14,overflow:'hidden',border:`1px solid ${A.border}`,marginBottom:8}}>
       <button onClick={()=>setOpen(o=>!o)} style={{
@@ -620,7 +793,7 @@ function FuelingTimeline({items}) {
         </div>
         <div style={{flex:1,minWidth:0}}>
           <div style={{fontSize:9,color:'#ffb020',fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>SESSION FUELING</div>
-          <div style={{fontSize:12,color:A.textDim}}>{items.length} windows · {totalCal} kcal</div>
+          <div style={{fontSize:12,color:A.textDim}}>{items.length} window{items.length!==1?'s':''} · {totalCal} kcal pre/post</div>
         </div>
         <span style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform .2s'}}>
           <Icon name="down" size={14} color={A.textFaint}/>
@@ -628,26 +801,29 @@ function FuelingTimeline({items}) {
       </button>
       {open && (
         <div style={{borderTop:`1px solid ${A.border}`,padding:'4px 14px 14px'}}>
-          {(items||[]).map((f,i) => {
-            const isPre = f.linked_session?.position === 'pre';
-            const sessType = f.linked_session?.subtype || f.linked_session?.type;
+          {sorted.map((f,i) => {
+            const ls = f.linked_session || {};
+            const pos = FUEL_POS[ls.position] || FUEL_POS.post;
+            const arrow = ls.position === 'pre' ? '↑' : ls.position === 'during' ? '→' : '↓';
+            const macros = fuelMacros(f);
             return (
               <div key={i} style={{display:'flex',gap:12,padding:'12px 0',borderTop:i?`1px solid ${A.border}`:'none'}}>
-                <div style={{flexShrink:0,width:56,fontSize:9,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,color:isPre?'#60a5fa':'#4ade80',paddingTop:2}}>
-                  {isPre ? '↑ PRE' : '↓ POST'}
-                  <div style={{marginTop:2,color:A.textFaint,letterSpacing:0.5,fontWeight:600}}>{sessType?.toUpperCase()}</div>
+                <div style={{flexShrink:0,width:62,fontSize:9,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,color:pos.color,paddingTop:2}}>
+                  {arrow} {pos.label}
+                  <div style={{marginTop:2,color:A.textFaint,letterSpacing:0.5,fontWeight:600}}>{(ls.subtype || ls.type || '').replace(/_/g,' ').toUpperCase()}</div>
                 </div>
                 <div style={{flex:1,minWidth:0}}>
-                  <div style={{fontSize:12,color:A.textDim,fontFamily:SANS,marginBottom:2}}>{f.timing}</div>
-                  <div style={{display:'flex',gap:10,alignItems:'baseline',marginBottom:6}}>
-                    <span style={{fontSize:18,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.3}}>
-                      {f.calories}<span style={{fontSize:11,color:A.textDim,fontWeight:400,marginLeft:2}}>kcal</span>
-                    </span>
-                    <span style={{fontSize:11,color:A.textDim,fontFamily:MONO,letterSpacing:0.4}}>
-                      {f.carbs_g&&`${f.carbs_g}c`}{f.protein_g&&` ${f.protein_g}p`}{f.fat_g&&` ${f.fat_g}f`}
-                    </span>
-                  </div>
-                  <div style={{fontSize:13,color:A.text,fontFamily:SANS,lineHeight:1.4}}>{(f.foods||[]).join(' · ')}</div>
+                  {f.timing && <div style={{fontSize:12,color:A.textDim,fontFamily:SANS,marginBottom:2}}>{f.timing}</div>}
+                  {(f.calories > 0 || macros) && (
+                    <div style={{display:'flex',gap:10,alignItems:'baseline',marginBottom:6,flexWrap:'wrap'}}>
+                      {f.calories > 0 && <span style={{fontSize:18,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.3}}>
+                        {f.calories}<span style={{fontSize:11,color:A.textDim,fontWeight:400,marginLeft:2}}>kcal{ls.position === 'during' ? '/h' : ''}</span>
+                      </span>}
+                      {macros && <span style={{fontSize:11,color:A.textDim,fontFamily:MONO,letterSpacing:0.4}}>{macros}</span>}
+                    </div>
+                  )}
+                  {f.foods?.length > 0 && <div style={{fontSize:13,color:A.text,fontFamily:SANS,lineHeight:1.4}}>{f.foods.join(' · ')}</div>}
+                  <FuelSchedule items={f.fueling_schedule}/>
                   {f.notes && <div style={{fontSize:11,color:A.textFaint,fontStyle:'italic',marginTop:4}}>{f.notes}</div>}
                 </div>
               </div>
@@ -661,9 +837,9 @@ function FuelingTimeline({items}) {
 
 // ── Supplements ───────────────────────────────────────────────
 function Supplements({supplements, weekNumber}) {
-  const slots = {morning:[],pre_run:[],post_run:[],evening:[]};
-  const labels = {morning:'MORNING',pre_run:'PRE-WORKOUT',post_run:'POST-WORKOUT',evening:'EVENING'};
-  const icons = {morning:'🌅',pre_run:'↑',post_run:'↓',evening:'🌙'};
+  const slots = {morning:[],with_meals:[],pre_run:[],post_run:[],evening:[]};
+  const labels = {morning:'MORNING',with_meals:'WITH MEALS',pre_run:'PRE-WORKOUT',post_run:'POST-WORKOUT',evening:'EVENING'};
+  const icons = {morning:'🌅',with_meals:'🍽',pre_run:'↑',post_run:'↓',evening:'🌙'};
   for (const s of supplements) {
     if (s.active_weeks && !weekActive(s.active_weeks, weekNumber)) continue;
     const slot = s.timing_slot || 'morning';
@@ -671,6 +847,7 @@ function Supplements({supplements, weekNumber}) {
   }
   const [open, setOpen] = useState(false);
   const totalCount = Object.values(slots).flat().length;
+  const windowCount = Object.values(slots).filter(a => a.length).length;
   return (
     <div style={{background:A.surface2,borderRadius:14,overflow:'hidden',border:`1px solid ${A.border}`,marginBottom:8}}>
       <button onClick={()=>setOpen(o=>!o)} style={{
@@ -683,7 +860,7 @@ function Supplements({supplements, weekNumber}) {
         </div>
         <div style={{flex:1,minWidth:0}}>
           <div style={{fontSize:9,color:'#22d3ee',fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>SUPPLEMENTS</div>
-          <div style={{fontSize:12,color:A.textDim}}>{totalCount} supplement{totalCount!==1?'s':''} · 4 timing windows</div>
+          <div style={{fontSize:12,color:A.textDim}}>{totalCount} supplement{totalCount!==1?'s':''} · {windowCount} timing window{windowCount!==1?'s':''}</div>
         </div>
         <span style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform .2s'}}>
           <Icon name="down" size={14} color={A.textFaint}/>
@@ -738,10 +915,43 @@ function SupplementRow({sup}) {
 }
 
 // ── Daily Routines ────────────────────────────────────────────
-function DailyRoutines({routines, weekNumber}) {
-  const active = routines.filter(r => weekActive(r.active_weeks, weekNumber));
+// Routines for one day: active_weeks, then the phase_override for that week.
+// An override's modification is prose; a "Monday-Wednesday only" style day
+// range in it is honoured, and the text itself is always shown on the row.
+// Returns [{routine, override, skip}] in timing order; skip is the reason a
+// routine does not apply today (it is shown dimmed, not hidden).
+const DOW_IDX = {mon:0,tue:1,wed:2,thu:3,fri:4,sat:5,sun:6};
+const DOW_RANGE_RE = /\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\s*[-–]\s*(mon|tue|wed|thu|fri|sat|sun)[a-z]*\s+only\b/i;
+// Spec 3.6: the heel isometrics are skipped on Lower A/B days (the session covers them).
+const ROUTINE_SKIP_ON_STRENGTH = { heel_isometrics_evening: 'lower' };
+const ROUTINE_TIMING_ORDER = {morning:0, pre_run:1, post_run:2, anytime:3, evening:4};
+
+const routinesForDay = (routines, day) => {
+  const week = day.week_number;
+  const dow = DOW_IDX[(day.day_of_week || '').slice(0,3).toLowerCase()];
+  const sessions = daySessions(day);
+  return (routines || [])
+    .filter(r => weekActive(r.active_weeks, week))
+    .map(r => {
+      const override = (r.phase_overrides || []).find(o => weekActive(o.weeks, week)) || null;
+      let skip = null;
+      const m = override && DOW_RANGE_RE.exec(override.modification || '');
+      if (m && dow != null && (dow < DOW_IDX[m[1].toLowerCase()] || dow > DOW_IDX[m[2].toLowerCase()])) {
+        skip = override.modification;
+      }
+      const st = ROUTINE_SKIP_ON_STRENGTH[r.id];
+      if (!skip && st && sessions.some(s => s.type === 'strength' && s.subtype === st)) {
+        skip = `Skipped today — the ${strColor(st).name.toLowerCase()} strength session covers it.`;
+      }
+      return {routine: r, override, skip};
+    })
+    .sort((a, b) => (ROUTINE_TIMING_ORDER[a.routine.timing] ?? 9) - (ROUTINE_TIMING_ORDER[b.routine.timing] ?? 9));
+};
+
+function DailyRoutines({routines, day}) {
+  const active = routinesForDay(routines, day);
   if (!active.length) return null;
-  const totalMin = active.reduce((s,r) => s + (r.duration_min||0), 0);
+  const totalMin = active.filter(a => !a.skip).reduce((s,a) => s + (a.routine.duration_min||0), 0);
   return (
     <div style={{background:A.surface,borderRadius:20,padding:18,border:`1px solid ${A.border}`}}>
       <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:14}}>
@@ -749,15 +959,15 @@ function DailyRoutines({routines, weekNumber}) {
         <span style={{padding:'3px 8px',borderRadius:4,fontSize:10,fontWeight:700,letterSpacing:1.4,color:'#4ade80',background:'rgba(74,222,128,0.12)',fontFamily:MONO}}>DAILY ROUTINES</span>
         <span style={{fontSize:10,color:A.textFaint,fontFamily:MONO,letterSpacing:0.5}}>{totalMin} MIN</span>
       </div>
-      {active.map(r => <RoutineRow key={r.id} routine={r}/>)}
+      {active.map(a => <RoutineRow key={a.routine.id} routine={a.routine} override={a.override} skip={a.skip} week={day.week_number}/>)}
     </div>
   );
 }
 
-function RoutineRow({routine}) {
+function RoutineRow({routine, override, skip, week}) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{borderRadius:12,background:'rgba(255,255,255,0.02)',border:`1px solid ${A.border}`,overflow:'hidden',marginBottom:8}}>
+    <div style={{borderRadius:12,background:'rgba(255,255,255,0.02)',border:`1px solid ${A.border}`,overflow:'hidden',marginBottom:8,opacity:skip?0.55:1}}>
       <button onClick={()=>setOpen(o=>!o)} style={{
         width:'100%',padding:'12px 14px',background:'transparent',border:'none',
         display:'flex',alignItems:'center',gap:10,cursor:'pointer',
@@ -769,8 +979,13 @@ function RoutineRow({routine}) {
         <div style={{flex:1,minWidth:0}}>
           <div style={{fontSize:13,color:A.text,fontWeight:600,fontFamily:SANS}}>{routine.title}</div>
           <div style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:0.6,marginTop:1}}>
-            {routine.timing?.toUpperCase()} · {(routine.exercises||[]).length} exercises
+            {skip ? <span style={{color:'#ffb020',fontWeight:700}}>SKIP TODAY</span> : routine.timing?.toUpperCase()} · {(routine.exercises||[]).length} exercises
           </div>
+          {(skip || override) && (
+            <div style={{fontSize:11,color:skip?A.textDim:'#ffb020',lineHeight:1.4,marginTop:4}}>
+              {skip || <><span style={{fontFamily:MONO,fontSize:9,fontWeight:700,letterSpacing:0.8}}>WK {week} </span>{override.modification}</>}
+            </div>
+          )}
         </div>
         <span style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform .2s'}}>
           <Icon name="down" size={14} color={A.textFaint}/>
@@ -798,7 +1013,7 @@ function RoutineRow({routine}) {
 
 // ── Minimal Workout Card (All tab) ───────────────────────────
 function HeroWorkoutMinimal({session, kind, onOpen}) {
-  const color = kind === 'run' ? runColor(session.subtype) : strColor(session.subtype);
+  const color = sessionColor(session);
   return (
     <div
       onClick={onOpen}
@@ -813,8 +1028,9 @@ function HeroWorkoutMinimal({session, kind, onOpen}) {
             {color.name}
           </span>
           {session.poles && <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1}}>+ POLES</span>}
+          {session.aet_gate && session.aet_gate.active_version !== 'if_pass' && <span style={{fontSize:10,color:A.textFaint,fontFamily:MONO,letterSpacing:1}}>GATED</span>}
           <div style={{flex:1}}/>
-          <Icon name={kind==='run'?(session.subtype==='power_climb'?'mountain':'run'):'dumbbell'} size={16} color={A.textFaint}/>
+          <Icon name={sessionIcon(session)} size={16} color={A.textFaint}/>
         </div>
         <div style={{fontSize:22,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,lineHeight:1.1,marginBottom:14}}>{session.title}</div>
       </div>
@@ -842,12 +1058,13 @@ function NutritionCardMinimal({nutrition, onOpen}) {
       <div style={{padding:18}}>
       <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4}}>
         <span style={{padding:'3px 8px',borderRadius:4,fontSize:10,fontWeight:700,letterSpacing:1.4,color:'#ffb020',background:'rgba(255,176,32,0.12)',fontFamily:MONO}}>
-          FUEL · {nutrition.day_type_label?.split(' ')[0]?.toUpperCase() || 'TRAINING'}
+          FUEL · {nutritionChip(nutrition)}
         </span>
         <div style={{flex:1}}/>
         <Icon name="flame" size={16} color={A.textFaint}/>
       </div>
       <div style={{fontSize:22,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,lineHeight:1.15,marginBottom:14}}>Daily nutrition</div>
+      <NutritionSource nutrition={nutrition}/>
       <div style={{marginBottom:16}}>
         <div style={{fontSize:10,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600,marginBottom:4}}>CALORIES</div>
         <div style={{display:'flex',alignItems:'baseline',gap:6}}>
@@ -866,29 +1083,37 @@ function NutritionCardMinimal({nutrition, onOpen}) {
 }
 
 // ── Day Timeline ──────────────────────────────────────────────
+// Clock times are illustrative anchors for the order of the day
+// (run AM -> swim midday -> strength PM), not prescriptions.
+const TIMELINE_SLOTS = {
+  run:      {pre:'06:30', at:'08:00', post:'09:30', preLabel:'Pre-run fuel',      postLabel:'Post-run recovery'},
+  cross:    {pre:'11:30', at:'12:00', post:'13:00', preLabel:'Pre-swim snack',    postLabel:'Post-swim refuel'},
+  strength: {pre:'16:00', at:'17:00', post:'18:30', preLabel:'Pre-strength fuel', postLabel:'Post-strength meal'},
+};
+const ROUTINE_SLOT_TIME = {morning:'06:15', pre_run:'07:45', post_run:'09:45', anytime:'13:30', evening:'21:00'};
+
 function DayTimeline({day, plan}) {
   const items = [];
-  const activeRoutines = plan.daily_routines.filter(r => weekActive(r.active_weeks, day.week_number));
-  if (activeRoutines.length) {
-    const totalMin = activeRoutines.reduce((s,r) => s + (r.duration_min||0), 0);
-    items.push({time:'06:30',kind:'routine',label:'Daily routines',dur:totalMin,color:'#4ade80'});
+  const routines = routinesForDay(plan.daily_routines, day).filter(a => !a.skip);
+  const byTiming = {};
+  for (const {routine} of routines) (byTiming[routine.timing] = byTiming[routine.timing] || []).push(routine);
+  for (const [timing, rs] of Object.entries(byTiming)) {
+    const totalMin = rs.reduce((s,r) => s + (r.duration_min||0), 0);
+    const label = timing === 'anytime' ? rs.map(r => r.title).join(', ') : `${timing[0].toUpperCase()}${timing.slice(1).replace('_',' ')} routines`;
+    items.push({time:ROUTINE_SLOT_TIME[timing] || '12:00',kind:'routine',label,dur:totalMin,color:'#4ade80',sub:timing==='anytime'?'ANYTIME':undefined});
   }
   const mornSups = plan.supplements.filter(s => s.timing_slot==='morning' && weekActive(s.active_weeks, day.week_number));
   if (mornSups.length) items.push({time:'07:00',kind:'supp',label:`Morning supplements (${mornSups.length})`,color:'#22d3ee'});
   const fueling = day.nutrition?.session_fueling || [];
-  for (const s of (day.run?.sessions||[])) {
-    const pre = fueling.find(f => f.linked_session?.position==='pre' && f.linked_session?.type==='run');
-    const post = fueling.find(f => f.linked_session?.position==='post' && f.linked_session?.type==='run');
-    if (pre) items.push({time:'06:30',kind:'fuel',label:'Pre-run fuel',sub:(pre.foods||[])[0],color:'#ffb020'});
-    items.push({time:'08:00',kind:'session',label:s.title,dur:s.duration_min,color:runColor(s.subtype).hue,sub:runColor(s.subtype).name});
-    if (post) items.push({time:'09:30',kind:'fuel',label:'Post-run recovery',sub:(post.foods||[])[0],color:'#ffb020'});
-  }
-  for (const s of (day.strength?.sessions||[])) {
-    const pre = fueling.find(f => f.linked_session?.position==='pre' && f.linked_session?.type==='strength');
-    const post = fueling.find(f => f.linked_session?.position==='post' && f.linked_session?.type==='strength');
-    if (pre) items.push({time:'16:00',kind:'fuel',label:'Pre-strength fuel',sub:(pre.foods||[])[0],color:'#ffb020'});
-    items.push({time:'17:00',kind:'session',label:s.title,dur:s.duration_min,color:strColor(s.subtype).hue,sub:strColor(s.subtype).name});
-    if (post) items.push({time:'18:30',kind:'fuel',label:'Post-strength meal',sub:(post.foods||[])[0],color:'#ffb020'});
+  for (const s of daySessions(day)) {
+    const slot = TIMELINE_SLOTS[s.kind] || TIMELINE_SLOTS.strength;
+    const c = sessionColor(s);
+    const pre = fuelFor(fueling, s, 'pre');
+    const during = fuelFor(fueling, s, 'during');
+    const post = fuelFor(fueling, s, 'post');
+    if (pre) items.push({time:slot.pre,kind:'fuel',label:slot.preLabel,sub:(pre.foods||[])[0],color:'#ffb020'});
+    items.push({time:slot.at,kind:'session',label:s.title,dur:s.duration_min,color:c.hue,sub:during?.fueling_schedule?.length ? `${c.name} · FUEL EN ROUTE` : c.name});
+    if (post) items.push({time:slot.post,kind:'fuel',label:slot.postLabel,sub:(post.foods||[])[0],color:'#ffb020'});
   }
   const eveSups = plan.supplements.filter(s => s.timing_slot==='evening' && weekActive(s.active_weeks, day.week_number));
   if (eveSups.length) items.push({time:'21:30',kind:'supp',label:`Evening: ${eveSups.map(s=>s.name).join(', ')}`,color:'#22d3ee'});
@@ -925,13 +1150,49 @@ function buildWeeks(plan) {
   const map = {};
   for (const [date, day] of Object.entries(plan.days)) {
     const w = day.week_number;
-    if (!map[w]) map[w] = {n:w,phase:day.run?.phase||day.strength?.phase||'',start:date,end:date,targets:day.run?.weekly_targets||{},weekNotes:day.run?.week_notes||'',days:[]};
+    if (!map[w]) map[w] = {
+      n:w, phase:day.run?.phase||day.strength?.phase||'', start:date, end:date,
+      targets:day.run?.weekly_targets||{}, strTargets:day.strength?.weekly_targets||{},
+      weekNotes:day.run?.week_notes||'', strWeekNotes:day.strength?.week_notes||'', days:[],
+    };
     const m = map[w];
     if (date < m.start) m.start = date;
     if (date > m.end) m.end = date;
     m.days.push(day);
   }
-  return Object.values(map).sort((a,b) => a.n - b.n);
+  return Object.values(map).sort((a,b) => a.n - b.n).map(w => ({...w, ...weekChecks(w)}));
+}
+
+// Loader assertion (spec 2.5 / 3.2): weekly_targets are DERIVED from the week's
+// sessions. mileage_mi / vertical_ft must equal the run-session sums (race_pace
+// excluded) within ±0.5 mi / ±50 ft; strength_sessions counts type "strength"
+// only; swim_sessions / swim_minutes count cross/swim. A mismatch is flagged on
+// the week card — never corrected.
+const MILEAGE_TOL_MI = 0.5;
+const VERTICAL_TOL_FT = 50;
+const EXCLUDED_FROM_SUMS = new Set(['race_pace']);
+
+function weekChecks(week) {
+  const sessions = week.days.flatMap(daySessions);
+  const runs = sessions.filter(s => s.type === 'run' && !EXCLUDED_FROM_SUMS.has(s.subtype));
+  const mi = runs.reduce((t,s) => t + (s.distance_mi||0), 0);
+  const ft = runs.reduce((t,s) => t + (s.elevation_gain_ft||0), 0);
+  const swims = sessions.filter(s => s.type === 'cross' && s.subtype === 'swim');
+  const swimMin = swims.reduce((t,s) => t + (s.duration_min||0), 0);
+  const strengthCount = sessions.filter(s => s.type === 'strength').length;
+  const t = week.targets, st = week.strTargets;
+  const problems = [];
+  if (t.mileage_mi != null && Math.abs(t.mileage_mi - mi) > MILEAGE_TOL_MI)
+    problems.push(`mileage_mi ${t.mileage_mi} ≠ sessions ${mi.toFixed(1)} mi`);
+  if (t.vertical_ft != null && Math.abs(t.vertical_ft - ft) > VERTICAL_TOL_FT)
+    problems.push(`vertical_ft ${t.vertical_ft} ≠ sessions ${Math.round(ft)} ft`);
+  if (st.strength_sessions != null && st.strength_sessions !== strengthCount)
+    problems.push(`strength_sessions ${st.strength_sessions} ≠ ${strengthCount} scheduled`);
+  if (st.swim_sessions != null && st.swim_sessions !== swims.length)
+    problems.push(`swim_sessions ${st.swim_sessions} ≠ ${swims.length} scheduled`);
+  if (st.swim_minutes != null && st.swim_minutes !== swimMin)
+    problems.push(`swim_minutes ${st.swim_minutes} ≠ ${swimMin} scheduled`);
+  return {problems, strengthCount, swimCount: swims.length, swimMin};
 }
 
 function formatRange(s, e) {
@@ -939,12 +1200,55 @@ function formatRange(s, e) {
   return `${fmt(new Date(s+'T00:00:00'))} — ${fmt(new Date(e+'T00:00:00'))}`;
 }
 
+// One session line in the week list.
+function WeekSessionRow({s}) {
+  const c = sessionColor(s);
+  let main, sub;
+  if (s.type === 'run') {
+    main = s.distance_mi > 0 ? `${s.distance_mi} mi` : s.duration_min != null ? `${s.duration_min}m` : '';
+    const ft = s.elevation_gain_ft ? `${s.elevation_gain_ft>=1000?(s.elevation_gain_ft/1000).toFixed(1)+'k':s.elevation_gain_ft}ft` : '';
+    sub = [s.distance_mi > 0 && s.duration_min != null ? `${s.duration_min}m` : '', ft].filter(Boolean).join(' · ');
+  } else if (s.type === 'cross') {
+    main = s.duration_min != null ? `${s.duration_min}m` : '';
+    sub = (s.intensity || '').toLowerCase();
+  } else {
+    main = s.duration_min != null ? `${s.duration_min}m` : '';
+    sub = `${(s.exercises||[]).length} moves`;
+  }
+  const tag = [c.name, s.poles ? 'POLES' : '', s.aet_gate && s.aet_gate.active_version !== 'if_pass' ? 'GATED' : ''].filter(Boolean).join(' · ');
+  return (
+    <div style={{display:'flex',alignItems:'center',gap:12}}>
+      <div style={{width:6,height:6,borderRadius:3,background:c.hue,flexShrink:0}}/>
+      <div style={{flex:1,minWidth:0}}>
+        <div style={{fontSize:9,color:c.hue,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,marginBottom:2}}>{tag}</div>
+        <div style={{fontSize:13,color:A.text,fontWeight:600,lineHeight:1.25,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{s.title}</div>
+      </div>
+      <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:2,fontFamily:MONO,flexShrink:0}}>
+        <div style={{fontSize:13,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.2}}>{main}</div>
+        {sub && <div style={{fontSize:9,color:A.textFaint,letterSpacing:0.4}}>{sub}</div>}
+      </div>
+    </div>
+  );
+}
+
+function WeekNote({label, text}) {
+  if (!text) return null;
+  return (
+    <div style={{fontSize:12,color:A.textDim,lineHeight:1.5,fontFamily:SANS,padding:'6px 0'}}>
+      <span style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:700}}>{label} </span>{text}
+    </div>
+  );
+}
+
 function WeekCard({week, defaultOpen, onJump}) {
   const [open, setOpen] = useState(!!defaultOpen);
   const ph = phaseStyle(week.phase);
   const today = todayIso();
-  const strengthCount = week.days.reduce((acc,d) => acc + ((d.strength?.sessions?.length)||0), 0);
   const t = week.targets;
+  const stat = (label, value) => (
+    <div><div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>{label}</div><div style={{fontSize:16,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,marginTop:2}}>{value}</div></div>
+  );
+  const chip = {fontSize:9,fontFamily:MONO,letterSpacing:1,fontWeight:600};
   return (
     <div style={{background:A.surface,borderRadius:16,border:`1px solid ${A.border}`,overflow:'hidden'}}>
       <div style={{height:2,background:ph.hue}}/>
@@ -959,26 +1263,45 @@ function WeekCard({week, defaultOpen, onJump}) {
             <div style={{fontSize:16,fontWeight:800,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.5,lineHeight:1,marginTop:2}}>{week.n}</div>
           </div>
           <div style={{flex:1,minWidth:0}}>
-            <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:2}}>
+            <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:2,flexWrap:'wrap'}}>
               <span style={{padding:'2px 7px',borderRadius:3,fontSize:9,fontWeight:700,letterSpacing:1.4,color:ph.hue,background:`${ph.hue}22`,fontFamily:MONO}}>{ph.label}</span>
-              {strengthCount > 0 && <span style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>+{strengthCount} STR</span>}
+              {t.recovery_week && <span style={{...chip,padding:'2px 6px',borderRadius:3,border:'1px solid rgba(96,165,250,0.5)',color:'#60a5fa',fontWeight:700}}>RECOVERY WEEK</span>}
+              {week.strengthCount > 0 && <span style={{...chip,color:A.textFaint}}>+{week.strengthCount} STR</span>}
+              {week.swimCount > 0 && <span style={{...chip,color:CROSS_COLORS.swim.hue}}>+{week.swimCount} SWIM</span>}
+              {week.problems.length > 0 && <span style={{...chip,color:'#ffb020',fontWeight:700}}>⚠ TARGETS ≠ SESSIONS</span>}
             </div>
             <div style={{fontSize:13,color:A.textDim,fontWeight:500}}>{formatRange(week.start, week.end)}</div>
           </div>
           <span style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform .18s',color:A.textDim,fontSize:14,flexShrink:0}}>▾</span>
         </div>
-        {t && (t.mileage_mi != null || t.vertical_ft != null || t.long_run_mi != null) && (
-          <div style={{display:'flex',gap:14,marginTop:8}}>
-            {t.mileage_mi != null && <div><div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>MI</div><div style={{fontSize:16,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,marginTop:2}}>{t.mileage_mi}</div></div>}
-            {t.vertical_ft != null && <div><div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>VERT</div><div style={{fontSize:16,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,marginTop:2}}>{t.vertical_ft.toLocaleString()}ft</div></div>}
-            {t.long_run_mi != null && <div><div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>LONG</div><div style={{fontSize:16,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,marginTop:2}}>{t.long_run_mi}mi</div></div>}
+        {(t.mileage_mi != null || t.vertical_ft != null || t.long_run_mi != null || t.run_hours_est != null) && (
+          <div style={{display:'flex',gap:14,marginTop:8,flexWrap:'wrap'}}>
+            {t.mileage_mi != null && stat('MI', t.mileage_mi)}
+            {t.vertical_ft != null && stat('VERT', `${t.vertical_ft.toLocaleString()}ft`)}
+            {t.long_run_mi != null && t.long_run_mi > 0 && stat('LONG', `${t.long_run_mi}mi`)}
+            {t.run_hours_est != null && stat('RUN HRS', t.run_hours_est)}
+            {week.swimMin > 0 && stat('SWIM', `${week.swimMin}m`)}
           </div>
         )}
       </button>
       {open && (
         <div style={{padding:'0 16px 14px'}}>
-          {week.weekNotes && <div style={{fontSize:12,color:A.textDim,lineHeight:1.5,fontFamily:SANS,padding:'4px 0 10px',borderTop:`1px solid ${A.border}`,marginTop:4}}>{week.weekNotes}</div>}
-          {week.days.sort((a,b)=>a.date.localeCompare(b.date)).map(d => (
+          {week.problems.length > 0 && (
+            <div style={{fontSize:11,color:'#ffb020',fontFamily:MONO,lineHeight:1.5,padding:'8px 10px',margin:'4px 0 8px',borderRadius:8,background:'rgba(255,176,32,0.08)',border:'1px solid rgba(255,176,32,0.25)'}}>
+              Weekly targets don't match the scheduled sessions (flagged, not corrected):
+              {week.problems.map((p,i) => <div key={i}>· {p}</div>)}
+            </div>
+          )}
+          {(week.weekNotes || week.strWeekNotes || t.notes) && (
+            <div style={{borderTop:`1px solid ${A.border}`,marginTop:4,padding:'4px 0 6px'}}>
+              <WeekNote label="RUN" text={week.weekNotes}/>
+              <WeekNote label="STRENGTH" text={week.strWeekNotes}/>
+              <WeekNote label="CHECKS" text={t.notes}/>
+            </div>
+          )}
+          {week.days.sort((a,b)=>a.date.localeCompare(b.date)).map(d => {
+            const sessions = daySessions(d);
+            return (
             <button key={d.date} onClick={()=>onJump(d.date)} style={{
               width:'100%',display:'flex',alignItems:'flex-start',gap:12,
               // The day strip's today-accent, at half strength. Perceived weight
@@ -998,49 +1321,22 @@ function WeekCard({week, defaultOpen, onJump}) {
             }}>
               <div style={{width:36,flexShrink:0,fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:0.8,fontWeight:600,textTransform:'uppercase'}}>
                 {d.day_of_week.slice(0,3)}
-                <div style={{fontSize:14,color:(d.run?.sessions?.[0]||d.strength?.sessions?.[0])?A.text:A.textDim,fontWeight:700,fontFamily:DISPLAY,letterSpacing:0,marginTop:1}}>
+                <div style={{fontSize:14,color:sessions.length?A.text:A.textDim,fontWeight:700,fontFamily:DISPLAY,letterSpacing:0,marginTop:1}}>
                   {new Date(d.date+'T00:00:00').getDate()}
                 </div>
               </div>
               <div style={{flex:1,minWidth:0,display:'flex',flexDirection:'column',gap:9}}>
-                <div style={{display:'flex',alignItems:'center',gap:12}}>
-                  {(() => {
-                    const run = d.run?.sessions?.[0];
-                    if (!run) return <><div style={{width:6,height:6,borderRadius:3,background:'rgba(255,255,255,0.18)',flexShrink:0}}/><div style={{flex:1,minWidth:0,fontSize:13,color:A.textDim,fontWeight:500,fontStyle:'italic'}}>Rest</div></>;
-                    const c = runColor(run.subtype);
-                    return <>
-                      <div style={{width:6,height:6,borderRadius:3,background:c.hue,flexShrink:0}}/>
-                      <div style={{flex:1,minWidth:0}}>
-                        <div style={{fontSize:9,color:c.hue,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,marginBottom:2}}>{c.name}{run.poles?' · POLES':''}</div>
-                        <div style={{fontSize:13,color:A.text,fontWeight:600,lineHeight:1.25,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{run.title}</div>
-                      </div>
-                      <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:2,fontFamily:MONO,flexShrink:0}}>
-                        <div style={{fontSize:13,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.2}}>{run.distance_mi!=null?`${run.distance_mi} mi`:`${run.duration_min}m`}</div>
-                        <div style={{fontSize:9,color:A.textFaint,letterSpacing:0.4}}>{run.duration_min}m{run.elevation_gain_ft?` · ${run.elevation_gain_ft>=1000?(run.elevation_gain_ft/1000).toFixed(1)+'k':run.elevation_gain_ft}ft`:''}</div>
-                      </div>
-                    </>;
-                  })()}
-                </div>
-                {(d.strength?.sessions||[]).map((str,i) => {
-                  const sc = strColor(str.subtype);
-                  return (
-                    <div key={i} style={{display:'flex',alignItems:'center',gap:12}}>
-                      <div style={{width:6,height:6,borderRadius:3,background:sc.hue,flexShrink:0}}/>
-                      <div style={{flex:1,minWidth:0}}>
-                        <div style={{fontSize:9,color:sc.hue,fontFamily:MONO,letterSpacing:1.2,fontWeight:700,marginBottom:2}}>{sc.name}</div>
-                        <div style={{fontSize:13,color:A.text,fontWeight:600,lineHeight:1.25,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{str.title}</div>
-                      </div>
-                      <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:2,fontFamily:MONO,flexShrink:0}}>
-                        <div style={{fontSize:13,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.2}}>{str.duration_min}m</div>
-                        <div style={{fontSize:9,color:A.textFaint,letterSpacing:0.4}}>{(str.exercises||[]).length} moves</div>
-                      </div>
-                    </div>
-                  );
-                })}
+                {sessions.length === 0 ? (
+                  <div style={{display:'flex',alignItems:'center',gap:12}}>
+                    <div style={{width:6,height:6,borderRadius:3,background:'rgba(255,255,255,0.18)',flexShrink:0}}/>
+                    <div style={{flex:1,minWidth:0,fontSize:13,color:A.textDim,fontWeight:500,fontStyle:'italic'}}>Rest</div>
+                  </div>
+                ) : sessions.map((s,i) => <WeekSessionRow key={i} s={s}/>)}
               </div>
               <span style={{color:A.textFaint,fontSize:14,marginLeft:4,marginTop:2,flexShrink:0}}>↗</span>
             </button>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
@@ -1096,6 +1392,34 @@ function UpdateControl({update}) {
   );
 }
 
+// AeT status (run_plan meta, spec 2.7). The caps in the plan are computed from
+// aet_bpm by the coach and re-issued as a patch after each drift test.
+function AetStatus({physiology: p}) {
+  if (!p || p.aet_bpm == null) return null;
+  const today = todayIso();
+  const next = (p.aet_test_dates || []).find(d => d >= today);
+  const fmtD = iso => new Date(iso+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const status = (p.aet_status || '').split(/\s+-\s+/)[0];
+  const passed = p.aet_gate_bpm != null && p.aet_bpm >= p.aet_gate_bpm;
+  return (
+    <div style={{margin:'0 16px 14px',padding:'12px 14px',background:A.surface,borderRadius:14,border:`1px solid ${A.border}`}}>
+      <div style={{display:'flex',alignItems:'baseline',gap:8,flexWrap:'wrap'}}>
+        <span style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1.2,fontWeight:700}}>AeT</span>
+        <span style={{fontSize:24,fontWeight:800,fontFamily:DISPLAY,letterSpacing:-0.6,lineHeight:1}}>{p.aet_bpm}</span>
+        <span style={{fontSize:10,color:A.textDim,fontFamily:MONO}}>bpm</span>
+        {status && <span style={{fontSize:9,padding:'2px 6px',borderRadius:3,border:`1px solid ${A.borderStrong}`,color:A.textDim,fontFamily:MONO,fontWeight:700,letterSpacing:1}}>{status.toUpperCase()}</span>}
+        <div style={{flex:1}}/>
+        {p.lthr_bpm != null && <span style={{fontSize:10,color:A.textFaint,fontFamily:MONO}}>LTHR {p.lthr_bpm}</span>}
+      </div>
+      <div style={{fontSize:11,color:A.textDim,fontFamily:MONO,marginTop:6,lineHeight:1.5}}>
+        {p.aet_gate_bpm != null && <span style={{color:passed?'#4ade80':A.textDim}}>Z3 gate ≥{p.aet_gate_bpm}{passed?' · passed':''}</span>}
+        {next && <span> · next test {fmtD(next)}</span>}
+      </div>
+      {p.aet_status && <div style={{fontSize:11,color:A.textFaint,marginTop:4,lineHeight:1.4}}>{p.aet_status}</div>}
+    </div>
+  );
+}
+
 function PlanView({plan, currentDate, onJumpToDay, update}) {
   const weeks = useMemo(() => buildWeeks(plan), [plan]);
   const currentWeek = plan.days[currentDate]?.week_number;
@@ -1113,6 +1437,7 @@ function PlanView({plan, currentDate, onJumpToDay, update}) {
         <div style={{fontSize:12,color:A.textDim,marginTop:4}}>Tap any week to expand. Tap a workout to jump into that day.</div>
         <UpdateControl update={update}/>
       </div>
+      <AetStatus physiology={plan.meta?.physiology}/>
       <div style={{padding:'0 16px 14px',display:'flex',gap:10,flexWrap:'wrap'}}>
         {[['Base','#4ade80'],['Build','#ff5a3c'],['Peak','#ffb020'],['Taper_1','#60a5fa'],['Race_week','#c084fc']].map(([k,c]) => (
           <div key={k} style={{display:'flex',alignItems:'center',gap:6,fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>
@@ -1135,6 +1460,9 @@ function PlanView({plan, currentDate, onJumpToDay, update}) {
 // ── Race stages (aid-station legs) ────────────────────────────
 // Source: VT50K_stage_table_v2.csv (B-pace plan). Inlined rather than fetched
 // so it is available offline on the course. k: 's' stage, 'a' aid, 'f' finish.
+// The page is only offered when the loaded plan's meta.race is this race, so a
+// new cycle does not show another course's aid stations.
+const RACE_STAGES_RACE = 'Vermont 50K';
 const RACE_STAGES = [
   {"k": "s", "name": "Opening descent (free)", "m0": 0.0, "m1": 0.62, "d": 0.62, "up": 0, "dn": 175, "avg": -5.3, "max": -10.9, "pace": "9:53", "gait": "RUN cad>=175", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:06:08"},
   {"k": "s", "name": "Rollers to the low point", "m0": 0.62, "m1": 1.09, "d": 0.47, "up": 46, "dn": 49, "avg": -0.1, "max": -6.1, "pace": "11:11", "gait": "RUN", "zone": "Z1-Z2", "hr": "137-149", "eta": "0:11:23"},
@@ -2083,14 +2411,15 @@ function App({plan, update}) {
   const showWorkouts = filter === 'all' || filter === 'workouts';
   const showNutrition = filter === 'all' || filter === 'nutrition';
   const showRoutines = filter === 'all' || filter === 'routines';
-  const runSessions = day.run?.sessions || [];
-  const strSessions = day.strength?.sessions || [];
-  const allSessions = [
-    ...runSessions.map(s => ({...s, kind:'run'})),
-    ...strSessions.map(s => ({...s, kind:'strength'})),
-  ];
-  const isRest = day.rest_day || (allSessions.length === 0);
+  // run -> cross (swim) -> strength; kind is the session's own type.
+  const allSessions = daySessions(day);
+  const isRest = isRestDay(day);
   const fueling = day.nutrition?.session_fueling || [];
+  const aetGateBpm = plan.meta?.physiology?.aet_gate_bpm;
+  // Both plans carry day_notes (the strength plan's often gives the run/swim/lift order).
+  const dayNotes = [...new Set([day.run?.day_notes, day.strength?.day_notes].filter(Boolean))];
+  const recoveryWeek = day.run?.weekly_targets?.recovery_week;
+  const showRaceStages = plan.meta?.race === RACE_STAGES_RACE;
 
   return (
     <div id="app-scroll" style={{height:'100vh',overflowY:'auto',background:A.bg}}>
@@ -2104,6 +2433,7 @@ function App({plan, update}) {
             <div style={{flex:1}}>
               <div style={{fontSize:10,color:A.accent,fontFamily:MONO,letterSpacing:1.6,fontWeight:700}}>
                 WEEK {day.week_number} · {(day.run?.phase||day.strength?.phase||'BASE').toUpperCase().replace('_',' ')}
+                {recoveryWeek && <span style={{color:'#60a5fa'}}> · RECOVERY</span>}
               </div>
               <div style={{fontSize:18,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4}}>
                 {formatDayLong(selected)}
@@ -2119,14 +2449,14 @@ function App({plan, update}) {
               <Icon name="list" size={14} color={A.text}/>
               PLAN
             </button>
-            <button onClick={()=>setView('race')} aria-label="Race aid stations" style={{
+            {showRaceStages && <button onClick={()=>setView('race')} aria-label="Race aid stations" style={{
               width:36,height:36,borderRadius:10,background:A.surface2,
               border:`1px solid ${A.border}`,display:'flex',alignItems:'center',
               justifyContent:'center',cursor:'pointer',color:A.text,
               WebkitTapHighlightColor:'transparent',padding:0,
             }}>
               <Icon name="route" size={16} color={A.accent}/>
-            </button>
+            </button>}
             <button onClick={()=>setView('analysis')} aria-label="Workout analysis" style={{
               width:36,height:36,borderRadius:10,background:A.surface2,
               border:`1px solid ${A.border}`,display:'flex',alignItems:'center',
@@ -2141,11 +2471,13 @@ function App({plan, update}) {
         </div>
 
         {/* day notes */}
-        {day.run?.day_notes && showWorkouts && (
+        {dayNotes.length > 0 && showWorkouts && (
           <div style={{padding:'14px 16px 0'}}>
             <div style={{background:'linear-gradient(135deg,rgba(255,90,60,0.08),rgba(255,176,32,0.04))',border:'1px solid rgba(255,90,60,0.22)',borderRadius:12,padding:'10px 12px',display:'flex',gap:10,alignItems:'flex-start'}}>
               <span style={{fontSize:9,color:A.accent,fontFamily:MONO,letterSpacing:1.4,fontWeight:700,padding:'2px 6px',background:'rgba(255,90,60,0.16)',borderRadius:4,flexShrink:0,marginTop:1}}>!</span>
-              <div style={{fontSize:12,color:A.text,lineHeight:1.5,fontFamily:SANS}}>{day.run.day_notes}</div>
+              <div style={{display:'flex',flexDirection:'column',gap:6}}>
+                {dayNotes.map((n,i) => <div key={i} style={{fontSize:12,color:A.text,lineHeight:1.5,fontFamily:SANS}}>{n}</div>)}
+              </div>
             </div>
           </div>
         )}
@@ -2163,7 +2495,7 @@ function App({plan, update}) {
             <div style={{padding:'40px 20px',textAlign:'center',background:A.surface,borderRadius:20,border:`1px solid ${A.border}`}}>
               <div style={{fontSize:11,color:A.textDim,fontFamily:MONO,letterSpacing:1.6,marginBottom:6}}>SCHEDULED</div>
               <div style={{fontSize:32,fontWeight:800,color:A.text,fontFamily:DISPLAY,letterSpacing:-1}}>REST</div>
-              <div style={{fontSize:13,color:A.textDim,marginTop:6}}>Recovery day. Routines + supplements still apply.</div>
+              <div style={{fontSize:13,color:A.textDim,marginTop:6}}>No session in any plan. Routines + supplements still apply.</div>
             </div>
           )}
 
@@ -2186,21 +2518,26 @@ function App({plan, update}) {
               {showWorkouts && allSessions.length > 0 && (
                 <>
                   {allSessions.map((s, i) => {
-                    const isRun = s.kind === 'run';
-                    const isStr = s.kind === 'strength';
-                    const prePost = isRun ? (
+                    const protocols = plan.session_protocols || {};
+                    // Cross sessions have no protocols (spec 3.5).
+                    const prePost = s.kind === 'run' ? (
                       <>
-                        <PrePostCard block={plan.session_protocols.run.pre_run} kind="pre" label="RUN WARM-UP" accent="#60a5fa"/>
-                        <PrePostCard block={plan.session_protocols.run.post_run} kind="post" label="RUN COOLDOWN" accent="#4ade80"/>
+                        <PrePostCard block={protocols.run?.pre_run} kind="pre" label="RUN WARM-UP" accent="#60a5fa"/>
+                        <PrePostCard block={protocols.run?.post_run} kind="post" label="RUN COOLDOWN" accent="#4ade80"/>
                       </>
-                    ) : isStr ? (() => {
+                    ) : s.kind === 'strength' ? (() => {
+                      // warmup_protocol keys session_protocols; the cooldown is the
+                      // matching post_* (pre_lower -> post_lower). post_strength is
+                      // the pre-v1.6 single cooldown, kept as a fallback.
                       const warmupKey = s.warmup_protocol;
-                      const warmupBlock = warmupKey && plan.session_protocols.strength[warmupKey];
-                      const warmupLabel = warmupKey === 'pre_upper' ? 'UPPER WARM-UP' : warmupKey === 'pre_lower' ? 'LOWER WARM-UP' : 'STRENGTH PREP';
+                      const warmupBlock = warmupKey && protocols.strength?.[warmupKey];
+                      const coolKey = STRENGTH_COOLDOWN[warmupKey];
+                      const coolBlock = (coolKey && protocols.strength?.[coolKey]) || protocols.strength?.post_strength;
+                      const part = warmupKey === 'pre_upper' ? 'UPPER' : warmupKey === 'pre_lower' ? 'LOWER' : 'STRENGTH';
                       return (
                         <>
-                          {warmupBlock && <PrePostCard block={warmupBlock} kind="pre" label={warmupLabel} accent="#60a5fa"/>}
-                          <PrePostCard block={plan.session_protocols.strength.post_strength} kind="post" label="MOBILITY" accent="#4ade80"/>
+                          {warmupBlock && <PrePostCard block={warmupBlock} kind="pre" label={`${part} WARM-UP`} accent="#60a5fa"/>}
+                          {coolBlock && <PrePostCard block={coolBlock} kind="post" label={`${part} COOLDOWN`} accent="#4ade80"/>}
                         </>
                       );
                     })() : null;
@@ -2212,7 +2549,8 @@ function App({plan, update}) {
                         isSecondary={i > 0}
                         fueling={fueling}
                         prePost={prePost}
-                        workoutLabel={s.kind === 'run' ? runColor(s.subtype).name : strColor(s.subtype).name}
+                        workoutLabel={sessionColor(s).name}
+                        aetGateBpm={aetGateBpm}
                         focusNonce={jump && jump.idx === i ? jump.nonce : null}
                         onFocusDone={()=>setJump(null)}
                       />
@@ -2228,7 +2566,7 @@ function App({plan, update}) {
                 </>
               )}
               {showRoutines && (
-                <DailyRoutines routines={plan.daily_routines} weekNumber={day.week_number}/>
+                <DailyRoutines routines={plan.daily_routines} day={day}/>
               )}
             </>
           )}
@@ -2278,7 +2616,7 @@ const changedSources = (oldPlan, newPlan) => {
   const b = newPlan?.meta?.sources || {};
   return [...new Set([...Object.keys(a), ...Object.keys(b)])]
     .filter(k => JSON.stringify(a[k]) !== JSON.stringify(b[k]))
-    .map(k => SOURCE_LABEL[k] || k);
+    .map(k => `${SOURCE_LABEL[k] || k}${b[k]?.revision ? ` rev ${b[k].revision}` : ''}`);
 };
 
 const newestSourceDate = (plan) => {

@@ -1,0 +1,1361 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "training-plan-master-v1.7",
+ "title": "Master Training Plan Schema",
+ "description": "Canonical schema for run, strength, and nutrition plans. v1.2: nutrition uses day_types with session_fueling (array, linked to sessions), structured supplement timing, session-centric daily view. v1.3: hr_zone enum extended with range labels (Z1-2, Z2-3 per HR_Zone_Gap_Report_v1; Z3-4 added forward-looking); $id bumped; per-block instance fields (athlete/race/dates) removed from the schema header - they live in each plan's meta. CONVENTION: hr_zone = the INTENDED EXECUTION BAND for the session (range labels where intent spans a boundary); hr_cap_bpm = the HARD CEILING / alarm value, which may legitimately sit above the intended band as a tripwire. Zone bands @ LTHR 168 (corrected, contiguous): Z1 <142, Z2 142-150, Z3 151-158, Z4 159-167, Z5a 168-171. v1.4: plan_type_required_fields is now ENFORCED via allOf/if-then on meta.plan_type (run & strength require daily_routines, session_protocols, weeks; nutrition requires day_types, supplements). The informational plan_type_required_fields block is retained as documentation; the allOf clauses are the enforcement. v1.5 (run_plan rev 1.9): optional run_session.terrain_intent. v1.6 (Tuscany cycle, 2026-09-30), ADDITIVE ONLY: run_session.hr_anchor (what hr_cap_bpm is computed from - Uphill Athlete AeT model), run_session.aet_gate (conditional if_pass version of a gated session; load fields identical in both versions), week.weekly_targets.run_hours_est / recovery_week / derived_from / derivation_rule, strength_session.warmup_protocol, and documented meta fields (revision, revision_notes, lthr_*, aet_*). NOTE: the Friel hr_zone bands listed here remain the LABEL set; under the v1.6 AeT model the cap value comes from hr_anchor + meta.aet_bpm. v1.7 (2026-09-30), ADDITIVE ONLY: new cross_session definition (type 'cross'; subtype swim|bike|hike|other) allowed in day.sessions; linked_session.type gains 'cross'; nutrition triggers gain optional cross_subtype (a trigger WITH it matches only when that cross session is scheduled; a trigger WITHOUT it ignores cross sessions - backward compatible); weekly_targets gain swim_sessions and swim_minutes (derived). Cross sessions carry the athlete's cross-training; they never enter run sums or the ramp guard.",
+ "version": "1.7",
+ "definitions": {
+  "exercise": {
+   "type": "object",
+   "required": [
+    "name",
+    "category"
+   ],
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "category": {
+     "type": "string",
+     "enum": [
+      "eccentric_quad",
+      "hip_stability",
+      "calf",
+      "core",
+      "upper_body",
+      "corrective",
+      "mobility",
+      "activation",
+      "balance"
+     ]
+    },
+    "sets": {
+     "type": "integer"
+    },
+    "reps": {
+     "type": [
+      "integer",
+      "string"
+     ]
+    },
+    "duration_sec": {
+     "type": "integer"
+    },
+    "tempo": {
+     "type": "string"
+    },
+    "load": {
+     "type": "string",
+     "enum": [
+      "heavy",
+      "moderate",
+      "light",
+      "bodyweight"
+     ]
+    },
+    "side": {
+     "type": "string",
+     "enum": [
+      "both",
+      "left",
+      "right",
+      "alternating"
+     ]
+    },
+    "cue": {
+     "type": "string"
+    },
+    "progression_note": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "daily_routine": {
+   "description": "Short recurring daily block. App injects into every day automatically. Used by run and strength plans.",
+   "type": "object",
+   "required": [
+    "id",
+    "title",
+    "timing",
+    "duration_min",
+    "exercises",
+    "active_weeks"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string"
+    },
+    "timing": {
+     "type": "string",
+     "enum": [
+      "morning",
+      "evening",
+      "pre_run",
+      "post_run",
+      "anytime"
+     ]
+    },
+    "duration_min": {
+     "type": "number"
+    },
+    "exercises": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/exercise"
+     }
+    },
+    "active_weeks": {
+     "type": "string",
+     "pattern": "^\\d+(-\\d+)?$"
+    },
+    "phase_overrides": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "weeks",
+       "modification"
+      ],
+      "properties": {
+       "weeks": {
+        "type": "string"
+       },
+       "modification": {
+        "type": "string"
+       },
+       "reason": {
+        "type": "string"
+       }
+      }
+     }
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "session_protocol": {
+   "description": "Warmup or cooldown block attached to a session type. Used by run and strength plans.",
+   "type": "object",
+   "required": [
+    "duration_min",
+    "exercises"
+   ],
+   "properties": {
+    "duration_min": {
+     "type": "number"
+    },
+    "exercises": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/exercise"
+     }
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "run_session": {
+   "type": "object",
+   "required": [
+    "type",
+    "subtype",
+    "title"
+   ],
+   "properties": {
+    "type": {
+     "type": "string",
+     "const": "run"
+    },
+    "subtype": {
+     "type": "string",
+     "enum": [
+      "easy",
+      "tempo",
+      "long",
+      "power_climb",
+      "race_pace",
+      "back_to_back",
+      "shakeout",
+      "rest",
+      "time_trial"
+     ]
+    },
+    "title": {
+     "type": "string"
+    },
+    "duration_min": {
+     "type": "number"
+    },
+    "distance_mi": {
+     "type": "number"
+    },
+    "elevation_gain_ft": {
+     "type": "number"
+    },
+    "terrain": {
+     "type": "string",
+     "enum": [
+      "road",
+      "trail",
+      "mixed"
+     ]
+    },
+    "hr_cap_bpm": {
+     "type": "integer",
+     "description": "Hard ceiling / alarm value in bpm. May legitimately sit above the intended hr_zone band as a tripwire; when it does, hr_zone should be a range label or the cap rationale noted in the session."
+    },
+    "hr_zone": {
+     "type": "string",
+     "enum": [
+      "Z1",
+      "Z1-2",
+      "Z2",
+      "Z2-3",
+      "Z3",
+      "Z3-4",
+      "Z4",
+      "Z5a"
+     ],
+     "description": "Intended execution band. Range labels (Z1-2, Z2-3) where intent spans a boundary. Bands @ LTHR 168: Z1 <142, Z2 142-150, Z3 151-158, Z4 159-167, Z5a 168-171."
+    },
+    "pace_target": {
+     "type": "object",
+     "properties": {
+      "min_per_mi_slow": {
+       "type": "string"
+      },
+      "min_per_mi_fast": {
+       "type": "string"
+      }
+     }
+    },
+    "poles": {
+     "type": "boolean"
+    },
+    "key_cue": {
+     "type": "string"
+    },
+    "fueling_required": {
+     "type": "boolean"
+    },
+    "fueling_notes": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "string"
+    },
+    "terrain_intent": {
+     "type": "string",
+     "enum": [
+      "free",
+      "grade",
+      "relief",
+      "relief+grade",
+      "footing"
+     ],
+     "description": "What the terrain must deliver. Governs over terrain (advisory). Absent = UNCLASSIFIED, never free."
+    },
+    "hr_anchor": {
+     "type": "string",
+     "enum": [
+      "AeT",
+      "AeT_minus_10pct",
+      "AeT_to_LT",
+      "AeT_test",
+      "none"
+     ],
+     "description": "Reference the hr_cap_bpm is computed from (meta.aet_bpm, meta.lthr_bpm). Patch revisions recompute caps after each AeT test."
+    },
+    "aet_gate": {
+     "type": "object",
+     "description": "Session gated on the Uphill Athlete AeT/LT 10% rule. The app renders active_version; a promotion copies if_pass over the top-level fields.",
+     "required": [
+      "slot",
+      "active_version",
+      "if_pass"
+     ],
+     "properties": {
+      "slot": {
+       "type": "string"
+      },
+      "active_version": {
+       "type": "string",
+       "enum": [
+        "default",
+        "if_pass"
+       ]
+      },
+      "default_rationale": {
+       "type": "string"
+      },
+      "pass_rule": {
+       "type": "string"
+      },
+      "if_pass": {
+       "type": "object",
+       "properties": {
+        "subtype": {
+         "$ref": "#/definitions/run_session/properties/subtype"
+        },
+        "title": {
+         "type": "string"
+        },
+        "hr_zone": {
+         "$ref": "#/definitions/run_session/properties/hr_zone"
+        },
+        "hr_cap_bpm": {
+         "type": "integer"
+        },
+        "hr_anchor": {
+         "$ref": "#/definitions/run_session/properties/hr_anchor"
+        },
+        "key_cue": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "strength_session": {
+   "type": "object",
+   "required": [
+    "type",
+    "subtype",
+    "title",
+    "exercises"
+   ],
+   "properties": {
+    "type": {
+     "type": "string",
+     "const": "strength"
+    },
+    "subtype": {
+     "type": "string",
+     "enum": [
+      "full",
+      "lower",
+      "upper",
+      "core",
+      "mobility_session",
+      "correctives_extended"
+     ]
+    },
+    "title": {
+     "type": "string"
+    },
+    "duration_min": {
+     "type": "number"
+    },
+    "exercises": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/exercise"
+     }
+    },
+    "notes": {
+     "type": "string"
+    },
+    "warmup_protocol": {
+     "type": "string",
+     "enum": [
+      "pre_lower",
+      "pre_upper"
+     ]
+    }
+   }
+  },
+  "linked_session": {
+   "description": "Identifies which session a nutrition entry is tied to. Used in session_fueling to link pre/during/post nutrition to specific sessions.",
+   "type": "object",
+   "required": [
+    "type",
+    "position"
+   ],
+   "properties": {
+    "type": {
+     "type": "string",
+     "enum": [
+      "run",
+      "strength",
+      "cross"
+     ],
+     "description": "Which session type this nutrition links to"
+    },
+    "subtype": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Optional: specific subtype (easy, tempo, lower, upper, swim, etc.). Null = any session of that type."
+    },
+    "position": {
+     "type": "string",
+     "enum": [
+      "pre",
+      "during",
+      "post"
+     ],
+     "description": "When relative to the session"
+    }
+   }
+  },
+  "session_fueling_entry": {
+   "description": "Nutrition prescription linked to a specific session on a given day type. The app renders this directly next to the session it belongs to.",
+   "type": "object",
+   "required": [
+    "linked_session"
+   ],
+   "properties": {
+    "linked_session": {
+     "$ref": "#/definitions/linked_session"
+    },
+    "timing": {
+     "type": "string",
+     "description": "Human-readable timing, e.g. '90 min before run', 'within 30 min after'"
+    },
+    "calories": {
+     "type": "integer",
+     "description": "Target calories for this pre/during/post window"
+    },
+    "carbs_g": {
+     "type": "integer"
+    },
+    "protein_g": {
+     "type": "integer"
+    },
+    "fat_g": {
+     "type": "integer"
+    },
+    "sodium_mg": {
+     "type": "integer"
+    },
+    "fluid_ml": {
+     "type": "integer"
+    },
+    "foods": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Suggested foods for this window"
+    },
+    "fueling_schedule": {
+     "type": "array",
+     "description": "For position: 'during' only. Timed items to consume during the session.",
+     "items": {
+      "type": "object",
+      "properties": {
+       "interval_min": {
+        "type": "integer"
+       },
+       "item": {
+        "type": "string"
+       },
+       "cal": {
+        "type": "integer"
+       },
+       "sodium_mg": {
+        "type": "integer"
+       },
+       "caffeine_mg": {
+        "type": "integer"
+       }
+      }
+     }
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "nutrition_day_type": {
+   "description": "Template for nutrition on a specific type of training day. The app resolves which applies by matching scheduled sessions against triggers.",
+   "type": "object",
+   "required": [
+    "id",
+    "label",
+    "triggers",
+    "daily_targets"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Unique ID, e.g. 'easy_run_lower_strength'"
+    },
+    "label": {
+     "type": "string",
+     "description": "Human-readable name, e.g. 'Easy run + lower strength day'"
+    },
+    "triggers": {
+     "type": "array",
+     "description": "Session combinations that select this day type. First match wins.",
+     "items": {
+      "type": "object",
+      "properties": {
+       "run_subtype": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "strength_subtype": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "description": {
+        "type": "string"
+       },
+       "cross_subtype": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Optional (v1.7). Present: matches only when a cross session of this subtype is scheduled that day. Absent: cross sessions are ignored."
+       }
+      }
+     }
+    },
+    "daily_targets": {
+     "type": "object",
+     "description": "Macro and calorie targets for the full day. Shown as a summary card in the app.",
+     "required": [
+      "calories_total",
+      "carbs_g",
+      "protein_g",
+      "fat_g",
+      "fluid_ml_total"
+     ],
+     "properties": {
+      "calories_total": {
+       "type": "integer"
+      },
+      "carbs_g": {
+       "type": "integer"
+      },
+      "protein_g": {
+       "type": "integer"
+      },
+      "fat_g": {
+       "type": "integer"
+      },
+      "fluid_ml_total": {
+       "type": "integer"
+      },
+      "general_guidance": {
+       "type": "string",
+       "description": "Brief plain-language guidance for non-session meals, e.g. 'Higher carb day. Prioritise carbs at lunch and dinner. Protein with every meal.'"
+      },
+      "notes": {
+       "type": "string"
+      }
+     }
+    },
+    "session_fueling": {
+     "type": "array",
+     "description": "Array of pre/during/post nutrition entries, each linked to a specific session. The app renders each entry next to the session it belongs to.",
+     "items": {
+      "$ref": "#/definitions/session_fueling_entry"
+     }
+    },
+    "phase_adjustments": {
+     "type": "array",
+     "description": "How this day type's targets change across training phases.",
+     "items": {
+      "type": "object",
+      "required": [
+       "phase",
+       "adjustment"
+      ],
+      "properties": {
+       "phase": {
+        "type": "string",
+        "enum": [
+         "Base",
+         "Build",
+         "Peak",
+         "Taper_1",
+         "Taper_2",
+         "Race_week"
+        ]
+       },
+       "adjustment": {
+        "type": "string"
+       },
+       "modified_targets": {
+        "type": "object",
+        "properties": {
+         "calories_total": {
+          "type": "integer"
+         },
+         "carbs_g": {
+          "type": "integer"
+         },
+         "protein_g": {
+          "type": "integer"
+         },
+         "fat_g": {
+          "type": "integer"
+         }
+        }
+       }
+      }
+     }
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "supplement": {
+   "description": "A supplement with dosage, timing, and rationale.",
+   "type": "object",
+   "required": [
+    "name",
+    "dose",
+    "timing",
+    "timing_slot"
+   ],
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "dose": {
+     "type": "string",
+     "description": "e.g. '2000 IU', '400mg'"
+    },
+    "timing": {
+     "type": "string",
+     "description": "Human-readable: 'morning with food', 'before bed'"
+    },
+    "timing_slot": {
+     "type": "string",
+     "enum": [
+      "morning",
+      "with_meals",
+      "pre_run",
+      "post_run",
+      "evening"
+     ],
+     "description": "Structured slot for app rendering order"
+    },
+    "rationale": {
+     "type": "string"
+    },
+    "active_weeks": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "nutrition_date_override": {
+   "description": "Specific-date nutrition that replaces the day_type. For race day, fueling tests, carb-loading, etc.",
+   "type": "object",
+   "required": [
+    "date",
+    "reason"
+   ],
+   "properties": {
+    "date": {
+     "type": "string",
+     "format": "date"
+    },
+    "reason": {
+     "type": "string"
+    },
+    "daily_targets": {
+     "type": "object",
+     "properties": {
+      "calories_total": {
+       "type": "integer"
+      },
+      "carbs_g": {
+       "type": "integer"
+      },
+      "protein_g": {
+       "type": "integer"
+      },
+      "fat_g": {
+       "type": "integer"
+      },
+      "fluid_ml_total": {
+       "type": "integer"
+      },
+      "general_guidance": {
+       "type": "string"
+      },
+      "notes": {
+       "type": "string"
+      }
+     }
+    },
+    "session_fueling": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/session_fueling_entry"
+     }
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "day": {
+   "description": "A single calendar day. Used by run and strength plans only.",
+   "type": "object",
+   "required": [
+    "date",
+    "day_of_week"
+   ],
+   "properties": {
+    "date": {
+     "type": "string",
+     "format": "date"
+    },
+    "day_of_week": {
+     "type": "string",
+     "enum": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+     ]
+    },
+    "flex": {
+     "type": "boolean"
+    },
+    "rest_day": {
+     "type": "boolean"
+    },
+    "sessions": {
+     "type": "array",
+     "items": {
+      "oneOf": [
+       {
+        "$ref": "#/definitions/run_session"
+       },
+       {
+        "$ref": "#/definitions/strength_session"
+       },
+       {
+        "$ref": "#/definitions/cross_session"
+       }
+      ]
+     }
+    },
+    "day_notes": {
+     "type": "string"
+    }
+   }
+  },
+  "week": {
+   "type": "object",
+   "required": [
+    "week_number",
+    "start_date",
+    "phase",
+    "days"
+   ],
+   "properties": {
+    "week_number": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "start_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "phase": {
+     "type": "string",
+     "enum": [
+      "Base",
+      "Build",
+      "Peak",
+      "Taper_1",
+      "Taper_2",
+      "Race_week"
+     ]
+    },
+    "weekly_targets": {
+     "type": "object",
+     "properties": {
+      "mileage_mi": {
+       "type": "number"
+      },
+      "vertical_ft": {
+       "type": "number"
+      },
+      "long_run_mi": {
+       "type": "number"
+      },
+      "strength_sessions": {
+       "type": "integer"
+      },
+      "key_fueling_test": {
+       "type": "string"
+      },
+      "notes": {
+       "type": "string"
+      },
+      "run_hours_est": {
+       "type": "number",
+       "description": "DERIVED: sum of run duration_min (race_pace excluded) / 60."
+      },
+      "recovery_week": {
+       "type": "boolean",
+       "description": "Recovery-class week. The ramp guard's reference week is the most recent week with recovery_week = false."
+      },
+      "derived_from": {
+       "type": "string"
+      },
+      "derivation_rule": {
+       "type": "string"
+      },
+      "swim_sessions": {
+       "type": "integer",
+       "description": "DERIVED: count of cross/swim sessions."
+      },
+      "swim_minutes": {
+       "type": "number",
+       "description": "DERIVED: sum of cross/swim duration_min."
+      }
+     }
+    },
+    "week_notes": {
+     "type": "string"
+    },
+    "days": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/day"
+     },
+     "minItems": 7,
+     "maxItems": 7
+    }
+   }
+  },
+  "cross_session": {
+   "type": "object",
+   "required": [
+    "type",
+    "subtype",
+    "title"
+   ],
+   "description": "Cross-training session (swim, bike, hike). Rendered like other sessions; excluded from run mileage/vertical sums and from strength_sessions counts.",
+   "properties": {
+    "type": {
+     "type": "string",
+     "const": "cross"
+    },
+    "subtype": {
+     "type": "string",
+     "enum": [
+      "swim",
+      "bike",
+      "hike",
+      "other"
+     ]
+    },
+    "method": {
+     "type": "string",
+     "description": "e.g. 'Total Immersion'"
+    },
+    "title": {
+     "type": "string"
+    },
+    "duration_min": {
+     "type": "number"
+    },
+    "distance_m": {
+     "type": "number"
+    },
+    "intensity": {
+     "type": "string",
+     "enum": [
+      "recovery",
+      "easy",
+      "steady"
+     ]
+    },
+    "hr_cap_bpm": {
+     "type": "integer",
+     "description": "Optional. Running AeT caps do not transfer to swimming."
+    },
+    "key_cue": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "type": "object",
+ "required": [
+  "meta"
+ ],
+ "properties": {
+  "meta": {
+   "type": "object",
+   "required": [
+    "plan_type",
+    "athlete",
+    "race_date",
+    "plan_start"
+   ],
+   "properties": {
+    "plan_type": {
+     "type": "string",
+     "enum": [
+      "run",
+      "strength",
+      "nutrition"
+     ]
+    },
+    "schema_version": {
+     "type": "string",
+     "enum": [
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+      "1.6",
+      "1.7"
+     ],
+     "description": "1.2 legacy; 1.3 hr_zone range labels; 1.4 enforced plan_type fields; 1.5 terrain_intent; 1.6 hr_anchor + aet_gate + weekly derived fields. 1.7 cross_session (swim) + cross nutrition links."
+    },
+    "athlete": {
+     "type": "string"
+    },
+    "race": {
+     "type": "string"
+    },
+    "race_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "plan_start": {
+     "type": "string",
+     "format": "date"
+    },
+    "plan_end": {
+     "type": "string",
+     "format": "date"
+    },
+    "generated_by": {
+     "type": "string"
+    },
+    "generated_date": {
+     "type": "string",
+     "format": "date"
+    },
+    "notes": {
+     "type": "string"
+    },
+    "revision": {
+     "type": "string"
+    },
+    "revision_notes": {
+     "type": "string"
+    },
+    "lthr_updated": {
+     "type": "string"
+    },
+    "lthr_bpm": {
+     "type": "integer"
+    },
+    "lthr_confidence": {
+     "type": "string"
+    },
+    "lthr_source": {
+     "type": "string"
+    },
+    "aet_bpm": {
+     "type": "integer"
+    },
+    "aet_status": {
+     "type": "string"
+    },
+    "aet_gate_bpm": {
+     "type": "integer"
+    },
+    "aet_test_dates": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "date"
+     }
+    }
+   }
+  },
+  "daily_routines": {
+   "type": "array",
+   "description": "Run and strength plans only.",
+   "items": {
+    "$ref": "#/definitions/daily_routine"
+   }
+  },
+  "session_protocols": {
+   "type": "object",
+   "description": "Run and strength plans only.",
+   "properties": {
+    "pre_run": {
+     "$ref": "#/definitions/session_protocol"
+    },
+    "post_run": {
+     "$ref": "#/definitions/session_protocol"
+    },
+    "pre_strength": {
+     "$ref": "#/definitions/session_protocol"
+    },
+    "post_strength": {
+     "$ref": "#/definitions/session_protocol"
+    }
+   }
+  },
+  "weeks": {
+   "type": "array",
+   "description": "Run and strength plans only.",
+   "items": {
+    "$ref": "#/definitions/week"
+   }
+  },
+  "day_types": {
+   "type": "array",
+   "description": "NUTRITION only.",
+   "items": {
+    "$ref": "#/definitions/nutrition_day_type"
+   }
+  },
+  "date_overrides": {
+   "type": "array",
+   "description": "NUTRITION only.",
+   "items": {
+    "$ref": "#/definitions/nutrition_date_override"
+   }
+  },
+  "supplements": {
+   "type": "array",
+   "description": "NUTRITION only.",
+   "items": {
+    "$ref": "#/definitions/supplement"
+   }
+  }
+ },
+ "plan_type_required_fields": {
+  "run": [
+   "meta",
+   "daily_routines",
+   "session_protocols",
+   "weeks"
+  ],
+  "strength": [
+   "meta",
+   "daily_routines",
+   "session_protocols",
+   "weeks"
+  ],
+  "nutrition": [
+   "meta",
+   "day_types",
+   "supplements"
+  ]
+ },
+ "app_daily_view_assembly": {
+  "description": "How the app builds the session-centric daily view.",
+  "steps": [
+   "1. Load all three JSON files (run, strength, nutrition)",
+   "2. For the requested date, get scheduled sessions from run and strength plans (strength plan may also carry type 'cross' sessions, e.g. swims)",
+   "3. Inject daily_routines from run + strength (filtered by active_weeks + phase_overrides)",
+   "4. Inject session_protocols (pre/post) around each session",
+   "5. NUTRITION: check date_overrides for exact date match. If found, use it.",
+   "6. If no override, match the day's sessions against day_types[].triggers (run_subtype, strength_subtype, and cross_subtype when the trigger has it). First match wins.",
+   "7. Apply phase_adjustments from matched day_type based on current week's phase.",
+   "8. For each session, find its matching session_fueling entries (by linked_session.type + position; type may be run, strength or cross)",
+   "9. Inject supplements (filtered by active_weeks), grouped by timing_slot",
+   "10. Render the daily card:"
+  ],
+  "daily_card_structure": [
+   "DAILY MACRO TARGETS (from daily_targets: total cal, carbs, protein, fat, fluid + general_guidance)",
+   "",
+   "SUPPLEMENTS",
+   "  Morning: [supplements where timing_slot = morning]",
+   "  With meals: [supplements where timing_slot = with_meals]",
+   "",
+   "SESSION 1: [e.g. Easy Z2 trail run]",
+   "  PRE:    [session_fueling where linked_session.type=run, position=pre]",
+   "  WARMUP: [session_protocol.pre_run]",
+   "  RUN:    [run session details]",
+   "  COOLDOWN: [session_protocol.post_run]",
+   "  POST:   [session_fueling where linked_session.type=run, position=post]",
+   "",
+   "SESSION 2: [e.g. Lower body strength]",
+   "  PRE:    [session_fueling where linked_session.type=strength, position=pre]",
+   "  WARMUP: [session_protocol.pre_strength]",
+   "  STRENGTH: [strength session details]",
+   "  COOLDOWN: [session_protocol.post_strength]",
+   "  POST:   [session_fueling where linked_session.type=strength, position=post]",
+   "",
+   "EVENING SUPPLEMENTS",
+   "  [supplements where timing_slot = evening]",
+   "",
+   "DAILY ROUTINES",
+   "  [foot correctives, hip activation, etc.]"
+  ]
+ },
+ "example_day_type": {
+  "description": "Worked example: easy run + lower strength double-day.",
+  "example": {
+   "id": "easy_run_lower_strength",
+   "label": "Easy run + lower body strength (double-day)",
+   "triggers": [
+    {
+     "run_subtype": "easy",
+     "strength_subtype": "lower",
+     "description": "Easy run AM + lower strength PM"
+    }
+   ],
+   "daily_targets": {
+    "calories_total": 2800,
+    "carbs_g": 380,
+    "protein_g": 150,
+    "fat_g": 80,
+    "fluid_ml_total": 3000,
+    "general_guidance": "Moderate-high carb day to fuel both sessions. Prioritise protein at post-run and post-strength meals. Carb-rich lunch between sessions."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "position": "pre"
+     },
+     "timing": "60-90 min before run",
+     "calories": 400,
+     "carbs_g": 60,
+     "protein_g": 15,
+     "foods": [
+      "oatmeal with banana",
+      "coffee"
+     ],
+     "notes": "Light and familiar. Don't experiment."
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "position": "post"
+     },
+     "timing": "Within 30 min of finishing",
+     "calories": 300,
+     "carbs_g": 40,
+     "protein_g": 30,
+     "foods": [
+      "protein shake",
+      "banana"
+     ],
+     "notes": "Quick recovery \u2014 strength session later today"
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "position": "pre"
+     },
+     "timing": "60 min before strength",
+     "calories": 250,
+     "carbs_g": 35,
+     "protein_g": 15,
+     "foods": [
+      "rice cakes with peanut butter",
+      "water"
+     ],
+     "notes": "Enough to fuel the session, not so much to feel heavy"
+    },
+    {
+     "linked_session": {
+      "type": "strength",
+      "position": "post"
+     },
+     "timing": "Within 30 min of finishing",
+     "calories": 350,
+     "carbs_g": 40,
+     "protein_g": 35,
+     "foods": [
+      "chicken and rice",
+      "vegetables"
+     ],
+     "notes": "Largest protein dose of the day \u2014 eccentric quad recovery"
+    }
+   ],
+   "phase_adjustments": [
+    {
+     "phase": "Taper_1",
+     "adjustment": "Reduce total cal ~10% as volume drops; maintain protein at 150g"
+    }
+   ]
+  }
+ },
+ "example_supplement": {
+  "example": {
+   "name": "Vitamin D3",
+   "dose": "2000 IU",
+   "timing": "morning with breakfast",
+   "timing_slot": "morning",
+   "rationale": "Bone health, immune function, recovery during volume ramp",
+   "active_weeks": "1-13",
+   "notes": "Consider 4000 IU if blood work shows deficiency"
+  }
+ },
+ "example_date_override": {
+  "description": "Race day override.",
+  "example": {
+   "date": "2026-07-25",
+   "reason": "Race day",
+   "daily_targets": {
+    "calories_total": 4000,
+    "carbs_g": 550,
+    "protein_g": 120,
+    "fat_g": 70,
+    "fluid_ml_total": 5000,
+    "general_guidance": "Race day. Pre-race breakfast + in-race fueling + post-race recovery. See race strategy document for full aid-station plan."
+   },
+   "session_fueling": [
+    {
+     "linked_session": {
+      "type": "run",
+      "position": "pre"
+     },
+     "timing": "4:00 AM (2hr before start)",
+     "calories": 600,
+     "carbs_g": 100,
+     "protein_g": 15,
+     "foods": [
+      "oatmeal",
+      "banana",
+      "honey",
+      "coffee"
+     ],
+     "notes": "Same as rehearsed on long run mornings"
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "position": "during"
+     },
+     "timing": "Every 25 min from gun",
+     "calories": 280,
+     "carbs_g": 70,
+     "sodium_mg": 800,
+     "fluid_ml": 700,
+     "fueling_schedule": [
+      {
+       "interval_min": 25,
+       "item": "GU Roctane gel",
+       "cal": 100,
+       "sodium_mg": 125
+      },
+      {
+       "interval_min": 90,
+       "item": "Real food at aid (potato/PB&J)",
+       "cal": 80,
+       "sodium_mg": 150
+      }
+     ],
+     "notes": "See race strategy for aid-station-specific plan"
+    },
+    {
+     "linked_session": {
+      "type": "run",
+      "position": "post"
+     },
+     "timing": "Within 30 min of finish",
+     "calories": 500,
+     "carbs_g": 60,
+     "protein_g": 40,
+     "foods": [
+      "recovery shake",
+      "real food ASAP"
+     ]
+    }
+   ]
+  }
+ },
+ "allOf": [
+  {
+   "if": {
+    "properties": {
+     "meta": {
+      "properties": {
+       "plan_type": {
+        "const": "run"
+       }
+      }
+     }
+    }
+   },
+   "then": {
+    "required": [
+     "meta",
+     "daily_routines",
+     "session_protocols",
+     "weeks"
+    ]
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "meta": {
+      "properties": {
+       "plan_type": {
+        "const": "strength"
+       }
+      }
+     }
+    }
+   },
+   "then": {
+    "required": [
+     "meta",
+     "daily_routines",
+     "session_protocols",
+     "weeks"
+    ]
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "meta": {
+      "properties": {
+       "plan_type": {
+        "const": "nutrition"
+       }
+      }
+     }
+    }
+   },
+   "then": {
+    "required": [
+     "meta",
+     "day_types",
+     "supplements"
+    ]
+   }
+  }
+ ]
+}
