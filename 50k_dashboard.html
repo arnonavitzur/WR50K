@@ -124,7 +124,12 @@ const NUTRITION_TYPE_LABEL = {
   climb_lower_strength: 'CLIMB', easy_run_lower_strength: 'DOUBLE', easy_run_upper_strength: 'DOUBLE',
   easy_run_only: 'EASY', medium_long_run: 'MED-LONG', long_run: 'LONG', race_or_rehearsal: 'RACE',
 };
-const nutritionChip = (n) => n?.date_override_applied ? 'KEY DAY'
+// The date_override a day's nutrition was resolved from, as {reason} or null.
+// merge_plans schema 1.8 marks it with source/override_reason; earlier combined
+// files carried a date_override_applied object — accept both.
+const nutritionOverride = (n) => n?.source === 'date_override' ? { reason: n.override_reason || n.day_type_label }
+  : n?.date_override_applied || null;
+const nutritionChip = (n) => nutritionOverride(n) ? 'KEY DAY'
   : NUTRITION_TYPE_LABEL[n?.day_type_id] || (n?.day_type_label?.split(' ')[0] || 'TRAINING').toUpperCase();
 
 // session_fueling entry for one session at one position (pre | during | post).
@@ -303,6 +308,10 @@ function BigStat({label, value, unit, color, mono, size}) {
 const terrainLabel = t => String(t).replace(/_or_/g, '/').replace(/_/g, ' ')
   .replace(/(^|[\s/+])([a-z])/g, (_, sep, c) => sep + c.toUpperCase());
 
+// elevation_loss_ft (schema 1.8): absent means equal to elevation_gain_ft. The
+// merge fills it in; the fallback covers combined files built before 1.8.
+const runDescent = s => s.elevation_loss_ft ?? s.elevation_gain_ft ?? 0;
+
 function SessionStats({session, kind, expanded}) {
   const stats = [];
   if (kind === 'run') {
@@ -311,6 +320,10 @@ function SessionStats({session, kind, expanded}) {
     // race_pace sessions have no duration_min.
     if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
     if (session.elevation_gain_ft > 0) stats.push({label:'VERT', value:session.elevation_gain_ft.toLocaleString(), unit:'ft'});
+    // Descent only when it differs from the climb — in practice the treadmill
+    // climbing blocks, which carry 0 (schema 1.8). An outdoor loop is implied.
+    if (runDescent(session) !== (session.elevation_gain_ft || 0))
+      stats.push({label:'DESCENT', value:runDescent(session).toLocaleString(), unit:'ft'});
   } else if (kind === 'cross') {
     if (session.duration_min != null) stats.push({label:'DURATION', value:session.duration_min, unit:'min'});
     if (session.distance_m > 0) stats.push({label:'DISTANCE', value:session.distance_m.toLocaleString(), unit:'m'});
@@ -688,7 +701,7 @@ function PrePostCard({block, kind, label, accent}) {
 // What today's nutrition was resolved from: the date_override reason, or the
 // matched day_type label (+ its phase adjustment).
 function NutritionSource({nutrition}) {
-  const ov = nutrition.date_override_applied;
+  const ov = nutritionOverride(nutrition);
   const adj = nutrition.phase_adjustment_applied;
   return (
     <div style={{fontSize:12,color:A.textDim,lineHeight:1.45,fontFamily:SANS,marginTop:-8,marginBottom:14}}>
@@ -1166,7 +1179,8 @@ function buildWeeks(plan) {
 // Loader assertion (spec 2.5 / 3.2): weekly_targets are DERIVED from the week's
 // sessions. mileage_mi / vertical_ft must equal the run-session sums (race_pace
 // excluded) within ±0.5 mi / ±50 ft; strength_sessions counts type "strength"
-// only; swim_sessions / swim_minutes count cross/swim. A mismatch is flagged on
+// only; swim_sessions / swim_minutes count cross/swim. descent_ft (schema 1.8)
+// sums elevation_loss_ft the same way, ±50 ft. A mismatch is flagged on
 // the week card — never corrected.
 const MILEAGE_TOL_MI = 0.5;
 const VERTICAL_TOL_FT = 50;
@@ -1177,6 +1191,7 @@ function weekChecks(week) {
   const runs = sessions.filter(s => s.type === 'run' && !EXCLUDED_FROM_SUMS.has(s.subtype));
   const mi = runs.reduce((t,s) => t + (s.distance_mi||0), 0);
   const ft = runs.reduce((t,s) => t + (s.elevation_gain_ft||0), 0);
+  const down = runs.reduce((t,s) => t + runDescent(s), 0);
   const swims = sessions.filter(s => s.type === 'cross' && s.subtype === 'swim');
   const swimMin = swims.reduce((t,s) => t + (s.duration_min||0), 0);
   const strengthCount = sessions.filter(s => s.type === 'strength').length;
@@ -1186,6 +1201,8 @@ function weekChecks(week) {
     problems.push(`mileage_mi ${t.mileage_mi} ≠ sessions ${mi.toFixed(1)} mi`);
   if (t.vertical_ft != null && Math.abs(t.vertical_ft - ft) > VERTICAL_TOL_FT)
     problems.push(`vertical_ft ${t.vertical_ft} ≠ sessions ${Math.round(ft)} ft`);
+  if (t.descent_ft != null && Math.abs(t.descent_ft - down) > VERTICAL_TOL_FT)
+    problems.push(`descent_ft ${t.descent_ft} ≠ sessions ${Math.round(down)} ft`);
   if (st.strength_sessions != null && st.strength_sessions !== strengthCount)
     problems.push(`strength_sessions ${st.strength_sessions} ≠ ${strengthCount} scheduled`);
   if (st.swim_sessions != null && st.swim_sessions !== swims.length)
@@ -1240,6 +1257,9 @@ function WeekNote({label, text}) {
   );
 }
 
+// Uphill Athlete week type (weekly_targets.ua_week_type, schema 1.8).
+const UA_WEEK_TYPE = { B:'BASE', I:'INTENSITY', R:'RECOVERY', S:'SPECIFIC', T:'TAPER', G:'GOAL' };
+
 function WeekCard({week, defaultOpen, onJump}) {
   const [open, setOpen] = useState(!!defaultOpen);
   const ph = phaseStyle(week.phase);
@@ -1249,6 +1269,9 @@ function WeekCard({week, defaultOpen, onJump}) {
     <div><div style={{fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>{label}</div><div style={{fontSize:16,fontWeight:700,color:A.text,fontFamily:DISPLAY,letterSpacing:-0.4,marginTop:2}}>{value}</div></div>
   );
   const chip = {fontSize:9,fontFamily:MONO,letterSpacing:1,fontWeight:600};
+  // An R week already shows as RECOVERY WEEK, so the UA chip would repeat it.
+  const ua = t.ua_week_type && !(t.ua_week_type === 'R' && t.recovery_week)
+    ? (UA_WEEK_TYPE[t.ua_week_type] || t.ua_week_type) : null;
   return (
     <div style={{background:A.surface,borderRadius:16,border:`1px solid ${A.border}`,overflow:'hidden'}}>
       <div style={{height:2,background:ph.hue}}/>
@@ -1265,6 +1288,7 @@ function WeekCard({week, defaultOpen, onJump}) {
           <div style={{flex:1,minWidth:0}}>
             <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:2,flexWrap:'wrap'}}>
               <span style={{padding:'2px 7px',borderRadius:3,fontSize:9,fontWeight:700,letterSpacing:1.4,color:ph.hue,background:`${ph.hue}22`,fontFamily:MONO}}>{ph.label}</span>
+              {ua && <span style={{...chip,padding:'2px 6px',borderRadius:3,border:`1px solid ${A.borderStrong}`,color:A.textDim,fontWeight:700}}>UA {ua}</span>}
               {t.recovery_week && <span style={{...chip,padding:'2px 6px',borderRadius:3,border:'1px solid rgba(96,165,250,0.5)',color:'#60a5fa',fontWeight:700}}>RECOVERY WEEK</span>}
               {week.strengthCount > 0 && <span style={{...chip,color:A.textFaint}}>+{week.strengthCount} STR</span>}
               {week.swimCount > 0 && <span style={{...chip,color:CROSS_COLORS.swim.hue}}>+{week.swimCount} SWIM</span>}
@@ -1278,6 +1302,7 @@ function WeekCard({week, defaultOpen, onJump}) {
           <div style={{display:'flex',gap:14,marginTop:8,flexWrap:'wrap'}}>
             {t.mileage_mi != null && stat('MI', t.mileage_mi)}
             {t.vertical_ft != null && stat('VERT', `${t.vertical_ft.toLocaleString()}ft`)}
+            {t.descent_ft != null && stat('DESC', `${t.descent_ft.toLocaleString()}ft`)}
             {t.long_run_mi != null && t.long_run_mi > 0 && stat('LONG', `${t.long_run_mi}mi`)}
             {t.run_hours_est != null && stat('RUN HRS', t.run_hours_est)}
             {week.swimMin > 0 && stat('SWIM', `${week.swimMin}m`)}
@@ -1392,6 +1417,10 @@ function UpdateControl({update}) {
   );
 }
 
+// Run-plan LTHR / AeT fields in the merged meta: meta.hr since schema 1.8,
+// meta.physiology before it.
+const planPhysiology = (plan) => plan.meta?.hr || plan.meta?.physiology;
+
 // AeT status (run_plan meta, spec 2.7). The caps in the plan are computed from
 // aet_bpm by the coach and re-issued as a patch after each drift test.
 function AetStatus({physiology: p}) {
@@ -1437,7 +1466,7 @@ function PlanView({plan, currentDate, onJumpToDay, update}) {
         <div style={{fontSize:12,color:A.textDim,marginTop:4}}>Tap any week to expand. Tap a workout to jump into that day.</div>
         <UpdateControl update={update}/>
       </div>
-      <AetStatus physiology={plan.meta?.physiology}/>
+      <AetStatus physiology={planPhysiology(plan)}/>
       <div style={{padding:'0 16px 14px',display:'flex',gap:10,flexWrap:'wrap'}}>
         {[['Base','#4ade80'],['Build','#ff5a3c'],['Peak','#ffb020'],['Taper_1','#60a5fa'],['Race_week','#c084fc']].map(([k,c]) => (
           <div key={k} style={{display:'flex',alignItems:'center',gap:6,fontSize:9,color:A.textFaint,fontFamily:MONO,letterSpacing:1,fontWeight:600}}>
@@ -2415,7 +2444,7 @@ function App({plan, update}) {
   const allSessions = daySessions(day);
   const isRest = isRestDay(day);
   const fueling = day.nutrition?.session_fueling || [];
-  const aetGateBpm = plan.meta?.physiology?.aet_gate_bpm;
+  const aetGateBpm = planPhysiology(plan)?.aet_gate_bpm;
   // Both plans carry day_notes (the strength plan's often gives the run/swim/lift order).
   const dayNotes = [...new Set([day.run?.day_notes, day.strength?.day_notes].filter(Boolean))];
   const recoveryWeek = day.run?.weekly_targets?.recovery_week;
