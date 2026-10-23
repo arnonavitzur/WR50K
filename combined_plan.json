@@ -34,7 +34,7 @@
       },
       "nutrition": {
         "schema_version": "1.7",
-        "revision": "2.3",
+        "revision": "2.3.1",
         "generated_by": "Nutrition Coach (Claude)",
         "generated_date": "2026-10-22"
       }
@@ -1886,8 +1886,8 @@
         ]
       },
       {
-        "date": "2026-11-15",
-        "reason": "HEADLAMP #1 - 05:30 start (13.5 mi)",
+        "date": "2026-11-22",
+        "reason": "HEADLAMP #1 - 05:30 start (14.5 mi)",
         "daily_targets": {
           "calories_total": 3300,
           "carbs_g": 450,
@@ -10777,15 +10777,24 @@
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "HEADLAMP #1 - 05:30 start (13.5 mi)",
-        "phase_adjustment_applied": null,
+        "day_type_label": "Sunday long run",
+        "phase_adjustment_applied": {
+          "phase": "Base",
+          "adjustment": "Long runs 8.5-14.5 mi (21 mi on the gate days - see overrides).",
+          "modified_targets": {
+            "calories_total": 3300,
+            "carbs_g": 450,
+            "protein_g": 145,
+            "fat_g": 85
+          }
+        },
         "daily_targets": {
           "calories_total": 3300,
           "carbs_g": 450,
           "protein_g": 145,
           "fat_g": 85,
-          "fluid_ml_total": 3600,
-          "general_guidance": "Early breakfast at 04:00 - first test of eating in the dark before a run.",
+          "fluid_ml_total": 3800,
+          "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
@@ -10795,16 +10804,16 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "04:00 (90 min before)",
+            "timing": "90 min before",
             "calories": 500,
             "carbs_g": 80,
             "protein_g": 15,
             "fat_g": 10,
             "foods": [
               "oatmeal with banana, honey and berries",
-              "coffee"
+              "coffee with a splash of milk"
             ],
-            "notes": "Same meal, earlier - note how it sits at this hour."
+            "notes": "THE rehearsed meal - race-proven twice."
           },
           {
             "linked_session": {
@@ -10812,11 +10821,11 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "From 30 min",
-            "calories": 220,
-            "carbs_g": 55,
-            "sodium_mg": 450,
-            "fluid_ml": 500,
+            "timing": "Phase ladder (see notes); sodium and fluid by temperature tier (meta)",
+            "calories": 240,
+            "carbs_g": 58,
+            "sodium_mg": 550,
+            "fluid_ml": 550,
             "fueling_schedule": [
               {
                 "interval_min": 30,
@@ -10825,13 +10834,25 @@
                 "sodium_mg": 125
               },
               {
+                "interval_min": 60,
+                "item": "GU Roctane Energy Drink Mix, half-strength in 500 ml (own powder, pre-portioned)",
+                "cal": 125,
+                "sodium_mg": 160
+              },
+              {
                 "interval_min": 120,
-                "item": "Real-food item #1 (salted boiled potato)",
-                "cal": 100,
-                "sodium_mg": 200
+                "item": "Real-food item (from W7, runs >= 2.5 h)",
+                "cal": 120,
+                "sodium_mg": 150
+              },
+              {
+                "interval_min": 60,
+                "item": "SaltStick capsule (temperature-tiered - see meta)",
+                "cal": 0,
+                "sodium_mg": 215
               }
             ],
-            "notes": "Cold start: sodium at the low tier."
+            "notes": "Temperature tiers: < 12 C -> 400-600 mg Na, 400-500 ml/hr (skip SaltStick on cold days); 12-22 C -> 600-800 mg, 500-650 ml; > 22 C -> 800-1,000 mg, 650-800 ml."
           },
           {
             "linked_session": {
@@ -10844,21 +10865,20 @@
             "carbs_g": 65,
             "protein_g": 35,
             "foods": [
-              "whey shake + banana + oats",
-              "full meal within 2 h"
-            ]
+              "whey shake with banana and oats",
+              "full meal within 2 h: protein + rice/potatoes + vegetables"
+            ],
+            "notes": "Rehydrate ~150% of the weight lost; include sodium."
           }
         ],
         "notes": "",
-        "source": "date_override",
+        "source": "day_type",
         "matched_by": "trigger",
         "signature": {
           "run_subtype": "long",
           "strength_subtype": null,
           "cross_subtypes": []
-        },
-        "override_reason": "HEADLAMP #1 - 05:30 start (13.5 mi)",
-        "matched_day_type_label": "Sunday long run"
+        }
       }
     },
     "2026-11-16": {
@@ -12013,24 +12033,15 @@
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "Sunday long run",
-        "phase_adjustment_applied": {
-          "phase": "Base",
-          "adjustment": "Long runs 8.5-14.5 mi (21 mi on the gate days - see overrides).",
-          "modified_targets": {
-            "calories_total": 3300,
-            "carbs_g": 450,
-            "protein_g": 145,
-            "fat_g": 85
-          }
-        },
+        "day_type_label": "HEADLAMP #1 - 05:30 start (14.5 mi)",
+        "phase_adjustment_applied": null,
         "daily_targets": {
           "calories_total": 3300,
           "carbs_g": 450,
           "protein_g": 145,
           "fat_g": 85,
-          "fluid_ml_total": 3800,
-          "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
+          "fluid_ml_total": 3600,
+          "general_guidance": "Early breakfast at 04:00 - first test of eating in the dark before a run.",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
@@ -12040,16 +12051,16 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "90 min before",
+            "timing": "04:00 (90 min before)",
             "calories": 500,
             "carbs_g": 80,
             "protein_g": 15,
             "fat_g": 10,
             "foods": [
               "oatmeal with banana, honey and berries",
-              "coffee with a splash of milk"
+              "coffee"
             ],
-            "notes": "THE rehearsed meal - race-proven twice."
+            "notes": "Same meal, earlier - note how it sits at this hour."
           },
           {
             "linked_session": {
@@ -12057,11 +12068,11 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "Phase ladder (see notes); sodium and fluid by temperature tier (meta)",
-            "calories": 240,
-            "carbs_g": 58,
-            "sodium_mg": 550,
-            "fluid_ml": 550,
+            "timing": "From 30 min",
+            "calories": 220,
+            "carbs_g": 55,
+            "sodium_mg": 450,
+            "fluid_ml": 500,
             "fueling_schedule": [
               {
                 "interval_min": 30,
@@ -12070,25 +12081,13 @@
                 "sodium_mg": 125
               },
               {
-                "interval_min": 60,
-                "item": "GU Roctane Energy Drink Mix, half-strength in 500 ml (own powder, pre-portioned)",
-                "cal": 125,
-                "sodium_mg": 160
-              },
-              {
                 "interval_min": 120,
-                "item": "Real-food item (from W7, runs >= 2.5 h)",
-                "cal": 120,
-                "sodium_mg": 150
-              },
-              {
-                "interval_min": 60,
-                "item": "SaltStick capsule (temperature-tiered - see meta)",
-                "cal": 0,
-                "sodium_mg": 215
+                "item": "Real-food item #1 (salted boiled potato)",
+                "cal": 100,
+                "sodium_mg": 200
               }
             ],
-            "notes": "Temperature tiers: < 12 C -> 400-600 mg Na, 400-500 ml/hr (skip SaltStick on cold days); 12-22 C -> 600-800 mg, 500-650 ml; > 22 C -> 800-1,000 mg, 650-800 ml."
+            "notes": "Cold start: sodium at the low tier."
           },
           {
             "linked_session": {
@@ -12101,20 +12100,21 @@
             "carbs_g": 65,
             "protein_g": 35,
             "foods": [
-              "whey shake with banana and oats",
-              "full meal within 2 h: protein + rice/potatoes + vegetables"
-            ],
-            "notes": "Rehydrate ~150% of the weight lost; include sodium."
+              "whey shake + banana + oats",
+              "full meal within 2 h"
+            ]
           }
         ],
         "notes": "",
-        "source": "day_type",
+        "source": "date_override",
         "matched_by": "trigger",
         "signature": {
           "run_subtype": "long",
           "strength_subtype": null,
           "cross_subtypes": []
-        }
+        },
+        "override_reason": "HEADLAMP #1 - 05:30 start (14.5 mi)",
+        "matched_day_type_label": "Sunday long run"
       }
     },
     "2026-11-23": {
