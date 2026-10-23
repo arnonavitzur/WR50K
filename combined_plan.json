@@ -22,13 +22,13 @@
     "sources": {
       "run": {
         "schema_version": "1.8",
-        "revision": "2.3.4",
+        "revision": "2.4",
         "generated_by": "Performance / Run Coach (Claude)",
         "generated_date": "2026-10-22"
       },
       "strength": {
         "schema_version": "1.7",
-        "revision": "2.3",
+        "revision": "2.4",
         "generated_by": "Strength Coach (Claude)",
         "generated_date": "2026-10-22"
       },
@@ -7335,7 +7335,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 3 x 8 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
+            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the -4.6% way back keeps Tuesday's eccentric load low before Thursday. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -7777,7 +7777,7 @@
             "poles": false,
             "key_cue": "DESCENT INTRO: 2 x 0.75 mi sustained at -5..-8%. Controlled-relaxed. Stop at 2 even if they feel easy - first eccentric dose of the cycle. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
           }
         ]
       },
@@ -9509,7 +9509,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Recovery-week long run (~40% of the week): easy, rolling. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Recovery-week long run (~40% of the week): easy, rolling. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -9654,7 +9654,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Headlamp #1 on Sunday.",
+        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Sunday: OVERLOOK INTRO (rev 2.4; headlamp #1 moves to 11/22).",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -9758,7 +9758,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Headlamp #1 on Sunday.",
+        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Sunday: OVERLOOK INTRO (rev 2.4; headlamp #1 moves to 11/22).",
         "day_notes": "",
         "sessions": [
           {
@@ -9778,7 +9778,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 3 x 10 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x6: 8-10 s uphill at +8..+12% (~85% effort - first sessions deliberately sub-maximal (UA)), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
+            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the -4.6% way back keeps Tuesday's eccentric load low before Thursday. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -10015,7 +10015,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Headlamp #1 on Sunday.",
+        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Sunday: OVERLOOK INTRO (rev 2.4; headlamp #1 moves to 11/22).",
         "day_notes": "",
         "sessions": [
           {
@@ -10201,7 +10201,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Headlamp #1 on Sunday.",
+        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Sunday: OVERLOOK INTRO (rev 2.4; headlamp #1 moves to 11/22).",
         "day_notes": "",
         "sessions": [
           {
@@ -10220,7 +10220,7 @@
             "poles": false,
             "key_cue": "2 x 1.0 mi sustained at -5..-8%.  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
           }
         ]
       },
@@ -10439,7 +10439,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Headlamp #1 on Sunday.",
+        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Sunday: OVERLOOK INTRO (rev 2.4; headlamp #1 moves to 11/22).",
         "day_notes": "",
         "sessions": [
           {
@@ -10679,7 +10679,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Headlamp #1 on Sunday.",
+        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Sunday: OVERLOOK INTRO (rev 2.4; headlamp #1 moves to 11/22).",
         "day_notes": "Rest. Day before the headlamp long run - lay out kit tonight.",
         "sessions": []
       },
@@ -10739,27 +10739,27 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Headlamp #1 on Sunday.",
+        "week_notes": "UA B week. Hill sprints begin at ~85% effort (if hop test + heel clean). Sunday: OVERLOOK INTRO (rev 2.4; headlamp #1 moves to 11/22).",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "long",
-            "title": "Long run - HEADLAMP #1 (pre-dawn start)",
+            "title": "Long run - OVERLOOK INTRO (first steep descent of the cycle)",
             "duration_min": 175,
             "distance_mi": 13.5,
             "elevation_gain_ft": 1450,
             "elevation_loss_ft": 1450,
-            "terrain": "trail",
+            "terrain": "mixed",
             "terrain_intent": "relief",
             "hr_cap_bpm": 147,
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
-            "poles": false,
-            "key_cue": "Start at 05:30 (sunrise ~06:40): ~1 h by headlamp on a known, non-technical loop, then continue in daylight. HEADLAMP SESSION (ask #1): carry the race headlamp + spare; the dark section includes a descent - cadence up, stride short, eyes 3-4 m ahead. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "poles": true,
+            "key_cue": "OVERLOOK INTRO (rev 2.4; RS check 10/22) - exposure, not pace. Overlook Mountain, Woodstock NY: gravel-road out-and-back from the trailhead. ORDER: Overlook FIRST, on fresh legs - the 2.2-mi climb at or below AeT (hike to stay under; poles allowed), then the full 2.4-mi descent (~1,370 ft: top 0.75 mi ~-6%, lower 1.65 mi ~-13%, quarter-miles to ~-16%). Controlled-relaxed; POLES on <= -10%; walking the steepest quarters is permitted. Then ~9 mi ESSENTIALLY FLAT (<= ~80 ft total; flat road or rail trail) to the card total. GATED: go only if the 24-h reads after the 10/29 and 11/12 descent sessions were clean and this week's heel/ankle/knee/forefoot morning ratings are <= 2/10. ICE RULE: go/no-go by Fri 11/13 from a road-condition check - any snow or ice on the road above ~2,500 ft = FALLBACK. FALLBACK: Hutchinson loop + filler or an equivalent rolling loop, 13.5 mi / ~1,450 ft. 72-H READ: heel, lateral ankle, knees, forefoot morning ratings on days +1 to +3 - they gate Thu 11/19. FIT to RS (baseline steep-descent sample, pole-on). HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. OVERLOOK = an OVERLOAD steep-descent dose relative to Tuscany's -10% legs, not a grade match. Swapped with 11/22 in rev 2.4 (RS option B): AeT test #2 on Tue 11/24 is 9 days after; Gate D #1 21 days after. Card distance and vertical unchanged."
           }
         ]
       },
@@ -10772,7 +10772,7 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 34.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week. MAX STRENGTH phase opens (Weeks 7-13): heavy 5s, long rests. Hill sprints start Friday at ~85% if the hop test passed.",
-        "day_notes": "Routines only. Run plan: Long run - HEADLAMP #1 (pre-dawn start).",
+        "day_notes": "Routines only. Run plan: Long run - OVERLOOK INTRO (first steep descent of the cycle). Its day +1 to +3 morning reads gate Tue 11/17 (eccentric hold) and Thu 11/19 Lower B.",
         "sessions": []
       },
       "nutrition": {
@@ -10881,7 +10881,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs).",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4). Thu 11/19 is gated on the 11/15 Overlook read.",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -10985,7 +10985,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs).",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4). Thu 11/19 is gated on the 11/15 Overlook read.",
         "day_notes": "",
         "sessions": [
           {
@@ -11005,7 +11005,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 4 x 10 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x6: 8-10 s uphill at +8..+12% (~90% effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
+            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the -4.6% way back keeps Tuesday's eccentric load low before Thursday. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -11049,7 +11049,7 @@
                 "load": "heavy",
                 "side": "both",
                 "cue": "Heavy but crisp: 2 reps in reserve.",
-                "progression_note": "Add 5-10 lb when all sets are clean."
+                "progression_note": "HOLD (rev 2.4): same load as Tue 11/10 - no increase this week (Overlook intro 48 h ago). Progression resumes at the next Lower A."
               },
               {
                 "name": "Weighted step-up (high box, knee ~90 deg)",
@@ -11098,7 +11098,7 @@
                 "tempo": "4-1-1",
                 "load": "moderate",
                 "side": "alternating",
-                "cue": "The descent absorber. KNEE GATE: never first in the session, always fully warm; drop to bodyweight + reps if the knee objects."
+                "cue": "The descent absorber. KNEE GATE: never first in the session, always fully warm; drop to bodyweight + reps if the knee objects. HOLD (rev 2.4): same load and volume as Tue 11/10 (3 x 8, moderate) - no increase this week."
               },
               {
                 "name": "Pallof press (heavy band)",
@@ -11108,7 +11108,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
+            "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). OVERLOOK HOLD (run plan rev 2.4): Sun 11/15 is the first steep-descent bout of the cycle (~1,370 ft, lower 1.65 mi at ~-13%), so today lands near peak muscle damage. Eccentric quad work (back squat, loaded step-down) stays at the W7 level (11/10) with no planned increase; concentric and isometric work goes ahead as written. Not a deload.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -11242,7 +11242,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs).",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4). Thu 11/19 is gated on the 11/15 Overlook read.",
         "day_notes": "",
         "sessions": [
           {
@@ -11428,7 +11428,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs).",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4). Thu 11/19 is gated on the 11/15 Overlook read.",
         "day_notes": "",
         "sessions": [
           {
@@ -11447,7 +11447,7 @@
             "poles": false,
             "key_cue": "2 x 1.25 mi sustained at -5..-8%.  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both. POST-INTRO GATE (rev 2.4): runs as written only if the day +1 to +3 morning reads after the 11/15 Overlook intro are clean (<= 2/10, settling). Otherwise hold the 11/12 dose (2 x 1.0 mi) and flag the coach - the W10 descent ramp into Gate D is then re-checked."
           }
         ]
       },
@@ -11460,7 +11460,7 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B if the hop test passed. Fast downhill pick-ups start Friday.",
-        "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap.",
+        "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap. Both gated on the post-11/15 Overlook read.",
         "sessions": [
           {
             "type": "strength",
@@ -11540,7 +11540,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
+            "notes": "P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). POST-OVERLOOK GATE (run plan rev 2.4): follows the same read as this morning's descent session. Day +1 to +3 morning reads after Sun 11/15 clean (<= 2/10, settling) -> as written, pogo hops enter (if the hop test passed). Not clean -> repeat the Thu 11/12 session: no pogo hops (they enter next Lower B), no load increase on the soleus HSR or the lateral step-down, and flag the coach.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -11675,7 +11675,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs).",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4). Thu 11/19 is gated on the 11/15 Overlook read.",
         "day_notes": "",
         "sessions": [
           {
@@ -11915,7 +11915,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs).",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4). Thu 11/19 is gated on the 11/15 Overlook read.",
         "day_notes": "Rest. Day before the long run.",
         "sessions": []
       },
@@ -11975,13 +11975,13 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs).",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4). Thu 11/19 is gated on the 11/15 Overlook read.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "long",
-            "title": "Long run",
+            "title": "Long run - HEADLAMP #1 (pre-dawn start)",
             "duration_min": 187,
             "distance_mi": 14.5,
             "elevation_gain_ft": 1450,
@@ -11992,10 +11992,10 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Hutchinson loop + extension or an equivalent rolling loop. Longest run since Vermont; run the downs. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Febapple loop (South Mountain fire road) - 1 loop + ~4.5 mi. Start at 05:30 (sunrise ~06:45): ~1 h 15 min by headlamp on a known, non-technical loop, then continue in daylight. HEADLAMP SESSION (ask #1): carry the race headlamp + spare; the dark section includes a descent - cadence up, stride short, eyes 3-4 m ahead. Longest run since Vermont; run the downs. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Headlamp #1 moved here from 11/15 in rev 2.4 (11/15 = Overlook intro)."
           }
         ]
       },
@@ -12008,7 +12008,7 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B if the hop test passed. Fast downhill pick-ups start Friday.",
-        "day_notes": "Routines only. Run plan: Long run.",
+        "day_notes": "Routines only. Run plan: Long run - HEADLAMP #1 (pre-dawn start).",
         "sessions": []
       },
       "nutrition": {
@@ -12888,7 +12888,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x4: 8-10 s uphill at +8..+12% (max effort - recovery-week half dose), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 3 x 45 s FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -13186,7 +13186,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Recovery-week long run. Easy rolling; last long run before Gate D #1. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Recovery-week long run. Easy rolling; last long run before Gate D #1. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -13455,7 +13455,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 2 x 10 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x6: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. Gate week: lighter by design.",
+            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the -4.6% way back keeps Tuesday's eccentric load low before Thursday. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. Gate week: lighter by design. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -15140,7 +15140,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x4: 8-10 s uphill at +8..+12% (max effort - recovery-week half dose), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 3 x 45 s FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -15589,7 +15589,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Easy rolling - absorb week between the two gate runs. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Easy rolling - absorb week between the two gate runs. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -15858,7 +15858,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 3 x 10 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
+            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the -4.6% way back keeps Tuesday's eccentric load low before Thursday. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -16821,7 +16821,7 @@
             "key_cue": "GATE D QUALIFYING RUN (criteria agreed August, unchanged): 20-22 mi ROLLING, RUNNABLE, with 3,000+ ft of DESCENT; the downs RUN, not hiked; then a clean 48-hour symptom window. POLE-FREE for comparability (ask #6). Route: Hutchinson loop x2.5 or an equivalent rolling non-technical loop that delivers >= 3,000 ft of descent - check the route's descent before you start. This is a tissue-tolerance test, NOT a race simulation: do not inflate it (cover note). HR capped at AeT on climbs; descents audited. SHOES: the Peregrine for BOTH gate runs - a shoe change between them would break comparability. REPEAT: same route as #1 if at all possible, so the two are comparable. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Intensity: GATE. FIT + 48-h symptom notes (heel, lateral ankle, knees, forefoot: morning ratings 0-10 on days +1 and +2) to Race Strategy; RS rules within a few days. PASS twice within three weeks -> the 103K is on. FAIL -> fallback is the 53K at the same event or a spring 50-miler, and this plan re-scopes by revision.",
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Intensity: GATE. FIT + 48-h symptom notes (heel, lateral ankle, knees, forefoot: morning ratings 0-10 on days +1 and +2) to Race Strategy; RS rules within a few days. PASS twice within three weeks -> the 103K is on. FAIL -> fallback is the 53K at the same event or a spring 50-miler, and this plan re-scopes by revision. VENUE (rev 2.4): the same route as Gate D #1 (comparability).",
             "elevation_loss_ft": 3100
           }
         ]
@@ -17562,7 +17562,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x4: 8-10 s uphill at +8..+12% (max effort - recovery-week half dose), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 3 x 1 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Holiday: anytime. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -17868,7 +17868,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Recovery-week long run. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Recovery-week long run. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -18137,7 +18137,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 3 x 15 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
+            "notes": "VENUE (rev 2.4): Boat Basin - the 15-min blocks need its 1.5-mi +6.0% climb (Alpine's is too short); jog or walk down between. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -18597,7 +18597,7 @@
             "poles": false,
             "key_cue": "3 x 1.0 mi sustained at -5..-8%.  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -19100,7 +19100,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free. First back-to-back of the cycle - keep it genuinely easy. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free. First back-to-back of the cycle - keep it genuinely easy. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -19241,7 +19241,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "POLES RETURN (ask #6) on a hilly loop with some sustained climbs; transitions clean, as at White River. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Hutchinson loop + filler (sustained climbs). POLES RETURN (ask #6) on a hilly loop with some sustained climbs; transitions clean, as at White River. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -19510,7 +19510,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 3 x 15 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
+            "notes": "VENUE (rev 2.4): Boat Basin - the 15-min blocks need its 1.5-mi +6.0% climb (Alpine's is too short); jog or walk down between. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -19970,7 +19970,7 @@
             "poles": false,
             "key_cue": "3 x 1.0 mi sustained at -5..-8%. Hold the dose from last week - the weekend is growing. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -20473,7 +20473,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -20614,7 +20614,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "Start ~13:30 so the last ~40 min, including a descent, run after dusk (sunset ~16:45) on tired legs. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HEADLAMP SESSION (ask #1): carry the race headlamp + spare; the dark section includes a descent - cadence up, stride short, eyes 3-4 m ahead. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Febapple loop - non-technical fire road, the car is the aid station each loop. Start ~13:30 so the last ~40 min, including a descent, run after dusk (sunset ~16:45) on tired legs. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HEADLAMP SESSION (ask #1): carry the race headlamp + spare; the dark section includes a descent - cadence up, stride short, eyes 3-4 m ahead. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -20876,7 +20876,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 4 x 12 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's.",
+            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the -4.6% way back keeps Tuesday's eccentric load low before Thursday. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -21336,7 +21336,7 @@
             "poles": false,
             "key_cue": "3 x 1.25 mi sustained at -5..-8%.  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -21839,7 +21839,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -21980,7 +21980,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "REAL-FOOD REHEARSAL for the long effort on 2/21 (nutrition override 1/17): real food from hour 2, intake logged. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Febapple loop - non-technical fire road, the car is the aid station each loop. REAL-FOOD REHEARSAL for the long effort on 2/21 (nutrition override 1/17): real food from hour 2, intake logged. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -22885,7 +22885,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x4: 8-10 s uphill at +8..+12% (max effort - recovery-week half dose), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 3 x 1 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -23175,7 +23175,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "Easy. Rehearse the pole pickup/stow once (the 2/21 long effort picks poles up at the car). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Easy. Rehearse the pole pickup/stow once (the 2/21 long effort picks poles up at the car). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -23892,9 +23892,9 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "3 x 1.25 mi sustained at -5..-8%. Plus 2 short steep pitches (-10..-15%) with POLES - pole-assisted braking on the grades that dominate the Long Descent. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "3 x 1.25 mi sustained at -5..-8%. Plus 2 short steep pitches (-10..-15%) with POLES on a short steep local hill - pole-assisted braking on the grades that dominate the Long Descent. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -24150,7 +24150,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 5 x 1.5 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run."
+            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -24397,7 +24397,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -25255,9 +25255,9 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "3 x 1.5 mi sustained at -5..-8%. Plus 2 short steep pitches (-10..-15%) with POLES. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "3 x 1.5 mi sustained at -5..-8%. Plus 2 short steep pitches (-10..-15%) with POLES on a short steep local hill. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -25513,7 +25513,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 5 x 1.5 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run."
+            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -25760,7 +25760,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -25901,7 +25901,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. (G1 backup date if 1/31 was moved). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Febapple loop or Harriman woods roads. SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. SHOES: candidate trail shoe (shoe trial - RS FR-aa); log feet, toes, heel and cushion feel afterwards. (G1 backup date if 1/31 was moved). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -26606,7 +26606,7 @@
             "poles": false,
             "key_cue": "2 x 1.0 mi relaxed sustained at -5..-8%.  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
           }
         ]
       },
@@ -26861,7 +26861,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x6: 8-10 s uphill at +8..+12% (max effort, -30% volume), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 4 x 1 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -27168,7 +27168,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "Easy rolling. KIT CHECK for 2/21: headlamp + spare, food you will eat from hour 3, drink-mix replacement, pole quiver, car 'aid station' box. SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Febapple loop or Harriman woods roads. Easy rolling. KIT CHECK for 2/21: headlamp + spare, food you will eat from hour 3, drink-mix replacement, pole quiver, car 'aid station' box. SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -29509,7 +29509,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "Easy rolling. RECOVERY CHECK: heel/ankles/knees clean -> Week 23 as written. POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Easy rolling. RECOVERY CHECK: heel/ankles/knees clean -> Week 23 as written. POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -29654,7 +29654,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late rough-descent block #1 + wet-feet test. No Z3 in S weeks (UA).",
+        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late steep-descent block #1 at OVERLOOK (partial; rev 2.4). Wet-feet test moved to 3/14. No Z3 in S weeks (UA).",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -29767,7 +29767,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late rough-descent block #1 + wet-feet test. No Z3 in S weeks (UA).",
+        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late steep-descent block #1 at OVERLOOK (partial; rev 2.4). Wet-feet test moved to 3/14. No Z3 in S weeks (UA).",
         "day_notes": "",
         "sessions": [
           {
@@ -30007,7 +30007,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late rough-descent block #1 + wet-feet test. No Z3 in S weeks (UA).",
+        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late steep-descent block #1 at OVERLOOK (partial; rev 2.4). Wet-feet test moved to 3/14. No Z3 in S weeks (UA).",
         "day_notes": "",
         "sessions": [
           {
@@ -30203,7 +30203,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late rough-descent block #1 + wet-feet test. No Z3 in S weeks (UA).",
+        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late steep-descent block #1 at OVERLOOK (partial; rev 2.4). Wet-feet test moved to 3/14. No Z3 in S weeks (UA).",
         "day_notes": "",
         "sessions": [
           {
@@ -30220,9 +30220,9 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "2 x 2.0 mi sustained at -5..-8%.  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "1.5 + 1.5 + 1.0 mi sustained at -5..-8% (rev 2.4: 4.0 descent-miles held; reps capped at Boat Basin's 1.5 mi).  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -30449,7 +30449,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late rough-descent block #1 + wet-feet test. No Z3 in S weeks (UA).",
+        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late steep-descent block #1 at OVERLOOK (partial; rev 2.4). Wet-feet test moved to 3/14. No Z3 in S weeks (UA).",
         "day_notes": "",
         "sessions": [
           {
@@ -30468,7 +30468,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 5 x 1.5 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run."
+            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -30698,7 +30698,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late rough-descent block #1 + wet-feet test. No Z3 in S weeks (UA).",
+        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late steep-descent block #1 at OVERLOOK (partial; rev 2.4). Wet-feet test moved to 3/14. No Z3 in S weeks (UA).",
         "day_notes": "",
         "sessions": [
           {
@@ -30715,7 +30715,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -30848,24 +30848,24 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late rough-descent block #1 + wet-feet test. No Z3 in S weeks (UA).",
+        "week_notes": "UA S week (B2B, ~59% on the weekend). 60-min continuous treadmill climb Tuesday (Mountain-climb rehearsal). Sunday: late steep-descent block #1 at OVERLOOK (partial; rev 2.4). Wet-feet test moved to 3/14. No Z3 in S weeks (UA).",
         "day_notes": "Pole-on FIT for RS. FIT FLAG: late rough-descent block #1 (RS ask c).",
         "sessions": [
           {
             "type": "run",
             "subtype": "long",
-            "title": "Long run",
+            "title": "Long run - OVERLOOK partial (late steep-descent block #1)",
             "duration_min": 319,
             "distance_mi": 24.5,
             "elevation_gain_ft": 2750,
             "elevation_loss_ft": 2750,
-            "terrain": "trail",
+            "terrain": "mixed",
             "terrain_intent": "relief",
             "hr_cap_bpm": 147,
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "Hilly loop with the longest sustained climbs available (Perkins Memorial / Bear Mountain area). Race fueling protocol v1 (nutrition override 3/7). SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. WET-FEET TEST (RS memo 3d): take an ankle-deep creek crossing in the first hour (walk it - Tuscany rule), then run on in wet socks - the sock/lube/shoe system is the test. Skip if the water is icy. LATE ROUGH-DESCENT BLOCK (ban amendment, athlete 9/30): in the LAST HOUR, 1.5 mi at -8..-15% on RUTTED/ROCKY FIRE ROAD - never sustained technical singletrack. POLES on, cadence 175+, short strides, quiet feet; toe protection is part of the test (Tuscany finishers lost toes at ~km 87). GATED: only if Gate D PASSED and the heel/ankle/knee gates are clean this week; otherwise run the block on a smooth non-technical descent. FIT flagged for RS (descent durability model). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "OVERLOOK (rev 2.4; RS check 10/22) - card totals held. ROUTE: ~21.5 mi of rolling road/dirt FIRST, in loops from the Overlook trailhead car (aid routine), holding ~80-90 ft/mi (~1,730 ft). Plot and check this loop well before 3/7; if no such loop exists, run the FALLBACK. Never split the day across two venues - the block must land on legs tired from this same run. LATE STEEP-DESCENT BLOCK (last hour): climb Overlook ~1.5 mi to ~2,780 ft (hike, at or below AeT) and descend it: ~1,020 ft at ~-13% (quarter-miles to ~-16%). POLES on <= -10%, cadence 175+, short strides, quiet feet; walking the steepest quarters is permitted. OVERLOAD dose relative to Tuscany's -10% legs, not a grade match. TOE PROTECTION: report whether the road was rough enough to test it (3/14 and 3/28 also read it). GATED: only if Gate D PASSED and the heel/ankle/knee gates are clean this week. ICE RULE: go/no-go by Thu 3/4 from a road-condition check - any snow or ice on the road above ~2,500 ft = FALLBACK. FALLBACK (pre-2.4 card): hilly loop with the longest sustained climbs available (Harriman woods roads; NOT Perkins), late rough-descent block 1.5 mi at -8..-15% on rutted/rocky fire road in the last hour, poles; never sustained technical singletrack; smooth non-technical descent if the gates are not clean. Race fueling protocol v1 (nutrition override 3/7). No wet-feet test today (moved to 3/14). FIT flagged for RS (read as an overload steep_down sample). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -30881,7 +30881,7 @@
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
-        "day_notes": "Routines only. Run plan: Long run.",
+        "day_notes": "Routines only. Run plan: Long run - OVERLOOK partial (late steep-descent block #1). Tue 3/9 Lower A descent eccentrics are trimmed for it.",
         "sessions": []
       },
       "nutrition": {
@@ -31009,7 +31009,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B). Thursday reaches the 2 x 2.5 mi sustained descent. MAR 14 = last 50% refund exit - only if something broke.",
+        "week_notes": "UA S week (B2B). Thursday reaches 5.0 sustained descent-miles (1.5 + 1.5 + 1.0 + 1.0, rev 2.4). Sunday: wet-feet test (moved from 3/7). MAR 14 = last 50% refund exit - only if something broke.",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -31122,7 +31122,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B). Thursday reaches the 2 x 2.5 mi sustained descent. MAR 14 = last 50% refund exit - only if something broke.",
+        "week_notes": "UA S week (B2B). Thursday reaches 5.0 sustained descent-miles (1.5 + 1.5 + 1.0 + 1.0, rev 2.4). Sunday: wet-feet test (moved from 3/7). MAR 14 = last 50% refund exit - only if something broke.",
         "day_notes": "",
         "sessions": [
           {
@@ -31161,7 +31161,7 @@
             "type": "strength",
             "subtype": "lower",
             "title": "Lower A - Specific maintenance + descent eccentrics",
-            "duration_min": 45,
+            "duration_min": 40,
             "exercises": [
               {
                 "name": "Back squat",
@@ -31185,7 +31185,7 @@
               {
                 "name": "Eccentric step-down (16 in box)",
                 "category": "eccentric_quad",
-                "sets": 3,
+                "sets": 2,
                 "reps": 10,
                 "tempo": "4-1-1",
                 "load": "moderate",
@@ -31195,7 +31195,7 @@
               {
                 "name": "Decline (slant-board) single-leg squat, eccentric",
                 "category": "eccentric_quad",
-                "sets": 3,
+                "sets": 2,
                 "reps": 8,
                 "tempo": "4-1-1",
                 "load": "bodyweight",
@@ -31219,7 +31219,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead.",
+            "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead. OVERLOOK TRIM (run plan rev 2.4): Sun 3/7 Overlook partial (~1,020 ft at ~-13%) already supplied the eccentric dose, so the eccentric step-down and the decline single-leg squat drop one set each (3 -> 2). Back squat unchanged. No added descent-eccentric volume this week.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -31362,7 +31362,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B). Thursday reaches the 2 x 2.5 mi sustained descent. MAR 14 = last 50% refund exit - only if something broke.",
+        "week_notes": "UA S week (B2B). Thursday reaches 5.0 sustained descent-miles (1.5 + 1.5 + 1.0 + 1.0, rev 2.4). Sunday: wet-feet test (moved from 3/7). MAR 14 = last 50% refund exit - only if something broke.",
         "day_notes": "",
         "sessions": [
           {
@@ -31558,7 +31558,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B). Thursday reaches the 2 x 2.5 mi sustained descent. MAR 14 = last 50% refund exit - only if something broke.",
+        "week_notes": "UA S week (B2B). Thursday reaches 5.0 sustained descent-miles (1.5 + 1.5 + 1.0 + 1.0, rev 2.4). Sunday: wet-feet test (moved from 3/7). MAR 14 = last 50% refund exit - only if something broke.",
         "day_notes": "",
         "sessions": [
           {
@@ -31575,9 +31575,9 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "2 x 2.5 mi sustained at -5..-8%. Boat Basin full length + the next best - the closest local analog to the Long Descent's legs. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "1.5 + 1.5 + 1.0 + 1.0 mi sustained at -5..-8% (rev 2.4: 5.0 descent-miles held; reps capped at Boat Basin's 1.5 mi - Overlook supplies the continuous length on 3/7 and 3/21). Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -31804,7 +31804,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B). Thursday reaches the 2 x 2.5 mi sustained descent. MAR 14 = last 50% refund exit - only if something broke.",
+        "week_notes": "UA S week (B2B). Thursday reaches 5.0 sustained descent-miles (1.5 + 1.5 + 1.0 + 1.0, rev 2.4). Sunday: wet-feet test (moved from 3/7). MAR 14 = last 50% refund exit - only if something broke.",
         "day_notes": "",
         "sessions": [
           {
@@ -31823,7 +31823,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 5 x 1.5 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run."
+            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -32053,7 +32053,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B). Thursday reaches the 2 x 2.5 mi sustained descent. MAR 14 = last 50% refund exit - only if something broke.",
+        "week_notes": "UA S week (B2B). Thursday reaches 5.0 sustained descent-miles (1.5 + 1.5 + 1.0 + 1.0, rev 2.4). Sunday: wet-feet test (moved from 3/7). MAR 14 = last 50% refund exit - only if something broke.",
         "day_notes": "",
         "sessions": [
           {
@@ -32070,7 +32070,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -32203,7 +32203,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week (B2B). Thursday reaches the 2 x 2.5 mi sustained descent. MAR 14 = last 50% refund exit - only if something broke.",
+        "week_notes": "UA S week (B2B). Thursday reaches 5.0 sustained descent-miles (1.5 + 1.5 + 1.0 + 1.0, rev 2.4). Sunday: wet-feet test (moved from 3/7). MAR 14 = last 50% refund exit - only if something broke.",
         "day_notes": "MAR 14 = last refund exit (50%). Pole-on FIT for RS.",
         "sessions": [
           {
@@ -32220,7 +32220,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. WET-FEET TEST (RS memo 3d; moved here in rev 2.4): take an ankle-deep creek crossing in the first hour (walk it - Tuscany rule), then run on in wet socks - the sock/lube/shoe system is the test. Skip if the water is icy. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -32365,7 +32365,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal with the late rough-descent block #2 (2.5-3 mi) and a wet-feet segment. RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal at OVERLOOK, one full round trip last (2.4-mi descent; rev 2.4), gated on the 3/18 read. No wet-feet segment (moved to 3/28). RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -32478,7 +32478,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal with the late rough-descent block #2 (2.5-3 mi) and a wet-feet segment. RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal at OVERLOOK, one full round trip last (2.4-mi descent; rev 2.4), gated on the 3/18 read. No wet-feet segment (moved to 3/28). RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
         "day_notes": "",
         "sessions": [
           {
@@ -32718,7 +32718,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal with the late rough-descent block #2 (2.5-3 mi) and a wet-feet segment. RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal at OVERLOOK, one full round trip last (2.4-mi descent; rev 2.4), gated on the 3/18 read. No wet-feet segment (moved to 3/28). RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
         "day_notes": "",
         "sessions": [
           {
@@ -32914,7 +32914,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal with the late rough-descent block #2 (2.5-3 mi) and a wet-feet segment. RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal at OVERLOOK, one full round trip last (2.4-mi descent; rev 2.4), gated on the 3/18 read. No wet-feet segment (moved to 3/28). RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
         "day_notes": "",
         "sessions": [
           {
@@ -32931,9 +32931,9 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "2 x 2.5 mi sustained at -5..-8%. Repeat of last week - last rep the best-form rep. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "1.5 + 1.5 + 1.0 + 1.0 mi sustained at -5..-8% (rev 2.4 split, descent-miles held). Repeat of last week - last rep the best-form rep. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both.",
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both. Its 24-h read (Fri 3/19) also gates the Sun 3/21 Overlook block (RS check 10/22).",
             "fueling_notes": "1 gel at 45 min if over 75 min."
           }
         ]
@@ -33160,7 +33160,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal with the late rough-descent block #2 (2.5-3 mi) and a wet-feet segment. RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal at OVERLOOK, one full round trip last (2.4-mi descent; rev 2.4), gated on the 3/18 read. No wet-feet segment (moved to 3/28). RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
         "day_notes": "",
         "sessions": [
           {
@@ -33179,7 +33179,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x8: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 5 x 1.5 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run."
+            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -33409,7 +33409,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal with the late rough-descent block #2 (2.5-3 mi) and a wet-feet segment. RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal at OVERLOOK, one full round trip last (2.4-mi descent; rev 2.4), gated on the 3/18 read. No wet-feet segment (moved to 3/28). RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
         "day_notes": "",
         "sessions": [
           {
@@ -33426,7 +33426,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.4): partial Febapple loop or flatter local terrain (~70-75 ft/mi); Alpine is too dense for this card. Saturday half of the back-to-back. Rolling, runnable terrain (Tuscany mi 0-27 analog). Z1-2, capped at AeT; practise the low-HR opening that worked at Vermont (FR-t). NO poles - the plan races the first 27 mi pole-free.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "Race-cadence fueling from 30 min (see nutrition day type medium_long_run).",
             "notes": "Intensity: Aerobic volume. Sunday's long run starts on these legs - that pre-fatigue IS the stimulus (UA: back-to-backs give most of one very long day's effect with less stress and faster recovery)."
@@ -33559,24 +33559,24 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal with the late rough-descent block #2 (2.5-3 mi) and a wet-feet segment. RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak). Sunday 26 mi dress rehearsal at OVERLOOK, one full round trip last (2.4-mi descent; rev 2.4), gated on the 3/18 read. No wet-feet segment (moved to 3/28). RS builds the pacing model from this block's FITs (send long runs + descent sessions).",
         "day_notes": "Pole-on FIT for RS - RS builds the Tuscany pacing model from this block's FITs. FIT FLAG: late rough-descent block #2 (RS ask c).",
         "sessions": [
           {
             "type": "run",
             "subtype": "long",
-            "title": "Long run - dress rehearsal",
+            "title": "Long run - dress rehearsal (OVERLOOK, late steep-descent block #2)",
             "duration_min": 342,
             "distance_mi": 26.0,
             "elevation_gain_ft": 3250,
             "elevation_loss_ft": 3250,
-            "terrain": "trail",
+            "terrain": "mixed",
             "terrain_intent": "relief",
             "hr_cap_bpm": 147,
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "LAST BIG RUN - dress rehearsal: race kit, race breakfast, race fueling protocol v1 (override 3/21), poles, aid routine. Finish the final descent by headlamp if the timing allows (sunset ~19:15). SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. WET-FEET TEST (RS memo 3d): take an ankle-deep creek crossing in the first hour (walk it - Tuscany rule), then run on in wet socks - the sock/lube/shoe system is the test. Skip if the water is icy. LATE ROUGH-DESCENT BLOCK (ban amendment, athlete 9/30): in the LAST HOUR, 2.5-3 mi at -8..-15% on RUTTED/ROCKY FIRE ROAD - never sustained technical singletrack. POLES on, cadence 175+, short strides, quiet feet; toe protection is part of the test (Tuscany finishers lost toes at ~km 87). GATED: only if Gate D PASSED and the heel/ankle/knee gates are clean this week; otherwise run the block on a smooth non-technical descent. FIT flagged for RS (descent durability model). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "LAST BIG RUN - DRESS REHEARSAL at OVERLOOK (rev 2.4; RS check 10/22): race kit, race breakfast, race fueling protocol v1 (override 3/21), poles, aid routine - card totals held. ROUTE: ~21.4 mi of rolling road/dirt FIRST in loops from the Overlook trailhead car, holding ~80-90 ft/mi (~1,890 ft) - the loop plotted for 3/7; these miles are the primary dress-rehearsal data for flat and gentle grades. Then, LAST: ONE FULL Overlook round trip - the 2.2-mi climb hiked at or below AeT, then the full 2.4-mi descent (~1,370 ft: top 0.75 mi ~-6%, lower 1.65 mi ~-13%, quarters to ~-16%). POLES on <= -10%, cadence 175+, short strides, quiet feet; walking the steepest quarters is permitted. Overload dose, not a grade match. Never split the day across two venues. NO HEADLAMP FINISH (dropped rev 2.4 - the 1/10 dusk finish covers night running). NO WET-FEET SEGMENT (moved to 3/28). GATED: only if Gate D PASSED, the heel/ankle/knee gates are clean this week, AND the 24-h symptom read after Thu 3/18 (descent-ladder peak) is clean. ICE RULE: go/no-go by Thu 3/18 - any snow or ice on the road above ~2,500 ft = FALLBACK. FALLBACK (pre-2.4 card): hilly dirt/fire/carriage road (Harriman woods roads), late descent block 2.5-3 mi in the last hour - a SMOOTH non-technical descent if the 3/18 read was the reason, otherwise rutted/rocky fire road at -8..-15% with poles; never sustained technical singletrack. FIT flagged for RS (read as an overload steep_down sample). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -33592,7 +33592,7 @@
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
-        "day_notes": "Routines only. Run plan: Long run - dress rehearsal.",
+        "day_notes": "Routines only. Run plan: Long run - dress rehearsal (OVERLOOK, late steep-descent block #2). Tue 3/23 Lower A descent eccentrics are trimmed for it.",
         "sessions": []
       },
       "nutrition": {
@@ -33719,7 +33719,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on.",
+        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on. Sunday: wet-feet test (moved from 3/21, rev 2.4) - a test, not a new workout.",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -33832,7 +33832,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on.",
+        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on. Sunday: wet-feet test (moved from 3/21, rev 2.4) - a test, not a new workout.",
         "day_notes": "",
         "sessions": [
           {
@@ -33871,7 +33871,7 @@
             "type": "strength",
             "subtype": "lower",
             "title": "Lower A - Specific maintenance + descent eccentrics",
-            "duration_min": 45,
+            "duration_min": 40,
             "exercises": [
               {
                 "name": "Back squat",
@@ -33895,7 +33895,7 @@
               {
                 "name": "Eccentric step-down (16 in box)",
                 "category": "eccentric_quad",
-                "sets": 3,
+                "sets": 2,
                 "reps": 10,
                 "tempo": "4-1-1",
                 "load": "moderate",
@@ -33905,7 +33905,7 @@
               {
                 "name": "Decline (slant-board) single-leg squat, eccentric",
                 "category": "eccentric_quad",
-                "sets": 3,
+                "sets": 2,
                 "reps": 8,
                 "tempo": "4-1-1",
                 "load": "bodyweight",
@@ -33929,7 +33929,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead.",
+            "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead. OVERLOOK TRIM (run plan rev 2.4): Sun 3/21 dress rehearsal with a full Overlook round trip (~1,370 ft at ~-13%) already supplied the eccentric dose, so the eccentric step-down and the decline single-leg squat drop one set each (3 -> 2). Back squat unchanged. No added descent-eccentric volume this week.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -34072,7 +34072,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on.",
+        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on. Sunday: wet-feet test (moved from 3/21, rev 2.4) - a test, not a new workout.",
         "day_notes": "",
         "sessions": [
           {
@@ -34268,7 +34268,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on.",
+        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on. Sunday: wet-feet test (moved from 3/21, rev 2.4) - a test, not a new workout.",
         "day_notes": "",
         "sessions": [
           {
@@ -34287,7 +34287,7 @@
             "poles": false,
             "key_cue": "3 x 0.75 mi, crisp sustained at -5..-8%. Taper dose - tissue maintenance, not progression. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
           }
         ]
       },
@@ -34513,7 +34513,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on.",
+        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on. Sunday: wet-feet test (moved from 3/21, rev 2.4) - a test, not a new workout.",
         "day_notes": "",
         "sessions": [
           {
@@ -34532,7 +34532,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x6: 8-10 s uphill at +8..+12% (max effort, -30% volume), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 4 x 1 min FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -34762,7 +34762,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on.",
+        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on. Sunday: wet-feet test (moved from 3/21, rev 2.4) - a test, not a new workout.",
         "day_notes": "",
         "sessions": [
           {
@@ -34874,7 +34874,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on.",
+        "week_notes": "UA T week 1 of 3 (-32% miles). Long run ~46%; one Z2 workout (Tuesday); everything else easy. No new workouts from here on. Sunday: wet-feet test (moved from 3/21, rev 2.4) - a test, not a new workout.",
         "day_notes": "FIT FLAG: late rough-descent block #3 (RS ask c).",
         "sessions": [
           {
@@ -34891,7 +34891,7 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "Last 3-h+ run. Easy, poles, race kit. SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. LATE ROUGH-DESCENT BLOCK (ban amendment, athlete 9/30): in the LAST HOUR, 1 mi at -8..-15% on RUTTED/ROCKY FIRE ROAD - never sustained technical singletrack. POLES on, cadence 175+, short strides, quiet feet; toe protection is part of the test (Tuscany finishers lost toes at ~km 87). GATED: only if Gate D PASSED and the heel/ankle/knee gates are clean this week; otherwise run the block on a smooth non-technical descent. FIT flagged for RS (descent durability model). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "Last 3-h+ run. Easy, poles, race kit. SURFACE (RS memo 3c): hilly dirt / fire / carriage road - Rockefeller Preserve or Minnewaska carriage roads, Harriman woods roads. Tuscany's front 2/3 is hard gravel farm road; this is the most specific volume surface available. WET-FEET TEST (RS memo 3d; moved here in rev 2.4): take an ankle-deep creek crossing in the first hour (walk it - Tuscany rule), then run on in wet socks - the sock/lube/shoe system is the test. Skip if the water is icy. 20 days out - time remains to change the system if it fails. LATE ROUGH-DESCENT BLOCK (ban amendment, athlete 9/30): in the LAST HOUR, 1 mi at -8..-15% on RUTTED/ROCKY FIRE ROAD - never sustained technical singletrack. POLES on, cadence 175+, short strides, quiet feet; toe protection is part of the test (Tuscany finishers lost toes at ~km 87). GATED: only if Gate D PASSED and the heel/ankle/knee gates are clean this week; otherwise run the block on a smooth non-technical descent. FIT flagged for RS (descent durability model). RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% and on steep descents <= -10%; stowed in the quiver elsewhere. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
             "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
@@ -35576,7 +35576,7 @@
             "poles": false,
             "key_cue": "2 x 0.75 mi relaxed sustained at -5..-8%. Taper dose. Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive), Perkins Memorial Drive or a graded fire road; non-technical always. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
+            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both."
           }
         ]
       },
@@ -35792,7 +35792,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x4: 8-10 s uphill at +8..+12% (max effort, -30% volume), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 4 x 45 s FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },
@@ -37016,7 +37016,7 @@
             "poles": false,
             "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x3: 8-10 s uphill at +8..+12% (max effort, -30% volume), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: the single-leg hop test (strength plan W6) AND a quiet posterior heel. First thing pulled on any heel, Achilles or forefoot signal. Then 3 x 30 s FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
           }
         ]
       },

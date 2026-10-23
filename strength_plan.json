@@ -9,9 +9,9 @@
   "plan_end": "2027-04-18",
   "generated_by": "Strength Coach (Claude)",
   "generated_date": "2026-10-22",
-  "notes": "TUSCANY CROSSING 103K CYCLE - strength & mobility (rev 2.0). 29 weeks, 9/28/2026 -> 4/18/2027, aligned day-for-day with run_plan rev 2.3.1 (UA week types; strength rev 2.3). INPUTS: debrief v2 s5b/s10, course-demands brief v1.1 s4/s9 (eccentric -11,925 ft; Long Descent -4,574 ft gross at hours ~10-14; steep ascent >= +10% 2.4x Vermont incl. a 30%+ wall), cover note (strength copy + ask #5), athlete poles decision 9/30. || PRIORITIES: (1) POSTERIOR HEEL (FR-x) - the new weakest link and the tissue a double-distance race loads hardest; (2) DESCENT TOLERANCE at 100K dose (J-4); (3) the White River lateral-chain base (pronation, peroneals, hip/lateral stability) - unchanged, still the foundation; (4) climbing strength and pole endurance. || PERIODIZATION (Uphill Athlete model: general strength -> max strength -> muscular-endurance conversion -> specific maintenance): W1-2 re-entry (isometric, no HSR) | W3-6 GENERAL STRENGTH (10s, moderate, tempo; W6 deload + hop test) | W7-13 MAX STRENGTH (heavy 5s; moderate/light in the Gate D weeks) | W14-16 + W18-19 ME CONVERSION (W17 R and W20 T run light) (gym ME step-ups/lunges + one heavy lift kept; eccentric step-downs; reactive layer pogo -> skip/bound) | W21 LONG-EFFORT WEEK (light early, isometrics only after Wednesday) | W22 POST-EFFORT RECOVERY (mobility + upper, one conditional light lower) | W23-26 SPECIFIC MAINTENANCE (low volume, heavy load, decline eccentrics, pole endurance; the terrain supplies the ME) | W27-29 TAPER (maintenance -> isometrics). The run plan's on-terrain ME (steep weighted climbing) is not duplicated here. || HEEL PROTOCOL (FR-x), INSERTIONAL-SAFE: the pain sits just below the Achilles attachment, so compression at end-range dorsiflexion is the thing to avoid early. (a) Daily evening isometrics (bent-knee soleus priority) - frequency over volume; (b) HSR on the floor (seated soleus + straight-knee raises), NO DEFICIT / off-step range until 4 consecutive quiet weeks, deficit may return from W14; (c) calf stretches on flat ground; (d) progress load, not reps; (e) 24-h rule: <= 2/10 during and back to baseline next morning = right dose; worse next morning = back one step for a week and tell the coach; (f) persists > 2 weeks or returns in training = clinician look (profile). Poles from Gallina offload part of the steep-ascent calf work in the race. || DESCENT (J-4): loaded/eccentric step-downs all cycle, Nordic eccentrics from W7, decline eccentric single-leg squats W23-26; the Thursday descent ladder (run plan) is the on-terrain dose. KNEE GATE unchanged: eccentric quad work never first, bodyweight step-down check in pre_lower. || REACTIVE/SSC: SINGLE-LEG HOP TEST in Lower B Thu 11/5 (W6): 20 continuous low hops per leg, right first; PASS = pain-free + no heel/forefoot/lateral-ankle response next morning. Gates hill sprints (run W7+), pogo hops (W8+) and skips/bounds (W15+). Fail -> retest in 2 weeks. First thing pulled on any signal. || UPPER BODY (athlete standard, rev 2.1): TWO upper sessions EVERY week W1-28 (Upper A pull/pole + Upper B push/shoulder health; light versions in recovery, gate, race and taper weeks), one light session in race week, plus the daily shoulder_maintenance routine. Band external rotation is in every upper session. || SWIMMING (athlete, rev 2.2): Total Immersion, easy, as general aerobic + upper-body work. MONDAY (active recovery after the long run) and FRIDAY (before Upper B; push complements the swim's pull). Wednesday avoided (Upper A is pull - same muscles), Tue/Thu avoided (already double days). Ramp-in: 1/week Fridays W2-5, 2/week from W6, 30 -> 45-50 min by Build, 30-min technique-only in the peak run weeks (W23-25). NO swim on the Mondays before AeT tests (identical inputs), on gate-day+1 Mondays (W11, W13), on long-effort+1 (W22), or in race week (W29); W22 has one swim (Friday). W11/W13 Friday swims move to Saturday with Upper B. Not counted in run volume or the ramp guard; swim_minutes counted in weekly hours. SHOULDER STACK (left shoulder history + 2 upper sessions + poles from January): stop at the first front/top pinch; swimming is dropped before Upper A. Swim sessions use the v1.7 cross_session type (master_schema_v6); strength_sessions counts exclude them. || POLES (decision 9/30: race with poles from ~mi 27): pole-specific upper work (straight-arm pulldown, triceps, double-pole band pulls) from W14. || DOUBLE-DAY RULES (carried): run first, 4+ h gap; lower body PM after the Tuesday climbing session and the Thursday session is valid; no lower-body strength day-of or day-before the Sunday long run; Gate D and long-effort weeks protected. Age-50 recovery criteria (carried): drop a session (Upper B first, then reduce Lower A load - never skip Lower B tendon work, the heel isometrics or the shoulder work) when 2 of: resting HR +7 bpm, sleep < 6 h twice in 3 days, soreness beyond 48 h. NO NSAIDs around loading sessions. || COMPLIANCE (ask #5, carried): every P1 item is a named session or routine; Sunday check in every week; two P1 misses in a week = message the coach. Home gym: barbell, squat rack, pull-up bar, cable row, bands, box (weighted vest optional for ME step-ups; dumbbells work). || REV 2.3 RUN-PLAN INTERACTIONS (from W18): (1) HEEL BUDGET - the Tuesday treadmill climb (45-95 min continuous at +6%, max +8%) is counted as posterior-heel load: the loaded straight-knee calf raise leaves Tuesday Lower A in W18-W26; Thursday's bent-knee/standing HSR is the one heavy calf session; ME step-ups are cued heel-and-hip, not calf. Heel > 2/10 on the treadmill = skip Tuesday's step-ups/ME block for bent-knee isometrics. (2) REACTIVE STACKING - Thursday Lower B -> Friday hill sprints / downhill pick-ups -> Saturday medium-long is three elastic/eccentric days in a row, so from W18 the Lower B reactive layer is low-amplitude pogos only (2 x 20; no skips or bounds); Friday's sprints are the week's high-intensity elastic stimulus. W14-16 keep skips/bounds (Friday is pick-ups, not sprints). (3) THURSDAY ECCENTRIC VOLUME - descent sessions now run to 130 min / ~1,650 ft at -6% plus pole-assisted steep pitches; on any Thursday with a >= 100-min descent session (W16, W18, W19, W23-25) the lateral step-down drops to bodyweight 2 x 8. The heavy gym eccentrics (step-downs, decline squats, Nordics) stay on Tuesday, which from W18 has no descent - 48 h before Thursday's downhill.",
-  "revision": "2.3",
-  "revision_notes": "CURRENT REVISION 2.3 (2026-10-22). REALIGNED TO run_plan rev 2.3.1 (UA week types from W5; Oracle 50M replaced by the Sun 2/21 long effort; AeT tests 11/24 and 1/19 only). W1-W4 untouched; hop test (Thu 11/5), Gate D runs and race date unchanged. WEEK MAP: W15 Monday swim restored (1/5 test moved); W17 Monday swim removed (rest before AeT #3 1/19), light week kept, Lower A follows the test; W18 rebuilt from Oracle week to a normal ME-conversion loading week (Lower A ME, Upper A pole, Lower B, swim + Upper B, Monday swim); W19 rebuilt from post-Oracle recovery to a loading week at W18 loads; W20 T week kept light; W21 becomes the long-effort week (old Oracle-week logic: light Lower A Tue, light Upper A Wed, isometrics Thu, swim + light Upper B Fri, nothing Sat-Sun; Monday swim returns since the 2/16 test is dropped); W22 uses the post-Oracle template (no Monday swim, light Upper A Tue, mobility Wed, conditional light lower Thu, swim + light Upper B Fri); W24 is now a loading S week - full sessions, 'recovery/light' note retired, swims technique-only 30/30. Specific period now W23-26. RULES ADDED (meta.notes 'REV 2.3 RUN-PLAN INTERACTIONS'): heel budget for the Tuesday treadmill climb (straight-knee calf raise out of Lower A W18-26), reactive trim to low pogos from W18 (Friday hill sprints), bodyweight lateral step-downs after >= 100-min descent Thursdays (W16, 18, 19, 23-25). Evening heel isometrics override moved from W18 to W21. All day_notes W5-W29 regenerated from the run plan (Friday is now a run day every week). weekly_targets strength/swim counts re-derived. No schema change (1.7, valid against master schema v1.8). || REVISION 2.2 (2026-09-30). SWIMMING ADDED (athlete): 42 easy Total Immersion sessions, Monday + Friday, ramped in from 1/week (W2-5) to 2/week (W6+), 20-50 min, as type cross / subtype swim (schema 1.4 -> 1.7, master_schema_v6). weekly_targets gains swim_sessions and swim_minutes (derived). No strength session, exercise or load touched; strength_sessions counts unchanged. || CURRENT REVISION 2.1 (2026-09-30). ATHLETE STANDARD: 2 upper sessions every week. Upper B ADDED to the 16 weeks that had one upper session (W1, 2, 6, 9, 10, 11, 12, 13, 17, 18, 19, 20, 24, 26, 27, 28; light version where the week is recovery/gate/race/taper) and one light Upper A added in race week W29. Upper B content gains scapular push-up, band face pull and band external rotation in every week (shoulder health). No lower session, run-plan day or load outside Upper B touched. Week notes stating session counts updated. || CURRENT REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont block (rev 1.4) wholesale. Routines: tendon_isometrics_evening REPLACED by heel_isometrics_evening (FR-x); daily_mobility ADDED; the other three carried, active 1-29. Protocols carried with heel-safe cues. No schema change (session/exercise fields as before). Companion: run_plan rev 2.0 - every strength day was generated against the run plan's day map."
+  "notes": "TUSCANY CROSSING 103K CYCLE - strength & mobility (rev 2.0). 29 weeks, 9/28/2026 -> 4/18/2027, aligned day-for-day with run_plan rev 2.4 (UA week types; strength rev 2.4). INPUTS: debrief v2 s5b/s10, course-demands brief v1.1 s4/s9 (eccentric -11,925 ft; Long Descent -4,574 ft gross at hours ~10-14; steep ascent >= +10% 2.4x Vermont incl. a 30%+ wall), cover note (strength copy + ask #5), athlete poles decision 9/30. || PRIORITIES: (1) POSTERIOR HEEL (FR-x) - the new weakest link and the tissue a double-distance race loads hardest; (2) DESCENT TOLERANCE at 100K dose (J-4); (3) the White River lateral-chain base (pronation, peroneals, hip/lateral stability) - unchanged, still the foundation; (4) climbing strength and pole endurance. || PERIODIZATION (Uphill Athlete model: general strength -> max strength -> muscular-endurance conversion -> specific maintenance): W1-2 re-entry (isometric, no HSR) | W3-6 GENERAL STRENGTH (10s, moderate, tempo; W6 deload + hop test) | W7-13 MAX STRENGTH (heavy 5s; moderate/light in the Gate D weeks) | W14-16 + W18-19 ME CONVERSION (W17 R and W20 T run light) (gym ME step-ups/lunges + one heavy lift kept; eccentric step-downs; reactive layer pogo -> skip/bound) | W21 LONG-EFFORT WEEK (light early, isometrics only after Wednesday) | W22 POST-EFFORT RECOVERY (mobility + upper, one conditional light lower) | W23-26 SPECIFIC MAINTENANCE (low volume, heavy load, decline eccentrics, pole endurance; the terrain supplies the ME) | W27-29 TAPER (maintenance -> isometrics). The run plan's on-terrain ME (steep weighted climbing) is not duplicated here. || HEEL PROTOCOL (FR-x), INSERTIONAL-SAFE: the pain sits just below the Achilles attachment, so compression at end-range dorsiflexion is the thing to avoid early. (a) Daily evening isometrics (bent-knee soleus priority) - frequency over volume; (b) HSR on the floor (seated soleus + straight-knee raises), NO DEFICIT / off-step range until 4 consecutive quiet weeks, deficit may return from W14; (c) calf stretches on flat ground; (d) progress load, not reps; (e) 24-h rule: <= 2/10 during and back to baseline next morning = right dose; worse next morning = back one step for a week and tell the coach; (f) persists > 2 weeks or returns in training = clinician look (profile). Poles from Gallina offload part of the steep-ascent calf work in the race. || DESCENT (J-4): loaded/eccentric step-downs all cycle, Nordic eccentrics from W7, decline eccentric single-leg squats W23-26; the Thursday descent ladder (run plan) is the on-terrain dose. KNEE GATE unchanged: eccentric quad work never first, bodyweight step-down check in pre_lower. || REACTIVE/SSC: SINGLE-LEG HOP TEST in Lower B Thu 11/5 (W6): 20 continuous low hops per leg, right first; PASS = pain-free + no heel/forefoot/lateral-ankle response next morning. Gates hill sprints (run W7+), pogo hops (W8+) and skips/bounds (W15+). Fail -> retest in 2 weeks. First thing pulled on any signal. || UPPER BODY (athlete standard, rev 2.1): TWO upper sessions EVERY week W1-28 (Upper A pull/pole + Upper B push/shoulder health; light versions in recovery, gate, race and taper weeks), one light session in race week, plus the daily shoulder_maintenance routine. Band external rotation is in every upper session. || SWIMMING (athlete, rev 2.2): Total Immersion, easy, as general aerobic + upper-body work. MONDAY (active recovery after the long run) and FRIDAY (before Upper B; push complements the swim's pull). Wednesday avoided (Upper A is pull - same muscles), Tue/Thu avoided (already double days). Ramp-in: 1/week Fridays W2-5, 2/week from W6, 30 -> 45-50 min by Build, 30-min technique-only in the peak run weeks (W23-25). NO swim on the Mondays before AeT tests (identical inputs), on gate-day+1 Mondays (W11, W13), on long-effort+1 (W22), or in race week (W29); W22 has one swim (Friday). W11/W13 Friday swims move to Saturday with Upper B. Not counted in run volume or the ramp guard; swim_minutes counted in weekly hours. SHOULDER STACK (left shoulder history + 2 upper sessions + poles from January): stop at the first front/top pinch; swimming is dropped before Upper A. Swim sessions use the v1.7 cross_session type (master_schema_v6); strength_sessions counts exclude them. || POLES (decision 9/30: race with poles from ~mi 27): pole-specific upper work (straight-arm pulldown, triceps, double-pole band pulls) from W14. || DOUBLE-DAY RULES (carried): run first, 4+ h gap; lower body PM after the Tuesday climbing session and the Thursday session is valid; no lower-body strength day-of or day-before the Sunday long run; Gate D and long-effort weeks protected. Age-50 recovery criteria (carried): drop a session (Upper B first, then reduce Lower A load - never skip Lower B tendon work, the heel isometrics or the shoulder work) when 2 of: resting HR +7 bpm, sleep < 6 h twice in 3 days, soreness beyond 48 h. NO NSAIDs around loading sessions. || COMPLIANCE (ask #5, carried): every P1 item is a named session or routine; Sunday check in every week; two P1 misses in a week = message the coach. Home gym: barbell, squat rack, pull-up bar, cable row, bands, box (weighted vest optional for ME step-ups; dumbbells work). || REV 2.3 RUN-PLAN INTERACTIONS (from W18): (1) HEEL BUDGET - the Tuesday treadmill climb (45-95 min continuous at +6%, max +8%) is counted as posterior-heel load: the loaded straight-knee calf raise leaves Tuesday Lower A in W18-W26; Thursday's bent-knee/standing HSR is the one heavy calf session; ME step-ups are cued heel-and-hip, not calf. Heel > 2/10 on the treadmill = skip Tuesday's step-ups/ME block for bent-knee isometrics. (2) REACTIVE STACKING - Thursday Lower B -> Friday hill sprints / downhill pick-ups -> Saturday medium-long is three elastic/eccentric days in a row, so from W18 the Lower B reactive layer is low-amplitude pogos only (2 x 20; no skips or bounds); Friday's sprints are the week's high-intensity elastic stimulus. W14-16 keep skips/bounds (Friday is pick-ups, not sprints). (3) THURSDAY ECCENTRIC VOLUME - descent sessions now run to 130 min / ~1,650 ft at -6% plus pole-assisted steep pitches; on any Thursday with a >= 100-min descent session (W16, W18, W19, W23-25) the lateral step-down drops to bodyweight 2 x 8. The heavy gym eccentrics (step-downs, decline squats, Nordics) stay on Tuesday, which from W18 has no descent - 48 h before Thursday's downhill.",
+  "revision": "2.4",
+  "revision_notes": "CURRENT REVISION 2.4 (2026-10-22). REALIGNED TO run_plan rev 2.4 (venues + Overlook; TP note 'runplan_rev2_4' v1.1). (1) Tue 11/17 Lower A held at the W7 level (11/10: back squat 4x5 heavy, loaded step-down 3x8 moderate) - no planned increase, 48 h after the Overlook intro on Sun 11/15; concentric/isometric work unchanged. (2) Thu 11/19 Lower B gated on the same post-11/15 read as the AM descent session; not clean -> repeat the 11/12 session (no pogo entry, no load increase). (3) Tue 3/9 and Tue 3/23 Lower A: eccentric step-down and decline single-leg squat 3 -> 2 sets each (Overlook blocks on 3/7 and 3/21 supply the eccentric dose); duration 45 -> 40 min. (4) day_notes for 11/15, 11/22, 3/7, 3/21 resynced to the run titles (headlamp #1 now 11/22). No other session changed. BASE VERIFIED: strength rev 2.3 and run_plan rev 2.4 asserted from the folder copies. || CURRENT REVISION 2.3 (2026-10-22). REALIGNED TO run_plan rev 2.3.1 (UA week types from W5; Oracle 50M replaced by the Sun 2/21 long effort; AeT tests 11/24 and 1/19 only). W1-W4 untouched; hop test (Thu 11/5), Gate D runs and race date unchanged. WEEK MAP: W15 Monday swim restored (1/5 test moved); W17 Monday swim removed (rest before AeT #3 1/19), light week kept, Lower A follows the test; W18 rebuilt from Oracle week to a normal ME-conversion loading week (Lower A ME, Upper A pole, Lower B, swim + Upper B, Monday swim); W19 rebuilt from post-Oracle recovery to a loading week at W18 loads; W20 T week kept light; W21 becomes the long-effort week (old Oracle-week logic: light Lower A Tue, light Upper A Wed, isometrics Thu, swim + light Upper B Fri, nothing Sat-Sun; Monday swim returns since the 2/16 test is dropped); W22 uses the post-Oracle template (no Monday swim, light Upper A Tue, mobility Wed, conditional light lower Thu, swim + light Upper B Fri); W24 is now a loading S week - full sessions, 'recovery/light' note retired, swims technique-only 30/30. Specific period now W23-26. RULES ADDED (meta.notes 'REV 2.3 RUN-PLAN INTERACTIONS'): heel budget for the Tuesday treadmill climb (straight-knee calf raise out of Lower A W18-26), reactive trim to low pogos from W18 (Friday hill sprints), bodyweight lateral step-downs after >= 100-min descent Thursdays (W16, 18, 19, 23-25). Evening heel isometrics override moved from W18 to W21. All day_notes W5-W29 regenerated from the run plan (Friday is now a run day every week). weekly_targets strength/swim counts re-derived. No schema change (1.7, valid against master schema v1.8). || REVISION 2.2 (2026-09-30). SWIMMING ADDED (athlete): 42 easy Total Immersion sessions, Monday + Friday, ramped in from 1/week (W2-5) to 2/week (W6+), 20-50 min, as type cross / subtype swim (schema 1.4 -> 1.7, master_schema_v6). weekly_targets gains swim_sessions and swim_minutes (derived). No strength session, exercise or load touched; strength_sessions counts unchanged. || CURRENT REVISION 2.1 (2026-09-30). ATHLETE STANDARD: 2 upper sessions every week. Upper B ADDED to the 16 weeks that had one upper session (W1, 2, 6, 9, 10, 11, 12, 13, 17, 18, 19, 20, 24, 26, 27, 28; light version where the week is recovery/gate/race/taper) and one light Upper A added in race week W29. Upper B content gains scapular push-up, band face pull and band external rotation in every week (shoulder health). No lower session, run-plan day or load outside Upper B touched. Week notes stating session counts updated. || CURRENT REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont block (rev 1.4) wholesale. Routines: tendon_isometrics_evening REPLACED by heel_isometrics_evening (FR-x); daily_mobility ADDED; the other three carried, active 1-29. Protocols carried with heel-safe cues. No schema change (session/exercise fields as before). Companion: run_plan rev 2.0 - every strength day was generated against the run plan's day map."
  },
  "daily_routines": [
   {
@@ -2861,7 +2861,7 @@
      "day_of_week": "Sunday",
      "flex": false,
      "rest_day": true,
-     "day_notes": "Routines only. Run plan: Long run - HEADLAMP #1 (pre-dawn start)."
+     "day_notes": "Routines only. Run plan: Long run - OVERLOOK INTRO (first steep descent of the cycle). Its day +1 to +3 morning reads gate Tue 11/17 (eccentric hold) and Thu 11/19 Lower B."
     }
    ]
   },
@@ -2915,7 +2915,7 @@
          "load": "heavy",
          "side": "both",
          "cue": "Heavy but crisp: 2 reps in reserve.",
-         "progression_note": "Add 5-10 lb when all sets are clean."
+         "progression_note": "HOLD (rev 2.4): same load as Tue 11/10 - no increase this week (Overlook intro 48 h ago). Progression resumes at the next Lower A."
         },
         {
          "name": "Weighted step-up (high box, knee ~90 deg)",
@@ -2964,7 +2964,7 @@
          "tempo": "4-1-1",
          "load": "moderate",
          "side": "alternating",
-         "cue": "The descent absorber. KNEE GATE: never first in the session, always fully warm; drop to bodyweight + reps if the knee objects."
+         "cue": "The descent absorber. KNEE GATE: never first in the session, always fully warm; drop to bodyweight + reps if the knee objects. HOLD (rev 2.4): same load and volume as Tue 11/10 (3 x 8, moderate) - no increase this week."
         },
         {
          "name": "Pallof press (heavy band)",
@@ -2974,7 +2974,7 @@
          "side": "alternating"
         }
        ],
-       "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
+       "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). OVERLOOK HOLD (run plan rev 2.4): Sun 11/15 is the first steep-descent bout of the cycle (~1,370 ft, lower 1.65 mi at ~-13%), so today lands near peak muscle damage. Eccentric quad work (back squat, loaded step-down) stays at the W7 level (11/10) with no planned increase; concentric and isometric work goes ahead as written. Not a deload.",
        "warmup_protocol": "pre_lower"
       }
      ],
@@ -3131,11 +3131,11 @@
          "side": "alternating"
         }
        ],
-       "notes": "P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
+       "notes": "P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). POST-OVERLOOK GATE (run plan rev 2.4): follows the same read as this morning's descent session. Day +1 to +3 morning reads after Sun 11/15 clean (<= 2/10, settling) -> as written, pogo hops enter (if the hop test passed). Not clean -> repeat the Thu 11/12 session: no pogo hops (they enter next Lower B), no load increase on the soleus HSR or the lateral step-down, and flag the coach.",
        "warmup_protocol": "pre_lower"
       }
      ],
-     "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap."
+     "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap. Both gated on the post-11/15 Overlook read."
     },
     {
      "date": "2026-11-20",
@@ -3251,7 +3251,7 @@
      "day_of_week": "Sunday",
      "flex": false,
      "rest_day": true,
-     "day_notes": "Routines only. Run plan: Long run."
+     "day_notes": "Routines only. Run plan: Long run - HEADLAMP #1 (pre-dawn start)."
     }
    ]
   },
@@ -8763,7 +8763,7 @@
      "day_of_week": "Sunday",
      "flex": false,
      "rest_day": true,
-     "day_notes": "Routines only. Run plan: Long run."
+     "day_notes": "Routines only. Run plan: Long run - OVERLOOK partial (late steep-descent block #1). Tue 3/9 Lower A descent eccentrics are trimmed for it."
     }
    ]
   },
@@ -8806,7 +8806,7 @@
        "type": "strength",
        "subtype": "lower",
        "title": "Lower A - Specific maintenance + descent eccentrics",
-       "duration_min": 45,
+       "duration_min": 40,
        "exercises": [
         {
          "name": "Back squat",
@@ -8830,7 +8830,7 @@
         {
          "name": "Eccentric step-down (16 in box)",
          "category": "eccentric_quad",
-         "sets": 3,
+         "sets": 2,
          "reps": 10,
          "tempo": "4-1-1",
          "load": "moderate",
@@ -8840,7 +8840,7 @@
         {
          "name": "Decline (slant-board) single-leg squat, eccentric",
          "category": "eccentric_quad",
-         "sets": 3,
+         "sets": 2,
          "reps": 8,
          "tempo": "4-1-1",
          "load": "bodyweight",
@@ -8864,7 +8864,7 @@
          "side": "alternating"
         }
        ],
-       "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead.",
+       "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead. OVERLOOK TRIM (run plan rev 2.4): Sun 3/7 Overlook partial (~1,020 ft at ~-13%) already supplied the eccentric dose, so the eccentric step-down and the decline single-leg squat drop one set each (3 -> 2). Back squat unchanged. No added descent-eccentric volume this week.",
        "warmup_protocol": "pre_lower"
       }
      ],
@@ -9517,7 +9517,7 @@
      "day_of_week": "Sunday",
      "flex": false,
      "rest_day": true,
-     "day_notes": "Routines only. Run plan: Long run - dress rehearsal."
+     "day_notes": "Routines only. Run plan: Long run - dress rehearsal (OVERLOOK, late steep-descent block #2). Tue 3/23 Lower A descent eccentrics are trimmed for it."
     }
    ]
   },
@@ -9560,7 +9560,7 @@
        "type": "strength",
        "subtype": "lower",
        "title": "Lower A - Specific maintenance + descent eccentrics",
-       "duration_min": 45,
+       "duration_min": 40,
        "exercises": [
         {
          "name": "Back squat",
@@ -9584,7 +9584,7 @@
         {
          "name": "Eccentric step-down (16 in box)",
          "category": "eccentric_quad",
-         "sets": 3,
+         "sets": 2,
          "reps": 10,
          "tempo": "4-1-1",
          "load": "moderate",
@@ -9594,7 +9594,7 @@
         {
          "name": "Decline (slant-board) single-leg squat, eccentric",
          "category": "eccentric_quad",
-         "sets": 3,
+         "sets": 2,
          "reps": 8,
          "tempo": "4-1-1",
          "load": "bodyweight",
@@ -9618,7 +9618,7 @@
          "side": "alternating"
         }
        ],
-       "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead.",
+       "notes": "SPECIFIC PERIOD: strength and eccentric capacity maintained at low volume while running volume peaks; the terrain now supplies the ME. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). HEEL BUDGET (rev 2.3): from W18 the Tuesday run is a continuous treadmill climb at +6% - that IS today's straight-knee calf load, so the loaded straight-knee calf raise is removed here. Thursday's HSR is the week's one heavy calf session. Step-ups: whole foot on the box, drive through the heel and hip - not a calf push. If the heel rated > 2/10 on the treadmill (run card drops to +4%), skip the step-ups and the ME block today and do the bent-knee soleus isometrics instead. OVERLOOK TRIM (run plan rev 2.4): Sun 3/21 dress rehearsal with a full Overlook round trip (~1,370 ft at ~-13%) already supplied the eccentric dose, so the eccentric step-down and the decline single-leg squat drop one set each (3 -> 2). Back squat unchanged. No added descent-eccentric volume this week.",
        "warmup_protocol": "pre_lower"
       }
      ],
