@@ -9,9 +9,9 @@
   "plan_end": "2027-04-18",
   "generated_by": "Nutrition Coach (Claude)",
   "generated_date": "2026-10-22",
-  "notes": "TUSCANY CROSSING 103K CYCLE - nutrition (rev 2.3.2). 29 weeks, 9/28/2026 -> 4/18/2027, matched to run_plan rev 2.4 / strength_plan rev 2.4 subtypes (run plan rebuilt from W5 on Uphill Athlete week types; Oracle 50M replaced by the Sun 2/21 long effort). Arnon: 50 M, 175 lb / 79 kg. || THE PROBLEM TO SOLVE (FR-w): at Vermont the gut signalled FULL at ~365 cal/hr by hour 4 (gels every 25 min + half-strength drink + 500 ml/hr); he then ran on gels alone at ~240 cal/hr with no energy cost to 6:40. Tuscany is a ~15:40-17:00 planning day. The fix is the calorie MIX - more solids, less concentrated liquid carbohydrate - not more volume. Target race intake ~260-300 cal/hr, from ~50% gels / ~25% half-strength drink / ~25% real food. || GUT-TRAINING LADDER (long_run notes + overrides): Base W3-13 proven protocol + one real-food item per long run from W7 | Build W14-22 the MIX at 250-280 cal/hr, cup drinking at car stops; 1/17 = real-food rehearsal for 2/21 | LONG EFFORT 2/21 = J-2, the real-food rehearsal on an 8-10 h day (car = aid every ~2-2.5 h; real food from hour 3; drink-mix replacement tested; every item logged for RS) | Peak: race protocol v1 on 3/7, final on 3/21, nothing new after. One new variable per run; hour 1 always on the proven baseline. || STATION FLUID vs OWN MIX (Arnon's question): with powder pre-portioned per bottle, mixing your own at a cup-only aid costs roughly 20-40 s more than taking station drink - small next to the dwell Vermont actually lost (~4 min of crew chat and toilet queue). The bigger variable is the gut: the station product at Tuscany is unknown (race documents should list it - open item), and your own mix is proven over two ultras. DEFAULT: own powder + station water; station coke/tea/broth as late-race additions only after they pass in training. With Oracle gone there is no aid station before Tuscany, so station drink vs own powder CANNOT be tested head-to-head - the default stands unless the race documents name a product Arnon can buy and trial in March. Coke and broth are trialled at the car on 2/21. || SODIUM & FLUID BY TEMPERATURE (not a flat rate): < 12 C -> 400-600 mg Na/hr, 400-500 ml/hr (no scheduled SaltStick) | 12-22 C -> 600-800 mg, 500-650 ml (SaltStick 1/60 min) | > 22 C -> 800-1,000 mg, 650-800 ml (SaltStick 1/40-45 min). Tuscany's regulation warns of near 0 C at night and > 30 C midday. Indoor treadmill sessions usually sit in the middle tier. || EARLY-START FUELING: Tuscany breakfast lands at ~02:45-03:00. Rehearsed on 11/22 (04:00); Overlook days (11/15, 3/7, 3/21) eat before a ~2 h drive and top up at the trailhead and 2/21 (03:00, identical to race timing - now the opening of the long effort). || CAFFEINE for a dark finish: tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the March rehearsals; race cap ~5 mg/kg (~400 mg). || DAILY EATING: protein 1.8-1.9 g/kg (~145-155 g) every day including rest days - tendon remodeling at 50 is protein-hungry. Carbs scale with the day (~3.3 g/kg rest -> ~8 g/kg on the biggest long runs; day-type phase_adjustments raise totals as run hours climb from ~6.8 h (W5) to 13.4 h (W25); recovery weeks W6, 9, 11, 13, 17, 22 run 4-6 h - eat to base targets there; W21 is 12.1 h, mostly Sunday). ENERGY AVAILABILITY: weekly hours roughly double from October to March - if body weight drifts down > ~1.5 kg, or sleep, mood or resting HR worsen, eat more before training less. COLLAGEN 15 g + vitamin C 250 mg 30-60 min before every Lower A/B session, otherwise with the morning foot routine. NO NSAIDs around loading. Alcohol: Friday evening is the window in normal weeks (36 h before a Sunday long run; in back-to-back weeks the Saturday medium-long follows - keep it to one drink); none the night before the long effort (Saturday 2/20, or the day before whichever backup date is used) and none in Tuscany race week. || AeT TESTS: nutrition is held identical at every drift test (10/13, 11/24, 1/19 - moved from 1/5; the 2/16 test is dropped) so the only variable is fitness. || FRIDAYS (rev 2.3): Friday is a run day in every week (fast-feet run, subtype easy, 3-4.5 mi), so Friday resolves to easy_run_upper_swim, which now carries the back-to-back-weekend carb note. strength_only_swim fires only on swim + upper days without a run (W10 Friday, W11/W13 Saturdays, W21 Friday). || SWIM DAYS (rev 2.1): three day types resolve Total Immersion swim days (Monday swim-only; swim + Upper B with or without a run). They are listed FIRST because triggers are first-match: a trigger with cross_subtype matches only when that cross session is scheduled; a trigger without cross_subtype ignores cross sessions (backward compatible). Easy swim ~250-400 kcal. || date_overrides are the source of truth on test, gate, headlamp, rehearsal, long-effort, carb-load and race days.",
-  "revision": "2.3.2",
-  "revision_notes": "CURRENT REVISION 2.3.2 (2026-10-23). SYNCED TO run_plan rev 2.4 (long-effort backups from run_plan 2.3.2-2.3.4). 2/21 override: weather backup 'Sun 2/14 or 2/28' replaced by the run plan's rules - 2/14 only (decided Wed 2/10; off if G1 ran 2/7), short-notice fallback Sat 2/20 (carb-up moves to Fri 2/19), last-resort weekday 2/17-2/25; the 2/20 carb-up and 2/22 recovery overrides move with the effort. 2/20 override: matching note. meta.notes: no-alcohol rule tied to the night before the effort, not a fixed date; header now matched to run_plan 2.4 / strength_plan 2.4. OVERLOOK DAYS (run plan rev 2.4): NEW 11/15 override (Overlook intro; Base long-run targets 3300/450/145/85, 3800 ml) - breakfast before the ~2 h drive + trailhead top-up, gel at the top before the steep descent, real food at ~hour 2, shake before the drive home, protein-forward day after (11/16). 3/7 and 3/21 overrides: same breakfast/top-up timing and a gel before the final Overlook climb, nothing on the steep descent - totals unchanged. Caffeine supplement: 3/7 and 3/21 are late-hours tests, not dark finishes. Real-food ladder: the first item (salted potato) is now on 11/15 (W7); the 11/22 headlamp override's real-food item relabelled #2 (rotate). 18 date overrides. No other targets changed. || REVISION 2.3.1 (2026-10-22). SYNCED TO run_plan rev 2.4 (headlamp #1 moved from Sun 11/15 to Sun 11/22; 11/15 is now the Overlook intro). HEADLAMP #1 override moved 2026-11-15 -> 2026-11-22, content unchanged (3300 kcal / 450 C / 145 P / 85 F, 3600 ml, 04:00 breakfast, same session_fueling); reason '(13.5 mi)' -> '(14.5 mi)'. meta.notes EARLY-START FUELING: 'Rehearsed on 11/15' -> 'Rehearsed on 11/22'. 11/15 now takes the long_run day type. 17 date overrides. Schema 1.7. || CURRENT REVISION 2.3 (2026-10-22). SYNCED TO run_plan rev 2.3.1 (TP note 22 Oct). DATE OVERRIDES: AeT #3 moved 1/5 -> 1/19 (identical protocol); AeT #4 2/16 deleted (test dropped); Oracle 1/28, 1/29, 1/30 deleted; 2/21 REWRITTEN from the 19-mi headlamp race-start sim to the LONG EFFORT J-2 rehearsal (35-40 mi / 8-10 h, 05:00 start, car aid every ~2-2.5 h; 03:00 race breakfast kept; real food from hour 3; drink-mix replacement trial; caffeine late; cup drinking at the car; intake log for RS; weather backup Sun 2/14 or 2/28) - 5000 kcal / 850 g carbs; NEW 2/20 shakeout + modest carb-up (~6 g/kg) and NEW 2/22 post-effort recovery day; 3/7 rescaled from the 30-mi G2 run to the 24.5-mi long run (~5.3 h) after a 10-mi medium-long, race protocol v1 kept, items 'passed 21 Feb', backup note removed - 4300 kcal / 650 g; 1/10 rescaled to 17 mi with a ~13:30 start (pre-run meal ~12:00) - 3500 / 500; 1/17 retitled and rescaled to the 18-mi real-food rehearsal for 2/21 - 3700 / 540; 11/15 text 13.5 mi. 1/31 (G1, 21.5 mi), 2/7 (22 mi) and 3/14 (25 mi) take the long_run day type - no override (no new fuel variable; Build and Peak targets fit). DAY TYPES: easy_run_upper_swim now covers every Friday and gains the back-to-back-weekend carb note as Build and Peak phase adjustments; strength_only_swim trigger text and phase adjustment re-scoped (W10/W21 Fridays, W11/W13 Saturdays); strength_only loses the stale B2B-Friday adjustment; easy_run_lower_strength gains a during entry (1 gel at 45 min if the descent session runs over 75 min, as on the run cards); climb_lower_strength during note re-pointed to the run card and treadmill blocks; medium_long Peak '12-mi' -> 10-11 mi; long_run phase text (Base 8.5-14.5, Build 15-22 + the 38-mi effort, Peak 24.5-26, taper 20/15/10); race_or_rehearsal and aet_test_day text. SUPPLEMENTS: caffeine test dates 1/10, 2/21, 3/7, 3/21. meta.notes: ladder, AeT list, alcohol, station-drink item. No schema change (1.7). || REVISION 2.2 (2026-09-30). 2027-03-07 override rescaled to the 30-mi G2 shoe-gate run (run_plan rev 2.1): 4300 -> 4700 kcal, 650 -> 740 g carbs, fluid 4500 -> 5000 ml; backup-date note. Nothing else changed. || REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
+  "notes": "TUSCANY CROSSING 103K CYCLE - nutrition (rev 2.3.3). 29 weeks, 9/28/2026 -> 4/18/2027, matched to run_plan rev 2.4 / strength_plan rev 2.4 subtypes (run plan rebuilt from W5 on Uphill Athlete week types; Oracle 50M replaced by the Sun 2/21 long effort). Arnon: 50 M, 175 lb / 79 kg. || THE PROBLEM TO SOLVE (FR-w): at Vermont the gut signalled FULL at ~365 cal/hr by hour 4 (gels every 25 min + half-strength GU Roctane Energy Drink Mix + 500 ml/hr); he then ran on gels alone at ~240 cal/hr with no energy cost to 6:40. Tuscany is a ~15:40-17:00 planning day. The fix is the calorie MIX - more solids, less concentrated liquid carbohydrate - not more volume. Target race intake ~260-300 cal/hr, from ~50% gels / ~25% half-strength GU Roctane Energy Drink Mix / ~25% real food. || GUT-TRAINING LADDER (long_run notes + overrides): Base W3-13 proven protocol + one real-food item per long run from W7 | Build W14-22 the MIX at 250-280 cal/hr, cup drinking at car stops; 1/17 = real-food rehearsal for 2/21 | LONG EFFORT 2/21 = J-2, the real-food rehearsal on an 8-10 h day (car = aid every ~2-2.5 h; real food from hour 3; drink-mix replacement tested; every item logged for RS) | Peak: race protocol v1 on 3/7, final on 3/21, nothing new after. One new variable per run; hour 1 always on the proven baseline. || STATION FLUID vs OWN MIX (Arnon's question): with powder pre-portioned per bottle, mixing your own at a cup-only aid costs roughly 20-40 s more than taking station drink - small next to the dwell Vermont actually lost (~4 min of crew chat and toilet queue). The bigger variable is the gut: the station product at Tuscany is unknown (race documents should list it - open item), and your own mix is proven over two ultras. DEFAULT: own powder (GU Roctane Energy Drink Mix) + station water; station coke/tea/broth as late-race additions only after they pass in training. With Oracle gone there is no aid station before Tuscany, so station drink vs own powder CANNOT be tested head-to-head - the default stands unless the race documents name a product Arnon can buy and trial in March. Coke and broth are trialled at the car on 2/21. || SODIUM & FLUID BY TEMPERATURE (not a flat rate): < 12 C -> 400-600 mg Na/hr, 400-500 ml/hr (no scheduled SaltStick) | 12-22 C -> 600-800 mg, 500-650 ml (SaltStick 1/60 min) | > 22 C -> 800-1,000 mg, 650-800 ml (SaltStick 1/40-45 min). Tuscany's regulation warns of near 0 C at night and > 30 C midday. Indoor treadmill sessions usually sit in the middle tier. || EARLY-START FUELING: Tuscany breakfast lands at ~02:45-03:00. Rehearsed on 11/22 (04:00); Overlook days (11/15, 3/7, 3/21) eat before a ~2 h drive and top up at the trailhead and 2/21 (03:00, identical to race timing - now the opening of the long effort). || CAFFEINE for a dark finish: tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the March rehearsals; race cap ~5 mg/kg (~400 mg). || DAILY EATING: protein 1.8-1.9 g/kg (~145-155 g) every day including rest days - tendon remodeling at 50 is protein-hungry. Carbs scale with the day (~3.3 g/kg rest -> ~8 g/kg on the biggest long runs; day-type phase_adjustments raise totals as run hours climb from ~6.8 h (W5) to 13.4 h (W25); recovery weeks W6, 9, 11, 13, 17, 22 run 4-6 h - eat to base targets there; W21 is 12.1 h, mostly Sunday). ENERGY AVAILABILITY: weekly hours roughly double from October to March - if body weight drifts down > ~1.5 kg, or sleep, mood or resting HR worsen, eat more before training less. COLLAGEN 15 g + vitamin C 250 mg 30-60 min before every Lower A/B session, otherwise with the morning foot routine. NO NSAIDs around loading. Alcohol: Friday evening is the window in normal weeks (36 h before a Sunday long run; in back-to-back weeks the Saturday medium-long follows - keep it to one drink); none the night before the long effort (Saturday 2/20, or the day before whichever backup date is used) and none in Tuscany race week. || AeT TESTS: nutrition is held identical at every drift test (10/13, 11/24, 1/19 - moved from 1/5; the 2/16 test is dropped) so the only variable is fitness. || FRIDAYS (rev 2.3): Friday is a run day in every week (fast-feet run, subtype easy, 3-4.5 mi), so Friday resolves to easy_run_upper_swim, which now carries the back-to-back-weekend carb note. strength_only_swim fires only on swim + upper days without a run (W10 Friday, W11/W13 Saturdays, W21 Friday). || SWIM DAYS (rev 2.1): three day types resolve Total Immersion swim days (Monday swim-only; swim + Upper B with or without a run). They are listed FIRST because triggers are first-match: a trigger with cross_subtype matches only when that cross session is scheduled; a trigger without cross_subtype ignores cross sessions (backward compatible). Easy swim ~250-400 kcal. || date_overrides are the source of truth on test, gate, headlamp, rehearsal, long-effort, carb-load and race days.",
+  "revision": "2.3.3",
+  "revision_notes": "CURRENT REVISION 2.3.3 (2026-10-23). PRODUCT NAME: the drink mix is named GU Roctane Energy Drink Mix wherever it appears - all half-strength drink-mix schedule items (day types and date overrides), meta.notes (Vermont baseline, target mix, station-fluid default), long_run ladder note, 1/17 timing, 2/20 car-box packing, 2/21 guidance and replacement-trial note, 4/16 prep, 4/17 race notes. Wording only: no amount, timing, calorie or sodium value changed. Athlete request (keep the product name; the app's copy had dropped it). || REVISION 2.3.2 (2026-10-23). SYNCED TO run_plan rev 2.4 (long-effort backups from run_plan 2.3.2-2.3.4). 2/21 override: weather backup 'Sun 2/14 or 2/28' replaced by the run plan's rules - 2/14 only (decided Wed 2/10; off if G1 ran 2/7), short-notice fallback Sat 2/20 (carb-up moves to Fri 2/19), last-resort weekday 2/17-2/25; the 2/20 carb-up and 2/22 recovery overrides move with the effort. 2/20 override: matching note. meta.notes: no-alcohol rule tied to the night before the effort, not a fixed date; header now matched to run_plan 2.4 / strength_plan 2.4. OVERLOOK DAYS (run plan rev 2.4): NEW 11/15 override (Overlook intro; Base long-run targets 3300/450/145/85, 3800 ml) - breakfast before the ~2 h drive + trailhead top-up, gel at the top before the steep descent, real food at ~hour 2, shake before the drive home, protein-forward day after (11/16). 3/7 and 3/21 overrides: same breakfast/top-up timing and a gel before the final Overlook climb, nothing on the steep descent - totals unchanged. Caffeine supplement: 3/7 and 3/21 are late-hours tests, not dark finishes. Real-food ladder: the first item (salted potato) is now on 11/15 (W7); the 11/22 headlamp override's real-food item relabelled #2 (rotate). 18 date overrides. No other targets changed. || REVISION 2.3.1 (2026-10-22). SYNCED TO run_plan rev 2.4 (headlamp #1 moved from Sun 11/15 to Sun 11/22; 11/15 is now the Overlook intro). HEADLAMP #1 override moved 2026-11-15 -> 2026-11-22, content unchanged (3300 kcal / 450 C / 145 P / 85 F, 3600 ml, 04:00 breakfast, same session_fueling); reason '(13.5 mi)' -> '(14.5 mi)'. meta.notes EARLY-START FUELING: 'Rehearsed on 11/15' -> 'Rehearsed on 11/22'. 11/15 now takes the long_run day type. 17 date overrides. Schema 1.7. || CURRENT REVISION 2.3 (2026-10-22). SYNCED TO run_plan rev 2.3.1 (TP note 22 Oct). DATE OVERRIDES: AeT #3 moved 1/5 -> 1/19 (identical protocol); AeT #4 2/16 deleted (test dropped); Oracle 1/28, 1/29, 1/30 deleted; 2/21 REWRITTEN from the 19-mi headlamp race-start sim to the LONG EFFORT J-2 rehearsal (35-40 mi / 8-10 h, 05:00 start, car aid every ~2-2.5 h; 03:00 race breakfast kept; real food from hour 3; drink-mix replacement trial; caffeine late; cup drinking at the car; intake log for RS; weather backup Sun 2/14 or 2/28) - 5000 kcal / 850 g carbs; NEW 2/20 shakeout + modest carb-up (~6 g/kg) and NEW 2/22 post-effort recovery day; 3/7 rescaled from the 30-mi G2 run to the 24.5-mi long run (~5.3 h) after a 10-mi medium-long, race protocol v1 kept, items 'passed 21 Feb', backup note removed - 4300 kcal / 650 g; 1/10 rescaled to 17 mi with a ~13:30 start (pre-run meal ~12:00) - 3500 / 500; 1/17 retitled and rescaled to the 18-mi real-food rehearsal for 2/21 - 3700 / 540; 11/15 text 13.5 mi. 1/31 (G1, 21.5 mi), 2/7 (22 mi) and 3/14 (25 mi) take the long_run day type - no override (no new fuel variable; Build and Peak targets fit). DAY TYPES: easy_run_upper_swim now covers every Friday and gains the back-to-back-weekend carb note as Build and Peak phase adjustments; strength_only_swim trigger text and phase adjustment re-scoped (W10/W21 Fridays, W11/W13 Saturdays); strength_only loses the stale B2B-Friday adjustment; easy_run_lower_strength gains a during entry (1 gel at 45 min if the descent session runs over 75 min, as on the run cards); climb_lower_strength during note re-pointed to the run card and treadmill blocks; medium_long Peak '12-mi' -> 10-11 mi; long_run phase text (Base 8.5-14.5, Build 15-22 + the 38-mi effort, Peak 24.5-26, taper 20/15/10); race_or_rehearsal and aet_test_day text. SUPPLEMENTS: caffeine test dates 1/10, 2/21, 3/7, 3/21. meta.notes: ladder, AeT list, alcohol, station-drink item. No schema change (1.7). || REVISION 2.2 (2026-09-30). 2027-03-07 override rescaled to the 30-mi G2 shoe-gate run (run_plan rev 2.1): 4300 -> 4700 kcal, 650 -> 740 g carbs, fluid 4500 -> 5000 ml; backup-date note. Nothing else changed. || REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
  },
  "day_types": [
   {
@@ -978,7 +978,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       }
@@ -1032,7 +1032,7 @@
     "fat_g": 85,
     "fluid_ml_total": 3800,
     "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-    "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+    "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
    },
    "session_fueling": [
     {
@@ -1072,7 +1072,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -1325,7 +1325,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -1571,7 +1571,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -1650,7 +1650,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -1729,7 +1729,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -1801,7 +1801,7 @@
       "subtype": "long",
       "position": "during"
      },
-     "timing": "Mix: gel every ~35 min, half-strength drink hourly, real food every 45-60 min from hour 2",
+     "timing": "Mix: gel every ~35 min, half-strength GU Roctane Energy Drink Mix hourly, real food every 45-60 min from hour 2",
      "calories": 270,
      "carbs_g": 64,
      "sodium_mg": 600,
@@ -1815,7 +1815,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -1953,7 +1953,7 @@
     "protein_g": 140,
     "fat_g": 70,
     "fluid_ml_total": 3500,
-    "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it."
+    "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned GU Roctane Energy Drink Mix powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it."
    },
    "session_fueling": []
   },
@@ -1966,7 +1966,7 @@
     "protein_g": 140,
     "fat_g": 95,
     "fluid_ml_total": 6000,
-    "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after."
+    "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder (GU Roctane Energy Drink Mix) cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after."
    },
    "session_fueling": [
     {
@@ -2006,7 +2006,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -2030,7 +2030,7 @@
        "caffeine_mg": 35
       }
      ],
-     "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
+     "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength GU Roctane Energy Drink Mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
     },
     {
      "linked_session": {
@@ -2113,7 +2113,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -2205,7 +2205,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -2283,7 +2283,7 @@
     "protein_g": 125,
     "fat_g": 55,
     "fluid_ml_total": 3500,
-    "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned powder."
+    "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned GU Roctane Energy Drink Mix powder."
    },
    "session_fueling": []
   },
@@ -2335,7 +2335,7 @@
       },
       {
        "interval_min": 60,
-       "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
        "cal": 125,
        "sodium_mg": 160
       },
@@ -2359,7 +2359,7 @@
        "caffeine_mg": 35
       }
      ],
-     "notes": "MIX, not volume (FR-w): gels ~50%, half-strength drink ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
+     "notes": "MIX, not volume (FR-w): gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own GU Roctane Energy Drink Mix powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
     },
     {
      "linked_session": {

@@ -34,7 +34,7 @@
       },
       "nutrition": {
         "schema_version": "1.7",
-        "revision": "2.3.2",
+        "revision": "2.3.3",
         "generated_by": "Nutrition Coach (Claude)",
         "generated_date": "2026-10-22"
       }
@@ -1587,7 +1587,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -1641,7 +1641,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -1681,7 +1681,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -1934,7 +1934,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2180,7 +2180,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2259,7 +2259,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2338,7 +2338,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2410,7 +2410,7 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "Mix: gel every ~35 min, half-strength drink hourly, real food every 45-60 min from hour 2",
+            "timing": "Mix: gel every ~35 min, half-strength GU Roctane Energy Drink Mix hourly, real food every 45-60 min from hour 2",
             "calories": 270,
             "carbs_g": 64,
             "sodium_mg": 600,
@@ -2424,7 +2424,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2562,7 +2562,7 @@
           "protein_g": 140,
           "fat_g": 70,
           "fluid_ml_total": 3500,
-          "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it."
+          "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned GU Roctane Energy Drink Mix powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it."
         },
         "session_fueling": []
       },
@@ -2575,7 +2575,7 @@
           "protein_g": 140,
           "fat_g": 95,
           "fluid_ml_total": 6000,
-          "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after."
+          "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder (GU Roctane Energy Drink Mix) cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after."
         },
         "session_fueling": [
           {
@@ -2615,7 +2615,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2639,7 +2639,7 @@
                 "caffeine_mg": 35
               }
             ],
-            "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
+            "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength GU Roctane Energy Drink Mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
           },
           {
             "linked_session": {
@@ -2722,7 +2722,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2814,7 +2814,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2892,7 +2892,7 @@
           "protein_g": 125,
           "fat_g": 55,
           "fluid_ml_total": 3500,
-          "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned powder."
+          "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned GU Roctane Energy Drink Mix powder."
         },
         "session_fueling": []
       },
@@ -2944,7 +2944,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -2968,7 +2968,7 @@
                 "caffeine_mg": 35
               }
             ],
-            "notes": "MIX, not volume (FR-w): gels ~50%, half-strength drink ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
+            "notes": "MIX, not volume (FR-w): gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own GU Roctane Energy Drink Mix powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
           },
           {
             "linked_session": {
@@ -6039,7 +6039,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -6079,7 +6079,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -7230,7 +7230,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -7270,7 +7270,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -8435,7 +8435,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -8475,7 +8475,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -9629,7 +9629,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -9669,7 +9669,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -10867,7 +10867,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Base long-run targets (long_run day type), adjusted for the drive to Woodstock: breakfast at home, top-up at the trailhead, recovery shake before driving home. First steep-descent bout = more muscle damage than usual: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -10907,7 +10907,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -12110,7 +12110,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3600,
           "general_guidance": "Early breakfast at 04:00 - first test of eating in the dark before a run.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -13293,7 +13293,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -13333,7 +13333,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -14478,7 +14478,7 @@
           "fat_g": 88,
           "fluid_ml_total": 4000,
           "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -14518,7 +14518,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -15696,7 +15696,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -15736,7 +15736,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -16917,7 +16917,7 @@
           "fat_g": 88,
           "fluid_ml_total": 4000,
           "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -16957,7 +16957,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -17975,7 +17975,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -18015,7 +18015,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -19238,7 +19238,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -19348,7 +19348,7 @@
           "fat_g": 90,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -19388,7 +19388,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -20611,7 +20611,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -20712,7 +20712,7 @@
           "fat_g": 88,
           "fluid_ml_total": 3800,
           "general_guidance": "Normal breakfast, then the rehearsed pre-run meal at ~12:00. First CAFFEINE-TIMING test for the dark: one caffeinated gel at dusk (sunset ~16:45, ~3 h 15 min in).",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -20752,7 +20752,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -21977,7 +21977,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -22078,7 +22078,7 @@
           "fat_g": 90,
           "fluid_ml_total": 4000,
           "general_guidance": "Build-phase mix at 260-280 cal/hr with real food from hour 2 (run card). Run the 2/21 food list and the 2/21 log format (time, item, ~cal, ~sodium, GI notes) so the long effort holds no surprises. Practise drinking from a collapsible cup at the car stops (Tuscany aid is cup-only).",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -22104,7 +22104,7 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "Mix: gel every ~35 min, half-strength drink hourly, real food every 45-60 min from hour 2",
+            "timing": "Mix: gel every ~35 min, half-strength GU Roctane Energy Drink Mix hourly, real food every 45-60 min from hour 2",
             "calories": 270,
             "carbs_g": 64,
             "sodium_mg": 600,
@@ -22118,7 +22118,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -23282,7 +23282,7 @@
           "fat_g": 90,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -23322,7 +23322,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -24535,7 +24535,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -24645,7 +24645,7 @@
           "fat_g": 90,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -24685,7 +24685,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -25898,7 +25898,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -26008,7 +26008,7 @@
           "fat_g": 90,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -26048,7 +26048,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -27275,7 +27275,7 @@
           "fat_g": 90,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -27315,7 +27315,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -28368,7 +28368,7 @@
           "protein_g": 140,
           "fat_g": 70,
           "fluid_ml_total": 3500,
-          "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it.",
+          "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned GU Roctane Energy Drink Mix powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it.",
           "notes": "Runs under 60-75 min need no during-fuel; water only."
         },
         "session_fueling": [],
@@ -28450,8 +28450,8 @@
           "protein_g": 140,
           "fat_g": 95,
           "fluid_ml_total": 6000,
-          "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder (GU Roctane Energy Drink Mix) cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after.",
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -28491,7 +28491,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -28515,7 +28515,7 @@
                 "caffeine_mg": 35
               }
             ],
-            "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
+            "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength GU Roctane Energy Drink Mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
           },
           {
             "linked_session": {
@@ -29616,7 +29616,7 @@
           "fat_g": 90,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -29656,7 +29656,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -30862,7 +30862,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -30963,7 +30963,7 @@
           "fat_g": 95,
           "fluid_ml_total": 4600,
           "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long (normal medium_long_run day: carb-rich dinner Saturday). Venue: loops from the Overlook trailhead car (Woodstock NY, ~2 h drive) - breakfast before the drive, top-up at the trailhead.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -31003,7 +31003,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -32217,7 +32217,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -32327,7 +32327,7 @@
           "fat_g": 95,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -32367,7 +32367,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -33573,7 +33573,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               }
@@ -33674,7 +33674,7 @@
           "fat_g": 95,
           "fluid_ml_total": 4600,
           "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue: loops from the Overlook trailhead car (Woodstock NY, ~2 h drive) - breakfast before the drive, top-up at the trailhead.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -33714,7 +33714,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -34999,7 +34999,7 @@
           "fat_g": 95,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -35039,7 +35039,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -36233,7 +36233,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -36273,7 +36273,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -37405,7 +37405,7 @@
           "fat_g": 80,
           "fluid_ml_total": 3800,
           "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength drink ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+          "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
           {
@@ -37445,7 +37445,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -38082,7 +38082,7 @@
           "protein_g": 125,
           "fat_g": 55,
           "fluid_ml_total": 3500,
-          "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned powder.",
+          "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned GU Roctane Energy Drink Mix powder.",
           "notes": "Rest days are where tendon remodeling happens - under-eating protein here is the common error."
         },
         "session_fueling": [],
@@ -38202,7 +38202,7 @@
               },
               {
                 "interval_min": 60,
-                "item": "Half-strength drink mix in 500 ml (own powder, pre-portioned)",
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
                 "cal": 125,
                 "sodium_mg": 160
               },
@@ -38226,7 +38226,7 @@
                 "caffeine_mg": 35
               }
             ],
-            "notes": "MIX, not volume (FR-w): gels ~50%, half-strength drink ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
+            "notes": "MIX, not volume (FR-w): gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own GU Roctane Energy Drink Mix powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
           },
           {
             "linked_session": {
