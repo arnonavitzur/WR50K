@@ -1,2451 +1,2451 @@
 {
- "meta": {
-  "plan_type": "nutrition",
-  "schema_version": "1.7",
-  "athlete": "Arnon",
-  "race": "Tuscany Crossing 103K",
-  "race_date": "2027-04-17",
-  "plan_start": "2026-09-30",
-  "plan_end": "2027-04-18",
-  "generated_by": "Nutrition Coach (Claude)",
-  "generated_date": "2026-10-22",
-  "notes": "TUSCANY CROSSING 103K CYCLE - nutrition (rev 2.3.3). 29 weeks, 9/28/2026 -> 4/18/2027, matched to run_plan rev 2.4 / strength_plan rev 2.4 subtypes (run plan rebuilt from W5 on Uphill Athlete week types; Oracle 50M replaced by the Sun 2/21 long effort). Arnon: 50 M, 175 lb / 79 kg. || THE PROBLEM TO SOLVE (FR-w): at Vermont the gut signalled FULL at ~365 cal/hr by hour 4 (gels every 25 min + half-strength GU Roctane Energy Drink Mix + 500 ml/hr); he then ran on gels alone at ~240 cal/hr with no energy cost to 6:40. Tuscany is a ~15:40-17:00 planning day. The fix is the calorie MIX - more solids, less concentrated liquid carbohydrate - not more volume. Target race intake ~260-300 cal/hr, from ~50% gels / ~25% half-strength GU Roctane Energy Drink Mix / ~25% real food. || GUT-TRAINING LADDER (long_run notes + overrides): Base W3-13 proven protocol + one real-food item per long run from W7 | Build W14-22 the MIX at 250-280 cal/hr, cup drinking at car stops; 1/17 = real-food rehearsal for 2/21 | LONG EFFORT 2/21 = J-2, the real-food rehearsal on an 8-10 h day (car = aid every ~2-2.5 h; real food from hour 3; drink-mix replacement tested; every item logged for RS) | Peak: race protocol v1 on 3/7, final on 3/21, nothing new after. One new variable per run; hour 1 always on the proven baseline. || STATION FLUID vs OWN MIX (Arnon's question): with powder pre-portioned per bottle, mixing your own at a cup-only aid costs roughly 20-40 s more than taking station drink - small next to the dwell Vermont actually lost (~4 min of crew chat and toilet queue). The bigger variable is the gut: the station product at Tuscany is unknown (race documents should list it - open item), and your own mix is proven over two ultras. DEFAULT: own powder (GU Roctane Energy Drink Mix) + station water; station coke/tea/broth as late-race additions only after they pass in training. With Oracle gone there is no aid station before Tuscany, so station drink vs own powder CANNOT be tested head-to-head - the default stands unless the race documents name a product Arnon can buy and trial in March. Coke and broth are trialled at the car on 2/21. || SODIUM & FLUID BY TEMPERATURE (not a flat rate): < 12 C -> 400-600 mg Na/hr, 400-500 ml/hr (no scheduled SaltStick) | 12-22 C -> 600-800 mg, 500-650 ml (SaltStick 1/60 min) | > 22 C -> 800-1,000 mg, 650-800 ml (SaltStick 1/40-45 min). Tuscany's regulation warns of near 0 C at night and > 30 C midday. Indoor treadmill sessions usually sit in the middle tier. || EARLY-START FUELING: Tuscany breakfast lands at ~02:45-03:00. Rehearsed on 11/22 (04:00); Overlook days (11/15, 3/7, 3/21) eat before a ~2 h drive and top up at the trailhead and 2/21 (03:00, identical to race timing - now the opening of the long effort). || CAFFEINE for a dark finish: tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the March rehearsals; race cap ~5 mg/kg (~400 mg). || DAILY EATING: protein 1.8-1.9 g/kg (~145-155 g) every day including rest days - tendon remodeling at 50 is protein-hungry. Carbs scale with the day (~3.3 g/kg rest -> ~8 g/kg on the biggest long runs; day-type phase_adjustments raise totals as run hours climb from ~6.8 h (W5) to 13.4 h (W25); recovery weeks W6, 9, 11, 13, 17, 22 run 4-6 h - eat to base targets there; W21 is 12.1 h, mostly Sunday). ENERGY AVAILABILITY: weekly hours roughly double from October to March - if body weight drifts down > ~1.5 kg, or sleep, mood or resting HR worsen, eat more before training less. COLLAGEN 15 g + vitamin C 250 mg 30-60 min before every Lower A/B session, otherwise with the morning foot routine. NO NSAIDs around loading. Alcohol: Friday evening is the window in normal weeks (36 h before a Sunday long run; in back-to-back weeks the Saturday medium-long follows - keep it to one drink); none the night before the long effort (Saturday 2/20, or the day before whichever backup date is used) and none in Tuscany race week. || AeT TESTS: nutrition is held identical at every drift test (10/13, 11/24, 1/19 - moved from 1/5; the 2/16 test is dropped) so the only variable is fitness. || FRIDAYS (rev 2.3): Friday is a run day in every week (fast-feet run, subtype easy, 3-4.5 mi), so Friday resolves to easy_run_upper_swim, which now carries the back-to-back-weekend carb note. strength_only_swim fires only on swim + upper days without a run (W10 Friday, W11/W13 Saturdays, W21 Friday). || SWIM DAYS (rev 2.1): three day types resolve Total Immersion swim days (Monday swim-only; swim + Upper B with or without a run). They are listed FIRST because triggers are first-match: a trigger with cross_subtype matches only when that cross session is scheduled; a trigger without cross_subtype ignores cross sessions (backward compatible). Easy swim ~250-400 kcal. || date_overrides are the source of truth on test, gate, headlamp, rehearsal, long-effort, carb-load and race days.",
-  "revision": "2.3.3",
-  "revision_notes": "CURRENT REVISION 2.3.3 (2026-10-23). PRODUCT NAME: the drink mix is named GU Roctane Energy Drink Mix wherever it appears - all half-strength drink-mix schedule items (day types and date overrides), meta.notes (Vermont baseline, target mix, station-fluid default), long_run ladder note, 1/17 timing, 2/20 car-box packing, 2/21 guidance and replacement-trial note, 4/16 prep, 4/17 race notes. Wording only: no amount, timing, calorie or sodium value changed. Athlete request (keep the product name; the app's copy had dropped it). || REVISION 2.3.2 (2026-10-23). SYNCED TO run_plan rev 2.4 (long-effort backups from run_plan 2.3.2-2.3.4). 2/21 override: weather backup 'Sun 2/14 or 2/28' replaced by the run plan's rules - 2/14 only (decided Wed 2/10; off if G1 ran 2/7), short-notice fallback Sat 2/20 (carb-up moves to Fri 2/19), last-resort weekday 2/17-2/25; the 2/20 carb-up and 2/22 recovery overrides move with the effort. 2/20 override: matching note. meta.notes: no-alcohol rule tied to the night before the effort, not a fixed date; header now matched to run_plan 2.4 / strength_plan 2.4. OVERLOOK DAYS (run plan rev 2.4): NEW 11/15 override (Overlook intro; Base long-run targets 3300/450/145/85, 3800 ml) - breakfast before the ~2 h drive + trailhead top-up, gel at the top before the steep descent, real food at ~hour 2, shake before the drive home, protein-forward day after (11/16). 3/7 and 3/21 overrides: same breakfast/top-up timing and a gel before the final Overlook climb, nothing on the steep descent - totals unchanged. Caffeine supplement: 3/7 and 3/21 are late-hours tests, not dark finishes. Real-food ladder: the first item (salted potato) is now on 11/15 (W7); the 11/22 headlamp override's real-food item relabelled #2 (rotate). 18 date overrides. No other targets changed. || REVISION 2.3.1 (2026-10-22). SYNCED TO run_plan rev 2.4 (headlamp #1 moved from Sun 11/15 to Sun 11/22; 11/15 is now the Overlook intro). HEADLAMP #1 override moved 2026-11-15 -> 2026-11-22, content unchanged (3300 kcal / 450 C / 145 P / 85 F, 3600 ml, 04:00 breakfast, same session_fueling); reason '(13.5 mi)' -> '(14.5 mi)'. meta.notes EARLY-START FUELING: 'Rehearsed on 11/15' -> 'Rehearsed on 11/22'. 11/15 now takes the long_run day type. 17 date overrides. Schema 1.7. || CURRENT REVISION 2.3 (2026-10-22). SYNCED TO run_plan rev 2.3.1 (TP note 22 Oct). DATE OVERRIDES: AeT #3 moved 1/5 -> 1/19 (identical protocol); AeT #4 2/16 deleted (test dropped); Oracle 1/28, 1/29, 1/30 deleted; 2/21 REWRITTEN from the 19-mi headlamp race-start sim to the LONG EFFORT J-2 rehearsal (35-40 mi / 8-10 h, 05:00 start, car aid every ~2-2.5 h; 03:00 race breakfast kept; real food from hour 3; drink-mix replacement trial; caffeine late; cup drinking at the car; intake log for RS; weather backup Sun 2/14 or 2/28) - 5000 kcal / 850 g carbs; NEW 2/20 shakeout + modest carb-up (~6 g/kg) and NEW 2/22 post-effort recovery day; 3/7 rescaled from the 30-mi G2 run to the 24.5-mi long run (~5.3 h) after a 10-mi medium-long, race protocol v1 kept, items 'passed 21 Feb', backup note removed - 4300 kcal / 650 g; 1/10 rescaled to 17 mi with a ~13:30 start (pre-run meal ~12:00) - 3500 / 500; 1/17 retitled and rescaled to the 18-mi real-food rehearsal for 2/21 - 3700 / 540; 11/15 text 13.5 mi. 1/31 (G1, 21.5 mi), 2/7 (22 mi) and 3/14 (25 mi) take the long_run day type - no override (no new fuel variable; Build and Peak targets fit). DAY TYPES: easy_run_upper_swim now covers every Friday and gains the back-to-back-weekend carb note as Build and Peak phase adjustments; strength_only_swim trigger text and phase adjustment re-scoped (W10/W21 Fridays, W11/W13 Saturdays); strength_only loses the stale B2B-Friday adjustment; easy_run_lower_strength gains a during entry (1 gel at 45 min if the descent session runs over 75 min, as on the run cards); climb_lower_strength during note re-pointed to the run card and treadmill blocks; medium_long Peak '12-mi' -> 10-11 mi; long_run phase text (Base 8.5-14.5, Build 15-22 + the 38-mi effort, Peak 24.5-26, taper 20/15/10); race_or_rehearsal and aet_test_day text. SUPPLEMENTS: caffeine test dates 1/10, 2/21, 3/7, 3/21. meta.notes: ladder, AeT list, alcohol, station-drink item. No schema change (1.7). || REVISION 2.2 (2026-09-30). 2027-03-07 override rescaled to the 30-mi G2 shoe-gate run (run_plan rev 2.1): 4300 -> 4700 kcal, 650 -> 740 g carbs, fluid 4500 -> 5000 ml; backup-date note. Nothing else changed. || REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
- },
- "day_types": [
-  {
-   "id": "rest_day_swim",
-   "label": "Swim-only day (Monday recovery swim / rest day + swim)",
-   "triggers": [
-    {
-     "run_subtype": null,
-     "strength_subtype": null,
-     "cross_subtype": "swim",
-     "description": "Easy TI swim, no run, no lift"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2600,
-    "carbs_g": 310,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 2900,
-    "general_guidance": "Rest-day eating plus the swim: carbs up modestly, protein unchanged. Monday = recovery day after the long run - eat enough."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "cross",
-      "subtype": "swim",
-      "position": "pre"
-     },
-     "timing": "30-60 min before (optional)",
-     "calories": 120,
-     "carbs_g": 25,
-     "protein_g": 3,
-     "foods": [
-      "banana or a slice of toast with honey"
-     ],
-     "notes": "Skip if a meal was < 2 h ago."
-    },
-    {
-     "linked_session": {
-      "type": "cross",
-      "subtype": "swim",
-      "position": "post"
-     },
-     "timing": "Within 45 min",
-     "calories": 250,
-     "carbs_g": 30,
-     "protein_g": 20,
-     "foods": [
-      "Greek yogurt + fruit",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
-    }
-   ],
-   "phase_adjustments": [
-    {
-     "phase": "Peak",
-     "adjustment": "Monday after the biggest long runs: refill glycogen.",
-     "modified_targets": {
-      "calories_total": 2800,
-      "carbs_g": 350,
-      "protein_g": 155,
-      "fat_g": 85
-     }
-    }
-   ]
+  "meta": {
+    "plan_type": "nutrition",
+    "schema_version": "1.7",
+    "athlete": "Arnon",
+    "race": "Tuscany Crossing 103K",
+    "race_date": "2027-04-17",
+    "plan_start": "2026-09-30",
+    "plan_end": "2027-04-18",
+    "generated_by": "Nutrition Coach (Claude)",
+    "generated_date": "2026-11-02",
+    "notes": "TUSCANY CROSSING 103K CYCLE - nutrition (rev 2.3.4). 29 weeks, 9/28/2026 -> 4/18/2027, matched to run_plan rev 2.8 / strength_plan rev 2.5 subtypes (run plan rebuilt from W5 on Uphill Athlete week types; Oracle 50M replaced by the Sun 2/21 long effort). Arnon: 50 M, 175 lb / 79 kg. || THE PROBLEM TO SOLVE (FR-w): at Vermont the gut signalled FULL at ~365 cal/hr by hour 4 (gels every 25 min + half-strength GU Roctane Energy Drink Mix + 500 ml/hr); he then ran on gels alone at ~240 cal/hr with no energy cost to 6:40. Tuscany is a ~15:40-17:00 planning day. The fix is the calorie MIX - more solids, less concentrated liquid carbohydrate - not more volume. Target race intake ~260-300 cal/hr, from ~50% gels / ~25% half-strength GU Roctane Energy Drink Mix / ~25% real food. || GUT-TRAINING LADDER (long_run notes + overrides): Base W3-13 proven protocol + one real-food item per long run from W7 | Build W14-22 the MIX at 250-280 cal/hr, cup drinking at car stops; 1/17 = real-food rehearsal for 2/21 | LONG EFFORT 2/21 = J-2, the real-food rehearsal on an 8-10 h day (car = aid every ~2-2.5 h; real food from hour 3; drink-mix replacement tested; every item logged for RS) | Peak: race protocol v1 on 3/7, final on 3/21, nothing new after. One new variable per run; hour 1 always on the proven baseline. || STATION FLUID vs OWN MIX (Arnon's question): with powder pre-portioned per bottle, mixing your own at a cup-only aid costs roughly 20-40 s more than taking station drink - small next to the dwell Vermont actually lost (~4 min of crew chat and toilet queue). The bigger variable is the gut: the station product at Tuscany is unknown (race documents should list it - open item), and your own mix is proven over two ultras. DEFAULT: own powder (GU Roctane Energy Drink Mix) + station water; station coke/tea/broth as late-race additions only after they pass in training. With Oracle gone there is no aid station before Tuscany, so station drink vs own powder CANNOT be tested head-to-head - the default stands unless the race documents name a product Arnon can buy and trial in March. Coke and broth are trialled at the car on 2/21. || SODIUM & FLUID BY TEMPERATURE (not a flat rate): < 12 C -> 400-600 mg Na/hr, 400-500 ml/hr (no scheduled SaltStick) | 12-22 C -> 600-800 mg, 500-650 ml (SaltStick 1/60 min) | > 22 C -> 800-1,000 mg, 650-800 ml (SaltStick 1/40-45 min). Tuscany's regulation warns of near 0 C at night and > 30 C midday. Indoor treadmill sessions usually sit in the middle tier. || EARLY-START FUELING: Tuscany breakfast lands at ~02:45-03:00. Rehearsed on 11/22 (04:00); Overlook days (11/15, 3/7, 3/21) eat before a ~2 h drive and top up at the trailhead and 2/21 (03:00, identical to race timing - now the opening of the long effort). || CAFFEINE for a dark finish: tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the March rehearsals; race cap ~5 mg/kg (~400 mg). || DAILY EATING: protein 1.8-1.9 g/kg (~145-155 g) every day including rest days - tendon remodeling at 50 is protein-hungry. Carbs scale with the day (~3.3 g/kg rest -> ~8 g/kg on the biggest long runs; day-type phase_adjustments raise totals as run hours climb from ~6.8 h (W5) to 13.4 h (W25); recovery weeks W6, 9, 11, 13, 17, 22 run 4-6 h - eat to base targets there; W21 is 12.1 h, mostly Sunday). ENERGY AVAILABILITY: weekly hours roughly double from October to March - if body weight drifts down > ~1.5 kg, or sleep, mood or resting HR worsen, eat more before training less. COLLAGEN 15 g + vitamin C 250 mg 30-60 min before every Lower A/B session, otherwise with the morning foot routine. NO NSAIDs around loading. Alcohol: Friday evening is the window in normal weeks (36 h before a Sunday long run; in back-to-back weeks the Saturday medium-long follows - keep it to one drink); none the night before the long effort (Saturday 2/20, or the day before whichever backup date is used) and none in Tuscany race week. || AeT TESTS: nutrition is held identical at every drift test (10/13, 11/24, 1/19 - moved from 1/5; the 2/16 test is dropped) so the only variable is fitness. || FRIDAYS (rev 2.3): Friday is a run day in every week (fast-feet run, subtype easy, 3-4.5 mi), so Friday resolves to easy_run_upper_swim, which now carries the back-to-back-weekend carb note. strength_only_swim fires only on swim + upper days without a run (W10 Friday, W11/W13 Saturdays, W21 Friday). || SWIM DAYS (rev 2.1): three day types resolve Total Immersion swim days (Monday swim-only; swim + Upper B with or without a run). They are listed FIRST because triggers are first-match: a trigger with cross_subtype matches only when that cross session is scheduled; a trigger without cross_subtype ignores cross sessions (backward compatible). Easy swim ~250-400 kcal. || date_overrides are the source of truth on test, gate, headlamp, rehearsal, long-effort, carb-load and race days.",
+    "revision": "2.3.4",
+    "revision_notes": "CURRENT REVISION 2.3.4 (2026-11-02). SYNCED TO run_plan rev 2.8 (RS ruling 'Overlook logistics' v1, 2 Nov; TP note runplan_rev2_8). Overlook is used once (11/15). 11/15 override: two-venue day - Overlook round trip, ~20-min drive, Ashokan Rail Trail; car stop guidance added (bottle swap, gel clock keeps running), real food #1 at ~hour 2 placed on the rail trail with the Dike car as the aid point; Boat Basin ice-fallback line. 3/7 override: Alpine x7 is local - pre-run back to the normal long-run morning (90 min before, no early breakfast/trailhead top-up); 'gel before the final Overlook climb' -> gel at the car before the last 3 pitch laps; cache at the car each lap. 3/21 override: Febapple x2.6, ~1 h drive - breakfast at home ~2-2.5 h before, trailhead top-up conditional; car = aid each ~10-mi loop (Tuscany spacing); 'gel before the final Overlook climb' -> gel at the car before the last loop. Daily totals, during-run rates, schedules and all other dates unchanged. Header matched to run_plan 2.8 / strength_plan 2.5. BASE VERIFIED: nutrition rev 2.3.3 and run_plan rev 2.8 asserted from the folder copies. || REVISION 2.3.3 (2026-10-23). PRODUCT NAME: the drink mix is named GU Roctane Energy Drink Mix wherever it appears - all half-strength drink-mix schedule items (day types and date overrides), meta.notes (Vermont baseline, target mix, station-fluid default), long_run ladder note, 1/17 timing, 2/20 car-box packing, 2/21 guidance and replacement-trial note, 4/16 prep, 4/17 race notes. Wording only: no amount, timing, calorie or sodium value changed. Athlete request (keep the product name; the app's copy had dropped it). || REVISION 2.3.2 (2026-10-23). SYNCED TO run_plan rev 2.4 (long-effort backups from run_plan 2.3.2-2.3.4). 2/21 override: weather backup 'Sun 2/14 or 2/28' replaced by the run plan's rules - 2/14 only (decided Wed 2/10; off if G1 ran 2/7), short-notice fallback Sat 2/20 (carb-up moves to Fri 2/19), last-resort weekday 2/17-2/25; the 2/20 carb-up and 2/22 recovery overrides move with the effort. 2/20 override: matching note. meta.notes: no-alcohol rule tied to the night before the effort, not a fixed date; header now matched to run_plan 2.4 / strength_plan 2.4. OVERLOOK DAYS (run plan rev 2.4): NEW 11/15 override (Overlook intro; Base long-run targets 3300/450/145/85, 3800 ml) - breakfast before the ~2 h drive + trailhead top-up, gel at the top before the steep descent, real food at ~hour 2, shake before the drive home, protein-forward day after (11/16). 3/7 and 3/21 overrides: same breakfast/top-up timing and a gel before the final Overlook climb, nothing on the steep descent - totals unchanged. Caffeine supplement: 3/7 and 3/21 are late-hours tests, not dark finishes. Real-food ladder: the first item (salted potato) is now on 11/15 (W7); the 11/22 headlamp override's real-food item relabelled #2 (rotate). 18 date overrides. No other targets changed. || REVISION 2.3.1 (2026-10-22). SYNCED TO run_plan rev 2.4 (headlamp #1 moved from Sun 11/15 to Sun 11/22; 11/15 is now the Overlook intro). HEADLAMP #1 override moved 2026-11-15 -> 2026-11-22, content unchanged (3300 kcal / 450 C / 145 P / 85 F, 3600 ml, 04:00 breakfast, same session_fueling); reason '(13.5 mi)' -> '(14.5 mi)'. meta.notes EARLY-START FUELING: 'Rehearsed on 11/15' -> 'Rehearsed on 11/22'. 11/15 now takes the long_run day type. 17 date overrides. Schema 1.7. || CURRENT REVISION 2.3 (2026-10-22). SYNCED TO run_plan rev 2.3.1 (TP note 22 Oct). DATE OVERRIDES: AeT #3 moved 1/5 -> 1/19 (identical protocol); AeT #4 2/16 deleted (test dropped); Oracle 1/28, 1/29, 1/30 deleted; 2/21 REWRITTEN from the 19-mi headlamp race-start sim to the LONG EFFORT J-2 rehearsal (35-40 mi / 8-10 h, 05:00 start, car aid every ~2-2.5 h; 03:00 race breakfast kept; real food from hour 3; drink-mix replacement trial; caffeine late; cup drinking at the car; intake log for RS; weather backup Sun 2/14 or 2/28) - 5000 kcal / 850 g carbs; NEW 2/20 shakeout + modest carb-up (~6 g/kg) and NEW 2/22 post-effort recovery day; 3/7 rescaled from the 30-mi G2 run to the 24.5-mi long run (~5.3 h) after a 10-mi medium-long, race protocol v1 kept, items 'passed 21 Feb', backup note removed - 4300 kcal / 650 g; 1/10 rescaled to 17 mi with a ~13:30 start (pre-run meal ~12:00) - 3500 / 500; 1/17 retitled and rescaled to the 18-mi real-food rehearsal for 2/21 - 3700 / 540; 11/15 text 13.5 mi. 1/31 (G1, 21.5 mi), 2/7 (22 mi) and 3/14 (25 mi) take the long_run day type - no override (no new fuel variable; Build and Peak targets fit). DAY TYPES: easy_run_upper_swim now covers every Friday and gains the back-to-back-weekend carb note as Build and Peak phase adjustments; strength_only_swim trigger text and phase adjustment re-scoped (W10/W21 Fridays, W11/W13 Saturdays); strength_only loses the stale B2B-Friday adjustment; easy_run_lower_strength gains a during entry (1 gel at 45 min if the descent session runs over 75 min, as on the run cards); climb_lower_strength during note re-pointed to the run card and treadmill blocks; medium_long Peak '12-mi' -> 10-11 mi; long_run phase text (Base 8.5-14.5, Build 15-22 + the 38-mi effort, Peak 24.5-26, taper 20/15/10); race_or_rehearsal and aet_test_day text. SUPPLEMENTS: caffeine test dates 1/10, 2/21, 3/7, 3/21. meta.notes: ladder, AeT list, alcohol, station-drink item. No schema change (1.7). || REVISION 2.2 (2026-09-30). 2027-03-07 override rescaled to the 30-mi G2 shoe-gate run (run_plan rev 2.1): 4300 -> 4700 kcal, 650 -> 740 g carbs, fluid 4500 -> 5000 ml; backup-date note. Nothing else changed. || REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
   },
-  {
-   "id": "strength_only_swim",
-   "label": "Swim + upper strength (no run)",
-   "triggers": [
+  "day_types": [
     {
-     "run_subtype": null,
-     "strength_subtype": "upper",
-     "cross_subtype": "swim",
-     "description": "Swim + Upper B on a day with no run: W10 Friday (gate week), W11 and W13 Saturdays, W21 Friday (two days before the long effort). Back-to-back-week Fridays now carry a run - see easy_run_upper_swim."
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2750,
-    "carbs_g": 330,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3000,
-    "general_guidance": "Moderate carbs, protein high."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "cross",
-      "subtype": "swim",
-      "position": "pre"
-     },
-     "timing": "30-60 min before (optional)",
-     "calories": 120,
-     "carbs_g": 25,
-     "protein_g": 3,
-     "foods": [
-      "banana or a slice of toast with honey"
-     ],
-     "notes": "Skip if a meal was < 2 h ago."
-    },
-    {
-     "linked_session": {
-      "type": "cross",
-      "subtype": "swim",
-      "position": "post"
-     },
-     "timing": "Within 45 min",
-     "calories": 250,
-     "carbs_g": 30,
-     "protein_g": 20,
-     "foods": [
-      "Greek yogurt + fruit",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ],
-   "phase_adjustments": [
-    {
-     "phase": "Build",
-     "adjustment": "W21 Friday 2/19 (the only Build-phase match): the long effort is Sunday - start topping up, +200 kcal of carbs at dinner. The modest carb-up proper is Saturday (override 2/20).",
-     "modified_targets": {
-      "calories_total": 2950,
-      "carbs_g": 380,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    }
-   ]
-  },
-  {
-   "id": "easy_run_upper_swim",
-   "label": "Friday: fast-feet run + swim + upper strength",
-   "triggers": [
-    {
-     "run_subtype": "easy",
-     "strength_subtype": "upper",
-     "cross_subtype": "swim",
-     "description": "Friday in every week from W5 (rev 2.3): fast-feet run (easy, 3-4.5 mi), easy TI swim, Upper B - including back-to-back weeks"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2900,
-    "carbs_g": 370,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3200,
-    "general_guidance": "Three light sessions: spread carbs across the day, protein at every meal. Tomorrow is either a rest day (single-long-run weeks) or the Saturday medium-long (back-to-back weeks W14-16, W18-19, W23-25) - in back-to-back weeks make dinner carb-rich (phase adjustments)."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "easy",
-      "position": "pre"
-     },
-     "timing": "Optional - fasted-light if < 45 min",
-     "calories": 200,
-     "carbs_g": 35,
-     "protein_g": 6,
-     "fat_g": 4,
-     "foods": [
-      "banana or toast",
-      "coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "cross",
-      "subtype": "swim",
-      "position": "post"
-     },
-     "timing": "Within 45 min",
-     "calories": 250,
-     "carbs_g": 30,
-     "protein_g": 20,
-     "foods": [
-      "Greek yogurt + fruit",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ],
-   "phase_adjustments": [
-    {
-     "phase": "Build",
-     "adjustment": "Friday before a back-to-back weekend (W14-16, W18-19): +250 kcal of carbs at dinner - tomorrow's medium-long and Sunday's long run start on this glycogen. In the R/T weeks (W17, W20, W22) there is no Saturday run: eat to the base targets.",
-     "modified_targets": {
-      "calories_total": 3150,
-      "carbs_g": 420,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    },
-    {
-     "phase": "Peak",
-     "adjustment": "Friday before the back-to-back peak weekends (W23-25): +250 kcal of carbs at dinner. W26 (T week, Saturday recovery run): base targets are enough.",
-     "modified_targets": {
-      "calories_total": 3150,
-      "carbs_g": 420,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    }
-   ]
-  },
-  {
-   "id": "rest_day",
-   "label": "Rest day (no training)",
-   "triggers": [
-    {
-     "run_subtype": null,
-     "strength_subtype": null,
-     "description": "No sessions scheduled"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2300,
-    "carbs_g": 260,
-    "protein_g": 145,
-    "fat_g": 85,
-    "fluid_ml_total": 2500,
-    "general_guidance": "Lowest-carb day, protein unchanged. Three meals + one protein snack. Collagen + C with the morning foot routine.",
-    "notes": "Rest days are where tendon remodeling happens - under-eating protein here is the common error."
-   },
-   "session_fueling": [],
-   "phase_adjustments": [
-    {
-     "phase": "Peak",
-     "adjustment": "Peak weeks: rest days follow big weekends - add ~200 kcal of carbs to refill glycogen.",
-     "modified_targets": {
-      "calories_total": 2500,
-      "carbs_g": 300,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    }
-   ]
-  },
-  {
-   "id": "strength_only",
-   "label": "Strength only (no run)",
-   "triggers": [
-    {
-     "run_subtype": null,
-     "strength_subtype": "lower",
-     "description": "Lower session, no run"
-    },
-    {
-     "run_subtype": null,
-     "strength_subtype": "upper",
-     "description": "Upper session, no run (e.g. W6 Wednesday)"
-    },
-    {
-     "run_subtype": null,
-     "strength_subtype": "mobility_session",
-     "description": "Mobility session, no run (e.g. W22 Wednesday after the long effort)"
-    },
-    {
-     "run_subtype": null,
-     "strength_subtype": "core",
-     "description": "Core session, no run"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2450,
-    "carbs_g": 280,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 2700,
-    "general_guidance": "Moderate carbs, protein high."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "lower",
-      "position": "pre"
-     },
-     "timing": "30-60 min before",
-     "calories": 120,
-     "carbs_g": 15,
-     "protein_g": 15,
-     "foods": [
-      "15 g collagen + 250 mg vitamin C (or with orange juice)",
-      "small carb snack if > 3 h since a meal"
-     ],
-     "notes": "THE tendon lever - never skipped on Lower A/B days."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ]
-  },
-  {
-   "id": "aet_test_day",
-   "label": "AeT drift test day",
-   "triggers": [
-    {
-     "run_subtype": "time_trial",
-     "strength_subtype": "lower",
-     "description": "AeT test AM + Lower A PM"
-    },
-    {
-     "run_subtype": "time_trial",
-     "strength_subtype": null,
-     "description": "AeT test only"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2750,
-    "carbs_g": 340,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3000,
-    "general_guidance": "The test is only comparable if the inputs are identical every time: same pre-test meal, same timing, no caffeine in the 3 h before, water only during.",
-    "notes": "Test dates: 10/13, 11/24, 1/19 (moved from 1/5; the 2/16 test is dropped) - each has a date override with the identical protocol."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "pre"
-     },
-     "timing": "2.0-2.5 h before the test",
-     "calories": 350,
-     "carbs_g": 65,
-     "protein_g": 10,
-     "fat_g": 5,
-     "foods": [
-      "2 slices toast with honey",
-      "banana",
-      "water - NO coffee within 3 h"
-     ],
-     "notes": "Write down what you ate on 10/13 and repeat it exactly at every retest."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "during"
-     },
-     "timing": "During the 60-min test",
-     "calories": 0,
-     "carbs_g": 0,
-     "sodium_mg": 0,
-     "fluid_ml": 500,
-     "fueling_schedule": [],
-     "notes": "Water only, sipped evenly. Carbs or caffeine mid-test would move HR and break comparability."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "lower",
-      "position": "pre"
-     },
-     "timing": "30-60 min before",
-     "calories": 120,
-     "carbs_g": 15,
-     "protein_g": 15,
-     "foods": [
-      "15 g collagen + 250 mg vitamin C (or with orange juice)",
-      "small carb snack if > 3 h since a meal"
-     ],
-     "notes": "THE tendon lever - never skipped on Lower A/B days."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ]
-  },
-  {
-   "id": "climb_lower_strength",
-   "label": "Climbing session + Lower A (hard double-day)",
-   "triggers": [
-    {
-     "run_subtype": "power_climb",
-     "strength_subtype": "lower",
-     "description": "Tue pattern: AM aerobic climbing (outdoor W5-W16, treadmill from W18) + PM Lower A"
-    },
-    {
-     "run_subtype": "tempo",
-     "strength_subtype": "lower",
-     "description": "Same slot after an AeT-gate promotion (Z3 version)"
-    },
-    {
-     "run_subtype": "power_climb",
-     "strength_subtype": null,
-     "description": "Climbing slot, no strength"
-    },
-    {
-     "run_subtype": "tempo",
-     "strength_subtype": null,
-     "description": "Z3 slot, no strength"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2900,
-    "carbs_g": 380,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3200,
-    "general_guidance": "Carbs before and after the run and again before Lower A. Protein at every meal; biggest dose after the lift."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "power_climb",
-      "position": "pre"
-     },
-     "timing": "60-90 min before",
-     "calories": 350,
-     "carbs_g": 60,
-     "protein_g": 12,
-     "fat_g": 6,
-     "foods": [
-      "oatmeal with banana and honey",
-      "coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "power_climb",
-      "position": "during"
-     },
-     "timing": "Only if the session runs over 75 min",
-     "calories": 100,
-     "carbs_g": 25,
-     "sodium_mg": 125,
-     "fluid_ml": 500,
-     "fueling_schedule": [
-      {
-       "interval_min": 45,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      }
-     ],
-     "notes": "As on the run card: 1 gel at 45 min when the session runs over 75 min (outdoor W5-W16 sessions of 85-100 min; treadmill W19 and W23-25, 80-95 min). Treadmill blocks are indoors and warm - drink 500-750 ml/hr and use the middle sodium tier."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "lower",
-      "position": "pre"
-     },
-     "timing": "30-60 min before",
-     "calories": 120,
-     "carbs_g": 15,
-     "protein_g": 15,
-     "foods": [
-      "15 g collagen + 250 mg vitamin C (or with orange juice)",
-      "small carb snack if > 3 h since a meal"
-     ],
-     "notes": "THE tendon lever - never skipped on Lower A/B days."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ],
-   "phase_adjustments": [
-    {
-     "phase": "Build",
-     "adjustment": "Longer climbing blocks; treadmill from W18 (ascent-only, 55-80 min).",
-     "modified_targets": {
-      "calories_total": 3000,
-      "carbs_g": 400,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    },
-    {
-     "phase": "Peak",
-     "adjustment": "60-min continuous treadmill climbs (85-95 min sessions, W23-25); T-week session (W26) is 65 min.",
-     "modified_targets": {
-      "calories_total": 3100,
-      "carbs_g": 420,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    },
-    {
-     "phase": "Taper_1",
-     "adjustment": "Dose down.",
-     "modified_targets": {
-      "calories_total": 2750,
-      "carbs_g": 340,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    },
-    {
-     "phase": "Taper_2",
-     "adjustment": "Dose down.",
-     "modified_targets": {
-      "calories_total": 2650,
-      "carbs_g": 330,
-      "protein_g": 145,
-      "fat_g": 80
-     }
-    }
-   ]
-  },
-  {
-   "id": "easy_run_lower_strength",
-   "label": "Thursday descent/aerobic run + Lower B (double-day)",
-   "triggers": [
-    {
-     "run_subtype": "easy",
-     "strength_subtype": "lower",
-     "description": "Thu pattern: AM descent/aerobic run + PM Lower B (also W11 Friday, W22 Thursday, W29 Monday)"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2750,
-    "carbs_g": 340,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3000,
-    "general_guidance": "Eccentric day: protein matters most today and tomorrow. Collagen + C before Lower B."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "easy",
-      "position": "pre"
-     },
-     "timing": "60-90 min before (optional for < 60 min)",
-     "calories": 250,
-     "carbs_g": 45,
-     "protein_g": 8,
-     "fat_g": 5,
-     "foods": [
-      "toast with honey",
-      "banana",
-      "coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "easy",
-      "position": "during"
-     },
-     "timing": "Only if the session runs over 75 min (Thursday descent sessions W14-W25: 84-130 min)",
-     "calories": 100,
-     "carbs_g": 25,
-     "sodium_mg": 125,
-     "fluid_ml": 500,
-     "fueling_schedule": [
-      {
-       "interval_min": 45,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      }
-     ],
-     "notes": "Matches the run card: '1 gel at 45 min if over 75 min'. On the 118-130 min sessions (W19, W24, W25) a second gel at ~95 min is allowed if you are hungry - optional. Sessions under 75 min: water only."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "lower",
-      "position": "pre"
-     },
-     "timing": "30-60 min before",
-     "calories": 120,
-     "carbs_g": 15,
-     "protein_g": 15,
-     "foods": [
-      "15 g collagen + 250 mg vitamin C (or with orange juice)",
-      "small carb snack if > 3 h since a meal"
-     ],
-     "notes": "THE tendon lever - never skipped on Lower A/B days."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ],
-   "phase_adjustments": [
-    {
-     "phase": "Build",
-     "adjustment": "Longer descent sessions (84-118 min from W14).",
-     "modified_targets": {
-      "calories_total": 2850,
-      "carbs_g": 360,
-      "protein_g": 150,
-      "fat_g": 85
-     }
-    },
-    {
-     "phase": "Peak",
-     "adjustment": "Longest descent sessions (107-130 min, up to 11.5 mi, W23-25).",
-     "modified_targets": {
-      "calories_total": 2900,
-      "carbs_g": 370,
-      "protein_g": 155,
-      "fat_g": 85
-     }
-    }
-   ]
-  },
-  {
-   "id": "easy_run_upper_strength",
-   "label": "Recovery/easy run + upper strength (double-day)",
-   "triggers": [
-    {
-     "run_subtype": "easy",
-     "strength_subtype": "upper",
-     "description": "Wed pattern: recovery run AM + Upper A PM"
-    },
-    {
-     "run_subtype": "shakeout",
-     "strength_subtype": "upper",
-     "description": "Shakeout + upper"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2600,
-    "carbs_g": 310,
-    "protein_g": 145,
-    "fat_g": 85,
-    "fluid_ml_total": 2800,
-    "general_guidance": "Moderate day. Refill after Tuesday's double without overdoing it."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "easy",
-      "position": "pre"
-     },
-     "timing": "Optional - run fasted-light if < 45 min",
-     "calories": 200,
-     "carbs_g": 35,
-     "protein_g": 6,
-     "fat_g": 4,
-     "foods": [
-      "banana or toast",
-      "coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "upper",
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 350,
-     "carbs_g": 35,
-     "protein_g": 30,
-     "foods": [
-      "normal protein-rich meal"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "easy_run_only",
-   "label": "Easy / recovery run or walk (no strength)",
-   "triggers": [
-    {
-     "run_subtype": "easy",
-     "strength_subtype": null,
-     "description": "Easy run or walk, no strength"
-    },
-    {
-     "run_subtype": "shakeout",
-     "strength_subtype": null,
-     "description": "Shakeout only"
-    },
-    {
-     "run_subtype": "easy",
-     "strength_subtype": "mobility_session",
-     "description": "Walk/jog + mobility session (recovery weeks)"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 2500,
-    "carbs_g": 290,
-    "protein_g": 140,
-    "fat_g": 80,
-    "fluid_ml_total": 2700,
-    "general_guidance": "Moderate day. Carbs at breakfast and around the run.",
-    "notes": "Runs under 60-75 min need no during-fuel; water only."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "easy",
-      "position": "pre"
-     },
-     "timing": "60-90 min before, or fasted-light if < 45 min",
-     "calories": 250,
-     "carbs_g": 45,
-     "protein_g": 8,
-     "fat_g": 5,
-     "foods": [
-      "toast with honey and banana",
-      "coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    }
-   ],
-   "phase_adjustments": [
-    {
-     "phase": "Base",
-     "adjustment": "Recovery weeks 1-2: walks burn little - lower end of carbs, protein unchanged.",
-     "modified_targets": {
-      "calories_total": 2350,
-      "carbs_g": 260,
-      "protein_g": 145,
-      "fat_g": 80
-     }
-    }
-   ]
-  },
-  {
-   "id": "medium_long_run",
-   "label": "Saturday medium-long run (B2B day 1)",
-   "triggers": [
-    {
-     "run_subtype": "back_to_back",
-     "strength_subtype": null,
-     "description": "Saturday half of the back-to-back"
-    },
-    {
-     "run_subtype": "back_to_back",
-     "strength_subtype": "upper",
-     "description": "Medium-long + upper"
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 3200,
-    "carbs_g": 440,
-    "protein_g": 145,
-    "fat_g": 85,
-    "fluid_ml_total": 3500,
-    "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-    "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "back_to_back",
-      "position": "pre"
-     },
-     "timing": "90 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "The rehearsed breakfast."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "back_to_back",
-      "position": "during"
-     },
-     "timing": "From 30 min",
-     "calories": 230,
-     "carbs_g": 55,
-     "sodium_mg": 500,
-     "fluid_ml": 550,
-     "fueling_schedule": [
-      {
-       "interval_min": 30,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
+      "id": "rest_day_swim",
+      "label": "Swim-only day (Monday recovery swim / rest day + swim)",
+      "triggers": [
+        {
+          "run_subtype": null,
+          "strength_subtype": null,
+          "cross_subtype": "swim",
+          "description": "Easy TI swim, no run, no lift"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2600,
+        "carbs_g": 310,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 2900,
+        "general_guidance": "Rest-day eating plus the swim: carbs up modestly, protein unchanged. Monday = recovery day after the long run - eat enough."
       },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      }
-     ],
-     "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "cross",
+            "subtype": "swim",
+            "position": "pre"
+          },
+          "timing": "30-60 min before (optional)",
+          "calories": 120,
+          "carbs_g": 25,
+          "protein_g": 3,
+          "foods": [
+            "banana or a slice of toast with honey"
+          ],
+          "notes": "Skip if a meal was < 2 h ago."
+        },
+        {
+          "linked_session": {
+            "type": "cross",
+            "subtype": "swim",
+            "position": "post"
+          },
+          "timing": "Within 45 min",
+          "calories": 250,
+          "carbs_g": 30,
+          "protein_g": 20,
+          "foods": [
+            "Greek yogurt + fruit",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Peak",
+          "adjustment": "Monday after the biggest long runs: refill glycogen.",
+          "modified_targets": {
+            "calories_total": 2800,
+            "carbs_g": 350,
+            "protein_g": 155,
+            "fat_g": 85
+          }
+        }
+      ]
     },
     {
-     "linked_session": {
-      "type": "run",
-      "subtype": "back_to_back",
-      "position": "post"
-     },
-     "timing": "Within 30 min, then a full meal",
-     "calories": 500,
-     "carbs_g": 70,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "carb-rich dinner"
-     ],
-     "notes": "Refuel for Sunday."
+      "id": "strength_only_swim",
+      "label": "Swim + upper strength (no run)",
+      "triggers": [
+        {
+          "run_subtype": null,
+          "strength_subtype": "upper",
+          "cross_subtype": "swim",
+          "description": "Swim + Upper B on a day with no run: W10 Friday (gate week), W11 and W13 Saturdays, W21 Friday (two days before the long effort). Back-to-back-week Fridays now carry a run - see easy_run_upper_swim."
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2750,
+        "carbs_g": 330,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3000,
+        "general_guidance": "Moderate carbs, protein high."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "cross",
+            "subtype": "swim",
+            "position": "pre"
+          },
+          "timing": "30-60 min before (optional)",
+          "calories": 120,
+          "carbs_g": 25,
+          "protein_g": 3,
+          "foods": [
+            "banana or a slice of toast with honey"
+          ],
+          "notes": "Skip if a meal was < 2 h ago."
+        },
+        {
+          "linked_session": {
+            "type": "cross",
+            "subtype": "swim",
+            "position": "post"
+          },
+          "timing": "Within 45 min",
+          "calories": 250,
+          "carbs_g": 30,
+          "protein_g": 20,
+          "foods": [
+            "Greek yogurt + fruit",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Build",
+          "adjustment": "W21 Friday 2/19 (the only Build-phase match): the long effort is Sunday - start topping up, +200 kcal of carbs at dinner. The modest carb-up proper is Saturday (override 2/20).",
+          "modified_targets": {
+            "calories_total": 2950,
+            "carbs_g": 380,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        }
+      ]
+    },
+    {
+      "id": "easy_run_upper_swim",
+      "label": "Friday: fast-feet run + swim + upper strength",
+      "triggers": [
+        {
+          "run_subtype": "easy",
+          "strength_subtype": "upper",
+          "cross_subtype": "swim",
+          "description": "Friday in every week from W5 (rev 2.3): fast-feet run (easy, 3-4.5 mi), easy TI swim, Upper B - including back-to-back weeks"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2900,
+        "carbs_g": 370,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3200,
+        "general_guidance": "Three light sessions: spread carbs across the day, protein at every meal. Tomorrow is either a rest day (single-long-run weeks) or the Saturday medium-long (back-to-back weeks W14-16, W18-19, W23-25) - in back-to-back weeks make dinner carb-rich (phase adjustments)."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "easy",
+            "position": "pre"
+          },
+          "timing": "Optional - fasted-light if < 45 min",
+          "calories": 200,
+          "carbs_g": 35,
+          "protein_g": 6,
+          "fat_g": 4,
+          "foods": [
+            "banana or toast",
+            "coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "cross",
+            "subtype": "swim",
+            "position": "post"
+          },
+          "timing": "Within 45 min",
+          "calories": 250,
+          "carbs_g": 30,
+          "protein_g": 20,
+          "foods": [
+            "Greek yogurt + fruit",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Build",
+          "adjustment": "Friday before a back-to-back weekend (W14-16, W18-19): +250 kcal of carbs at dinner - tomorrow's medium-long and Sunday's long run start on this glycogen. In the R/T weeks (W17, W20, W22) there is no Saturday run: eat to the base targets.",
+          "modified_targets": {
+            "calories_total": 3150,
+            "carbs_g": 420,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        },
+        {
+          "phase": "Peak",
+          "adjustment": "Friday before the back-to-back peak weekends (W23-25): +250 kcal of carbs at dinner. W26 (T week, Saturday recovery run): base targets are enough.",
+          "modified_targets": {
+            "calories_total": 3150,
+            "carbs_g": 420,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        }
+      ]
+    },
+    {
+      "id": "rest_day",
+      "label": "Rest day (no training)",
+      "triggers": [
+        {
+          "run_subtype": null,
+          "strength_subtype": null,
+          "description": "No sessions scheduled"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2300,
+        "carbs_g": 260,
+        "protein_g": 145,
+        "fat_g": 85,
+        "fluid_ml_total": 2500,
+        "general_guidance": "Lowest-carb day, protein unchanged. Three meals + one protein snack. Collagen + C with the morning foot routine.",
+        "notes": "Rest days are where tendon remodeling happens - under-eating protein here is the common error."
+      },
+      "session_fueling": [],
+      "phase_adjustments": [
+        {
+          "phase": "Peak",
+          "adjustment": "Peak weeks: rest days follow big weekends - add ~200 kcal of carbs to refill glycogen.",
+          "modified_targets": {
+            "calories_total": 2500,
+            "carbs_g": 300,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        }
+      ]
+    },
+    {
+      "id": "strength_only",
+      "label": "Strength only (no run)",
+      "triggers": [
+        {
+          "run_subtype": null,
+          "strength_subtype": "lower",
+          "description": "Lower session, no run"
+        },
+        {
+          "run_subtype": null,
+          "strength_subtype": "upper",
+          "description": "Upper session, no run (e.g. W6 Wednesday)"
+        },
+        {
+          "run_subtype": null,
+          "strength_subtype": "mobility_session",
+          "description": "Mobility session, no run (e.g. W22 Wednesday after the long effort)"
+        },
+        {
+          "run_subtype": null,
+          "strength_subtype": "core",
+          "description": "Core session, no run"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2450,
+        "carbs_g": 280,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 2700,
+        "general_guidance": "Moderate carbs, protein high."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "lower",
+            "position": "pre"
+          },
+          "timing": "30-60 min before",
+          "calories": 120,
+          "carbs_g": 15,
+          "protein_g": 15,
+          "foods": [
+            "15 g collagen + 250 mg vitamin C (or with orange juice)",
+            "small carb snack if > 3 h since a meal"
+          ],
+          "notes": "THE tendon lever - never skipped on Lower A/B days."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ]
+    },
+    {
+      "id": "aet_test_day",
+      "label": "AeT drift test day",
+      "triggers": [
+        {
+          "run_subtype": "time_trial",
+          "strength_subtype": "lower",
+          "description": "AeT test AM + Lower A PM"
+        },
+        {
+          "run_subtype": "time_trial",
+          "strength_subtype": null,
+          "description": "AeT test only"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2750,
+        "carbs_g": 340,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3000,
+        "general_guidance": "The test is only comparable if the inputs are identical every time: same pre-test meal, same timing, no caffeine in the 3 h before, water only during.",
+        "notes": "Test dates: 10/13, 11/24, 1/19 (moved from 1/5; the 2/16 test is dropped) - each has a date override with the identical protocol."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "pre"
+          },
+          "timing": "2.0-2.5 h before the test",
+          "calories": 350,
+          "carbs_g": 65,
+          "protein_g": 10,
+          "fat_g": 5,
+          "foods": [
+            "2 slices toast with honey",
+            "banana",
+            "water - NO coffee within 3 h"
+          ],
+          "notes": "Write down what you ate on 10/13 and repeat it exactly at every retest."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "during"
+          },
+          "timing": "During the 60-min test",
+          "calories": 0,
+          "carbs_g": 0,
+          "sodium_mg": 0,
+          "fluid_ml": 500,
+          "fueling_schedule": [],
+          "notes": "Water only, sipped evenly. Carbs or caffeine mid-test would move HR and break comparability."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "lower",
+            "position": "pre"
+          },
+          "timing": "30-60 min before",
+          "calories": 120,
+          "carbs_g": 15,
+          "protein_g": 15,
+          "foods": [
+            "15 g collagen + 250 mg vitamin C (or with orange juice)",
+            "small carb snack if > 3 h since a meal"
+          ],
+          "notes": "THE tendon lever - never skipped on Lower A/B days."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ]
+    },
+    {
+      "id": "climb_lower_strength",
+      "label": "Climbing session + Lower A (hard double-day)",
+      "triggers": [
+        {
+          "run_subtype": "power_climb",
+          "strength_subtype": "lower",
+          "description": "Tue pattern: AM aerobic climbing (outdoor W5-W16, treadmill from W18) + PM Lower A"
+        },
+        {
+          "run_subtype": "tempo",
+          "strength_subtype": "lower",
+          "description": "Same slot after an AeT-gate promotion (Z3 version)"
+        },
+        {
+          "run_subtype": "power_climb",
+          "strength_subtype": null,
+          "description": "Climbing slot, no strength"
+        },
+        {
+          "run_subtype": "tempo",
+          "strength_subtype": null,
+          "description": "Z3 slot, no strength"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2900,
+        "carbs_g": 380,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3200,
+        "general_guidance": "Carbs before and after the run and again before Lower A. Protein at every meal; biggest dose after the lift."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "pre"
+          },
+          "timing": "60-90 min before",
+          "calories": 350,
+          "carbs_g": 60,
+          "protein_g": 12,
+          "fat_g": 6,
+          "foods": [
+            "oatmeal with banana and honey",
+            "coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "during"
+          },
+          "timing": "Only if the session runs over 75 min",
+          "calories": 100,
+          "carbs_g": 25,
+          "sodium_mg": 125,
+          "fluid_ml": 500,
+          "fueling_schedule": [
+            {
+              "interval_min": 45,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            }
+          ],
+          "notes": "As on the run card: 1 gel at 45 min when the session runs over 75 min (outdoor W5-W16 sessions of 85-100 min; treadmill W19 and W23-25, 80-95 min). Treadmill blocks are indoors and warm - drink 500-750 ml/hr and use the middle sodium tier."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "lower",
+            "position": "pre"
+          },
+          "timing": "30-60 min before",
+          "calories": 120,
+          "carbs_g": 15,
+          "protein_g": 15,
+          "foods": [
+            "15 g collagen + 250 mg vitamin C (or with orange juice)",
+            "small carb snack if > 3 h since a meal"
+          ],
+          "notes": "THE tendon lever - never skipped on Lower A/B days."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Build",
+          "adjustment": "Longer climbing blocks; treadmill from W18 (ascent-only, 55-80 min).",
+          "modified_targets": {
+            "calories_total": 3000,
+            "carbs_g": 400,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        },
+        {
+          "phase": "Peak",
+          "adjustment": "60-min continuous treadmill climbs (85-95 min sessions, W23-25); T-week session (W26) is 65 min.",
+          "modified_targets": {
+            "calories_total": 3100,
+            "carbs_g": 420,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        },
+        {
+          "phase": "Taper_1",
+          "adjustment": "Dose down.",
+          "modified_targets": {
+            "calories_total": 2750,
+            "carbs_g": 340,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        },
+        {
+          "phase": "Taper_2",
+          "adjustment": "Dose down.",
+          "modified_targets": {
+            "calories_total": 2650,
+            "carbs_g": 330,
+            "protein_g": 145,
+            "fat_g": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "easy_run_lower_strength",
+      "label": "Thursday descent/aerobic run + Lower B (double-day)",
+      "triggers": [
+        {
+          "run_subtype": "easy",
+          "strength_subtype": "lower",
+          "description": "Thu pattern: AM descent/aerobic run + PM Lower B (also W11 Friday, W22 Thursday, W29 Monday)"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2750,
+        "carbs_g": 340,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3000,
+        "general_guidance": "Eccentric day: protein matters most today and tomorrow. Collagen + C before Lower B."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "easy",
+            "position": "pre"
+          },
+          "timing": "60-90 min before (optional for < 60 min)",
+          "calories": 250,
+          "carbs_g": 45,
+          "protein_g": 8,
+          "fat_g": 5,
+          "foods": [
+            "toast with honey",
+            "banana",
+            "coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "easy",
+            "position": "during"
+          },
+          "timing": "Only if the session runs over 75 min (Thursday descent sessions W14-W25: 84-130 min)",
+          "calories": 100,
+          "carbs_g": 25,
+          "sodium_mg": 125,
+          "fluid_ml": 500,
+          "fueling_schedule": [
+            {
+              "interval_min": 45,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            }
+          ],
+          "notes": "Matches the run card: '1 gel at 45 min if over 75 min'. On the 118-130 min sessions (W19, W24, W25) a second gel at ~95 min is allowed if you are hungry - optional. Sessions under 75 min: water only."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "lower",
+            "position": "pre"
+          },
+          "timing": "30-60 min before",
+          "calories": 120,
+          "carbs_g": 15,
+          "protein_g": 15,
+          "foods": [
+            "15 g collagen + 250 mg vitamin C (or with orange juice)",
+            "small carb snack if > 3 h since a meal"
+          ],
+          "notes": "THE tendon lever - never skipped on Lower A/B days."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Build",
+          "adjustment": "Longer descent sessions (84-118 min from W14).",
+          "modified_targets": {
+            "calories_total": 2850,
+            "carbs_g": 360,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        },
+        {
+          "phase": "Peak",
+          "adjustment": "Longest descent sessions (107-130 min, up to 11.5 mi, W23-25).",
+          "modified_targets": {
+            "calories_total": 2900,
+            "carbs_g": 370,
+            "protein_g": 155,
+            "fat_g": 85
+          }
+        }
+      ]
+    },
+    {
+      "id": "easy_run_upper_strength",
+      "label": "Recovery/easy run + upper strength (double-day)",
+      "triggers": [
+        {
+          "run_subtype": "easy",
+          "strength_subtype": "upper",
+          "description": "Wed pattern: recovery run AM + Upper A PM"
+        },
+        {
+          "run_subtype": "shakeout",
+          "strength_subtype": "upper",
+          "description": "Shakeout + upper"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2600,
+        "carbs_g": 310,
+        "protein_g": 145,
+        "fat_g": 85,
+        "fluid_ml_total": 2800,
+        "general_guidance": "Moderate day. Refill after Tuesday's double without overdoing it."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "easy",
+            "position": "pre"
+          },
+          "timing": "Optional - run fasted-light if < 45 min",
+          "calories": 200,
+          "carbs_g": 35,
+          "protein_g": 6,
+          "fat_g": 4,
+          "foods": [
+            "banana or toast",
+            "coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "upper",
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 350,
+          "carbs_g": 35,
+          "protein_g": 30,
+          "foods": [
+            "normal protein-rich meal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "easy_run_only",
+      "label": "Easy / recovery run or walk (no strength)",
+      "triggers": [
+        {
+          "run_subtype": "easy",
+          "strength_subtype": null,
+          "description": "Easy run or walk, no strength"
+        },
+        {
+          "run_subtype": "shakeout",
+          "strength_subtype": null,
+          "description": "Shakeout only"
+        },
+        {
+          "run_subtype": "easy",
+          "strength_subtype": "mobility_session",
+          "description": "Walk/jog + mobility session (recovery weeks)"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 2500,
+        "carbs_g": 290,
+        "protein_g": 140,
+        "fat_g": 80,
+        "fluid_ml_total": 2700,
+        "general_guidance": "Moderate day. Carbs at breakfast and around the run.",
+        "notes": "Runs under 60-75 min need no during-fuel; water only."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "easy",
+            "position": "pre"
+          },
+          "timing": "60-90 min before, or fasted-light if < 45 min",
+          "calories": 250,
+          "carbs_g": 45,
+          "protein_g": 8,
+          "fat_g": 5,
+          "foods": [
+            "toast with honey and banana",
+            "coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Base",
+          "adjustment": "Recovery weeks 1-2: walks burn little - lower end of carbs, protein unchanged.",
+          "modified_targets": {
+            "calories_total": 2350,
+            "carbs_g": 260,
+            "protein_g": 145,
+            "fat_g": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "medium_long_run",
+      "label": "Saturday medium-long run (B2B day 1)",
+      "triggers": [
+        {
+          "run_subtype": "back_to_back",
+          "strength_subtype": null,
+          "description": "Saturday half of the back-to-back"
+        },
+        {
+          "run_subtype": "back_to_back",
+          "strength_subtype": "upper",
+          "description": "Medium-long + upper"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 3200,
+        "carbs_g": 440,
+        "protein_g": 145,
+        "fat_g": 85,
+        "fluid_ml_total": 3500,
+        "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
+        "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "The rehearsed breakfast."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "during"
+          },
+          "timing": "From 30 min",
+          "calories": 230,
+          "carbs_g": 55,
+          "sodium_mg": 500,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            }
+          ],
+          "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "post"
+          },
+          "timing": "Within 30 min, then a full meal",
+          "calories": 500,
+          "carbs_g": 70,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "carb-rich dinner"
+          ],
+          "notes": "Refuel for Sunday."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Peak",
+          "adjustment": "10-11 mi medium-longs (W23-25).",
+          "modified_targets": {
+            "calories_total": 3400,
+            "carbs_g": 480,
+            "protein_g": 150,
+            "fat_g": 85
+          }
+        }
+      ]
+    },
+    {
+      "id": "long_run",
+      "label": "Sunday long run",
+      "triggers": [
+        {
+          "run_subtype": "long",
+          "strength_subtype": null,
+          "description": "Sunday long run"
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 3400,
+        "carbs_g": 480,
+        "protein_g": 145,
+        "fat_g": 85,
+        "fluid_ml_total": 3800,
+        "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
+        "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee with a splash of milk"
+          ],
+          "notes": "THE rehearsed meal - race-proven twice."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Phase ladder (see notes); sodium and fluid by temperature tier (meta)",
+          "calories": 240,
+          "carbs_g": 58,
+          "sodium_mg": 550,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 120,
+              "item": "Real-food item (from W7, runs >= 2.5 h)",
+              "cal": 120,
+              "sodium_mg": 150
+            },
+            {
+              "interval_min": 60,
+              "item": "SaltStick capsule (temperature-tiered - see meta)",
+              "cal": 0,
+              "sodium_mg": 215
+            }
+          ],
+          "notes": "Temperature tiers: < 12 C -> 400-600 mg Na, 400-500 ml/hr (skip SaltStick on cold days); 12-22 C -> 600-800 mg, 500-650 ml; > 22 C -> 800-1,000 mg, 650-800 ml."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake with banana and oats",
+            "full meal within 2 h: protein + rice/potatoes + vegetables"
+          ],
+          "notes": "Rehydrate ~150% of the weight lost; include sodium."
+        }
+      ],
+      "phase_adjustments": [
+        {
+          "phase": "Base",
+          "adjustment": "Long runs 8.5-14.5 mi (21 mi on the gate days - see overrides).",
+          "modified_targets": {
+            "calories_total": 3300,
+            "carbs_g": 450,
+            "protein_g": 145,
+            "fat_g": 85
+          }
+        },
+        {
+          "phase": "Build",
+          "adjustment": "15-22 mi with race weight and poles (the 38-mi long effort on 2/21 has its own override).",
+          "modified_targets": {
+            "calories_total": 3800,
+            "carbs_g": 560,
+            "protein_g": 150,
+            "fat_g": 90
+          }
+        },
+        {
+          "phase": "Peak",
+          "adjustment": "24.5-26 mi (W23-25) - highest-calorie training days; overrides govern 3/7 and 3/21. The 20-mi T-week run on 3/28 also lands here - eat to the lower end.",
+          "modified_targets": {
+            "calories_total": 4200,
+            "carbs_g": 640,
+            "protein_g": 150,
+            "fat_g": 95
+          }
+        },
+        {
+          "phase": "Taper_1",
+          "adjustment": "15 mi (4/4).",
+          "modified_targets": {
+            "calories_total": 3300,
+            "carbs_g": 450,
+            "protein_g": 145,
+            "fat_g": 85
+          }
+        },
+        {
+          "phase": "Taper_2",
+          "adjustment": "10 mi (4/11).",
+          "modified_targets": {
+            "calories_total": 3000,
+            "carbs_g": 400,
+            "protein_g": 145,
+            "fat_g": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "race_or_rehearsal",
+      "label": "Race day (date override governs)",
+      "triggers": [
+        {
+          "run_subtype": "race_pace",
+          "strength_subtype": null,
+          "description": "Tuscany 4/17 only (date override governs). The 2/21 long effort is a long run with its own override."
+        }
+      ],
+      "daily_targets": {
+        "calories_total": 4500,
+        "carbs_g": 750,
+        "protein_g": 130,
+        "fat_g": 90,
+        "fluid_ml_total": 5500,
+        "general_guidance": "Race day: see the date override."
+      },
+      "session_fueling": []
     }
-   ],
-   "phase_adjustments": [
+  ],
+  "date_overrides": [
     {
-     "phase": "Peak",
-     "adjustment": "10-11 mi medium-longs (W23-25).",
-     "modified_targets": {
-      "calories_total": 3400,
-      "carbs_g": 480,
-      "protein_g": 150,
-      "fat_g": 85
-     }
+      "date": "2026-10-13",
+      "reason": "AeT DRIFT TEST #1 - identical nutrition inputs to every other test",
+      "daily_targets": {
+        "calories_total": 2750,
+        "carbs_g": 340,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3000,
+        "general_guidance": "Same pre-test meal and timing as test #1; no caffeine 3 h before; water only during. Normal eating after."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "pre"
+          },
+          "timing": "2.0-2.5 h before",
+          "calories": 350,
+          "carbs_g": 65,
+          "protein_g": 10,
+          "fat_g": 5,
+          "foods": [
+            "2 slices toast with honey",
+            "banana",
+            "water only - no coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "during"
+          },
+          "timing": "60-min test",
+          "calories": 0,
+          "carbs_g": 0,
+          "sodium_mg": 0,
+          "fluid_ml": 500,
+          "fueling_schedule": [],
+          "notes": "Water only."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "lower",
+            "position": "pre"
+          },
+          "timing": "30-60 min before",
+          "calories": 120,
+          "carbs_g": 15,
+          "protein_g": 15,
+          "foods": [
+            "15 g collagen + 250 mg vitamin C (or with orange juice)",
+            "small carb snack if > 3 h since a meal"
+          ],
+          "notes": "THE tendon lever - never skipped on Lower A/B days."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ]
+    },
+    {
+      "date": "2026-11-15",
+      "reason": "OVERLOOK INTRO - first steep descent of the cycle (13.5 mi; ~2 h drive each way, plus a ~20-min drive mid-run to the rail trail)",
+      "daily_targets": {
+        "calories_total": 3300,
+        "carbs_g": 450,
+        "protein_g": 145,
+        "fat_g": 85,
+        "fluid_ml_total": 3800,
+        "general_guidance": "Base long-run targets (long_run day type), adjusted for the drive to Woodstock: breakfast at home, top-up at the trailhead, recovery shake before driving home. TWO-VENUE DAY (run plan rev 2.8): Overlook round trip first, then a ~20-min drive to the Ashokan Rail Trail (Woodstock Dike trailhead) for ~9 flat miles - the car at the Dike is the aid point. First steep-descent bout = more muscle damage than usual: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "Breakfast at home before the ~2 h drive (~2.5-3 h before the start) + trailhead top-up ~15 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee with a splash of milk"
+          ],
+          "notes": "The rehearsed meal, eaten before leaving for Woodstock. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting - the breakfast is eaten early because of the drive."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "From 30 min; ~20-min car stop between Overlook and the rail trail; real-food item at ~hour 2 (on the rail trail)",
+          "calories": 240,
+          "carbs_g": 58,
+          "sodium_mg": 550,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 120,
+              "item": "Real-food item #1 (salted boiled potato)",
+              "cal": 120,
+              "sodium_mg": 150
+            }
+          ],
+          "notes": "Base protocol. Overlook comes FIRST (climb, then the steep descent): take the scheduled gel at the top, before the descent - not on it. CAR STOP (~20-min drive to the Dike): drink the rest of bottle 1 in the car and start the rail trail with a fresh 500 ml of half-strength GU Roctane Energy Drink Mix - the clock keeps running, so the next gel is due ~30 min after the last one, not 30 min into the rail trail. FIRST real-food item of the ladder (W7) at ~hour 2, which lands on the rail trail: salted boiled potato, kept in the car at the Dike and picked up at the start of the flat leg. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer. ICE FALLBACK (Boat Basin x3 + flat at the top): same schedule, the car at the top is the aid point every lap; no mid-run drive."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake with banana and oats",
+            "full meal within 2 h: protein + rice/potatoes + vegetables"
+          ],
+          "notes": "Rehydrate ~150% of the weight lost; include sodium. Eat the shake before the drive home."
+        }
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "reason": "HEADLAMP #1 - 05:30 start (14.5 mi)",
+      "daily_targets": {
+        "calories_total": 3300,
+        "carbs_g": 450,
+        "protein_g": 145,
+        "fat_g": 85,
+        "fluid_ml_total": 3600,
+        "general_guidance": "Early breakfast at 04:00 - first test of eating in the dark before a run."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "04:00 (90 min before)",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "Same meal, earlier - note how it sits at this hour."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "From 30 min",
+          "calories": 220,
+          "carbs_g": 55,
+          "sodium_mg": 450,
+          "fluid_ml": 500,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 120,
+              "item": "Real-food item #2 (rotate: rice ball or 1/4 PB&J; potato again if 11/15 sat badly)",
+              "cal": 100,
+              "sodium_mg": 200
+            }
+          ],
+          "notes": "Cold start: sodium at the low tier."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "full meal within 2 h"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "reason": "AeT DRIFT TEST #2 - identical nutrition inputs to every other test",
+      "daily_targets": {
+        "calories_total": 2750,
+        "carbs_g": 340,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3000,
+        "general_guidance": "Same pre-test meal and timing as test #1; no caffeine 3 h before; water only during. Normal eating after."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "pre"
+          },
+          "timing": "2.0-2.5 h before",
+          "calories": 350,
+          "carbs_g": 65,
+          "protein_g": 10,
+          "fat_g": 5,
+          "foods": [
+            "2 slices toast with honey",
+            "banana",
+            "water only - no coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "during"
+          },
+          "timing": "60-min test",
+          "calories": 0,
+          "carbs_g": 0,
+          "sodium_mg": 0,
+          "fluid_ml": 500,
+          "fueling_schedule": [],
+          "notes": "Water only."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "lower",
+            "position": "pre"
+          },
+          "timing": "30-60 min before",
+          "calories": 120,
+          "carbs_g": 15,
+          "protein_g": 15,
+          "foods": [
+            "15 g collagen + 250 mg vitamin C (or with orange juice)",
+            "small carb snack if > 3 h since a meal"
+          ],
+          "notes": "THE tendon lever - never skipped on Lower A/B days."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ]
+    },
+    {
+      "date": "2026-12-06",
+      "reason": "GATE D #1 - 21-mi qualifying run (tissue test)",
+      "daily_targets": {
+        "calories_total": 3700,
+        "carbs_g": 540,
+        "protein_g": 150,
+        "fat_g": 88,
+        "fluid_ml_total": 4000,
+        "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "Rehearsed meal."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Gel every 25-30 min from 30 min; one familiar real-food item at ~2 h",
+          "calories": 240,
+          "carbs_g": 58,
+          "sodium_mg": 500,
+          "fluid_ml": 500,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 120,
+              "item": "Familiar real-food item (one already tested)",
+              "cal": 120,
+              "sodium_mg": 150
+            }
+          ],
+          "notes": "~4:15-4:30 h: expect 8-9 gels. Winter: carry the bottles inside the vest to stop freezing."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "full meal within 2 h"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-12-20",
+      "reason": "GATE D #2 - 21-mi qualifying run (tissue test)",
+      "daily_targets": {
+        "calories_total": 3700,
+        "carbs_g": 540,
+        "protein_g": 150,
+        "fat_g": 88,
+        "fluid_ml_total": 4000,
+        "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "Rehearsed meal."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Gel every 25-30 min from 30 min; one familiar real-food item at ~2 h",
+          "calories": 240,
+          "carbs_g": 58,
+          "sodium_mg": 500,
+          "fluid_ml": 500,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 120,
+              "item": "Familiar real-food item (one already tested)",
+              "cal": 120,
+              "sodium_mg": 150
+            }
+          ],
+          "notes": "~4:15-4:30 h: expect 8-9 gels. Winter: carry the bottles inside the vest to stop freezing."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "full meal within 2 h"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2027-01-10",
+      "reason": "HEADLAMP #2 - ~13:30 start, finish after dusk (17 mi)",
+      "daily_targets": {
+        "calories_total": 3500,
+        "carbs_g": 500,
+        "protein_g": 150,
+        "fat_g": 88,
+        "fluid_ml_total": 3800,
+        "general_guidance": "Normal breakfast, then the rehearsed pre-run meal at ~12:00. First CAFFEINE-TIMING test for the dark: one caffeinated gel at dusk (sunset ~16:45, ~3 h 15 min in)."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "~12:00 (90 min before)",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "Rehearsed meal as a late lunch."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Build mix; caffeine at dusk",
+          "calories": 260,
+          "carbs_g": 62,
+          "sodium_mg": 550,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 35,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 60,
+              "item": "Real food rotation",
+              "cal": 120,
+              "sodium_mg": 150
+            },
+            {
+              "interval_min": 195,
+              "item": "GU Roctane gel (caffeinated, 35 mg)",
+              "cal": 100,
+              "sodium_mg": 125,
+              "caffeine_mg": 35
+            }
+          ],
+          "notes": "~3.7 h. Log: alertness and gut after the dusk caffeine. That is the Tuscany evening question."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "full meal within 2 h"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2027-01-17",
+      "reason": "18-mi REAL-FOOD REHEARSAL for the 2/21 long effort",
+      "daily_targets": {
+        "calories_total": 3700,
+        "carbs_g": 540,
+        "protein_g": 150,
+        "fat_g": 90,
+        "fluid_ml_total": 4000,
+        "general_guidance": "Build-phase mix at 260-280 cal/hr with real food from hour 2 (run card). Run the 2/21 food list and the 2/21 log format (time, item, ~cal, ~sodium, GI notes) so the long effort holds no surprises. Practise drinking from a collapsible cup at the car stops (Tuscany aid is cup-only)."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "Rehearsed meal."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Mix: gel every ~35 min, half-strength GU Roctane Energy Drink Mix hourly, real food every 45-60 min from hour 2",
+          "calories": 270,
+          "carbs_g": 64,
+          "sodium_mg": 600,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 35,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 50,
+              "item": "Real food: potato / rice ball / PB&J quarter / bread + cheese (rotate)",
+              "cal": 120,
+              "sodium_mg": 180
+            },
+            {
+              "interval_min": 60,
+              "item": "SaltStick capsule (temperature-tiered - see meta)",
+              "cal": 0,
+              "sodium_mg": 215
+            }
+          ],
+          "notes": "~3.9 h. Target: finish without the Vermont fullness signal. Rate gut fullness 0-10 every hour."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "full meal within 2 h"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2027-01-19",
+      "reason": "AeT DRIFT TEST #3 (moved from 1/5) - identical nutrition inputs to every other test",
+      "daily_targets": {
+        "calories_total": 2750,
+        "carbs_g": 340,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3000,
+        "general_guidance": "Same pre-test meal and timing as test #1; no caffeine 3 h before; water only during. Normal eating after."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "pre"
+          },
+          "timing": "2.0-2.5 h before",
+          "calories": 350,
+          "carbs_g": 65,
+          "protein_g": 10,
+          "fat_g": 5,
+          "foods": [
+            "2 slices toast with honey",
+            "banana",
+            "water only - no coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "time_trial",
+            "position": "during"
+          },
+          "timing": "60-min test",
+          "calories": 0,
+          "carbs_g": 0,
+          "sodium_mg": 0,
+          "fluid_ml": 500,
+          "fueling_schedule": [],
+          "notes": "Water only."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 30-45 min",
+          "calories": 350,
+          "carbs_g": 50,
+          "protein_g": 30,
+          "foods": [
+            "whey shake + banana",
+            "or a normal meal if it is mealtime"
+          ],
+          "notes": "Creatine 5 g in this window."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": "lower",
+            "position": "pre"
+          },
+          "timing": "30-60 min before",
+          "calories": 120,
+          "carbs_g": 15,
+          "protein_g": 15,
+          "foods": [
+            "15 g collagen + 250 mg vitamin C (or with orange juice)",
+            "small carb snack if > 3 h since a meal"
+          ],
+          "notes": "THE tendon lever - never skipped on Lower A/B days."
+        },
+        {
+          "linked_session": {
+            "type": "strength",
+            "subtype": null,
+            "position": "post"
+          },
+          "timing": "Within 60 min",
+          "calories": 450,
+          "carbs_g": 45,
+          "protein_g": 40,
+          "foods": [
+            "chicken/fish/tofu + rice or potatoes + vegetables",
+            "or whey + a sandwich"
+          ],
+          "notes": "Largest protein dose of the day on lower days."
+        }
+      ]
+    },
+    {
+      "date": "2027-02-20",
+      "reason": "Shakeout + MODEST CARB-UP before the long effort",
+      "daily_targets": {
+        "calories_total": 3000,
+        "carbs_g": 480,
+        "protein_g": 140,
+        "fat_g": 70,
+        "fluid_ml_total": 3500,
+        "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned GU Roctane Energy Drink Mix powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it."
+      },
+      "session_fueling": []
+    },
+    {
+      "date": "2027-02-21",
+      "reason": "LONG EFFORT - 35-40 mi / 8-10 h, 05:00 start - J-2 FUELING REHEARSAL (replaces Oracle)",
+      "daily_targets": {
+        "calories_total": 5000,
+        "carbs_g": 850,
+        "protein_g": 140,
+        "fat_g": 95,
+        "fluid_ml_total": 6000,
+        "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder (GU Roctane Energy Drink Mix) cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "~03:00 (2 h before 05:00) - exactly as on 4/17",
+          "calories": 450,
+          "carbs_g": 80,
+          "protein_g": 12,
+          "fat_g": 8,
+          "foods": [
+            "oatmeal with banana and honey (smaller portion at this hour)",
+            "coffee"
+          ],
+          "notes": "The race breakfast at race time. If the full meal won't go down at 03:00, take 350 kcal + a gel at 04:45 - and log which you did."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Whole day; hours 1-2 proven baseline, real food from hour 3",
+          "calories": 270,
+          "carbs_g": 64,
+          "sodium_mg": 600,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 35,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 45,
+              "item": "Real food from hour 3: potato / rice ball / PB&J quarter / bread + cheese (the 1/17 list)",
+              "cal": 130,
+              "sodium_mg": 200
+            },
+            {
+              "interval_min": 60,
+              "item": "SaltStick capsule (temperature-tiered - see meta)",
+              "cal": 0,
+              "sodium_mg": 215
+            },
+            {
+              "interval_min": 90,
+              "item": "GU Roctane gel (caffeinated, 35 mg)",
+              "cal": 100,
+              "sodium_mg": 125,
+              "caffeine_mg": 35
+            }
+          ],
+          "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength GU Roctane Energy Drink Mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 600,
+          "carbs_g": 80,
+          "protein_g": 40,
+          "foods": [
+            "recovery shake",
+            "real meal ASAP",
+            "warm layers"
+          ],
+          "notes": "Rehydrate ~150% of the weight lost, with sodium. Body report to RS at the finish."
+        }
+      ]
+    },
+    {
+      "date": "2027-02-22",
+      "reason": "POST-EFFORT RECOVERY DAY (long effort +1)",
+      "daily_targets": {
+        "calories_total": 2900,
+        "carbs_g": 380,
+        "protein_g": 155,
+        "fat_g": 85,
+        "fluid_ml_total": 3000,
+        "general_guidance": "Not a normal rest day: refill glycogen (carbs at every meal) and feed the repair - ~35-40 g protein at each of 4 feedings. Collagen + C with the morning foot routine. Keep rehydrating with sodium. Body report to RS at ~24 h."
+      },
+      "session_fueling": []
+    },
+    {
+      "date": "2027-03-07",
+      "reason": "LONG RUN 24.5 mi (~5.3 h) - RACE FUELING PROTOCOL v1",
+      "daily_targets": {
+        "calories_total": 4300,
+        "carbs_g": 650,
+        "protein_g": 150,
+        "fat_g": 95,
+        "fluid_ml_total": 4600,
+        "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long (normal medium_long_run day: carb-rich dinner Saturday). Venue (run plan rev 2.8): Alpine loop x7 from the car - local, no long drive, so a normal long-run morning: breakfast ~90 min before the start, no early breakfast and no trailhead top-up needed. The car is the aid station every lap (~3.3 mi / ~45 min)."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "90 min before (normal long-run morning - Alpine is local)",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "Rehearsed meal, at the normal time. No trailhead top-up needed; if breakfast ends up > 2 h before the start (late departure), take 1 gel (non-caffeine) or a banana ~15 min before."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Race protocol v1",
+          "calories": 280,
+          "carbs_g": 66,
+          "sodium_mg": 650,
+          "fluid_ml": 600,
+          "fueling_schedule": [
+            {
+              "interval_min": 35,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 45,
+              "item": "Real food (the 2-3 items that passed 21 Feb)",
+              "cal": 130,
+              "sodium_mg": 200
+            },
+            {
+              "interval_min": 60,
+              "item": "SaltStick capsule (temperature-tiered - see meta)",
+              "cal": 0,
+              "sodium_mg": 215
+            },
+            {
+              "interval_min": 150,
+              "item": "GU Roctane gel (caffeinated, 35 mg)",
+              "cal": 100,
+              "sodium_mg": 125,
+              "caffeine_mg": 35
+            }
+          ],
+          "notes": "Only items that passed on 21 Feb / the Jan-Feb runs. Hourly fullness rating. ~5.3 h: expect ~9 gels, ~5 bottles of half-strength mix, 6-7 real-food items - the car is passed every lap, so cache there rather than carry. LAST-HOUR PITCH LAPS (the ~-8.6% end-of-lap pitch on the last 3 laps): take one gel at the car before starting the last 3 laps (extra if the last gel was > 15 min earlier), then keep the schedule at the car each lap - nothing on the pitch itself, where both hands are on the poles."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "full meal within 2 h"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2027-03-21",
+      "reason": "DRESS REHEARSAL (26 mi) - final race fueling protocol",
+      "daily_targets": {
+        "calories_total": 4400,
+        "carbs_g": 670,
+        "protein_g": 150,
+        "fat_g": 95,
+        "fluid_ml_total": 4600,
+        "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue (run plan rev 2.8): Febapple loop x2.6 from the car (South Mountain, ~1 h drive) - breakfast at home before the drive, top-up at the trailhead; the car is the aid station each loop (~10 mi, every ~2-2.5 h), which is the Tuscany aid spacing."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "pre"
+          },
+          "timing": "Breakfast at home before the ~1 h drive (~2-2.5 h before the start) + trailhead top-up ~15 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "Race breakfast. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting if breakfast was > 2 h before the start."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "during"
+          },
+          "timing": "Final race protocol",
+          "calories": 280,
+          "carbs_g": 66,
+          "sodium_mg": 650,
+          "fluid_ml": 600,
+          "fueling_schedule": [
+            {
+              "interval_min": 35,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 45,
+              "item": "Race real-food items",
+              "cal": 130,
+              "sodium_mg": 200
+            },
+            {
+              "interval_min": 60,
+              "item": "SaltStick capsule (temperature-tiered - see meta)",
+              "cal": 0,
+              "sodium_mg": 215
+            },
+            {
+              "interval_min": 150,
+              "item": "GU Roctane gel (caffeinated, 35 mg)",
+              "cal": 100,
+              "sodium_mg": 125,
+              "caffeine_mg": 35
+            }
+          ],
+          "notes": "Final protocol, nothing new. Each loop (~10 mi) restock at the car: bottles, gels and real food for the next ~2-2.5 h - carry a full loop's worth, as at Tuscany. LAST LOOP (the three steep descents, ~-9..-10%): take one gel at the car before starting the last loop (extra if the last gel was > 15 min earlier), then the schedule as written - nothing on the descents themselves, where both hands are on the poles."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "long",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 500,
+          "carbs_g": 65,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "full meal within 2 h"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2027-04-14",
+      "reason": "Travel to Italy + carb load day 1 (moderate)",
+      "daily_targets": {
+        "calories_total": 3000,
+        "carbs_g": 480,
+        "protein_g": 140,
+        "fat_g": 70,
+        "fluid_ml_total": 3500,
+        "general_guidance": "~6 g/kg carbs. Flight hydration with electrolytes; no alcohol race week. Eat on Italian time from landing."
+      },
+      "session_fueling": []
+    },
+    {
+      "date": "2027-04-15",
+      "reason": "Carb load day 2 (high)",
+      "daily_targets": {
+        "calories_total": 3400,
+        "carbs_g": 630,
+        "protein_g": 130,
+        "fat_g": 60,
+        "fluid_ml_total": 3500,
+        "general_guidance": "~8 g/kg carbs (pasta, bread, rice, potatoes, fruit juice). Moderate fat and fibre."
+      },
+      "session_fueling": []
+    },
+    {
+      "date": "2027-04-16",
+      "reason": "Carb load day 3 (high, low fibre) - pre-race day",
+      "daily_targets": {
+        "calories_total": 3300,
+        "carbs_g": 620,
+        "protein_g": 125,
+        "fat_g": 55,
+        "fluid_ml_total": 3500,
+        "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned GU Roctane Energy Drink Mix powder."
+      },
+      "session_fueling": []
+    },
+    {
+      "date": "2027-04-17",
+      "reason": "RACE DAY - Tuscany Crossing 103K (05:00 start)",
+      "daily_targets": {
+        "calories_total": 5800,
+        "carbs_g": 1050,
+        "protein_g": 130,
+        "fat_g": 110,
+        "fluid_ml_total": 8000,
+        "general_guidance": "PROVISIONAL - the Race Strategy stage table (~4-6 weeks out) and the dress-rehearsal results finalise this. Aid is cup-only at 8 points with 2-2.5 h carries; temperature swings from near 0 C to possibly > 30 C, so sodium and fluid follow the tiers hour by hour."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "race_pace",
+            "position": "pre"
+          },
+          "timing": "~02:45-03:00 (2 h before 05:00) - as rehearsed 2/21",
+          "calories": 450,
+          "carbs_g": 80,
+          "protein_g": 12,
+          "fat_g": 8,
+          "foods": [
+            "oatmeal with banana and honey",
+            "coffee"
+          ]
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "race_pace",
+            "position": "during"
+          },
+          "timing": "Whole race (~15:40-17:00 planning band)",
+          "calories": 270,
+          "carbs_g": 64,
+          "sodium_mg": 650,
+          "fluid_ml": 600,
+          "fueling_schedule": [
+            {
+              "interval_min": 35,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            },
+            {
+              "interval_min": 45,
+              "item": "Real food: own carried items + station bread/fruit/broth/coke later",
+              "cal": 130,
+              "sodium_mg": 250
+            },
+            {
+              "interval_min": 60,
+              "item": "SaltStick capsule (temperature-tiered - see meta)",
+              "cal": 0,
+              "sodium_mg": 215
+            },
+            {
+              "interval_min": 120,
+              "item": "GU Roctane gel (caffeinated, 35 mg)",
+              "cal": 100,
+              "sodium_mg": 125,
+              "caffeine_mg": 35
+            }
+          ],
+          "notes": "MIX, not volume (FR-w): gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own GU Roctane Energy Drink Mix powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "race_pace",
+            "position": "post"
+          },
+          "timing": "Within 30 min",
+          "calories": 600,
+          "carbs_g": 80,
+          "protein_g": 40,
+          "foods": [
+            "recovery shake",
+            "real food ASAP",
+            "warm layers"
+          ]
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "long_run",
-   "label": "Sunday long run",
-   "triggers": [
+  ],
+  "supplements": [
     {
-     "run_subtype": "long",
-     "strength_subtype": null,
-     "description": "Sunday long run"
+      "name": "Vitamin D3",
+      "dose": "2000 IU",
+      "timing": "morning with breakfast",
+      "timing_slot": "morning",
+      "rationale": "Baseline bone/immune support.",
+      "active_weeks": "1-29",
+      "notes": "Autumn blood work suggested (25-OH vitamin D, ferritin, CBC) before the winter volume block - dose by result. Do not supplement iron without a low ferritin result."
+    },
+    {
+      "name": "Omega-3 fish oil (EPA/DHA)",
+      "dose": "2 g combined EPA+DHA",
+      "timing": "morning with food",
+      "timing_slot": "morning",
+      "rationale": "Anti-inflammatory support without blunting adaptation (unlike NSAIDs, which stay OFF around loading).",
+      "active_weeks": "1-29"
+    },
+    {
+      "name": "Collagen peptides + Vitamin C",
+      "dose": "15 g collagen + 250 mg vitamin C",
+      "timing": "30-60 min BEFORE lower/tendon strength sessions; on non-lifting days, with the morning foot-corrective block",
+      "timing_slot": "pre_run",
+      "rationale": "Peri-loading collagen availability for tendon remodeling — the P1 nutritional lever. Daily low-dose beats one big weekly dose because collagen synthesis has a refractory window.",
+      "active_weeks": "1-29",
+      "notes": "THE priority supplement this block. Never skipped on Lower A / Lower B days."
+    },
+    {
+      "name": "Creatine monohydrate",
+      "dose": "5 g",
+      "timing": "post-run or post-strength, any consistent daily slot",
+      "timing_slot": "post_run",
+      "rationale": "Strength/power support during the HSR block; consistency matters more than timing.",
+      "active_weeks": "1-29"
+    },
+    {
+      "name": "Whey protein isolate",
+      "dose": "25-30 g per serving",
+      "timing": "post-session windows and to top up daily protein",
+      "timing_slot": "post_run",
+      "rationale": "Hits the 1.7-1.9 g/kg/day protein target that tissue remodeling at 50 demands.",
+      "active_weeks": "1-29"
+    },
+    {
+      "name": "Magnesium glycinate",
+      "dose": "400 mg elemental",
+      "timing": "evening before bed",
+      "timing_slot": "evening",
+      "rationale": "Sleep quality — recovery is the P1 multiplier.",
+      "active_weeks": "1-29"
+    },
+    {
+      "name": "Electrolytes (SaltStick)",
+      "dose": "Temperature-tiered: < 12 C none scheduled (gel + mix cover it); 12-22 C 1 capsule/60 min; > 22 C 1 capsule/40-45 min",
+      "timing": "during long efforts",
+      "timing_slot": "pre_run",
+      "rationale": "Vermont sodium (515-675 mg/hr) was deliberately low for 56 F and caused no cramping; Tuscany's 0-30 C swing needs a tiered rate, not a flat one.",
+      "active_weeks": "1-29"
+    },
+    {
+      "name": "Caffeine (GU Roctane caffeine gels)",
+      "dose": "35 mg per caffeinated gel. Training runs > 3 h: 1-3 in the final third. Evening/dark sessions: one at dusk (test). Race: see the 4/17 override (<= ~400 mg total).",
+      "timing": "Final third of long efforts; dusk on headlamp runs",
+      "timing_slot": "pre_run",
+      "rationale": "Vermont: 3 caffeinated gels in the last 2.5 h, clean. Tuscany adds a 15-17 h day and a dark finish - timing is tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the late hours of the 3/7 and 3/21 rehearsals (late-hours tests, not dark finishes - the 3/21 headlamp finish was dropped in run plan rev 2.4).",
+      "active_weeks": "1-29"
     }
-   ],
-   "daily_targets": {
-    "calories_total": 3400,
-    "carbs_g": 480,
-    "protein_g": 145,
-    "fat_g": 85,
-    "fluid_ml_total": 3800,
-    "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
-    "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "90 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee with a splash of milk"
-     ],
-     "notes": "THE rehearsed meal - race-proven twice."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Phase ladder (see notes); sodium and fluid by temperature tier (meta)",
-     "calories": 240,
-     "carbs_g": 58,
-     "sodium_mg": 550,
-     "fluid_ml": 550,
-     "fueling_schedule": [
-      {
-       "interval_min": 30,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 120,
-       "item": "Real-food item (from W7, runs >= 2.5 h)",
-       "cal": 120,
-       "sodium_mg": 150
-      },
-      {
-       "interval_min": 60,
-       "item": "SaltStick capsule (temperature-tiered - see meta)",
-       "cal": 0,
-       "sodium_mg": 215
-      }
-     ],
-     "notes": "Temperature tiers: < 12 C -> 400-600 mg Na, 400-500 ml/hr (skip SaltStick on cold days); 12-22 C -> 600-800 mg, 500-650 ml; > 22 C -> 800-1,000 mg, 650-800 ml."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake with banana and oats",
-      "full meal within 2 h: protein + rice/potatoes + vegetables"
-     ],
-     "notes": "Rehydrate ~150% of the weight lost; include sodium."
-    }
-   ],
-   "phase_adjustments": [
-    {
-     "phase": "Base",
-     "adjustment": "Long runs 8.5-14.5 mi (21 mi on the gate days - see overrides).",
-     "modified_targets": {
-      "calories_total": 3300,
-      "carbs_g": 450,
-      "protein_g": 145,
-      "fat_g": 85
-     }
-    },
-    {
-     "phase": "Build",
-     "adjustment": "15-22 mi with race weight and poles (the 38-mi long effort on 2/21 has its own override).",
-     "modified_targets": {
-      "calories_total": 3800,
-      "carbs_g": 560,
-      "protein_g": 150,
-      "fat_g": 90
-     }
-    },
-    {
-     "phase": "Peak",
-     "adjustment": "24.5-26 mi (W23-25) - highest-calorie training days; overrides govern 3/7 and 3/21. The 20-mi T-week run on 3/28 also lands here - eat to the lower end.",
-     "modified_targets": {
-      "calories_total": 4200,
-      "carbs_g": 640,
-      "protein_g": 150,
-      "fat_g": 95
-     }
-    },
-    {
-     "phase": "Taper_1",
-     "adjustment": "15 mi (4/4).",
-     "modified_targets": {
-      "calories_total": 3300,
-      "carbs_g": 450,
-      "protein_g": 145,
-      "fat_g": 85
-     }
-    },
-    {
-     "phase": "Taper_2",
-     "adjustment": "10 mi (4/11).",
-     "modified_targets": {
-      "calories_total": 3000,
-      "carbs_g": 400,
-      "protein_g": 145,
-      "fat_g": 80
-     }
-    }
-   ]
-  },
-  {
-   "id": "race_or_rehearsal",
-   "label": "Race day (date override governs)",
-   "triggers": [
-    {
-     "run_subtype": "race_pace",
-     "strength_subtype": null,
-     "description": "Tuscany 4/17 only (date override governs). The 2/21 long effort is a long run with its own override."
-    }
-   ],
-   "daily_targets": {
-    "calories_total": 4500,
-    "carbs_g": 750,
-    "protein_g": 130,
-    "fat_g": 90,
-    "fluid_ml_total": 5500,
-    "general_guidance": "Race day: see the date override."
-   },
-   "session_fueling": []
-  }
- ],
- "date_overrides": [
-  {
-   "date": "2026-10-13",
-   "reason": "AeT DRIFT TEST #1 - identical nutrition inputs to every other test",
-   "daily_targets": {
-    "calories_total": 2750,
-    "carbs_g": 340,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3000,
-    "general_guidance": "Same pre-test meal and timing as test #1; no caffeine 3 h before; water only during. Normal eating after."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "pre"
-     },
-     "timing": "2.0-2.5 h before",
-     "calories": 350,
-     "carbs_g": 65,
-     "protein_g": 10,
-     "fat_g": 5,
-     "foods": [
-      "2 slices toast with honey",
-      "banana",
-      "water only - no coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "during"
-     },
-     "timing": "60-min test",
-     "calories": 0,
-     "carbs_g": 0,
-     "sodium_mg": 0,
-     "fluid_ml": 500,
-     "fueling_schedule": [],
-     "notes": "Water only."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "lower",
-      "position": "pre"
-     },
-     "timing": "30-60 min before",
-     "calories": 120,
-     "carbs_g": 15,
-     "protein_g": 15,
-     "foods": [
-      "15 g collagen + 250 mg vitamin C (or with orange juice)",
-      "small carb snack if > 3 h since a meal"
-     ],
-     "notes": "THE tendon lever - never skipped on Lower A/B days."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ]
-  },
-  {
-   "date": "2026-11-15",
-   "reason": "OVERLOOK INTRO - first steep descent of the cycle (13.5 mi, ~2 h drive each way)",
-   "daily_targets": {
-    "calories_total": 3300,
-    "carbs_g": 450,
-    "protein_g": 145,
-    "fat_g": 85,
-    "fluid_ml_total": 3800,
-    "general_guidance": "Base long-run targets (long_run day type), adjusted for the drive to Woodstock: breakfast at home, top-up at the trailhead, recovery shake before driving home. First steep-descent bout = more muscle damage than usual: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "Breakfast at home before the ~2 h drive (~2.5-3 h before the start) + trailhead top-up ~15 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee with a splash of milk"
-     ],
-     "notes": "The rehearsed meal, eaten before leaving for Woodstock. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting - the breakfast is eaten early because of the drive."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "From 30 min; real-food item at ~hour 2 (in the flat miles)",
-     "calories": 240,
-     "carbs_g": 58,
-     "sodium_mg": 550,
-     "fluid_ml": 550,
-     "fueling_schedule": [
-      {
-       "interval_min": 30,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 120,
-       "item": "Real-food item #1 (salted boiled potato)",
-       "cal": 120,
-       "sodium_mg": 150
-      }
-     ],
-     "notes": "Base protocol. Overlook comes FIRST (climb, then the steep descent): take the scheduled gel at the top, before the descent - not on it. FIRST real-food item of the ladder (W7) at ~hour 2, in the flat miles: salted boiled potato. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake with banana and oats",
-      "full meal within 2 h: protein + rice/potatoes + vegetables"
-     ],
-     "notes": "Rehydrate ~150% of the weight lost; include sodium. Eat the shake before the drive home."
-    }
-   ]
-  },
-  {
-   "date": "2026-11-22",
-   "reason": "HEADLAMP #1 - 05:30 start (14.5 mi)",
-   "daily_targets": {
-    "calories_total": 3300,
-    "carbs_g": 450,
-    "protein_g": 145,
-    "fat_g": 85,
-    "fluid_ml_total": 3600,
-    "general_guidance": "Early breakfast at 04:00 - first test of eating in the dark before a run."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "04:00 (90 min before)",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "Same meal, earlier - note how it sits at this hour."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "From 30 min",
-     "calories": 220,
-     "carbs_g": 55,
-     "sodium_mg": 450,
-     "fluid_ml": 500,
-     "fueling_schedule": [
-      {
-       "interval_min": 30,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 120,
-       "item": "Real-food item #2 (rotate: rice ball or 1/4 PB&J; potato again if 11/15 sat badly)",
-       "cal": 100,
-       "sodium_mg": 200
-      }
-     ],
-     "notes": "Cold start: sodium at the low tier."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "full meal within 2 h"
-     ]
-    }
-   ]
-  },
-  {
-   "date": "2026-11-24",
-   "reason": "AeT DRIFT TEST #2 - identical nutrition inputs to every other test",
-   "daily_targets": {
-    "calories_total": 2750,
-    "carbs_g": 340,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3000,
-    "general_guidance": "Same pre-test meal and timing as test #1; no caffeine 3 h before; water only during. Normal eating after."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "pre"
-     },
-     "timing": "2.0-2.5 h before",
-     "calories": 350,
-     "carbs_g": 65,
-     "protein_g": 10,
-     "fat_g": 5,
-     "foods": [
-      "2 slices toast with honey",
-      "banana",
-      "water only - no coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "during"
-     },
-     "timing": "60-min test",
-     "calories": 0,
-     "carbs_g": 0,
-     "sodium_mg": 0,
-     "fluid_ml": 500,
-     "fueling_schedule": [],
-     "notes": "Water only."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "lower",
-      "position": "pre"
-     },
-     "timing": "30-60 min before",
-     "calories": 120,
-     "carbs_g": 15,
-     "protein_g": 15,
-     "foods": [
-      "15 g collagen + 250 mg vitamin C (or with orange juice)",
-      "small carb snack if > 3 h since a meal"
-     ],
-     "notes": "THE tendon lever - never skipped on Lower A/B days."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ]
-  },
-  {
-   "date": "2026-12-06",
-   "reason": "GATE D #1 - 21-mi qualifying run (tissue test)",
-   "daily_targets": {
-    "calories_total": 3700,
-    "carbs_g": 540,
-    "protein_g": 150,
-    "fat_g": 88,
-    "fluid_ml_total": 4000,
-    "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "90 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "Rehearsed meal."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Gel every 25-30 min from 30 min; one familiar real-food item at ~2 h",
-     "calories": 240,
-     "carbs_g": 58,
-     "sodium_mg": 500,
-     "fluid_ml": 500,
-     "fueling_schedule": [
-      {
-       "interval_min": 30,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 120,
-       "item": "Familiar real-food item (one already tested)",
-       "cal": 120,
-       "sodium_mg": 150
-      }
-     ],
-     "notes": "~4:15-4:30 h: expect 8-9 gels. Winter: carry the bottles inside the vest to stop freezing."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "full meal within 2 h"
-     ]
-    }
-   ]
-  },
-  {
-   "date": "2026-12-20",
-   "reason": "GATE D #2 - 21-mi qualifying run (tissue test)",
-   "daily_targets": {
-    "calories_total": 3700,
-    "carbs_g": 540,
-    "protein_g": 150,
-    "fat_g": 88,
-    "fluid_ml_total": 4000,
-    "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "90 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "Rehearsed meal."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Gel every 25-30 min from 30 min; one familiar real-food item at ~2 h",
-     "calories": 240,
-     "carbs_g": 58,
-     "sodium_mg": 500,
-     "fluid_ml": 500,
-     "fueling_schedule": [
-      {
-       "interval_min": 30,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 120,
-       "item": "Familiar real-food item (one already tested)",
-       "cal": 120,
-       "sodium_mg": 150
-      }
-     ],
-     "notes": "~4:15-4:30 h: expect 8-9 gels. Winter: carry the bottles inside the vest to stop freezing."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "full meal within 2 h"
-     ]
-    }
-   ]
-  },
-  {
-   "date": "2027-01-10",
-   "reason": "HEADLAMP #2 - ~13:30 start, finish after dusk (17 mi)",
-   "daily_targets": {
-    "calories_total": 3500,
-    "carbs_g": 500,
-    "protein_g": 150,
-    "fat_g": 88,
-    "fluid_ml_total": 3800,
-    "general_guidance": "Normal breakfast, then the rehearsed pre-run meal at ~12:00. First CAFFEINE-TIMING test for the dark: one caffeinated gel at dusk (sunset ~16:45, ~3 h 15 min in)."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "~12:00 (90 min before)",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "Rehearsed meal as a late lunch."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Build mix; caffeine at dusk",
-     "calories": 260,
-     "carbs_g": 62,
-     "sodium_mg": 550,
-     "fluid_ml": 550,
-     "fueling_schedule": [
-      {
-       "interval_min": 35,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 60,
-       "item": "Real food rotation",
-       "cal": 120,
-       "sodium_mg": 150
-      },
-      {
-       "interval_min": 195,
-       "item": "GU Roctane gel (caffeinated, 35 mg)",
-       "cal": 100,
-       "sodium_mg": 125,
-       "caffeine_mg": 35
-      }
-     ],
-     "notes": "~3.7 h. Log: alertness and gut after the dusk caffeine. That is the Tuscany evening question."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "full meal within 2 h"
-     ]
-    }
-   ]
-  },
-  {
-   "date": "2027-01-17",
-   "reason": "18-mi REAL-FOOD REHEARSAL for the 2/21 long effort",
-   "daily_targets": {
-    "calories_total": 3700,
-    "carbs_g": 540,
-    "protein_g": 150,
-    "fat_g": 90,
-    "fluid_ml_total": 4000,
-    "general_guidance": "Build-phase mix at 260-280 cal/hr with real food from hour 2 (run card). Run the 2/21 food list and the 2/21 log format (time, item, ~cal, ~sodium, GI notes) so the long effort holds no surprises. Practise drinking from a collapsible cup at the car stops (Tuscany aid is cup-only)."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "90 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "Rehearsed meal."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Mix: gel every ~35 min, half-strength GU Roctane Energy Drink Mix hourly, real food every 45-60 min from hour 2",
-     "calories": 270,
-     "carbs_g": 64,
-     "sodium_mg": 600,
-     "fluid_ml": 550,
-     "fueling_schedule": [
-      {
-       "interval_min": 35,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 50,
-       "item": "Real food: potato / rice ball / PB&J quarter / bread + cheese (rotate)",
-       "cal": 120,
-       "sodium_mg": 180
-      },
-      {
-       "interval_min": 60,
-       "item": "SaltStick capsule (temperature-tiered - see meta)",
-       "cal": 0,
-       "sodium_mg": 215
-      }
-     ],
-     "notes": "~3.9 h. Target: finish without the Vermont fullness signal. Rate gut fullness 0-10 every hour."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "full meal within 2 h"
-     ]
-    }
-   ]
-  },
-  {
-   "date": "2027-01-19",
-   "reason": "AeT DRIFT TEST #3 (moved from 1/5) - identical nutrition inputs to every other test",
-   "daily_targets": {
-    "calories_total": 2750,
-    "carbs_g": 340,
-    "protein_g": 150,
-    "fat_g": 85,
-    "fluid_ml_total": 3000,
-    "general_guidance": "Same pre-test meal and timing as test #1; no caffeine 3 h before; water only during. Normal eating after."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "pre"
-     },
-     "timing": "2.0-2.5 h before",
-     "calories": 350,
-     "carbs_g": 65,
-     "protein_g": 10,
-     "fat_g": 5,
-     "foods": [
-      "2 slices toast with honey",
-      "banana",
-      "water only - no coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "time_trial",
-      "position": "during"
-     },
-     "timing": "60-min test",
-     "calories": 0,
-     "carbs_g": 0,
-     "sodium_mg": 0,
-     "fluid_ml": 500,
-     "fueling_schedule": [],
-     "notes": "Water only."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 30-45 min",
-     "calories": 350,
-     "carbs_g": 50,
-     "protein_g": 30,
-     "foods": [
-      "whey shake + banana",
-      "or a normal meal if it is mealtime"
-     ],
-     "notes": "Creatine 5 g in this window."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": "lower",
-      "position": "pre"
-     },
-     "timing": "30-60 min before",
-     "calories": 120,
-     "carbs_g": 15,
-     "protein_g": 15,
-     "foods": [
-      "15 g collagen + 250 mg vitamin C (or with orange juice)",
-      "small carb snack if > 3 h since a meal"
-     ],
-     "notes": "THE tendon lever - never skipped on Lower A/B days."
-    },
-    {
-     "linked_session": {
-      "type": "strength",
-      "subtype": null,
-      "position": "post"
-     },
-     "timing": "Within 60 min",
-     "calories": 450,
-     "carbs_g": 45,
-     "protein_g": 40,
-     "foods": [
-      "chicken/fish/tofu + rice or potatoes + vegetables",
-      "or whey + a sandwich"
-     ],
-     "notes": "Largest protein dose of the day on lower days."
-    }
-   ]
-  },
-  {
-   "date": "2027-02-20",
-   "reason": "Shakeout + MODEST CARB-UP before the long effort",
-   "daily_targets": {
-    "calories_total": 3000,
-    "carbs_g": 480,
-    "protein_g": 140,
-    "fat_g": 70,
-    "fluid_ml_total": 3500,
-    "general_guidance": "~6 g/kg carbs - a modest top-up, not a race load. Lower fibre at dinner, early dinner (~18:00), early night (alarm ~02:45). NO alcohol tonight. Pack the car aid box: pre-portioned GU Roctane Energy Drink Mix powder per bottle, the real-food list, gels (plain + caffeinated), SaltSticks, cola and broth/cup for the replacement trial, the intake log sheet. IF THE EFFORT MOVES (2/14 backup, Sat 2/20 fallback or a weekday 2/17-2/25): this day moves to the day before it."
-   },
-   "session_fueling": []
-  },
-  {
-   "date": "2027-02-21",
-   "reason": "LONG EFFORT - 35-40 mi / 8-10 h, 05:00 start - J-2 FUELING REHEARSAL (replaces Oracle)",
-   "daily_targets": {
-    "calories_total": 5000,
-    "carbs_g": 850,
-    "protein_g": 140,
-    "fat_g": 95,
-    "fluid_ml_total": 6000,
-    "general_guidance": "The real-food rehearsal for Tuscany, on loops from the car (car = aid every ~2-2.5 h). Questions to answer: (1) does the MIX hold past hour 7 without fullness? (2) real food from hour 3 - which items still go down late? (3) the drink-mix replacement for the late hours; (4) caffeine timing late in the day; (5) cup drinking at every car stop. Station drink vs own powder (GU Roctane Energy Drink Mix) cannot be tested here (no aid station) - the default stands. BACKUP DATES (run plan): the only planned backup is Sun 2/14, decided by Wed 2/10 - and it is OFF if G1 ran on Sun 2/7. Short-notice fallback: Sat 2/20 (swaps with the shakeout - the carb-up then moves to Fri 2/19). Last resort: a weekday Wed 2/17 - Thu 2/25. Wherever the effort lands, this override moves with it, the carb-up/no-alcohol day (2/20 override) goes on the day before, and the recovery day (2/22 override) on the day after."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "~03:00 (2 h before 05:00) - exactly as on 4/17",
-     "calories": 450,
-     "carbs_g": 80,
-     "protein_g": 12,
-     "fat_g": 8,
-     "foods": [
-      "oatmeal with banana and honey (smaller portion at this hour)",
-      "coffee"
-     ],
-     "notes": "The race breakfast at race time. If the full meal won't go down at 03:00, take 350 kcal + a gel at 04:45 - and log which you did."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Whole day; hours 1-2 proven baseline, real food from hour 3",
-     "calories": 270,
-     "carbs_g": 64,
-     "sodium_mg": 600,
-     "fluid_ml": 550,
-     "fueling_schedule": [
-      {
-       "interval_min": 35,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 45,
-       "item": "Real food from hour 3: potato / rice ball / PB&J quarter / bread + cheese (the 1/17 list)",
-       "cal": 130,
-       "sodium_mg": 200
-      },
-      {
-       "interval_min": 60,
-       "item": "SaltStick capsule (temperature-tiered - see meta)",
-       "cal": 0,
-       "sodium_mg": 215
-      },
-      {
-       "interval_min": 90,
-       "item": "GU Roctane gel (caffeinated, 35 mg)",
-       "cal": 100,
-       "sodium_mg": 125,
-       "caffeine_mg": 35
-      }
-     ],
-     "notes": "HOURS 1-2 (dark, cold): gels + half-strength mix only, the proven baseline. FROM HOUR 3: one real-food item every ~45 min. DRINK-MIX REPLACEMENT: from ~hour 6 run one full car loop with the half-strength GU Roctane Energy Drink Mix replaced (default candidate: cola in the cup at the car + broth or salted potato for the sodium, water in the bottles) and rate the gut over the next hour vs the loop before. CAFFEINE: none before hour 5, then one caffeinated gel every ~90 min, total <= ~200 mg; log alertness. CAR STOPS: timed, <= 2 min, set list (bottles, food, out); drink one cup at every stop (Tuscany aid is cup-only). Sodium/fluid by temperature tier (likely the cold tier until mid-morning). INTAKE LOG for RS, every item: time, item, ~cal, ~sodium, GI notes; gut fullness 0-10 each hour."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 600,
-     "carbs_g": 80,
-     "protein_g": 40,
-     "foods": [
-      "recovery shake",
-      "real meal ASAP",
-      "warm layers"
-     ],
-     "notes": "Rehydrate ~150% of the weight lost, with sodium. Body report to RS at the finish."
-    }
-   ]
-  },
-  {
-   "date": "2027-02-22",
-   "reason": "POST-EFFORT RECOVERY DAY (long effort +1)",
-   "daily_targets": {
-    "calories_total": 2900,
-    "carbs_g": 380,
-    "protein_g": 155,
-    "fat_g": 85,
-    "fluid_ml_total": 3000,
-    "general_guidance": "Not a normal rest day: refill glycogen (carbs at every meal) and feed the repair - ~35-40 g protein at each of 4 feedings. Collagen + C with the morning foot routine. Keep rehydrating with sodium. Body report to RS at ~24 h."
-   },
-   "session_fueling": []
-  },
-  {
-   "date": "2027-03-07",
-   "reason": "LONG RUN 24.5 mi (~5.3 h) - RACE FUELING PROTOCOL v1",
-   "daily_targets": {
-    "calories_total": 4300,
-    "carbs_g": 650,
-    "protein_g": 150,
-    "fat_g": 95,
-    "fluid_ml_total": 4600,
-    "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long (normal medium_long_run day: carb-rich dinner Saturday). Venue: loops from the Overlook trailhead car (Woodstock NY, ~2 h drive) - breakfast before the drive, top-up at the trailhead."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "Breakfast at home before the ~2 h drive (~2.5-3 h before the start) + trailhead top-up ~15 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "Rehearsed meal. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting - the breakfast is eaten early because of the drive."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Race protocol v1",
-     "calories": 280,
-     "carbs_g": 66,
-     "sodium_mg": 650,
-     "fluid_ml": 600,
-     "fueling_schedule": [
-      {
-       "interval_min": 35,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 45,
-       "item": "Real food (the 2-3 items that passed 21 Feb)",
-       "cal": 130,
-       "sodium_mg": 200
-      },
-      {
-       "interval_min": 60,
-       "item": "SaltStick capsule (temperature-tiered - see meta)",
-       "cal": 0,
-       "sodium_mg": 215
-      },
-      {
-       "interval_min": 150,
-       "item": "GU Roctane gel (caffeinated, 35 mg)",
-       "cal": 100,
-       "sodium_mg": 125,
-       "caffeine_mg": 35
-      }
-     ],
-     "notes": "Only items that passed on 21 Feb / the Jan-Feb runs. Hourly fullness rating. ~5.3 h: expect ~9 gels, ~5 bottles of half-strength mix, 6-7 real-food items - carry or cache accordingly. OVERLOOK BLOCK (last hour): take one gel at the car just before the final climb (extra if the last gel was > 15 min earlier), and the next scheduled item at the top - nothing on the steep descent, where both hands are on the poles."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "full meal within 2 h"
-     ]
-    }
-   ]
-  },
-  {
-   "date": "2027-03-21",
-   "reason": "DRESS REHEARSAL (26 mi) - final race fueling protocol",
-   "daily_targets": {
-    "calories_total": 4400,
-    "carbs_g": 670,
-    "protein_g": 150,
-    "fat_g": 95,
-    "fluid_ml_total": 4600,
-    "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue: loops from the Overlook trailhead car (Woodstock NY, ~2 h drive) - breakfast before the drive, top-up at the trailhead."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "pre"
-     },
-     "timing": "Breakfast at home before the ~2 h drive (~2.5-3 h before the start) + trailhead top-up ~15 min before",
-     "calories": 500,
-     "carbs_g": 80,
-     "protein_g": 15,
-     "fat_g": 10,
-     "foods": [
-      "oatmeal with banana, honey and berries",
-      "coffee"
-     ],
-     "notes": "Race breakfast. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting - the breakfast is eaten early because of the drive."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "during"
-     },
-     "timing": "Final race protocol",
-     "calories": 280,
-     "carbs_g": 66,
-     "sodium_mg": 650,
-     "fluid_ml": 600,
-     "fueling_schedule": [
-      {
-       "interval_min": 35,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 45,
-       "item": "Race real-food items",
-       "cal": 130,
-       "sodium_mg": 200
-      },
-      {
-       "interval_min": 60,
-       "item": "SaltStick capsule (temperature-tiered - see meta)",
-       "cal": 0,
-       "sodium_mg": 215
-      },
-      {
-       "interval_min": 150,
-       "item": "GU Roctane gel (caffeinated, 35 mg)",
-       "cal": 100,
-       "sodium_mg": 125,
-       "caffeine_mg": 35
-      }
-     ],
-     "notes": "OVERLOOK BLOCK (last hour): take one gel at the car just before the final climb (extra if the last gel was > 15 min earlier), and the next scheduled item at the top - nothing on the steep descent, where both hands are on the poles."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "long",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 500,
-     "carbs_g": 65,
-     "protein_g": 35,
-     "foods": [
-      "whey shake + banana + oats",
-      "full meal within 2 h"
-     ]
-    }
-   ]
-  },
-  {
-   "date": "2027-04-14",
-   "reason": "Travel to Italy + carb load day 1 (moderate)",
-   "daily_targets": {
-    "calories_total": 3000,
-    "carbs_g": 480,
-    "protein_g": 140,
-    "fat_g": 70,
-    "fluid_ml_total": 3500,
-    "general_guidance": "~6 g/kg carbs. Flight hydration with electrolytes; no alcohol race week. Eat on Italian time from landing."
-   },
-   "session_fueling": []
-  },
-  {
-   "date": "2027-04-15",
-   "reason": "Carb load day 2 (high)",
-   "daily_targets": {
-    "calories_total": 3400,
-    "carbs_g": 630,
-    "protein_g": 130,
-    "fat_g": 60,
-    "fluid_ml_total": 3500,
-    "general_guidance": "~8 g/kg carbs (pasta, bread, rice, potatoes, fruit juice). Moderate fat and fibre."
-   },
-   "session_fueling": []
-  },
-  {
-   "date": "2027-04-16",
-   "reason": "Carb load day 3 (high, low fibre) - pre-race day",
-   "daily_targets": {
-    "calories_total": 3300,
-    "carbs_g": 620,
-    "protein_g": 125,
-    "fat_g": 55,
-    "fluid_ml_total": 3500,
-    "general_guidance": "~8 g/kg, low fibre, familiar foods, early dinner (~18:00). Prepare drop/change bags and pre-portioned GU Roctane Energy Drink Mix powder."
-   },
-   "session_fueling": []
-  },
-  {
-   "date": "2027-04-17",
-   "reason": "RACE DAY - Tuscany Crossing 103K (05:00 start)",
-   "daily_targets": {
-    "calories_total": 5800,
-    "carbs_g": 1050,
-    "protein_g": 130,
-    "fat_g": 110,
-    "fluid_ml_total": 8000,
-    "general_guidance": "PROVISIONAL - the Race Strategy stage table (~4-6 weeks out) and the dress-rehearsal results finalise this. Aid is cup-only at 8 points with 2-2.5 h carries; temperature swings from near 0 C to possibly > 30 C, so sodium and fluid follow the tiers hour by hour."
-   },
-   "session_fueling": [
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "race_pace",
-      "position": "pre"
-     },
-     "timing": "~02:45-03:00 (2 h before 05:00) - as rehearsed 2/21",
-     "calories": 450,
-     "carbs_g": 80,
-     "protein_g": 12,
-     "fat_g": 8,
-     "foods": [
-      "oatmeal with banana and honey",
-      "coffee"
-     ]
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "race_pace",
-      "position": "during"
-     },
-     "timing": "Whole race (~15:40-17:00 planning band)",
-     "calories": 270,
-     "carbs_g": 64,
-     "sodium_mg": 650,
-     "fluid_ml": 600,
-     "fueling_schedule": [
-      {
-       "interval_min": 35,
-       "item": "GU Roctane gel (non-caffeine)",
-       "cal": 100,
-       "sodium_mg": 125
-      },
-      {
-       "interval_min": 60,
-       "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
-       "cal": 125,
-       "sodium_mg": 160
-      },
-      {
-       "interval_min": 45,
-       "item": "Real food: own carried items + station bread/fruit/broth/coke later",
-       "cal": 130,
-       "sodium_mg": 250
-      },
-      {
-       "interval_min": 60,
-       "item": "SaltStick capsule (temperature-tiered - see meta)",
-       "cal": 0,
-       "sodium_mg": 215
-      },
-      {
-       "interval_min": 120,
-       "item": "GU Roctane gel (caffeinated, 35 mg)",
-       "cal": 100,
-       "sodium_mg": 125,
-       "caffeine_mg": 35
-      }
-     ],
-     "notes": "MIX, not volume (FR-w): gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25%. CAFFEINE: none for the first ~6 h; then ~35-70 mg every 1.5-2 h from the Mountain climb (~hour 8), a larger dose before dusk; total <= ~5 mg/kg (~400 mg). Carry own GU Roctane Energy Drink Mix powder pre-portioned per bottle; use station water. Refill both bottles + 1 L minimum before the long carries (into Gallina 9.9 mi, Poggio Rosa 8.0 mi)."
-    },
-    {
-     "linked_session": {
-      "type": "run",
-      "subtype": "race_pace",
-      "position": "post"
-     },
-     "timing": "Within 30 min",
-     "calories": 600,
-     "carbs_g": 80,
-     "protein_g": 40,
-     "foods": [
-      "recovery shake",
-      "real food ASAP",
-      "warm layers"
-     ]
-    }
-   ]
-  }
- ],
- "supplements": [
-  {
-   "name": "Vitamin D3",
-   "dose": "2000 IU",
-   "timing": "morning with breakfast",
-   "timing_slot": "morning",
-   "rationale": "Baseline bone/immune support.",
-   "active_weeks": "1-29",
-   "notes": "Autumn blood work suggested (25-OH vitamin D, ferritin, CBC) before the winter volume block - dose by result. Do not supplement iron without a low ferritin result."
-  },
-  {
-   "name": "Omega-3 fish oil (EPA/DHA)",
-   "dose": "2 g combined EPA+DHA",
-   "timing": "morning with food",
-   "timing_slot": "morning",
-   "rationale": "Anti-inflammatory support without blunting adaptation (unlike NSAIDs, which stay OFF around loading).",
-   "active_weeks": "1-29"
-  },
-  {
-   "name": "Collagen peptides + Vitamin C",
-   "dose": "15 g collagen + 250 mg vitamin C",
-   "timing": "30-60 min BEFORE lower/tendon strength sessions; on non-lifting days, with the morning foot-corrective block",
-   "timing_slot": "pre_run",
-   "rationale": "Peri-loading collagen availability for tendon remodeling — the P1 nutritional lever. Daily low-dose beats one big weekly dose because collagen synthesis has a refractory window.",
-   "active_weeks": "1-29",
-   "notes": "THE priority supplement this block. Never skipped on Lower A / Lower B days."
-  },
-  {
-   "name": "Creatine monohydrate",
-   "dose": "5 g",
-   "timing": "post-run or post-strength, any consistent daily slot",
-   "timing_slot": "post_run",
-   "rationale": "Strength/power support during the HSR block; consistency matters more than timing.",
-   "active_weeks": "1-29"
-  },
-  {
-   "name": "Whey protein isolate",
-   "dose": "25-30 g per serving",
-   "timing": "post-session windows and to top up daily protein",
-   "timing_slot": "post_run",
-   "rationale": "Hits the 1.7-1.9 g/kg/day protein target that tissue remodeling at 50 demands.",
-   "active_weeks": "1-29"
-  },
-  {
-   "name": "Magnesium glycinate",
-   "dose": "400 mg elemental",
-   "timing": "evening before bed",
-   "timing_slot": "evening",
-   "rationale": "Sleep quality — recovery is the P1 multiplier.",
-   "active_weeks": "1-29"
-  },
-  {
-   "name": "Electrolytes (SaltStick)",
-   "dose": "Temperature-tiered: < 12 C none scheduled (gel + mix cover it); 12-22 C 1 capsule/60 min; > 22 C 1 capsule/40-45 min",
-   "timing": "during long efforts",
-   "timing_slot": "pre_run",
-   "rationale": "Vermont sodium (515-675 mg/hr) was deliberately low for 56 F and caused no cramping; Tuscany's 0-30 C swing needs a tiered rate, not a flat one.",
-   "active_weeks": "1-29"
-  },
-  {
-   "name": "Caffeine (GU Roctane caffeine gels)",
-   "dose": "35 mg per caffeinated gel. Training runs > 3 h: 1-3 in the final third. Evening/dark sessions: one at dusk (test). Race: see the 4/17 override (<= ~400 mg total).",
-   "timing": "Final third of long efforts; dusk on headlamp runs",
-   "timing_slot": "pre_run",
-   "rationale": "Vermont: 3 caffeinated gels in the last 2.5 h, clean. Tuscany adds a 15-17 h day and a dark finish - timing is tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the late hours of the 3/7 and 3/21 rehearsals (late-hours tests, not dark finishes - the 3/21 headlamp finish was dropped in run plan rev 2.4).",
-   "active_weeks": "1-29"
-  }
- ]
+  ]
 }
