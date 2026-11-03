@@ -31,3 +31,11 @@ section-fit-parser.py
 # update_plan.py imports merge_plans.py, so running it byte-compiles the module
 __pycache__/
 *.pyc
+
+# push_garmin.py — machine/account-local sync state and the launchd job's log
+garmin_sync_state.json
+garmin_sync_state.json.lock
+garmin_push.log
+
+# garmin_login.mjs runs via npx; a stray local install must not be committed
+node_modules/
