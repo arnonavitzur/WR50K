@@ -45,6 +45,9 @@ STEP_TYPE = {
 }
 END_LAP  = {"conditionTypeId": 1, "conditionTypeKey": "lap.button"}
 END_TIME = {"conditionTypeId": 2, "conditionTypeKey": "time"}
+END_DIST = {"conditionTypeId": 3, "conditionTypeKey": "distance"}      # endConditionValue in metres
+UNIT_MILE = {"unitId": 4, "unitKey": "mile", "factor": 1609.344}        # how the watch displays it
+M_PER_MI = 1609.344
 TARGET_NONE = {"workoutTargetTypeId": 1, "workoutTargetTypeKey": "no.target"}
 TARGET_HR   = {"workoutTargetTypeId": 4, "workoutTargetTypeKey": "heart.rate.zone"}
 
@@ -55,9 +58,21 @@ DEFAULT_DAYS = 14
 DEFAULT_STATE = "garmin_sync_state.json"
 DEFAULT_TOKEN_DIR = os.path.expanduser("~/.garth")
 
-# Climb-session cue patterns (rev 2.11 — every power_climb cue matches one of these)
+# Cue patterns (rev 2.11 — checked against every session in the cycle; see --dry-run warnings)
 RE_OUTDOOR_CLIMB = re.compile(r"After a (\d+)-min .*?warm-up: (\d+) x (\d+) min", re.I | re.S)
 RE_TREADMILL_CLIMB = re.compile(r"(\d+) min Z1-2 at \d+%, then ONE (\d+)-min", re.I | re.S)
+# Descent skill sessions: "2 x 1.0 mi sustained at -5..-8%" or "1.5 + 1.5 + 1.0 mi sustained at -5..-8%"
+RE_DESCENT_EQUAL = re.compile(r"(\d+) x ([\d.]+) mi[^.]*?sustained at -", re.I)
+RE_DESCENT_LIST = re.compile(r"((?:[\d.]+ \+ )+[\d.]+) mi sustained at -", re.I)
+# Fast-feet days: "FAST-FEET DAY. 10-15 min easy warm-up, then:" + any of these blocks, in cue order
+RE_FASTFEET = re.compile(r"^FAST-FEET DAY\. (\d+)(?:-(\d+))? min easy warm-up", re.I)
+RE_PICKUPS = re.compile(r"PICK-UPS \(Uphill Athlete\): (\d+) x (\d+) s", re.I)         # flat pick-ups, >= 2 min jog
+RE_HILL_SPRINTS = re.compile(r"HILL SPRINTS x(\d+)", re.I)                             # 8-10 s, full 2-3 min walk-down
+RE_DOWNHILL = re.compile(r"(\d+) x ([\d.]+) (s|min) FAST DOWNHILL PICK-UPS", re.I)     # jog/walk back up between
+FASTFEET_WARMUP_MIN = 15      # the cue says 10-15; take the long end before fast work
+PICKUP_REST_SEC = 120         # ">= 2 min easy jog between"
+SPRINT_SEC = 10               # "8-10 s uphill"
+SPRINT_REST_SEC = 180         # "full 2-3 min walk-down recovery - never cut the rest short"
 
 # Uphill Athlete drift test: 15 warm-up, 30 + 30 at a locked speed (lap at 30:00 / 60:00), 10 down
 TIME_TRIAL_STEPS = [("warmup", 15), ("interval", 30), ("interval", 30), ("cooldown", 10)]
@@ -76,9 +91,42 @@ def no_target():
     return {"targetType": TARGET_NONE, "targetValueOne": None, "targetValueTwo": None, "zoneNumber": None}
 
 
-def step(kind, minutes=None, target=None):
-    """An executable step. minutes=None -> ends on the lap button."""
-    return {"kind": kind, "minutes": minutes, "target": target if target is not None else no_target()}
+def step(kind, minutes=None, target=None, *, seconds=None, miles=None):
+    """An executable step ending after `minutes` / `seconds` of time, `miles` of distance,
+    or — when none is given — on the lap button."""
+    if minutes is not None:
+        seconds = minutes * 60
+    return {"kind": kind, "seconds": seconds, "miles": miles, "target": target if target is not None else no_target()}
+
+
+def seconds_of(steps):
+    """Timed length of a step list (lap-button steps count 0; repeats multiply)."""
+    return sum(s["n"] * seconds_of(s["children"]) if s["kind"] == "repeat" else (s["seconds"] or 0) for s in steps)
+
+
+def fastfeet_blocks(cue, cap):
+    """The rep blocks of a fast-feet day (or the sprints tacked onto a climb), in cue order."""
+    found = []
+    for m in RE_PICKUPS.finditer(cue):
+        n, secs = int(m.group(1)), int(m.group(2))
+        found.append((m.start(), repeat(n, [step("interval", seconds=secs), step("recovery", seconds=PICKUP_REST_SEC, target=hr_target(cap))])))
+    for m in RE_HILL_SPRINTS.finditer(cue):
+        found.append((m.start(), repeat(int(m.group(1)), [step("interval", seconds=SPRINT_SEC), step("recovery", seconds=SPRINT_REST_SEC, target=hr_target(cap))])))
+    for m in RE_DOWNHILL.finditer(cue):
+        n, val, unit = int(m.group(1)), float(m.group(2)), m.group(3).lower()
+        secs = int(round(val * 60)) if unit == "min" else int(round(val))
+        found.append((m.start(), repeat(n, [step("interval", seconds=secs), step("recovery", target=hr_target(cap))])))  # jog/walk back: lap
+    return [blk for _, blk in sorted(found, key=lambda t: t[0])]
+
+
+def with_cooldown(steps, dur_min, cap, untimed_rest_min=2.0):
+    """Append a cooldown for whatever time is left after the structured part.
+    Lap-button recoveries are assumed `untimed_rest_min` each for the estimate."""
+    def untimed(ss):
+        return sum(s["n"] * untimed(s["children"]) if s["kind"] == "repeat" else (s["seconds"] is None and s["miles"] is None) for s in ss)
+    left = dur_min - seconds_of(steps) / 60 - untimed(steps) * untimed_rest_min
+    steps.append(step("cooldown", round(left) if left >= 5 else None, hr_target(cap)))
+    return steps
 
 
 def repeat(n, children):
@@ -99,22 +147,43 @@ def plan_steps(session):
         m = RE_OUTDOOR_CLIMB.search(cue)
         if m:
             wu, n, work = (int(x) for x in m.groups())
-            rest = dur - wu - n * work
-            return [
-                step("warmup", wu, hr_target(cap)),
-                repeat(n, [step("interval", work, hr_target(cap)), step("recovery", None, hr_target(cap))]),
-                step("cooldown", rest if rest > 0 else None, hr_target(cap)),
-            ], None
+            steps = [step("warmup", wu, hr_target(cap)),
+                     repeat(n, [step("interval", work, hr_target(cap)), step("recovery", target=hr_target(cap))])]
+            steps += fastfeet_blocks(cue, cap)          # hill sprints tacked onto some climb days
+            return with_cooldown(steps, dur, cap), None
         m = RE_TREADMILL_CLIMB.search(cue)
         if m:
             wu, work = (int(x) for x in m.groups())
-            rest = dur - wu - work
-            return [
-                step("warmup", wu, hr_target(cap)),
-                step("interval", work, hr_target(cap)),
-                step("cooldown", rest if rest > 0 else None, hr_target(cap)),
-            ], None
+            steps = [step("warmup", wu, hr_target(cap)), step("interval", work, hr_target(cap))]
+            return with_cooldown(steps, dur, cap), None
         return [step("interval", dur, hr_target(cap))], "unparsed climb cue — pushed as a single capped step"
+
+    # Descent skill session: reps by distance, HR audited not governed on the way down,
+    # capped on the climb back (lap button — "the ascent is transport"). Warm-up ends on lap.
+    m = RE_DESCENT_EQUAL.search(cue)
+    reps = None
+    if m:
+        reps = [float(m.group(2))] * int(m.group(1))
+    else:
+        m = RE_DESCENT_LIST.search(cue)
+        if m:
+            reps = [float(x) for x in m.group(1).split(" + ")]
+    if reps:
+        steps = [step("warmup", target=hr_target(cap))]
+        if len(set(reps)) == 1:
+            steps.append(repeat(len(reps), [step("interval", miles=reps[0]), step("recovery", target=hr_target(cap))]))
+        else:
+            for d_mi in reps:
+                steps += [step("interval", miles=d_mi), step("recovery", target=hr_target(cap))]
+        return steps, None
+
+    # Fast-feet day: warm-up, then pick-ups / hill sprints / downhill pick-ups as the cue lists them
+    if RE_FASTFEET.search(cue):
+        blocks = fastfeet_blocks(cue, cap)
+        if not blocks:
+            return [step("interval", dur, hr_target(cap))], "fast-feet cue with no recognisable rep block — pushed as a single capped step"
+        steps = [step("warmup", FASTFEET_WARMUP_MIN, hr_target(cap))] + blocks
+        return with_cooldown(steps, dur, cap), None
 
     # easy, long, back_to_back, shakeout, anything else with a duration
     return [step("interval", dur, hr_target(cap))], None
@@ -134,15 +203,20 @@ def to_garmin_steps(steps, counter):
                 "workoutSteps": to_garmin_steps(s["children"], counter),
             })
             continue
-        timed = s["minutes"] is not None
+        if s["miles"] is not None:
+            end, value, unit = END_DIST, round(s["miles"] * M_PER_MI, 1), UNIT_MILE
+        elif s["seconds"] is not None:
+            end, value, unit = END_TIME, int(round(s["seconds"])), None
+        else:
+            end, value, unit = END_LAP, 1, None
         out.append({
             "type": "ExecutableStepDTO", "stepId": order, "stepOrder": order,
             "childStepId": None, "description": None,
             "stepType": STEP_TYPE[s["kind"]],
-            "endCondition": END_TIME if timed else END_LAP,
-            "endConditionValue": int(round(s["minutes"] * 60)) if timed else 1,
+            "endCondition": end,
+            "endConditionValue": value,
             "endConditionCompare": None, "endConditionZone": None,
-            "preferredEndConditionUnit": None,
+            "preferredEndConditionUnit": unit,
             **s["target"],
             "exerciseName": None, "strokeType": None, "equipmentType": None, "category": None,
         })
@@ -199,7 +273,14 @@ def describe_steps(steps, indent="    "):
             lines += describe_steps(s["children"], indent + "    ")
             lines.append(f"{indent}]")
             continue
-        end = f"{s['minutes']} min" if s["minutes"] is not None else "lap button"
+        if s["miles"] is not None:
+            end = f"{s['miles']:g} mi"
+        elif s["seconds"] is None:
+            end = "lap button"
+        elif s["seconds"] % 60 == 0:
+            end = f"{int(s['seconds'] // 60)} min"
+        else:
+            end = f"{int(s['seconds'])} s"
         t = s["target"]
         tgt = f"HR {t['targetValueOne']}-{t['targetValueTwo']}" if t["targetType"] is TARGET_HR else "no target"
         lines.append(f"{indent}{s['kind']:<9} {end:<11} {tgt}")
