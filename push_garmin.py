@@ -232,7 +232,7 @@ def race_tag(meta):
 
 
 def workout_name(tag, day, session):
-    base = f"{tag} W{int(day['week_number']):02d} {day['day_of_week'][:3]} · "
+    base = f"{tag} W{int(day['week_number']):02d} {day['day_of_week'][:3]} {session['distance_mi']:g}mi · "
     name = base + session["title"]
     if len(name) > NAME_MAX:                       # trim on a word boundary
         cut = name.rfind(" ", len(base), NAME_MAX)
@@ -240,8 +240,17 @@ def workout_name(tag, day, session):
     return name
 
 
+def plan_line(session):
+    """One-line load summary: '9.5 mi · +1400/-1400 ft · 111 min · HR cap 147 (Z1-2)'."""
+    gain = session.get("elevation_gain_ft", 0)
+    loss = session.get("elevation_loss_ft", gain)
+    return (f"{session['distance_mi']:g} mi · +{gain:g}/-{loss:g} ft · {session['duration_min']:g} min"
+            f" · HR cap {session['hr_cap_bpm']} ({session.get('hr_zone', '')})"
+            + (" · poles" if session.get("poles") else ""))
+
+
 def workout_description(session):
-    desc = session.get("key_cue", "").strip()
+    desc = "PLAN: " + plan_line(session) + "\n\n" + session.get("key_cue", "").strip()
     if session.get("fueling_notes"):
         desc += "\n\nFUEL: " + session["fueling_notes"].strip()
     return desc[:DESC_MAX]
@@ -255,11 +264,12 @@ def build_payload(tag, day, session):
         "sportType": SPORT_RUNNING,
         "subSportType": None,
         "workoutSegments": [{"segmentOrder": 1, "sportType": SPORT_RUNNING, "workoutSteps": to_garmin_steps(steps, [0])}],
-        "estimatedDistanceUnit": {"unitKey": None},
+        # Planned load, shown as "estimated" on the workout card; the steps still end by time.
+        "estimatedDistanceUnit": {"unitKey": "mile"},
         "avgTrainingSpeed": 3,
-        "estimatedDurationInSecs": 0,
-        "estimatedDistanceInMeters": 0,
-        "estimateType": None,
+        "estimatedDurationInSecs": int(round(session["duration_min"] * 60)),
+        "estimatedDistanceInMeters": int(round(session["distance_mi"] * M_PER_MI)),
+        "estimateType": "TIME_ESTIMATED",
         "isWheelchair": False,
     }
     return payload, steps, warning
