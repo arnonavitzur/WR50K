@@ -215,6 +215,7 @@ function commitAndPush(addedCount, throughDate) {
   if (git('status', '--porcelain', '--', rel)) {
     const what = addedCount > 0 ? `+${addedCount} run${addedCount === 1 ? '' : 's'}` : 'refresh';
     const msg = `run history: ${what} (through ${throughDate})\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`;
+    git('add', '--', rel);                       // first build: the file is untracked
     git('commit', '--quiet', '-m', msg, '--', rel);
     log(`committed ${rel} (${what})`);
   }
