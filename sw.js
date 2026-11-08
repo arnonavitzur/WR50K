@@ -3,7 +3,7 @@
  * Bump CACHE whenever you deploy. That is the only lever: a new cache name
  * forces a fresh precache and drops everything from the previous version.
  */
-const CACHE = 'vt50k-v15';
+const CACHE = 'vt50k-v16';
 
 /* All paths are relative to this file, so the worker works unchanged whether
  * the site is served from a user page (user.github.io) or a project page
@@ -12,6 +12,7 @@ const PRECACHE = [
   './',
   './50k_dashboard.html',
   './combined_plan.json',
+  './run_history.json',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
@@ -72,11 +73,14 @@ function isHTML(request) {
   );
 }
 
-/* The plan is the one thing here that changes on its own schedule, independent
- * of a code deploy. It must never be served cache-first or an edited plan would
- * never reach the device. */
+/* The plan and the run history are the two things here that change on their
+ * own schedule, independent of a code deploy (the plan on a coach revision, the
+ * history whenever build_run_history.mjs folds in a new FIT file). They must
+ * never be served cache-first or an edit would never reach the device. */
+const DATA_FILES = ['combined_plan.json', 'run_history.json'];
 function isPlan(request) {
-  return new URL(request.url).pathname.endsWith('/combined_plan.json');
+  const name = new URL(request.url).pathname.split('/').pop();
+  return DATA_FILES.includes(name);
 }
 
 self.addEventListener('fetch', (event) => {
@@ -104,7 +108,7 @@ self.addEventListener('fetch', (event) => {
         } catch (err) {
           const cached =
             (await caches.match(request)) ||
-            (plan ? await caches.match('./combined_plan.json') : null) ||
+            (plan ? await caches.match('./' + new URL(request.url).pathname.split('/').pop()) : null) ||
             (html ? await caches.match('./50k_dashboard.html') : null) ||
             (html ? await caches.match('./') : null);
           if (cached) {

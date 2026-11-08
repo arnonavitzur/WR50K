@@ -39,3 +39,7 @@ garmin_push.log
 
 # garmin_login.mjs runs via npx; a stray local install must not be committed
 node_modules/
+
+# build_run_history.mjs — the launchd job's log and the build lock (run_history.json itself is TRACKED)
+run_history.log
+run_history.json.lock

@@ -220,6 +220,7 @@ function Icon({name, size=16, color='currentColor', stroke=2}) {
     case 'analyze': return <svg {...s} viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-7"/></svg>;
     case 'swim': return <svg {...s} viewBox="0 0 24 24"><circle cx="16" cy="6" r="2"/><path d="M4 12l5-3 3 3 3-2"/><path d="M2 17c2 1.3 3.3 1.3 5 0s3.3-1.3 5 0 3.3 1.3 5 0 3.3-1.3 5 0"/></svg>;
     case 'flag': return <svg {...s} viewBox="0 0 24 24"><path d="M5 22V3"/><path d="M5 4h13l-3 4 3 4H5"/></svg>;
+    case 'trend': return <svg {...s} viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-5 3 3 6-8"/><circle cx="20" cy="6" r="1.6" fill={color} stroke="none"/><circle cx="11" cy="11" r="1.6" fill={color} stroke="none"/></svg>;
     default: return null;
   }
 }
@@ -2303,6 +2304,402 @@ function AnalysisView({onBack}) {
 // again" rather than a quick app-switch.
 const RESUME_RESET_MS = 30 * 60 * 1000;
 
+// ── Trends view (run_history.json) ───────────────────────────
+// Efficiency Factor (GAP speed in m/min ÷ avg HR) per run, over time.
+// Rows are built on the Mac by build_run_history.mjs from the Garmin FIT
+// files that Google Drive mirrors; the app only reads the file (network
+// first via sw.js, so a Refresh picks up new runs on the next online load).
+const HISTORY_URL = './run_history.json';
+const TERRAIN_COLORS = { road: '#60a5fa', trail: '#4ade80', treadmill: 'rgba(255,255,255,0.62)' };
+const terrainColor = (t) => TERRAIN_COLORS[t] || A.textFaint;
+const TERRAIN_LABEL = { road: 'Road', trail: 'Trail', treadmill: 'Treadmill' };
+// Avg-HR band per the zone table in CLAUDE.md (Z1 <142, Z2 142–149, Z3+ 151+).
+const zoneOfHr = (hr) => hr == null ? null : hr < 142 ? 'Z1' : hr < 151 ? 'Z2' : 'Z3+';
+const secToPace = (s) => s == null ? '—' : `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
+const secToHM = (s) => {
+  if (s == null) return '—';
+  const h = Math.floor(s / 3600), m = Math.round((s % 3600) / 60);
+  return h ? `${h}:${String(m).padStart(2, '0')}` : `${m} min`;
+};
+const dateShort = (d) => d ? new Date(d + 'T12:00:00').toLocaleDateString(undefined, {month: 'short', day: 'numeric'}) : '—';
+const dateLong  = (d) => d ? new Date(d + 'T12:00:00').toLocaleDateString(undefined, {weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'}) : '—';
+const medianOf = (xs) => {
+  const a = xs.filter((x) => x != null).sort((x, y) => x - y);
+  if (!a.length) return null;
+  const m = a.length >> 1;
+  return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
+};
+
+// The planned run session a logged run most likely fulfilled: same date, and
+// when the day has several run sessions, the one nearest in planned distance.
+// Days before the plan started are 'pre-plan'; plan days with no run are
+// 'unplanned'. Joined at render time so plan patches never stale the history.
+function planSessionFor(plan, row) {
+  const planStart = plan?.meta?.plan_start || Object.keys(plan?.days || {}).sort()[0];
+  if (planStart && row.date < planStart) return {subtype: 'pre-plan'};
+  const sessions = (plan?.days?.[row.date]?.run?.sessions || []).filter((s) => s.type === 'run' && (s.distance_mi || 0) > 0);
+  if (!sessions.length) return {subtype: 'unplanned'};
+  return sessions.reduce((best, s) =>
+    Math.abs((s.distance_mi || 0) - row.distance_mi) < Math.abs((best.distance_mi || 0) - row.distance_mi) ? s : best);
+}
+const subtypeLabel = (st) => st === 'pre-plan' ? 'PRE-PLAN' : st === 'unplanned' ? 'UNPLANNED' : runColor(st).name;
+const subtypeHue = (st) => (st === 'pre-plan' || st === 'unplanned') ? null : runColor(st).hue;
+
+// Generic chip row. `value` is a string (single) or a Set (multi; empty = all).
+function ChipRow({options, value, onChange, multi}) {
+  const isSel = (id) => multi ? value.has(id) : value === id;
+  const toggle = (id) => {
+    if (!multi) return onChange(id);
+    const next = new Set(value);
+    next.has(id) ? next.delete(id) : next.add(id);
+    onChange(next);
+  };
+  return (
+    <div style={{display: 'flex', gap: 6, overflowX: 'auto', scrollbarWidth: 'none', padding: '2px 0'}}>
+      {options.map((o) => {
+        const sel = isSel(o.id);
+        return (
+          <button key={o.id} onClick={() => toggle(o.id)} style={{
+            padding: '6px 12px', borderRadius: 100, flexShrink: 0, whiteSpace: 'nowrap',
+            border: `1px solid ${sel ? (o.color || A.text) : A.border}`,
+            background: sel ? (o.color || A.text) : 'transparent',
+            color: sel ? A.bg : A.textDim,
+            fontSize: 12, fontWeight: 600, fontFamily: SANS, letterSpacing: 0.2,
+            cursor: 'pointer', transition: 'all .15s', WebkitTapHighlightColor: 'transparent',
+            display: 'flex', alignItems: 'center', gap: 6,
+          }}>
+            {o.color && !sel && <span style={{width: 7, height: 7, borderRadius: 4, background: o.color, display: 'inline-block'}}/>}
+            {o.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function RangeInput({label, unit, lo, hi, onLo, onHi}) {
+  const inp = (v, on, ph) => (
+    <input value={v} onChange={(e) => on(e.target.value)} placeholder={ph} inputMode="decimal" style={{
+      width: '100%', minWidth: 0, boxSizing: 'border-box', height: 32, padding: '0 8px',
+      background: A.surface2, border: `1px solid ${A.border}`, borderRadius: 8,
+      color: A.text, fontFamily: MONO, fontSize: 12, outline: 'none',
+    }}/>
+  );
+  return (
+    <div style={{flex: 1, minWidth: 0}}>
+      <div style={{fontSize: 9, color: A.textFaint, fontFamily: MONO, letterSpacing: 1.2, fontWeight: 700, marginBottom: 4}}>
+        {label}{unit ? ` (${unit})` : ''}
+      </div>
+      <div style={{display: 'flex', gap: 4, alignItems: 'center'}}>
+        {inp(lo, onLo, 'min')}<span style={{color: A.textFaint, fontSize: 10}}>–</span>{inp(hi, onHi, 'max')}
+      </div>
+    </div>
+  );
+}
+
+function EfTrendChart({rows, selectedId, onSelect}) {
+  const W = 340, H = 170;
+  const PAD = {top: 12, right: 12, bottom: 24, left: 40};
+  const gW = W - PAD.left - PAD.right, gH = H - PAD.top - PAD.bottom;
+  const pts = rows.filter((r) => r.ef != null && r.date).slice().sort((a, b) => a.date.localeCompare(b.date));
+  if (pts.length < 1) return (
+    <div style={{padding: '28px 14px', textAlign: 'center', color: A.textFaint, fontFamily: MONO, fontSize: 11, letterSpacing: 1}}>NO RUNS MATCH</div>
+  );
+  const t = (d) => new Date(d + 'T12:00:00').getTime();
+  let xMin = t(pts[0].date), xMax = t(pts[pts.length - 1].date);
+  if (xMax - xMin < 7 * 864e5) { xMin -= 3.5 * 864e5; xMax += 3.5 * 864e5; }
+  const efs = pts.map((p) => p.ef);
+  let yMin = Math.min(...efs), yMax = Math.max(...efs);
+  const padY = Math.max((yMax - yMin) * 0.08, 0.02);
+  yMin -= padY; yMax += padY;
+  const toX = (d) => PAD.left + ((t(d) - xMin) / (xMax - xMin)) * gW;
+  const toY = (v) => PAD.top + (1 - (v - yMin) / (yMax - yMin)) * gH;
+
+  // Rolling centered median over the 5 nearest runs — robust to one bad day.
+  const trend = pts.length >= 3 ? pts.map((p, i) => {
+    const lo = Math.max(0, i - 2), hi = Math.min(pts.length - 1, i + 2);
+    return [toX(p.date), toY(medianOf(pts.slice(lo, hi + 1).map((q) => q.ef)))];
+  }) : null;
+  const trendPath = trend ? 'M' + trend.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join('L') : null;
+
+  const yTicks = Array.from({length: 4}, (_, i) => yMin + (i / 3) * (yMax - yMin));
+  const xTicks = [];
+  for (let d = new Date(xMin); d.getTime() <= xMax; d = new Date(d.getFullYear(), d.getMonth() + 1, 1)) {
+    const first = new Date(d.getFullYear(), d.getMonth(), 1, 12);
+    if (first.getTime() >= xMin && first.getTime() <= xMax) xTicks.push(first);
+  }
+  const dotR = (p) => 2.6 + Math.min(2.8, (p.distance_mi || 0) / 7);
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} style={{width: '100%', maxWidth: W, display: 'block'}} preserveAspectRatio="xMidYMid meet">
+      {yTicks.map((v, i) => (
+        <g key={i}>
+          <line x1={PAD.left} y1={toY(v).toFixed(1)} x2={PAD.left + gW} y2={toY(v).toFixed(1)} stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+          <text x={PAD.left - 6} y={toY(v)} dominantBaseline="middle" textAnchor="end" fontSize="8" fontFamily="JetBrains Mono, monospace" fill="rgba(255,255,255,0.38)">{v.toFixed(2)}</text>
+        </g>
+      ))}
+      {xTicks.map((d, i) => {
+        const x = PAD.left + ((d.getTime() - xMin) / (xMax - xMin)) * gW;
+        return (
+          <g key={i}>
+            <line x1={x.toFixed(1)} y1={PAD.top + gH} x2={x.toFixed(1)} y2={PAD.top + gH + 3} stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+            <text x={x.toFixed(1)} y={PAD.top + gH + 13} textAnchor="middle" fontSize="8" fontFamily="JetBrains Mono, monospace" fill="rgba(255,255,255,0.38)">
+              {d.toLocaleDateString(undefined, {month: 'short'})}
+            </text>
+          </g>
+        );
+      })}
+      <line x1={PAD.left} y1={PAD.top} x2={PAD.left} y2={PAD.top + gH} stroke="rgba(255,255,255,0.15)" strokeWidth="1"/>
+      <line x1={PAD.left} y1={PAD.top + gH} x2={PAD.left + gW} y2={PAD.top + gH} stroke="rgba(255,255,255,0.15)" strokeWidth="1"/>
+      <text x={8} y={PAD.top + gH / 2} transform={`rotate(-90 8 ${PAD.top + gH / 2})`} textAnchor="middle" fontSize="7" fontFamily="JetBrains Mono, monospace" fill="rgba(255,255,255,0.3)" letterSpacing="1">EF</text>
+      {trendPath && <path d={trendPath} fill="none" stroke={A.accent} strokeWidth="1.5" strokeOpacity="0.85" strokeLinejoin="round"/>}
+      {pts.map((p) => {
+        const sel = p.id === selectedId;
+        const x = toX(p.date), y = toY(p.ef);
+        return (
+          <g key={p.id} onClick={() => onSelect(sel ? null : p.id)} style={{cursor: 'pointer'}}>
+            <circle cx={x} cy={y} r={11} fill="transparent"/>
+            <circle cx={x} cy={y} r={sel ? dotR(p) + 1.5 : dotR(p)}
+              fill={terrainColor(p.terrain)} fillOpacity={sel ? 1 : 0.85}
+              stroke={sel ? '#fff' : (p._hue || 'none')} strokeWidth={sel ? 2 : 1.5}/>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function TrendStat({label, value, unit}) {
+  return <BigStat label={label} value={value} unit={unit} mono size={18}/>;
+}
+
+function TrendsView({plan, onBack}) {
+  const [hist, setHist] = useState(null);
+  const [status, setStatus] = useState('loading');   // loading | ok | checking | error
+  const [offline, setOffline] = useState(false);
+  const [error, setError] = useState(null);
+  const [win, setWin] = useState('all');              // 4w | 12w | cycle | all
+  const [terrains, setTerrains] = useState(new Set());
+  const [types, setTypes] = useState(new Set());
+  const [zone, setZone] = useState('all');
+  const [rng, setRng] = useState({distLo: '', distHi: '', durLo: '', durHi: '', vertLo: '', vertHi: ''});
+  const [selectedId, setSelectedId] = useState(null);
+
+  const load = useCallback((cacheMode) => {
+    setStatus(hist ? 'checking' : 'loading');
+    fetch(HISTORY_URL, {cache: cacheMode})
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        setOffline(res.headers.get('X-Served-From') === 'sw-cache');
+        return res.json();
+      })
+      .then((data) => {
+        if (!data || !Array.isArray(data.runs)) throw new Error('run_history.json has no "runs"');
+        setHist(data); setError(null); setStatus('ok');
+      })
+      .catch((e) => { setError(e); setStatus('error'); });
+  }, [hist]);
+  useEffect(() => { load('no-cache'); }, []);
+
+  const planStart = plan?.meta?.plan_start || Object.keys(plan?.days || {}).sort()[0];
+  const rows = useMemo(() => (hist?.runs || []).map((r) => {
+    const s = planSessionFor(plan, r);
+    return {...r, _subtype: s.subtype, _hue: subtypeHue(s.subtype), _session: s};
+  }), [hist, plan]);
+
+  const typeOptions = useMemo(() => {
+    const seen = new Map();
+    rows.forEach((r) => seen.set(r._subtype, (seen.get(r._subtype) || 0) + 1));
+    const order = ['easy', 'long', 'back_to_back', 'power_climb', 'time_trial', 'shakeout', 'race_pace', 'unplanned', 'pre-plan'];
+    return [...seen.keys()].sort((a, b) => order.indexOf(a) - order.indexOf(b))
+      .map((st) => ({id: st, label: `${subtypeLabel(st)} ${seen.get(st)}`, color: subtypeHue(st) || undefined}));
+  }, [rows]);
+
+  const num = (v) => v === '' || v == null || Number.isNaN(Number(v)) ? null : Number(v);
+  const filtered = useMemo(() => {
+    const today = new Date(); today.setHours(12, 0, 0, 0);
+    const since = win === '4w' ? new Date(today - 28 * 864e5) : win === '12w' ? new Date(today - 84 * 864e5) : null;
+    const sinceStr = since ? since.toISOString().slice(0, 10) : win === 'cycle' ? planStart : null;
+    const r = Object.fromEntries(Object.entries(rng).map(([k, v]) => [k, num(v)]));
+    return rows.filter((x) =>
+      (!sinceStr || x.date >= sinceStr) &&
+      (!terrains.size || terrains.has(x.terrain)) &&
+      (!types.size || types.has(x._subtype)) &&
+      (zone === 'all' || zoneOfHr(x.avg_hr_bpm) === zone) &&
+      (r.distLo == null || x.distance_mi >= r.distLo) && (r.distHi == null || x.distance_mi <= r.distHi) &&
+      (r.durLo == null || x.timer_sec / 60 >= r.durLo) && (r.durHi == null || x.timer_sec / 60 <= r.durHi) &&
+      (r.vertLo == null || x.ascent_ft >= r.vertLo) && (r.vertHi == null || x.ascent_ft <= r.vertHi)
+    );
+  }, [rows, win, terrains, types, zone, rng, planStart]);
+
+  const selected = filtered.find((x) => x.id === selectedId) || null;
+  const medEf = medianOf(filtered.map((x) => x.ef));
+  const medHr = medianOf(filtered.map((x) => x.avg_hr_bpm));
+  const medGap = medianOf(filtered.map((x) => x.avg_gap_sec_mi));
+
+  const card = {background: A.surface, borderRadius: 16, border: `1px solid ${A.border}`, overflow: 'hidden'};
+  const cardHead = {padding: '10px 14px 6px', borderBottom: `1px solid ${A.border}`, fontFamily: MONO, fontSize: 10, letterSpacing: 1.6, fontWeight: 700, color: A.textDim, display: 'flex', alignItems: 'center', gap: 8};
+  const setR = (k) => (v) => setRng((o) => ({...o, [k]: v}));
+
+  return (
+    <div id="app-scroll" style={{background: A.bg, height: '100vh', overflowY: 'auto'}}>
+      <div style={{
+        position: 'sticky', top: 0, zIndex: 10, background: A.bg, borderBottom: `1px solid ${A.border}`,
+        padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 10,
+      }}>
+        <button onClick={onBack} style={{
+          height: 36, padding: '0 12px', borderRadius: 10, background: A.surface2, border: `1px solid ${A.border}`,
+          display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', color: A.text, fontFamily: MONO,
+          fontSize: 10, letterSpacing: 1.4, fontWeight: 700, WebkitTapHighlightColor: 'transparent',
+        }}>
+          <Icon name="back" size={14} color={A.text}/>
+          TODAY
+        </button>
+        <div style={{flex: 1}}/>
+        <div style={{fontSize: 10, color: A.textDim, fontFamily: MONO, letterSpacing: 1.4, fontWeight: 700}}>TRENDS</div>
+        <button onClick={() => load('no-store')} disabled={status === 'checking' || status === 'loading'} aria-label="Refresh run history" style={{
+          height: 36, padding: '0 12px', borderRadius: 10, background: A.surface2, border: `1px solid ${A.border}`,
+          display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', color: A.text, fontFamily: MONO,
+          fontSize: 10, letterSpacing: 1.4, fontWeight: 700, WebkitTapHighlightColor: 'transparent',
+          opacity: status === 'checking' ? 0.6 : 1,
+        }}>
+          {status === 'checking' ? 'CHECKING…' : 'REFRESH'}
+        </button>
+      </div>
+
+      <div style={{padding: 16, display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 560, margin: '0 auto'}}>
+        {status === 'loading' && (
+          <div style={{padding: 32, textAlign: 'center', color: A.textFaint, fontFamily: MONO, fontSize: 11, letterSpacing: 1}}>LOADING RUN HISTORY…</div>
+        )}
+        {status === 'error' && !hist && (
+          <div style={{...card, padding: 16, color: A.text, fontFamily: SANS, fontSize: 13, lineHeight: 1.5}}>
+            <div style={{fontWeight: 700, marginBottom: 6}}>Could not load run history</div>
+            <div style={{color: A.textDim}}>{String(error?.message || error)}. It is built on the Mac by build_run_history.mjs and published with the site.</div>
+          </div>
+        )}
+        {hist && (
+          <>
+            <div style={{display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap', fontFamily: MONO, fontSize: 10, color: A.textFaint, letterSpacing: 0.6}}>
+              <span>{hist.runs.length} runs</span>
+              <span>·</span>
+              <span>updated {hist.generated_at ? new Date(hist.generated_at).toLocaleDateString(undefined, {month: 'short', day: 'numeric'}) : '—'}</span>
+              <span>·</span>
+              <span>parser {hist.parser_version} / {hist.gap_model}</span>
+              {offline && <span style={{color: A.accent}}>· OFFLINE COPY</span>}
+              {status === 'error' && <span style={{color: A.accent}}>· REFRESH FAILED</span>}
+            </div>
+
+            <div style={card}>
+              <div style={cardHead}>FILTERS <span style={{color: A.textFaint, fontWeight: 500, letterSpacing: 0}}>{filtered.length} of {rows.length}</span></div>
+              <div style={{padding: '10px 14px 14px', display: 'flex', flexDirection: 'column', gap: 10}}>
+                <ChipRow value={win} onChange={setWin} options={[
+                  {id: '4w', label: '4 wk'}, {id: '12w', label: '12 wk'}, {id: 'cycle', label: 'This cycle'}, {id: 'all', label: 'All'},
+                ]}/>
+                <ChipRow multi value={terrains} onChange={setTerrains} options={['road', 'trail', 'treadmill']
+                  .filter((t) => rows.some((r) => r.terrain === t))
+                  .map((t) => ({id: t, label: `${TERRAIN_LABEL[t]} ${rows.filter((r) => r.terrain === t).length}`, color: terrainColor(t)}))}/>
+                <ChipRow multi value={types} onChange={setTypes} options={typeOptions}/>
+                <ChipRow value={zone} onChange={setZone} options={[
+                  {id: 'all', label: 'Any HR'}, {id: 'Z1', label: 'Z1 <142'}, {id: 'Z2', label: 'Z2 142–150'}, {id: 'Z3+', label: 'Z3+ 151+'},
+                ]}/>
+                <div style={{display: 'flex', gap: 10}}>
+                  <RangeInput label="DISTANCE" unit="mi" lo={rng.distLo} hi={rng.distHi} onLo={setR('distLo')} onHi={setR('distHi')}/>
+                  <RangeInput label="DURATION" unit="min" lo={rng.durLo} hi={rng.durHi} onLo={setR('durLo')} onHi={setR('durHi')}/>
+                  <RangeInput label="VERT" unit="ft" lo={rng.vertLo} hi={rng.vertHi} onLo={setR('vertLo')} onHi={setR('vertHi')}/>
+                </div>
+              </div>
+            </div>
+
+            <div style={card}>
+              <div style={cardHead}>EFFICIENCY FACTOR · GAP ÷ HR</div>
+              <div style={{padding: '12px 14px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10}}>
+                <TrendStat label="RUNS" value={filtered.length}/>
+                <TrendStat label="MEDIAN EF" value={medEf != null ? medEf.toFixed(3) : '—'}/>
+                <TrendStat label="MEDIAN GAP / HR" value={medGap != null ? secToPace(medGap) : '—'} unit={medHr != null ? `@ ${Math.round(medHr)}` : ''}/>
+              </div>
+              <div style={{padding: '8px 14px 4px'}}>
+                <EfTrendChart rows={filtered} selectedId={selectedId} onSelect={setSelectedId}/>
+              </div>
+              <div style={{padding: '0 14px 12px', display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center', fontFamily: MONO, fontSize: 9, color: A.textFaint, letterSpacing: 0.8}}>
+                {['road', 'trail', 'treadmill'].map((t) => (
+                  <span key={t} style={{display: 'flex', alignItems: 'center', gap: 5}}>
+                    <span style={{width: 8, height: 8, borderRadius: 4, background: terrainColor(t), display: 'inline-block'}}/>{TERRAIN_LABEL[t].toUpperCase()}
+                  </span>
+                ))}
+                <span style={{display: 'flex', alignItems: 'center', gap: 5}}><span style={{width: 14, height: 2, background: A.accent, display: 'inline-block'}}/>5-RUN MEDIAN</span>
+                <span style={{display: 'flex', alignItems: 'center', gap: 5}}><span style={{width: 8, height: 8, borderRadius: 4, border: `1.5px solid ${RUN_COLORS.long.hue}`, display: 'inline-block', boxSizing: 'border-box'}}/>RING = PLAN TYPE</span>
+              </div>
+              <div style={{padding: '0 14px 12px', fontSize: 10, color: A.textFaint, fontFamily: SANS, lineHeight: 1.4}}>
+                EF = GAP speed (m/min) ÷ avg HR, whole-run averages incl. stops. Compare runs at similar HR and terrain; treadmill GAP has no grade.
+              </div>
+            </div>
+
+            {selected && (
+              <div style={{...card, borderColor: A.borderStrong}}>
+                <div style={cardHead}>
+                  <span style={{width: 8, height: 8, borderRadius: 4, background: terrainColor(selected.terrain), display: 'inline-block'}}/>
+                  {dateLong(selected.date).toUpperCase()}
+                  <div style={{flex: 1}}/>
+                  <button onClick={() => setSelectedId(null)} aria-label="Close" style={{background: 'none', border: 'none', color: A.textFaint, cursor: 'pointer', fontFamily: MONO, fontSize: 10, letterSpacing: 1}}>CLOSE</button>
+                </div>
+                <div style={{padding: '12px 14px 14px'}}>
+                  <div style={{fontFamily: SANS, fontSize: 13, color: A.text, fontWeight: 600, marginBottom: 10, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap'}}>
+                    <span>{selected._session?.title || subtypeLabel(selected._subtype)}</span>
+                    <span style={{fontFamily: MONO, fontSize: 9, letterSpacing: 1.2, fontWeight: 700, color: selected._hue || A.textDim, padding: '2px 8px', borderRadius: 100, border: `1px solid ${selected._hue || A.border}`}}>{subtypeLabel(selected._subtype)}</span>
+                    <span style={{fontFamily: MONO, fontSize: 9, letterSpacing: 1.2, fontWeight: 700, color: A.textDim}}>{TERRAIN_LABEL[selected.terrain]?.toUpperCase() || selected.terrain}</span>
+                    {selected._session?.hr_cap_bpm && <span style={{fontFamily: MONO, fontSize: 9, letterSpacing: 1.2, fontWeight: 700, color: A.textDim}}>CAP {selected._session.hr_cap_bpm}</span>}
+                  </div>
+                  <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12}}>
+                    <TrendStat label="EF" value={selected.ef != null ? selected.ef.toFixed(3) : '—'}/>
+                    <TrendStat label="GAP" value={secToPace(selected.avg_gap_sec_mi)} unit="/mi"/>
+                    <TrendStat label="AVG HR" value={selected.avg_hr_bpm != null ? Math.round(selected.avg_hr_bpm) : '—'} unit="bpm"/>
+                    <TrendStat label="DISTANCE" value={fmt(selected.distance_mi)} unit="mi"/>
+                    <TrendStat label="VERT" value={selected.ascent_ft != null ? `+${selected.ascent_ft}` : '—'} unit="ft"/>
+                    <TrendStat label="TIME" value={secToHM(selected.timer_sec)}/>
+                    <TrendStat label="PACE" value={secToPace(selected.avg_pace_sec_mi)} unit="/mi"/>
+                    <TrendStat label="HR DRIFT" value={selected.hr_drift_bpm_per_min != null ? selected.hr_drift_bpm_per_min.toFixed(2) : '—'} unit="bpm/min"/>
+                    <TrendStat label="RUN %" value={fmt(selected.run_pct)} unit="%"/>
+                    <TrendStat label="Z2 FLAT PACE" value={secToPace(selected.flat_ref_z2_sec_mi)} unit="/mi"/>
+                    <TrendStat label="CADENCE" value={selected.cadence_running_spm != null ? Math.round(selected.cadence_running_spm) : '—'} unit="spm"/>
+                    <TrendStat label="TEMP" value={selected.temp_f != null ? Math.round(selected.temp_f) : '—'} unit={selected.temp_f != null ? '°F' : ''}/>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div style={card}>
+              <div style={cardHead}>RUNS <span style={{color: A.textFaint, fontWeight: 500, letterSpacing: 0}}>newest first</span></div>
+              <div>
+                {filtered.slice().sort((a, b) => b.date.localeCompare(a.date)).map((r, i) => {
+                  const sel = r.id === selectedId;
+                  return (
+                    <div key={r.id} onClick={() => setSelectedId(sel ? null : r.id)} style={{
+                      display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', cursor: 'pointer',
+                      borderTop: i ? `1px solid ${A.border}` : 'none', background: sel ? A.surface2 : 'transparent',
+                    }}>
+                      <span style={{width: 8, height: 8, borderRadius: 4, flexShrink: 0, background: terrainColor(r.terrain), boxShadow: r._hue ? `0 0 0 2px ${r._hue}` : 'none'}}/>
+                      <div style={{flex: 1, minWidth: 0}}>
+                        <div style={{fontFamily: SANS, fontSize: 13, color: A.text, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+                          {dateShort(r.date)} <span style={{color: A.textDim, fontWeight: 500}}>· {subtypeLabel(r._subtype)}</span>
+                        </div>
+                        <div style={{fontFamily: MONO, fontSize: 10, color: A.textFaint, marginTop: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+                          {fmt(r.distance_mi)} mi · {r.ascent_ft != null ? `+${r.ascent_ft} ft` : 'no vert'} · GAP {secToPace(r.avg_gap_sec_mi)} · {r.avg_hr_bpm != null ? Math.round(r.avg_hr_bpm) : '—'} bpm
+                        </div>
+                      </div>
+                      <div style={{fontFamily: MONO, fontSize: 15, fontWeight: 700, color: A.text, flexShrink: 0}}>{r.ef != null ? r.ef.toFixed(3) : '—'}</div>
+                    </div>
+                  );
+                })}
+                {!filtered.length && <div style={{padding: '20px 14px', textAlign: 'center', color: A.textFaint, fontFamily: MONO, fontSize: 11, letterSpacing: 1}}>NO RUNS MATCH</div>}
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function App({plan, update}) {
   useEffect(() => {
     if (plan?.meta?.race) document.title = `${plan.meta.race} — Training`;
@@ -2311,7 +2708,7 @@ function App({plan, update}) {
   const [selected, setSelected] = useState(() => resolveToday(plan));
   const [filter, setFilter] = useState('all');
   const [transitioning, setTransitioning] = useState(false);
-  const [view, setView] = useState('day'); // 'day' | 'plan' | 'race' | 'analysis'
+  const [view, setView] = useState('day'); // 'day' | 'plan' | 'race' | 'analysis' | 'trends'
   // Focus-tab → detail-tab jump. {idx, nonce}; the matching HeroWorkout expands
   // and scrolls itself into view, then clears this via onFocusDone.
   const [jump, setJump] = useState(null);
@@ -2382,6 +2779,10 @@ function App({plan, update}) {
 
   if (view === 'analysis') {
     return <AnalysisView onBack={() => setView('day')}/>;
+  }
+
+  if (view === 'trends') {
+    return <TrendsView plan={plan} onBack={() => setView('day')}/>;
   }
 
   if (view === 'race') {
@@ -2493,6 +2894,14 @@ function App({plan, update}) {
               WebkitTapHighlightColor:'transparent',padding:0,
             }}>
               <Icon name="analyze" size={16} color={A.text}/>
+            </button>
+            <button onClick={()=>setView('trends')} aria-label="Run trends" style={{
+              width:36,height:36,borderRadius:10,background:A.surface2,
+              border:`1px solid ${A.border}`,display:'flex',alignItems:'center',
+              justifyContent:'center',cursor:'pointer',color:A.text,
+              WebkitTapHighlightColor:'transparent',padding:0,
+            }}>
+              <Icon name="trend" size={16} color={A.text}/>
             </button>
           </div>
           <DayStrip dates={dates} selected={selected} onSelect={switchDay} plan={plan}/>
