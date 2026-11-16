@@ -8,10 +8,10 @@
     "plan_start": "2026-09-30",
     "plan_end": "2027-04-18",
     "generated_by": "Nutrition Coach (Claude)",
-    "generated_date": "2026-11-14",
-    "notes": "TUSCANY CROSSING 103K CYCLE - nutrition (rev 2.3.4). 29 weeks, 9/28/2026 -> 4/18/2027, matched to run_plan rev 2.8 / strength_plan rev 2.5 subtypes (run plan rebuilt from W5 on Uphill Athlete week types; Oracle 50M replaced by the Sun 2/21 long effort). Arnon: 50 M, 175 lb / 79 kg. || THE PROBLEM TO SOLVE (FR-w): at Vermont the gut signalled FULL at ~365 cal/hr by hour 4 (gels every 25 min + half-strength GU Roctane Energy Drink Mix + 500 ml/hr); he then ran on gels alone at ~240 cal/hr with no energy cost to 6:40. Tuscany is a ~15:40-17:00 planning day. The fix is the calorie MIX - more solids, less concentrated liquid carbohydrate - not more volume. Target race intake ~260-300 cal/hr, from ~50% gels / ~25% half-strength GU Roctane Energy Drink Mix / ~25% real food. || GUT-TRAINING LADDER (long_run notes + overrides): Base W3-13 proven protocol + one real-food item per long run from W7 | Build W14-22 the MIX at 250-280 cal/hr, cup drinking at car stops; 1/17 = real-food rehearsal for 2/21 | LONG EFFORT 2/21 = J-2, the real-food rehearsal on an 8-10 h day (car = aid every ~2-2.5 h; real food from hour 3; drink-mix replacement tested; every item logged for RS) | Peak: race protocol v1 on 3/7, final on 3/21, nothing new after. One new variable per run; hour 1 always on the proven baseline. || STATION FLUID vs OWN MIX (Arnon's question): with powder pre-portioned per bottle, mixing your own at a cup-only aid costs roughly 20-40 s more than taking station drink - small next to the dwell Vermont actually lost (~4 min of crew chat and toilet queue). The bigger variable is the gut: the station product at Tuscany is unknown (race documents should list it - open item), and your own mix is proven over two ultras. DEFAULT: own powder (GU Roctane Energy Drink Mix) + station water; station coke/tea/broth as late-race additions only after they pass in training. With Oracle gone there is no aid station before Tuscany, so station drink vs own powder CANNOT be tested head-to-head - the default stands unless the race documents name a product Arnon can buy and trial in March. Coke and broth are trialled at the car on 2/21. || SODIUM & FLUID BY TEMPERATURE (not a flat rate): < 12 C -> 400-600 mg Na/hr, 400-500 ml/hr (no scheduled SaltStick) | 12-22 C -> 600-800 mg, 500-650 ml (SaltStick 1/60 min) | > 22 C -> 800-1,000 mg, 650-800 ml (SaltStick 1/40-45 min). Tuscany's regulation warns of near 0 C at night and > 30 C midday. Indoor treadmill sessions usually sit in the middle tier. || EARLY-START FUELING: Tuscany breakfast lands at ~02:45-03:00. Rehearsed on 11/22 (04:00); Overlook days (11/15, 3/7, 3/21) eat before a ~2 h drive and top up at the trailhead and 2/21 (03:00, identical to race timing - now the opening of the long effort). || CAFFEINE for a dark finish: tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the March rehearsals; race cap ~5 mg/kg (~400 mg). || DAILY EATING: protein 1.8-1.9 g/kg (~145-155 g) every day including rest days - tendon remodeling at 50 is protein-hungry. Carbs scale with the day (~3.3 g/kg rest -> ~8 g/kg on the biggest long runs; day-type phase_adjustments raise totals as run hours climb from ~6.8 h (W5) to 13.4 h (W25); recovery weeks W6, 9, 11, 13, 17, 22 run 4-6 h - eat to base targets there; W21 is 12.1 h, mostly Sunday). ENERGY AVAILABILITY: weekly hours roughly double from October to March - if body weight drifts down > ~1.5 kg, or sleep, mood or resting HR worsen, eat more before training less. COLLAGEN 15 g + vitamin C 250 mg 30-60 min before every Lower A/B session, otherwise with the morning foot routine. NO NSAIDs around loading. Alcohol: Friday evening is the window in normal weeks (36 h before a Sunday long run; in back-to-back weeks the Saturday medium-long follows - keep it to one drink); none the night before the long effort (Saturday 2/20, or the day before whichever backup date is used) and none in Tuscany race week. || AeT TESTS: nutrition is held identical at every drift test (10/13, 11/24, 1/19 - moved from 1/5; the 2/16 test is dropped) so the only variable is fitness. || FRIDAYS (rev 2.3): Friday is a run day in every week (fast-feet run, subtype easy, 3-4.5 mi), so Friday resolves to easy_run_upper_swim, which now carries the back-to-back-weekend carb note. strength_only_swim fires only on swim + upper days without a run (W10 Friday, W11/W13 Saturdays, W21 Friday). || SWIM DAYS (rev 2.1): three day types resolve Total Immersion swim days (Monday swim-only; swim + Upper B with or without a run). They are listed FIRST because triggers are first-match: a trigger with cross_subtype matches only when that cross session is scheduled; a trigger without cross_subtype ignores cross sessions (backward compatible). Easy swim ~250-400 kcal. || date_overrides are the source of truth on test, gate, headlamp, rehearsal, long-effort, carb-load and race days.",
-    "revision": "2.3.5",
-    "revision_notes": "CURRENT REVISION 2.3.5 (2026-11-14). SYNCED TO run_plan rev 2.13 (RS FR-ag: all training descents pole-free; TP note 14 Nov). 3/7 and 3/21 overrides: the no-fueling-on-the-descent rule stays; its reason changes from 'both hands are on the poles' to keeping eyes and feet on the descent. 11/15 override unchanged. No calorie, carb, protein, fat, fluid, sodium or timing value changed. BASE VERIFIED: rev 2.3.4 asserted from the folder copy. || REVISION 2.3.4 (2026-11-02). SYNCED TO run_plan rev 2.8 (RS ruling 'Overlook logistics' v1, 2 Nov; TP note runplan_rev2_8). Overlook is used once (11/15). 11/15 override: two-venue day - Overlook round trip, ~20-min drive, Ashokan Rail Trail; car stop guidance added (bottle swap, gel clock keeps running), real food #1 at ~hour 2 placed on the rail trail with the Dike car as the aid point; Boat Basin ice-fallback line. 3/7 override: Alpine x7 is local - pre-run back to the normal long-run morning (90 min before, no early breakfast/trailhead top-up); 'gel before the final Overlook climb' -> gel at the car before the last 3 pitch laps; cache at the car each lap. 3/21 override: Febapple x2.6, ~1 h drive - breakfast at home ~2-2.5 h before, trailhead top-up conditional; car = aid each ~10-mi loop (Tuscany spacing); 'gel before the final Overlook climb' -> gel at the car before the last loop. Daily totals, during-run rates, schedules and all other dates unchanged. Header matched to run_plan 2.8 / strength_plan 2.5. BASE VERIFIED: nutrition rev 2.3.3 and run_plan rev 2.8 asserted from the folder copies. || REVISION 2.3.3 (2026-10-23). PRODUCT NAME: the drink mix is named GU Roctane Energy Drink Mix wherever it appears - all half-strength drink-mix schedule items (day types and date overrides), meta.notes (Vermont baseline, target mix, station-fluid default), long_run ladder note, 1/17 timing, 2/20 car-box packing, 2/21 guidance and replacement-trial note, 4/16 prep, 4/17 race notes. Wording only: no amount, timing, calorie or sodium value changed. Athlete request (keep the product name; the app's copy had dropped it). || REVISION 2.3.2 (2026-10-23). SYNCED TO run_plan rev 2.4 (long-effort backups from run_plan 2.3.2-2.3.4). 2/21 override: weather backup 'Sun 2/14 or 2/28' replaced by the run plan's rules - 2/14 only (decided Wed 2/10; off if G1 ran 2/7), short-notice fallback Sat 2/20 (carb-up moves to Fri 2/19), last-resort weekday 2/17-2/25; the 2/20 carb-up and 2/22 recovery overrides move with the effort. 2/20 override: matching note. meta.notes: no-alcohol rule tied to the night before the effort, not a fixed date; header now matched to run_plan 2.4 / strength_plan 2.4. OVERLOOK DAYS (run plan rev 2.4): NEW 11/15 override (Overlook intro; Base long-run targets 3300/450/145/85, 3800 ml) - breakfast before the ~2 h drive + trailhead top-up, gel at the top before the steep descent, real food at ~hour 2, shake before the drive home, protein-forward day after (11/16). 3/7 and 3/21 overrides: same breakfast/top-up timing and a gel before the final Overlook climb, nothing on the steep descent - totals unchanged. Caffeine supplement: 3/7 and 3/21 are late-hours tests, not dark finishes. Real-food ladder: the first item (salted potato) is now on 11/15 (W7); the 11/22 headlamp override's real-food item relabelled #2 (rotate). 18 date overrides. No other targets changed. || REVISION 2.3.1 (2026-10-22). SYNCED TO run_plan rev 2.4 (headlamp #1 moved from Sun 11/15 to Sun 11/22; 11/15 is now the Overlook intro). HEADLAMP #1 override moved 2026-11-15 -> 2026-11-22, content unchanged (3300 kcal / 450 C / 145 P / 85 F, 3600 ml, 04:00 breakfast, same session_fueling); reason '(13.5 mi)' -> '(14.5 mi)'. meta.notes EARLY-START FUELING: 'Rehearsed on 11/15' -> 'Rehearsed on 11/22'. 11/15 now takes the long_run day type. 17 date overrides. Schema 1.7. || CURRENT REVISION 2.3 (2026-10-22). SYNCED TO run_plan rev 2.3.1 (TP note 22 Oct). DATE OVERRIDES: AeT #3 moved 1/5 -> 1/19 (identical protocol); AeT #4 2/16 deleted (test dropped); Oracle 1/28, 1/29, 1/30 deleted; 2/21 REWRITTEN from the 19-mi headlamp race-start sim to the LONG EFFORT J-2 rehearsal (35-40 mi / 8-10 h, 05:00 start, car aid every ~2-2.5 h; 03:00 race breakfast kept; real food from hour 3; drink-mix replacement trial; caffeine late; cup drinking at the car; intake log for RS; weather backup Sun 2/14 or 2/28) - 5000 kcal / 850 g carbs; NEW 2/20 shakeout + modest carb-up (~6 g/kg) and NEW 2/22 post-effort recovery day; 3/7 rescaled from the 30-mi G2 run to the 24.5-mi long run (~5.3 h) after a 10-mi medium-long, race protocol v1 kept, items 'passed 21 Feb', backup note removed - 4300 kcal / 650 g; 1/10 rescaled to 17 mi with a ~13:30 start (pre-run meal ~12:00) - 3500 / 500; 1/17 retitled and rescaled to the 18-mi real-food rehearsal for 2/21 - 3700 / 540; 11/15 text 13.5 mi. 1/31 (G1, 21.5 mi), 2/7 (22 mi) and 3/14 (25 mi) take the long_run day type - no override (no new fuel variable; Build and Peak targets fit). DAY TYPES: easy_run_upper_swim now covers every Friday and gains the back-to-back-weekend carb note as Build and Peak phase adjustments; strength_only_swim trigger text and phase adjustment re-scoped (W10/W21 Fridays, W11/W13 Saturdays); strength_only loses the stale B2B-Friday adjustment; easy_run_lower_strength gains a during entry (1 gel at 45 min if the descent session runs over 75 min, as on the run cards); climb_lower_strength during note re-pointed to the run card and treadmill blocks; medium_long Peak '12-mi' -> 10-11 mi; long_run phase text (Base 8.5-14.5, Build 15-22 + the 38-mi effort, Peak 24.5-26, taper 20/15/10); race_or_rehearsal and aet_test_day text. SUPPLEMENTS: caffeine test dates 1/10, 2/21, 3/7, 3/21. meta.notes: ladder, AeT list, alcohol, station-drink item. No schema change (1.7). || REVISION 2.2 (2026-09-30). 2027-03-07 override rescaled to the 30-mi G2 shoe-gate run (run_plan rev 2.1): 4300 -> 4700 kcal, 650 -> 740 g carbs, fluid 4500 -> 5000 ml; backup-date note. Nothing else changed. || REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
+    "generated_date": "2026-11-16",
+    "notes": "TUSCANY CROSSING 103K CYCLE - nutrition (rev 2.3.4). 29 weeks, 9/28/2026 -> 4/18/2027, matched to run_plan rev 2.8 / strength_plan rev 2.5 subtypes (run plan rebuilt from W5 on Uphill Athlete week types; Oracle 50M replaced by the Sun 2/21 long effort). Arnon: 50 M, 175 lb / 79 kg. || THE PROBLEM TO SOLVE (FR-w): at Vermont the gut signalled FULL at ~365 cal/hr by hour 4 (gels every 25 min + half-strength GU Roctane Energy Drink Mix + 500 ml/hr); he then ran on gels alone at ~240 cal/hr with no energy cost to 6:40. Tuscany is a ~15:40-17:00 planning day. The fix is the calorie MIX - more solids, less concentrated liquid carbohydrate - not more volume. Target race intake ~260-300 cal/hr, from ~50% gels / ~25% half-strength GU Roctane Energy Drink Mix / ~25% real food. || GUT-TRAINING LADDER (long_run notes + overrides): Base W3-13 proven protocol + one real-food item per long run from W7 | Build W14-22 the MIX at 250-280 cal/hr, cup drinking at car stops; 1/17 = real-food rehearsal for 2/21 | LONG EFFORT 2/21 = J-2, the real-food rehearsal on an 8-10 h day (car = aid every ~2-2.5 h; real food from hour 3; drink-mix replacement tested; every item logged for RS) | Peak: race protocol v1 on 3/7, final on 3/21, nothing new after. One new variable per run; hour 1 always on the proven baseline. || STATION FLUID vs OWN MIX (Arnon's question): with powder pre-portioned per bottle, mixing your own at a cup-only aid costs roughly 20-40 s more than taking station drink - small next to the dwell Vermont actually lost (~4 min of crew chat and toilet queue). The bigger variable is the gut: the station product at Tuscany is unknown (race documents should list it - open item), and your own mix is proven over two ultras. DEFAULT: own powder (GU Roctane Energy Drink Mix) + station water; station coke/tea/broth as late-race additions only after they pass in training. With Oracle gone there is no aid station before Tuscany, so station drink vs own powder CANNOT be tested head-to-head - the default stands unless the race documents name a product Arnon can buy and trial in March. Coke and broth are trialled at the car on 2/21. || SODIUM & FLUID BY TEMPERATURE (not a flat rate): < 12 C -> 400-600 mg Na/hr, 400-500 ml/hr (no scheduled SaltStick) | 12-22 C -> 600-800 mg, 500-650 ml (SaltStick 1/60 min) | > 22 C -> 800-1,000 mg, 650-800 ml (SaltStick 1/40-45 min). Tuscany's regulation warns of near 0 C at night and > 30 C midday. Indoor treadmill sessions usually sit in the middle tier. || EARLY-START FUELING: Tuscany breakfast lands at ~02:45-03:00. Rehearsed on 11/22 (04:00) and 2/21 (03:00, identical to race timing - now the opening of the long effort). || CAFFEINE for a dark finish: tested at dusk on 1/10, late in the day on the 2/21 long effort, and in the March rehearsals; race cap ~5 mg/kg (~400 mg). || DAILY EATING: protein 1.8-1.9 g/kg (~145-155 g) every day including rest days - tendon remodeling at 50 is protein-hungry. Carbs scale with the day (~3.3 g/kg rest -> ~8 g/kg on the biggest long runs; day-type phase_adjustments raise totals as run hours climb from ~6.8 h (W5) to 13.4 h (W25); recovery weeks W6, 9, 11, 13, 17, 22 run 4-6 h - eat to base targets there; W21 is 12.1 h, mostly Sunday). ENERGY AVAILABILITY: weekly hours roughly double from October to March - if body weight drifts down > ~1.5 kg, or sleep, mood or resting HR worsen, eat more before training less. COLLAGEN 15 g + vitamin C 250 mg 30-60 min before every Lower A/B session, otherwise with the morning foot routine. NO NSAIDs around loading. Alcohol: Friday evening is the window in normal weeks (36 h before a Sunday long run; in back-to-back weeks the Saturday medium-long follows - keep it to one drink); none the night before the long effort (Saturday 2/20, or the day before whichever backup date is used) and none in Tuscany race week. || AeT TESTS: nutrition is held identical at every drift test (10/13, 11/24, 1/19 - moved from 1/5; the 2/16 test is dropped) so the only variable is fitness. || FRIDAYS (rev 2.3): Friday is a run day in every week (fast-feet run, subtype easy, 3-4.5 mi), so Friday resolves to easy_run_upper_swim, which now carries the back-to-back-weekend carb note. strength_only_swim fires only on swim + upper days without a run (W10 Friday, W11/W13 Saturdays, W21 Friday). || SWIM DAYS (rev 2.1): three day types resolve Total Immersion swim days (Monday swim-only; swim + Upper B with or without a run). They are listed FIRST because triggers are first-match: a trigger with cross_subtype matches only when that cross session is scheduled; a trigger without cross_subtype ignores cross sessions (backward compatible). Easy swim ~250-400 kcal. || date_overrides are the source of truth on test, gate, headlamp, rehearsal, long-effort, carb-load and race days.",
+    "revision": "2.3.7",
+    "revision_notes": "CURRENT REVISION 2.3.7 (2026-11-16). SYNCED TO run_plan rev 2.14 (Overlook off; TP note 14 Nov; applied after 2.3.6, catching up) and 2.15 (optional Wednesday strides - no nutrition impact). 11/15 override: local Boat Basin x3 + flat long run - normal long-run morning (no early breakfast or trailhead top-up), car at the top = aid point each round trip, real-food item #1 at ~hour 2, drive-home shake note removed; Mon 11/16 protein-forward guidance kept, reason reworded to ~4.5 mi of -6% road descent. meta.notes EARLY-START FUELING: Overlook-days line removed (no Overlook days remain; 2/21 still rehearses the 03:00 start). Targets unchanged. BASE VERIFIED: rev 2.3.6 asserted from the folder copy. || REVISION 2.3.6 (2026-11-16). SYNCED TO run_plan rev 2.16 (RS FR-ai; TP note 16 Nov - Saturday treadmill finishers). NEW date overrides 3/6, 3/13, 3/20: medium-long + 30/45/60-min treadmill hike. Daily targets = Peak medium_long_run + finisher: 3/6 3650 kcal / 540 g carbs / 3900 ml; 3/13 3800 / 575 / 4100; 3/20 3900 / 605 / 4300 (protein 150, fat 85 unchanged). Session fueling linked by subtype: rehearsed breakfast and B2B during-protocol (back_to_back) unchanged; NEW gap snack (power_climb pre, ~180 kcal real food); NEW finisher during (gel at the start + half-strength drink mix; 60-min adds a gel at 35 min; ~280-300 cal/hr); recovery shake moved to after the finisher (power_climb post). Overrides needed because these are the plan's first two-run days: first-match trigger resolution could otherwise pick climb_lower_strength (power_climb, no strength) ahead of medium_long_run. 3/7 and 3/21 override guidance mention Saturday's finisher. medium_long_run notes point to the overrides. 3/16 Tuesday climb +5 min: no change. (2.14 applied in rev 2.3.7.) BASE VERIFIED: rev 2.3.5 asserted from the folder copy. || REVISION 2.3.5 (2026-11-14). SYNCED TO run_plan rev 2.13 (RS FR-ag: all training descents pole-free; TP note 14 Nov). 3/7 and 3/21 overrides: the no-fueling-on-the-descent rule stays; its reason changes from 'both hands are on the poles' to keeping eyes and feet on the descent. 11/15 override unchanged. No calorie, carb, protein, fat, fluid, sodium or timing value changed. BASE VERIFIED: rev 2.3.4 asserted from the folder copy. || REVISION 2.3.4 (2026-11-02). SYNCED TO run_plan rev 2.8 (RS ruling 'Overlook logistics' v1, 2 Nov; TP note runplan_rev2_8). Overlook is used once (11/15). 11/15 override: two-venue day - Overlook round trip, ~20-min drive, Ashokan Rail Trail; car stop guidance added (bottle swap, gel clock keeps running), real food #1 at ~hour 2 placed on the rail trail with the Dike car as the aid point; Boat Basin ice-fallback line. 3/7 override: Alpine x7 is local - pre-run back to the normal long-run morning (90 min before, no early breakfast/trailhead top-up); 'gel before the final Overlook climb' -> gel at the car before the last 3 pitch laps; cache at the car each lap. 3/21 override: Febapple x2.6, ~1 h drive - breakfast at home ~2-2.5 h before, trailhead top-up conditional; car = aid each ~10-mi loop (Tuscany spacing); 'gel before the final Overlook climb' -> gel at the car before the last loop. Daily totals, during-run rates, schedules and all other dates unchanged. Header matched to run_plan 2.8 / strength_plan 2.5. BASE VERIFIED: nutrition rev 2.3.3 and run_plan rev 2.8 asserted from the folder copies. || REVISION 2.3.3 (2026-10-23). PRODUCT NAME: the drink mix is named GU Roctane Energy Drink Mix wherever it appears - all half-strength drink-mix schedule items (day types and date overrides), meta.notes (Vermont baseline, target mix, station-fluid default), long_run ladder note, 1/17 timing, 2/20 car-box packing, 2/21 guidance and replacement-trial note, 4/16 prep, 4/17 race notes. Wording only: no amount, timing, calorie or sodium value changed. Athlete request (keep the product name; the app's copy had dropped it). || REVISION 2.3.2 (2026-10-23). SYNCED TO run_plan rev 2.4 (long-effort backups from run_plan 2.3.2-2.3.4). 2/21 override: weather backup 'Sun 2/14 or 2/28' replaced by the run plan's rules - 2/14 only (decided Wed 2/10; off if G1 ran 2/7), short-notice fallback Sat 2/20 (carb-up moves to Fri 2/19), last-resort weekday 2/17-2/25; the 2/20 carb-up and 2/22 recovery overrides move with the effort. 2/20 override: matching note. meta.notes: no-alcohol rule tied to the night before the effort, not a fixed date; header now matched to run_plan 2.4 / strength_plan 2.4. OVERLOOK DAYS (run plan rev 2.4): NEW 11/15 override (Overlook intro; Base long-run targets 3300/450/145/85, 3800 ml) - breakfast before the ~2 h drive + trailhead top-up, gel at the top before the steep descent, real food at ~hour 2, shake before the drive home, protein-forward day after (11/16). 3/7 and 3/21 overrides: same breakfast/top-up timing and a gel before the final Overlook climb, nothing on the steep descent - totals unchanged. Caffeine supplement: 3/7 and 3/21 are late-hours tests, not dark finishes. Real-food ladder: the first item (salted potato) is now on 11/15 (W7); the 11/22 headlamp override's real-food item relabelled #2 (rotate). 18 date overrides. No other targets changed. || REVISION 2.3.1 (2026-10-22). SYNCED TO run_plan rev 2.4 (headlamp #1 moved from Sun 11/15 to Sun 11/22; 11/15 is now the Overlook intro). HEADLAMP #1 override moved 2026-11-15 -> 2026-11-22, content unchanged (3300 kcal / 450 C / 145 P / 85 F, 3600 ml, 04:00 breakfast, same session_fueling); reason '(13.5 mi)' -> '(14.5 mi)'. meta.notes EARLY-START FUELING: 'Rehearsed on 11/15' -> 'Rehearsed on 11/22'. 11/15 now takes the long_run day type. 17 date overrides. Schema 1.7. || CURRENT REVISION 2.3 (2026-10-22). SYNCED TO run_plan rev 2.3.1 (TP note 22 Oct). DATE OVERRIDES: AeT #3 moved 1/5 -> 1/19 (identical protocol); AeT #4 2/16 deleted (test dropped); Oracle 1/28, 1/29, 1/30 deleted; 2/21 REWRITTEN from the 19-mi headlamp race-start sim to the LONG EFFORT J-2 rehearsal (35-40 mi / 8-10 h, 05:00 start, car aid every ~2-2.5 h; 03:00 race breakfast kept; real food from hour 3; drink-mix replacement trial; caffeine late; cup drinking at the car; intake log for RS; weather backup Sun 2/14 or 2/28) - 5000 kcal / 850 g carbs; NEW 2/20 shakeout + modest carb-up (~6 g/kg) and NEW 2/22 post-effort recovery day; 3/7 rescaled from the 30-mi G2 run to the 24.5-mi long run (~5.3 h) after a 10-mi medium-long, race protocol v1 kept, items 'passed 21 Feb', backup note removed - 4300 kcal / 650 g; 1/10 rescaled to 17 mi with a ~13:30 start (pre-run meal ~12:00) - 3500 / 500; 1/17 retitled and rescaled to the 18-mi real-food rehearsal for 2/21 - 3700 / 540; 11/15 text 13.5 mi. 1/31 (G1, 21.5 mi), 2/7 (22 mi) and 3/14 (25 mi) take the long_run day type - no override (no new fuel variable; Build and Peak targets fit). DAY TYPES: easy_run_upper_swim now covers every Friday and gains the back-to-back-weekend carb note as Build and Peak phase adjustments; strength_only_swim trigger text and phase adjustment re-scoped (W10/W21 Fridays, W11/W13 Saturdays); strength_only loses the stale B2B-Friday adjustment; easy_run_lower_strength gains a during entry (1 gel at 45 min if the descent session runs over 75 min, as on the run cards); climb_lower_strength during note re-pointed to the run card and treadmill blocks; medium_long Peak '12-mi' -> 10-11 mi; long_run phase text (Base 8.5-14.5, Build 15-22 + the 38-mi effort, Peak 24.5-26, taper 20/15/10); race_or_rehearsal and aet_test_day text. SUPPLEMENTS: caffeine test dates 1/10, 2/21, 3/7, 3/21. meta.notes: ladder, AeT list, alcohol, station-drink item. No schema change (1.7). || REVISION 2.2 (2026-09-30). 2027-03-07 override rescaled to the 30-mi G2 shoe-gate run (run_plan rev 2.1): 4300 -> 4700 kcal, 650 -> 740 g carbs, fluid 4500 -> 5000 ml; backup-date note. Nothing else changed. || REVISION 2.1 (2026-09-30). SWIM DAY TYPES: rest_day_swim, strength_only_swim, easy_run_upper_swim added at the head of day_types (cross_subtype triggers, schema 1.7); cross-linked pre/post swim fueling. No other day type, override or supplement changed. Companion: strength_plan rev 2.2, master_schema_v6. || REVISION 2.0 (2026-09-30). NEW CYCLE - Tuscany Crossing 103K; replaces the Vermont plan (rev 1.1) wholesale. Day types rebuilt on run_plan rev 2.0 subtypes (power_climb/tempo gated slot, time_trial AeT test, back_to_back Saturday, race_pace). 19 date overrides. Supplements carried (active 1-29) with tiered electrolytes and caffeine. No schema change."
   },
   "day_types": [
     {
@@ -938,7 +938,7 @@
         "fat_g": 85,
         "fluid_ml_total": 3500,
         "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-        "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+        "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi). W23-W25 Saturdays (3/6, 3/13, 3/20) carry a treadmill finisher and have their own date overrides (rev 2.3.6)."
       },
       "session_fueling": [
         {
@@ -1278,14 +1278,14 @@
     },
     {
       "date": "2026-11-15",
-      "reason": "OVERLOOK INTRO - first steep descent of the cycle (13.5 mi; ~2 h drive each way, plus a ~20-min drive mid-run to the rail trail)",
+      "reason": "LONG RUN - BOAT BASIN x3 + flat (13.5 mi; Overlook fallback fired - November steep-descent proxy)",
       "daily_targets": {
         "calories_total": 3300,
         "carbs_g": 450,
         "protein_g": 145,
         "fat_g": 85,
         "fluid_ml_total": 3800,
-        "general_guidance": "Base long-run targets (long_run day type), adjusted for the drive to Woodstock: breakfast at home, top-up at the trailhead, recovery shake before driving home. TWO-VENUE DAY (run plan rev 2.8): Overlook round trip first, then a ~20-min drive to the Ashokan Rail Trail (Woodstock Dike trailhead) for ~9 flat miles - the car at the Dike is the aid point. First steep-descent bout = more muscle damage than usual: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19."
+        "general_guidance": "Base long-run targets (long_run day type). Local long run (run plan rev 2.14): Boat Basin x3 round trips + ~4.3 mi flat - normal long-run morning, no long drive. The car at the top is the aid point each round trip. ~4.5 mi of -6% road descent = more eccentric load than a usual long run: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19."
       },
       "session_fueling": [
         {
@@ -1294,7 +1294,7 @@
             "subtype": "long",
             "position": "pre"
           },
-          "timing": "Breakfast at home before the ~2 h drive (~2.5-3 h before the start) + trailhead top-up ~15 min before",
+          "timing": "90 min before (normal long-run morning)",
           "calories": 500,
           "carbs_g": 80,
           "protein_g": 15,
@@ -1303,7 +1303,7 @@
             "oatmeal with banana, honey and berries",
             "coffee with a splash of milk"
           ],
-          "notes": "The rehearsed meal, eaten before leaving for Woodstock. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting - the breakfast is eaten early because of the drive."
+          "notes": "The rehearsed meal at the normal time. If breakfast ends up > 2 h before the start, 1 gel (non-caffeine) or a banana ~15 min before."
         },
         {
           "linked_session": {
@@ -1311,7 +1311,7 @@
             "subtype": "long",
             "position": "during"
           },
-          "timing": "From 30 min; ~20-min car stop between Overlook and the rail trail; real-food item at ~hour 2 (on the rail trail)",
+          "timing": "From 30 min; real-food item at ~hour 2",
           "calories": 240,
           "carbs_g": 58,
           "sodium_mg": 550,
@@ -1336,7 +1336,7 @@
               "sodium_mg": 150
             }
           ],
-          "notes": "Base protocol. Overlook comes FIRST (climb, then the steep descent): take the scheduled gel at the top, before the descent - not on it. CAR STOP (~20-min drive to the Dike): drink the rest of bottle 1 in the car and start the rail trail with a fresh 500 ml of half-strength GU Roctane Energy Drink Mix - the clock keeps running, so the next gel is due ~30 min after the last one, not 30 min into the rail trail. FIRST real-food item of the ladder (W7) at ~hour 2, which lands on the rail trail: salted boiled potato, kept in the car at the Dike and picked up at the start of the flat leg. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer. ICE FALLBACK (Boat Basin x3 + flat at the top): same schedule, the car at the top is the aid point every lap; no mid-run drive."
+          "notes": "Base protocol. The car at the top of Boat Basin is the aid point every round trip: swap bottles there (fresh 500 ml half-strength GU Roctane Energy Drink Mix), the gel clock keeps running. Take the scheduled gel at the top before each descent - not on it. FIRST real-food item of the ladder (W7) at ~hour 2: salted boiled potato, kept in the car. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer."
         },
         {
           "linked_session": {
@@ -1352,7 +1352,7 @@
             "whey shake with banana and oats",
             "full meal within 2 h: protein + rice/potatoes + vegetables"
           ],
-          "notes": "Rehydrate ~150% of the weight lost; include sodium. Eat the shake before the drive home."
+          "notes": "Rehydrate ~150% of the weight lost; include sodium."
         }
       ]
     },
@@ -2065,6 +2065,127 @@
       "session_fueling": []
     },
     {
+      "date": "2027-03-06",
+      "reason": "MEDIUM-LONG 10 mi (B2B day 1) + 30-MIN TREADMILL FINISHER (run plan rev 2.16)",
+      "daily_targets": {
+        "calories_total": 3650,
+        "carbs_g": 540,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 3900,
+        "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 30-min treadmill hike: +250 kcal, +60 g carbs, +400 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+        "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "The rehearsed breakfast."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "during"
+          },
+          "timing": "From 30 min",
+          "calories": 230,
+          "carbs_g": 55,
+          "sodium_mg": 500,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            }
+          ],
+          "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "pre"
+          },
+          "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+          "calories": 180,
+          "carbs_g": 35,
+          "protein_g": 5,
+          "fluid_ml": 300,
+          "foods": [
+            "banana",
+            "rice cake or white bread with honey or jam",
+            "a few pretzels (salt)",
+            "water or the rest of the drink-mix bottle"
+          ],
+          "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "during"
+          },
+          "timing": "Treadmill finisher (30 min) - race cadence continues from the outdoor run",
+          "calories": 150,
+          "carbs_g": 37,
+          "sodium_mg": 205,
+          "fluid_ml": 300,
+          "fueling_schedule": [
+            {
+              "interval_min": 0,
+              "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 15,
+              "item": "Half-strength GU Roctane Energy Drink Mix, ~200 ml sipped over the 30 min (+ water to taste)",
+              "cal": 50,
+              "sodium_mg": 80
+            }
+          ],
+          "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "post"
+          },
+          "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
+          "calories": 500,
+          "carbs_g": 70,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "carb-rich dinner, early night"
+          ],
+          "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
+        }
+      ]
+    },
+    {
       "date": "2027-03-07",
       "reason": "LONG RUN 24.5 mi (~5.3 h) - RACE FUELING PROTOCOL v1",
       "daily_targets": {
@@ -2073,7 +2194,7 @@
         "protein_g": 150,
         "fat_g": 95,
         "fluid_ml_total": 4600,
-        "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long (normal medium_long_run day: carb-rich dinner Saturday). Venue (run plan rev 2.8): Alpine loop x7 from the car - local, no long drive, so a normal long-run morning: breakfast ~90 min before the start, no early breakfast and no trailhead top-up needed. The car is the aid station every lap (~3.3 mi / ~45 min)."
+        "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long + 30-min treadmill finisher (Saturday override: carb-rich dinner Saturday). Venue (run plan rev 2.8): Alpine loop x7 from the car - local, no long drive, so a normal long-run morning: breakfast ~90 min before the start, no early breakfast and no trailhead top-up needed. The car is the aid station every lap (~3.3 mi / ~45 min)."
       },
       "session_fueling": [
         {
@@ -2157,6 +2278,254 @@
       ]
     },
     {
+      "date": "2027-03-13",
+      "reason": "MEDIUM-LONG 10.5 mi (B2B day 1) + 45-MIN TREADMILL FINISHER (run plan rev 2.16)",
+      "daily_targets": {
+        "calories_total": 3800,
+        "carbs_g": 575,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 4100,
+        "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 45-min treadmill hike: +400 kcal, +95 g carbs, +600 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+        "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "The rehearsed breakfast."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "during"
+          },
+          "timing": "From 30 min",
+          "calories": 230,
+          "carbs_g": 55,
+          "sodium_mg": 500,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            }
+          ],
+          "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "pre"
+          },
+          "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+          "calories": 180,
+          "carbs_g": 35,
+          "protein_g": 5,
+          "fluid_ml": 300,
+          "foods": [
+            "banana",
+            "rice cake or white bread with honey or jam",
+            "a few pretzels (salt)",
+            "water or the rest of the drink-mix bottle"
+          ],
+          "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "during"
+          },
+          "timing": "Treadmill finisher (45 min) - race cadence continues from the outdoor run",
+          "calories": 210,
+          "carbs_g": 52,
+          "sodium_mg": 245,
+          "fluid_ml": 450,
+          "fueling_schedule": [
+            {
+              "interval_min": 0,
+              "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 15,
+              "item": "Half-strength GU Roctane Energy Drink Mix, ~450 ml sipped over the 45 min",
+              "cal": 110,
+              "sodium_mg": 120
+            }
+          ],
+          "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "post"
+          },
+          "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
+          "calories": 500,
+          "carbs_g": 70,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "carb-rich dinner, early night"
+          ],
+          "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
+        }
+      ]
+    },
+    {
+      "date": "2027-03-20",
+      "reason": "MEDIUM-LONG 11 mi (B2B day 1) + 60-MIN TREADMILL FINISHER (run plan rev 2.16)",
+      "daily_targets": {
+        "calories_total": 3900,
+        "carbs_g": 605,
+        "protein_g": 150,
+        "fat_g": 85,
+        "fluid_ml_total": 4300,
+        "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 60-min treadmill hike: +500 kcal, +125 g carbs, +800 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+        "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
+      },
+      "session_fueling": [
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "pre"
+          },
+          "timing": "90 min before",
+          "calories": 500,
+          "carbs_g": 80,
+          "protein_g": 15,
+          "fat_g": 10,
+          "foods": [
+            "oatmeal with banana, honey and berries",
+            "coffee"
+          ],
+          "notes": "The rehearsed breakfast."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "back_to_back",
+            "position": "during"
+          },
+          "timing": "From 30 min",
+          "calories": 230,
+          "carbs_g": 55,
+          "sodium_mg": 500,
+          "fluid_ml": 550,
+          "fueling_schedule": [
+            {
+              "interval_min": 30,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 60,
+              "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+              "cal": 125,
+              "sodium_mg": 160
+            }
+          ],
+          "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "pre"
+          },
+          "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+          "calories": 180,
+          "carbs_g": 35,
+          "protein_g": 5,
+          "fluid_ml": 300,
+          "foods": [
+            "banana",
+            "rice cake or white bread with honey or jam",
+            "a few pretzels (salt)",
+            "water or the rest of the drink-mix bottle"
+          ],
+          "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "during"
+          },
+          "timing": "Treadmill finisher (60 min) - race cadence continues from the outdoor run",
+          "calories": 275,
+          "carbs_g": 68,
+          "sodium_mg": 330,
+          "fluid_ml": 600,
+          "fueling_schedule": [
+            {
+              "interval_min": 0,
+              "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 35,
+              "item": "GU Roctane gel (non-caffeine)",
+              "cal": 100,
+              "sodium_mg": 125
+            },
+            {
+              "interval_min": 15,
+              "item": "Half-strength GU Roctane Energy Drink Mix, ~300 ml + ~300 ml water over the hour",
+              "cal": 75,
+              "sodium_mg": 80
+            }
+          ],
+          "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+        },
+        {
+          "linked_session": {
+            "type": "run",
+            "subtype": "power_climb",
+            "position": "post"
+          },
+          "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
+          "calories": 500,
+          "carbs_g": 70,
+          "protein_g": 35,
+          "foods": [
+            "whey shake + banana + oats",
+            "carb-rich dinner, early night"
+          ],
+          "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
+        }
+      ]
+    },
+    {
       "date": "2027-03-21",
       "reason": "DRESS REHEARSAL (26 mi) - final race fueling protocol",
       "daily_targets": {
@@ -2165,7 +2534,7 @@
         "protein_g": 150,
         "fat_g": 95,
         "fluid_ml_total": 4600,
-        "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue (run plan rev 2.8): Febapple loop x2.6 from the car (South Mountain, ~1 h drive) - breakfast at home before the drive, top-up at the trailhead; the car is the aid station each loop (~10 mi, every ~2-2.5 h), which is the Tuscany aid spacing."
+        "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue (run plan rev 2.8): Febapple loop x2.6 from the car (South Mountain, ~1 h drive) - breakfast at home before the drive, top-up at the trailhead; the car is the aid station each loop (~10 mi, every ~2-2.5 h), which is the Tuscany aid spacing. Saturday was the 11-mi medium-long + 60-min treadmill finisher (the biggest Saturday of the cycle) - its carb-rich dinner matters."
       },
       "session_fueling": [
         {

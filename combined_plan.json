@@ -28,15 +28,15 @@
       },
       "strength": {
         "schema_version": "1.7",
-        "revision": "2.7",
+        "revision": "2.9",
         "generated_by": "Strength Coach (Claude)",
-        "generated_date": "2026-11-14"
+        "generated_date": "2026-11-16"
       },
       "nutrition": {
         "schema_version": "1.7",
-        "revision": "2.3.5",
+        "revision": "2.3.7",
         "generated_by": "Nutrition Coach (Claude)",
-        "generated_date": "2026-11-14"
+        "generated_date": "2026-11-16"
       }
     }
   },
@@ -1547,7 +1547,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3500,
           "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi). W23-W25 Saturdays (3/6, 3/13, 3/20) carry a treadmill finisher and have their own date overrides (rev 2.3.6)."
         },
         "session_fueling": [
           {
@@ -1887,14 +1887,14 @@
       },
       {
         "date": "2026-11-15",
-        "reason": "OVERLOOK INTRO - first steep descent of the cycle (13.5 mi; ~2 h drive each way, plus a ~20-min drive mid-run to the rail trail)",
+        "reason": "LONG RUN - BOAT BASIN x3 + flat (13.5 mi; Overlook fallback fired - November steep-descent proxy)",
         "daily_targets": {
           "calories_total": 3300,
           "carbs_g": 450,
           "protein_g": 145,
           "fat_g": 85,
           "fluid_ml_total": 3800,
-          "general_guidance": "Base long-run targets (long_run day type), adjusted for the drive to Woodstock: breakfast at home, top-up at the trailhead, recovery shake before driving home. TWO-VENUE DAY (run plan rev 2.8): Overlook round trip first, then a ~20-min drive to the Ashokan Rail Trail (Woodstock Dike trailhead) for ~9 flat miles - the car at the Dike is the aid point. First steep-descent bout = more muscle damage than usual: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19."
+          "general_guidance": "Base long-run targets (long_run day type). Local long run (run plan rev 2.14): Boat Basin x3 round trips + ~4.3 mi flat - normal long-run morning, no long drive. The car at the top is the aid point each round trip. ~4.5 mi of -6% road descent = more eccentric load than a usual long run: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19."
         },
         "session_fueling": [
           {
@@ -1903,7 +1903,7 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "Breakfast at home before the ~2 h drive (~2.5-3 h before the start) + trailhead top-up ~15 min before",
+            "timing": "90 min before (normal long-run morning)",
             "calories": 500,
             "carbs_g": 80,
             "protein_g": 15,
@@ -1912,7 +1912,7 @@
               "oatmeal with banana, honey and berries",
               "coffee with a splash of milk"
             ],
-            "notes": "The rehearsed meal, eaten before leaving for Woodstock. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting - the breakfast is eaten early because of the drive."
+            "notes": "The rehearsed meal at the normal time. If breakfast ends up > 2 h before the start, 1 gel (non-caffeine) or a banana ~15 min before."
           },
           {
             "linked_session": {
@@ -1920,7 +1920,7 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "From 30 min; ~20-min car stop between Overlook and the rail trail; real-food item at ~hour 2 (on the rail trail)",
+            "timing": "From 30 min; real-food item at ~hour 2",
             "calories": 240,
             "carbs_g": 58,
             "sodium_mg": 550,
@@ -1945,7 +1945,7 @@
                 "sodium_mg": 150
               }
             ],
-            "notes": "Base protocol. Overlook comes FIRST (climb, then the steep descent): take the scheduled gel at the top, before the descent - not on it. CAR STOP (~20-min drive to the Dike): drink the rest of bottle 1 in the car and start the rail trail with a fresh 500 ml of half-strength GU Roctane Energy Drink Mix - the clock keeps running, so the next gel is due ~30 min after the last one, not 30 min into the rail trail. FIRST real-food item of the ladder (W7) at ~hour 2, which lands on the rail trail: salted boiled potato, kept in the car at the Dike and picked up at the start of the flat leg. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer. ICE FALLBACK (Boat Basin x3 + flat at the top): same schedule, the car at the top is the aid point every lap; no mid-run drive."
+            "notes": "Base protocol. The car at the top of Boat Basin is the aid point every round trip: swap bottles there (fresh 500 ml half-strength GU Roctane Energy Drink Mix), the gel clock keeps running. Take the scheduled gel at the top before each descent - not on it. FIRST real-food item of the ladder (W7) at ~hour 2: salted boiled potato, kept in the car. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer."
           },
           {
             "linked_session": {
@@ -1961,7 +1961,7 @@
               "whey shake with banana and oats",
               "full meal within 2 h: protein + rice/potatoes + vegetables"
             ],
-            "notes": "Rehydrate ~150% of the weight lost; include sodium. Eat the shake before the drive home."
+            "notes": "Rehydrate ~150% of the weight lost; include sodium."
           }
         ]
       },
@@ -2674,6 +2674,127 @@
         "session_fueling": []
       },
       {
+        "date": "2027-03-06",
+        "reason": "MEDIUM-LONG 10 mi (B2B day 1) + 30-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "daily_targets": {
+          "calories_total": 3650,
+          "carbs_g": 540,
+          "protein_g": 150,
+          "fat_g": 85,
+          "fluid_ml_total": 3900,
+          "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 30-min treadmill hike: +250 kcal, +60 g carbs, +400 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+          "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
+        },
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "back_to_back",
+              "position": "pre"
+            },
+            "timing": "90 min before",
+            "calories": 500,
+            "carbs_g": 80,
+            "protein_g": 15,
+            "fat_g": 10,
+            "foods": [
+              "oatmeal with banana, honey and berries",
+              "coffee"
+            ],
+            "notes": "The rehearsed breakfast."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "back_to_back",
+              "position": "during"
+            },
+            "timing": "From 30 min",
+            "calories": 230,
+            "carbs_g": 55,
+            "sodium_mg": 500,
+            "fluid_ml": 550,
+            "fueling_schedule": [
+              {
+                "interval_min": 30,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 60,
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+                "cal": 125,
+                "sodium_mg": 160
+              }
+            ],
+            "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "pre"
+            },
+            "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+            "calories": 180,
+            "carbs_g": 35,
+            "protein_g": 5,
+            "fluid_ml": 300,
+            "foods": [
+              "banana",
+              "rice cake or white bread with honey or jam",
+              "a few pretzels (salt)",
+              "water or the rest of the drink-mix bottle"
+            ],
+            "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "during"
+            },
+            "timing": "Treadmill finisher (30 min) - race cadence continues from the outdoor run",
+            "calories": 150,
+            "carbs_g": 37,
+            "sodium_mg": 205,
+            "fluid_ml": 300,
+            "fueling_schedule": [
+              {
+                "interval_min": 0,
+                "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 15,
+                "item": "Half-strength GU Roctane Energy Drink Mix, ~200 ml sipped over the 30 min (+ water to taste)",
+                "cal": 50,
+                "sodium_mg": 80
+              }
+            ],
+            "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "post"
+            },
+            "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
+            "calories": 500,
+            "carbs_g": 70,
+            "protein_g": 35,
+            "foods": [
+              "whey shake + banana + oats",
+              "carb-rich dinner, early night"
+            ],
+            "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
+          }
+        ]
+      },
+      {
         "date": "2027-03-07",
         "reason": "LONG RUN 24.5 mi (~5.3 h) - RACE FUELING PROTOCOL v1",
         "daily_targets": {
@@ -2682,7 +2803,7 @@
           "protein_g": 150,
           "fat_g": 95,
           "fluid_ml_total": 4600,
-          "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long (normal medium_long_run day: carb-rich dinner Saturday). Venue (run plan rev 2.8): Alpine loop x7 from the car - local, no long drive, so a normal long-run morning: breakfast ~90 min before the start, no early breakfast and no trailhead top-up needed. The car is the aid station every lap (~3.3 mi / ~45 min)."
+          "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long + 30-min treadmill finisher (Saturday override: carb-rich dinner Saturday). Venue (run plan rev 2.8): Alpine loop x7 from the car - local, no long drive, so a normal long-run morning: breakfast ~90 min before the start, no early breakfast and no trailhead top-up needed. The car is the aid station every lap (~3.3 mi / ~45 min)."
         },
         "session_fueling": [
           {
@@ -2766,6 +2887,254 @@
         ]
       },
       {
+        "date": "2027-03-13",
+        "reason": "MEDIUM-LONG 10.5 mi (B2B day 1) + 45-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "daily_targets": {
+          "calories_total": 3800,
+          "carbs_g": 575,
+          "protein_g": 150,
+          "fat_g": 85,
+          "fluid_ml_total": 4100,
+          "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 45-min treadmill hike: +400 kcal, +95 g carbs, +600 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+          "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
+        },
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "back_to_back",
+              "position": "pre"
+            },
+            "timing": "90 min before",
+            "calories": 500,
+            "carbs_g": 80,
+            "protein_g": 15,
+            "fat_g": 10,
+            "foods": [
+              "oatmeal with banana, honey and berries",
+              "coffee"
+            ],
+            "notes": "The rehearsed breakfast."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "back_to_back",
+              "position": "during"
+            },
+            "timing": "From 30 min",
+            "calories": 230,
+            "carbs_g": 55,
+            "sodium_mg": 500,
+            "fluid_ml": 550,
+            "fueling_schedule": [
+              {
+                "interval_min": 30,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 60,
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+                "cal": 125,
+                "sodium_mg": 160
+              }
+            ],
+            "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "pre"
+            },
+            "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+            "calories": 180,
+            "carbs_g": 35,
+            "protein_g": 5,
+            "fluid_ml": 300,
+            "foods": [
+              "banana",
+              "rice cake or white bread with honey or jam",
+              "a few pretzels (salt)",
+              "water or the rest of the drink-mix bottle"
+            ],
+            "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "during"
+            },
+            "timing": "Treadmill finisher (45 min) - race cadence continues from the outdoor run",
+            "calories": 210,
+            "carbs_g": 52,
+            "sodium_mg": 245,
+            "fluid_ml": 450,
+            "fueling_schedule": [
+              {
+                "interval_min": 0,
+                "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 15,
+                "item": "Half-strength GU Roctane Energy Drink Mix, ~450 ml sipped over the 45 min",
+                "cal": 110,
+                "sodium_mg": 120
+              }
+            ],
+            "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "post"
+            },
+            "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
+            "calories": 500,
+            "carbs_g": 70,
+            "protein_g": 35,
+            "foods": [
+              "whey shake + banana + oats",
+              "carb-rich dinner, early night"
+            ],
+            "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
+          }
+        ]
+      },
+      {
+        "date": "2027-03-20",
+        "reason": "MEDIUM-LONG 11 mi (B2B day 1) + 60-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "daily_targets": {
+          "calories_total": 3900,
+          "carbs_g": 605,
+          "protein_g": 150,
+          "fat_g": 85,
+          "fluid_ml_total": 4300,
+          "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 60-min treadmill hike: +500 kcal, +125 g carbs, +800 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+          "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
+        },
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "back_to_back",
+              "position": "pre"
+            },
+            "timing": "90 min before",
+            "calories": 500,
+            "carbs_g": 80,
+            "protein_g": 15,
+            "fat_g": 10,
+            "foods": [
+              "oatmeal with banana, honey and berries",
+              "coffee"
+            ],
+            "notes": "The rehearsed breakfast."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "back_to_back",
+              "position": "during"
+            },
+            "timing": "From 30 min",
+            "calories": 230,
+            "carbs_g": 55,
+            "sodium_mg": 500,
+            "fluid_ml": 550,
+            "fueling_schedule": [
+              {
+                "interval_min": 30,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 60,
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+                "cal": 125,
+                "sodium_mg": 160
+              }
+            ],
+            "notes": "Base-protocol cadence; add one real-food item on runs over 2 h from Week 14 (see long_run notes)."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "pre"
+            },
+            "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+            "calories": 180,
+            "carbs_g": 35,
+            "protein_g": 5,
+            "fluid_ml": 300,
+            "foods": [
+              "banana",
+              "rice cake or white bread with honey or jam",
+              "a few pretzels (salt)",
+              "water or the rest of the drink-mix bottle"
+            ],
+            "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "during"
+            },
+            "timing": "Treadmill finisher (60 min) - race cadence continues from the outdoor run",
+            "calories": 275,
+            "carbs_g": 68,
+            "sodium_mg": 330,
+            "fluid_ml": 600,
+            "fueling_schedule": [
+              {
+                "interval_min": 0,
+                "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 35,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 15,
+                "item": "Half-strength GU Roctane Energy Drink Mix, ~300 ml + ~300 ml water over the hour",
+                "cal": 75,
+                "sodium_mg": 80
+              }
+            ],
+            "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "post"
+            },
+            "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
+            "calories": 500,
+            "carbs_g": 70,
+            "protein_g": 35,
+            "foods": [
+              "whey shake + banana + oats",
+              "carb-rich dinner, early night"
+            ],
+            "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
+          }
+        ]
+      },
+      {
         "date": "2027-03-21",
         "reason": "DRESS REHEARSAL (26 mi) - final race fueling protocol",
         "daily_targets": {
@@ -2774,7 +3143,7 @@
           "protein_g": 150,
           "fat_g": 95,
           "fluid_ml_total": 4600,
-          "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue (run plan rev 2.8): Febapple loop x2.6 from the car (South Mountain, ~1 h drive) - breakfast at home before the drive, top-up at the trailhead; the car is the aid station each loop (~10 mi, every ~2-2.5 h), which is the Tuscany aid spacing."
+          "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue (run plan rev 2.8): Febapple loop x2.6 from the car (South Mountain, ~1 h drive) - breakfast at home before the drive, top-up at the trailhead; the car is the aid station each loop (~10 mi, every ~2-2.5 h), which is the Tuscany aid spacing. Saturday was the 11-mi medium-long + 60-min treadmill finisher (the biggest Saturday of the cycle) - its carb-rich dinner matters."
         },
         "session_fueling": [
           {
@@ -10853,12 +11222,12 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 34.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week. MAX STRENGTH phase opens (Weeks 7-13): heavy 5s, long rests. Hill sprints start Tue 11/10 at ~85% in the climbing run (hop test passed 11/5).",
-        "day_notes": "Routines only. Run plan: Long run - OVERLOOK INTRO (first steep descent of the cycle). Its day +1 to +3 morning reads gate Tue 11/17 (eccentric hold) and Thu 11/19 Lower B.",
+        "day_notes": "Routines only. Run plan: Long run - BOAT BASIN x3 + flat (Overlook fallback fired; November steep-descent proxy). Its day +1 to +3 morning reads gate Tue 11/17 (eccentric hold) and Thu 11/19 Lower B.",
         "sessions": []
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "OVERLOOK INTRO - first steep descent of the cycle (13.5 mi; ~2 h drive each way, plus a ~20-min drive mid-run to the rail trail)",
+        "day_type_label": "LONG RUN - BOAT BASIN x3 + flat (13.5 mi; Overlook fallback fired - November steep-descent proxy)",
         "phase_adjustment_applied": null,
         "daily_targets": {
           "calories_total": 3300,
@@ -10866,7 +11235,7 @@
           "protein_g": 145,
           "fat_g": 85,
           "fluid_ml_total": 3800,
-          "general_guidance": "Base long-run targets (long_run day type), adjusted for the drive to Woodstock: breakfast at home, top-up at the trailhead, recovery shake before driving home. TWO-VENUE DAY (run plan rev 2.8): Overlook round trip first, then a ~20-min drive to the Ashokan Rail Trail (Woodstock Dike trailhead) for ~9 flat miles - the car at the Dike is the aid point. First steep-descent bout = more muscle damage than usual: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19.",
+          "general_guidance": "Base long-run targets (long_run day type). Local long run (run plan rev 2.14): Boat Basin x3 round trips + ~4.3 mi flat - normal long-run morning, no long drive. The car at the top is the aid point each round trip. ~4.5 mi of -6% road descent = more eccentric load than a usual long run: keep protein high the next day (Mon 11/16: ~35-40 g at each of 4 feedings, carbs at every meal) - the 3-day symptom read after this run gates Thu 11/19.",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
@@ -10876,7 +11245,7 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "Breakfast at home before the ~2 h drive (~2.5-3 h before the start) + trailhead top-up ~15 min before",
+            "timing": "90 min before (normal long-run morning)",
             "calories": 500,
             "carbs_g": 80,
             "protein_g": 15,
@@ -10885,7 +11254,7 @@
               "oatmeal with banana, honey and berries",
               "coffee with a splash of milk"
             ],
-            "notes": "The rehearsed meal, eaten before leaving for Woodstock. TRAILHEAD TOP-UP: 1 gel (non-caffeine) or a banana (~100 kcal) ~15 min before starting - the breakfast is eaten early because of the drive."
+            "notes": "The rehearsed meal at the normal time. If breakfast ends up > 2 h before the start, 1 gel (non-caffeine) or a banana ~15 min before."
           },
           {
             "linked_session": {
@@ -10893,7 +11262,7 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "From 30 min; ~20-min car stop between Overlook and the rail trail; real-food item at ~hour 2 (on the rail trail)",
+            "timing": "From 30 min; real-food item at ~hour 2",
             "calories": 240,
             "carbs_g": 58,
             "sodium_mg": 550,
@@ -10918,7 +11287,7 @@
                 "sodium_mg": 150
               }
             ],
-            "notes": "Base protocol. Overlook comes FIRST (climb, then the steep descent): take the scheduled gel at the top, before the descent - not on it. CAR STOP (~20-min drive to the Dike): drink the rest of bottle 1 in the car and start the rail trail with a fresh 500 ml of half-strength GU Roctane Energy Drink Mix - the clock keeps running, so the next gel is due ~30 min after the last one, not 30 min into the rail trail. FIRST real-food item of the ladder (W7) at ~hour 2, which lands on the rail trail: salted boiled potato, kept in the car at the Dike and picked up at the start of the flat leg. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer. ICE FALLBACK (Boat Basin x3 + flat at the top): same schedule, the car at the top is the aid point every lap; no mid-run drive."
+            "notes": "Base protocol. The car at the top of Boat Basin is the aid point every round trip: swap bottles there (fresh 500 ml half-strength GU Roctane Energy Drink Mix), the gel clock keeps running. Take the scheduled gel at the top before each descent - not on it. FIRST real-food item of the ladder (W7) at ~hour 2: salted boiled potato, kept in the car. Mid-November: likely the cold tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer."
           },
           {
             "linked_session": {
@@ -10934,7 +11303,7 @@
               "whey shake with banana and oats",
               "full meal within 2 h: protein + rice/potatoes + vegetables"
             ],
-            "notes": "Rehydrate ~150% of the weight lost; include sodium. Eat the shake before the drive home."
+            "notes": "Rehydrate ~150% of the weight lost; include sodium."
           }
         ],
         "notes": "",
@@ -10945,7 +11314,7 @@
           "strength_subtype": null,
           "cross_subtypes": []
         },
-        "override_reason": "OVERLOOK INTRO - first steep descent of the cycle (13.5 mi; ~2 h drive each way, plus a ~20-min drive mid-run to the rail trail)",
+        "override_reason": "LONG RUN - BOAT BASIN x3 + flat (13.5 mi; Overlook fallback fired - November steep-descent proxy)",
         "matched_day_type_label": "Sunday long run"
       }
     },
@@ -11137,7 +11506,7 @@
                 "load": "heavy",
                 "side": "both",
                 "cue": "Heavy but crisp: 2 reps in reserve.",
-                "progression_note": "HOLD (rev 2.4): same load as Tue 11/10 - no increase this week (Overlook intro 48 h ago). Progression resumes at the next Lower A."
+                "progression_note": "HOLD (rev 2.4): same load as Tue 11/10 - no increase this week (48 h after 11/15 Boat Basin x3 - ~4.5 mi of -6% road descent). Progression resumes at the next Lower A."
               },
               {
                 "name": "Weighted step-up (high box, knee ~90 deg)",
@@ -11196,7 +11565,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). OVERLOOK HOLD (run plan rev 2.4): Sun 11/15 is the first steep-descent bout of the cycle (~1,370 ft, lower 1.65 mi at ~-13%), so today lands near peak muscle damage. Eccentric quad work (back squat, loaded step-down) stays at the W7 level (11/10) with no planned increase; concentric and isometric work goes ahead as written. Not a deload. POLE-FREE DESCENTS (run plan rev 2.13, RS FR-ag): the descent is now run without poles, so a little more of the eccentric load lands on the quads than when this hold was set. If the quads are still sore (> 2/10) or the anterior knee talks this morning, the loaded step-down drops to bodyweight 3 x 8 and the back squat goes to the W7 load minus one set. Otherwise as written.",
+            "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). DESCENT HOLD (run plan rev 2.4; re-keyed rev 2.14): Sun 11/15 was Boat Basin x3 + flat (the Overlook fallback fired) - ~4.5 mi of ~-6% road descent, a ~0.7-mi ~-8% section lapped each rep - so today lands near peak muscle damage. Eccentric quad work (back squat, loaded step-down) stays at the W7 level (11/10) with no planned increase; concentric and isometric work goes ahead as written. Not a deload. POLE-FREE DESCENTS (run plan rev 2.13, RS FR-ag): descents are run without poles, so a little more of the eccentric load lands on the quads than when this hold was set. If the quads are still sore (> 2/10) or the anterior knee talks this morning, the loaded step-down drops to bodyweight 3 x 8 and the back squat goes to the W7 load minus one set. Otherwise as written.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -11548,7 +11917,7 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B (hop test passed 11/5). Fast downhill pick-ups start Friday.",
-        "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap. Both gated on the post-11/15 Overlook read.",
+        "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap. Both gated on the post-11/15 Boat Basin read.",
         "sessions": [
           {
             "type": "strength",
@@ -11628,7 +11997,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). POST-OVERLOOK GATE (run plan rev 2.4): follows the same read as this morning's descent session. Day +1 to +3 morning reads after Sun 11/15 clean (<= 2/10, settling) -> as written, pogo hops enter (hop test passed 11/5). Not clean -> repeat the Thu 11/12 session: no pogo hops (they enter next Lower B), no load increase on the soleus HSR or the lateral step-down, and flag the coach.",
+            "notes": "P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). POST-11/15 GATE (run plan rev 2.4; keyed to the Boat Basin run since rev 2.14): follows the same read as this morning's descent session. Day +1 to +3 morning reads after Sun 11/15 clean (<= 2/10, settling) -> as written, pogo hops enter (hop test passed 11/5). Not clean -> repeat the Thu 11/12 session: no pogo hops (they enter next Lower B), no load increase on the soleus HSR or the lateral step-down, and flag the coach.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -19198,7 +19567,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3500,
           "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi). W23-W25 Saturdays (3/6, 3/13, 3/20) carry a treadmill finisher and have their own date overrides (rev 2.3.6)."
         },
         "session_fueling": [
           {
@@ -20571,7 +20940,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3500,
           "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi). W23-W25 Saturdays (3/6, 3/13, 3/20) carry a treadmill finisher and have their own date overrides (rev 2.3.6)."
         },
         "session_fueling": [
           {
@@ -21937,7 +22306,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3500,
           "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi). W23-W25 Saturdays (3/6, 3/13, 3/20) carry a treadmill finisher and have their own date overrides (rev 2.3.6)."
         },
         "session_fueling": [
           {
@@ -23779,7 +24148,7 @@
           "notes": "Block 5 - Build II (run week: UA B, 52.6 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B loading week (52.6 mi, back-to-back weekend, G1 shoe gate Sunday). Normal ME-conversion week. THREE NEW RUN PATTERNS meet the lifting here: (1) Tuesday climbing moves to a continuous treadmill block - Lower A loses its straight-knee calf raise (heel budget); (2) hill sprints move to Friday - Thursday's reactive layer drops to low pogos, no skips/bounds; (3) Thursday descent is 101 min with pole-free steep pitches (run plan rev 2.13) - Lower B's lateral step-down goes to bodyweight, and comes out entirely if the AM pitches left the quads or knee talking.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap.",
+        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap. Rev 2.15: optional 4-6 x 15-20 s relaxed strides after the AM run (gated on 2 heel-quiet weeks) - Upper A has no calf or heel loading, so no conflict; if strides were done, keep tonight's heel isometrics moderate and note the heel.",
         "sessions": [
           {
             "type": "strength",
@@ -24495,7 +24864,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3500,
           "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi). W23-W25 Saturdays (3/6, 3/13, 3/20) carry a treadmill finisher and have their own date overrides (rev 2.3.6)."
         },
         "session_fueling": [
           {
@@ -25142,7 +25511,7 @@
           "notes": "Block 5 - Build II (run week: UA B, 55.7 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B loading week (55.7 mi, back-to-back) - the biggest week before the long effort. ME conversion held at W18 loads (no added sets). Same heel-budget, reactive-trim and long-descent rules as W18. Last heavy lower week until W23.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap.",
+        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap. Rev 2.15: optional 4-6 x 15-20 s relaxed strides after the AM run (gated on 2 heel-quiet weeks) - Upper A has no calf or heel loading, so no conflict; if strides were done, keep tonight's heel isometrics moderate and note the heel.",
         "sessions": [
           {
             "type": "strength",
@@ -25858,7 +26227,7 @@
           "fat_g": 85,
           "fluid_ml_total": 3500,
           "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi). W23-W25 Saturdays (3/6, 3/13, 3/20) carry a treadmill finisher and have their own date overrides (rev 2.3.6)."
         },
         "session_fueling": [
           {
@@ -29734,7 +30103,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
+        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first. REV 2.8: Saturday 3/6 gains a 30-min treadmill hike finisher after the medium-long (run plan rev 2.16) - posterior-heel load; heel isometrics stay in every evening, no strength added Saturday.",
         "day_notes": "Easy TI swim only - no run, no lift. Active recovery the day after the long run.",
         "sessions": [
           {
@@ -29867,7 +30236,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
+        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first. REV 2.8: Saturday 3/6 gains a 30-min treadmill hike finisher after the medium-long (run plan rev 2.16) - posterior-heel load; heel isometrics stay in every evening, no strength added Saturday.",
         "day_notes": "DOUBLE DAY - AM Aerobic climbing - treadmill block at or below AeT + PM Lower A - Specific maintenance + descent eccentrics. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -30106,8 +30475,8 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap.",
+        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first. REV 2.8: Saturday 3/6 gains a 30-min treadmill hike finisher after the medium-long (run plan rev 2.16) - posterior-heel load; heel isometrics stay in every evening, no strength added Saturday.",
+        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap. Rev 2.15: optional 4-6 x 15-20 s relaxed strides after the AM run (gated on 2 heel-quiet weeks) - Upper A has no calf or heel loading, so no conflict; if strides were done, keep tonight's heel isometrics moderate and note the heel.",
         "sessions": [
           {
             "type": "strength",
@@ -30303,7 +30672,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
+        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first. REV 2.8: Saturday 3/6 gains a 30-min treadmill hike finisher after the medium-long (run plan rev 2.16) - posterior-heel load; heel isometrics stay in every evening, no strength added Saturday.",
         "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon maintenance & reactive. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -30548,7 +30917,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
+        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first. REV 2.8: Saturday 3/6 gains a 30-min treadmill hike finisher after the medium-long (run plan rev 2.16) - posterior-heel load; heel isometrics stay in every evening, no strength added Saturday.",
         "day_notes": "AM Fast-feet run - pick-ups, downhill pick-ups, sprints + PM Upper B - Push + Shoulder Health + Carries + easy TI swim (30 min) before the lift. Order: run, swim, then the lift.",
         "sessions": [
           {
@@ -30817,31 +31186,22 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
-        "day_notes": "Routines only. Run plan: Medium-long run (B2B day 1).",
+        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first. REV 2.8: Saturday 3/6 gains a 30-min treadmill hike finisher after the medium-long (run plan rev 2.16) - posterior-heel load; heel isometrics stay in every evening, no strength added Saturday.",
+        "day_notes": "Routines only - no strength session. Run plan: Medium-long run (B2B day 1) + B2B FINISHER: 30-min treadmill hike at 7-10% (<= 8 min at 12-15%), started within ~90 min of the outdoor run (rev 2.16). The steep-incline minutes are the plan's highest Achilles-load work: evening heel isometrics as normal (bent-knee soleus priority, moderate holds, no added load or sets). Sunday's long run follows - the morning heel read (>= 3/10, or stiffness past the first ~30 min) steps the next finisher back or pauses it per the run card; tell the coach.",
         "sessions": []
       },
       "nutrition": {
         "day_type_id": "medium_long_run",
-        "day_type_label": "Saturday medium-long run (B2B day 1)",
-        "phase_adjustment_applied": {
-          "phase": "Peak",
-          "adjustment": "10-11 mi medium-longs (W23-25).",
-          "modified_targets": {
-            "calories_total": 3400,
-            "carbs_g": 480,
-            "protein_g": 150,
-            "fat_g": 85
-          }
-        },
+        "day_type_label": "MEDIUM-LONG 10 mi (B2B day 1) + 30-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 3400,
-          "carbs_g": 480,
+          "calories_total": 3650,
+          "carbs_g": 540,
           "protein_g": 150,
           "fat_g": 85,
-          "fluid_ml_total": 3500,
-          "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "fluid_ml_total": 3900,
+          "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 30-min treadmill hike: +250 kcal, +60 g carbs, +400 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+          "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
         },
         "session_fueling": [
           {
@@ -30891,28 +31251,76 @@
           {
             "linked_session": {
               "type": "run",
-              "subtype": "back_to_back",
+              "subtype": "power_climb",
+              "position": "pre"
+            },
+            "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+            "calories": 180,
+            "carbs_g": 35,
+            "protein_g": 5,
+            "fluid_ml": 300,
+            "foods": [
+              "banana",
+              "rice cake or white bread with honey or jam",
+              "a few pretzels (salt)",
+              "water or the rest of the drink-mix bottle"
+            ],
+            "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "during"
+            },
+            "timing": "Treadmill finisher (30 min) - race cadence continues from the outdoor run",
+            "calories": 150,
+            "carbs_g": 37,
+            "sodium_mg": 205,
+            "fluid_ml": 300,
+            "fueling_schedule": [
+              {
+                "interval_min": 0,
+                "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 15,
+                "item": "Half-strength GU Roctane Energy Drink Mix, ~200 ml sipped over the 30 min (+ water to taste)",
+                "cal": 50,
+                "sodium_mg": 80
+              }
+            ],
+            "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
               "position": "post"
             },
-            "timing": "Within 30 min, then a full meal",
+            "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
             "calories": 500,
             "carbs_g": 70,
             "protein_g": 35,
             "foods": [
               "whey shake + banana + oats",
-              "carb-rich dinner"
+              "carb-rich dinner, early night"
             ],
-            "notes": "Refuel for Sunday."
+            "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
           }
         ],
         "notes": "",
-        "source": "day_type",
+        "source": "date_override",
         "matched_by": "trigger",
         "signature": {
           "run_subtype": "back_to_back",
           "strength_subtype": null,
           "cross_subtypes": []
-        }
+        },
+        "override_reason": "MEDIUM-LONG 10 mi (B2B day 1) + 30-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "matched_day_type_label": "Saturday medium-long run (B2B day 1)"
       }
     },
     "2027-03-07": {
@@ -30967,7 +31375,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 58.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first.",
+        "week_notes": "SPECIFIC PERIOD opens (W23-26): maintenance loads, eccentric descent emphasis on Tuesday (the treadmill day has no descent), pole endurance. UA S week, back-to-back peak. The mountain now supplies the ME. If the age-50 recovery criteria fire, run Upper B light first. REV 2.8: Saturday 3/6 gains a 30-min treadmill hike finisher after the medium-long (run plan rev 2.16) - posterior-heel load; heel isometrics stay in every evening, no strength added Saturday.",
         "day_notes": "Routines only. Run plan: Long run - ALPINE x7 (late steep-descent block #1; ~2,800 ft of descent, pitch on the last 3 laps). Tue 3/9 Lower A descent eccentrics are trimmed for it.",
         "sessions": []
       },
@@ -30981,7 +31389,7 @@
           "protein_g": 150,
           "fat_g": 95,
           "fluid_ml_total": 4600,
-          "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long (normal medium_long_run day: carb-rich dinner Saturday). Venue (run plan rev 2.8): Alpine loop x7 from the car - local, no long drive, so a normal long-run morning: breakfast ~90 min before the start, no early breakfast and no trailhead top-up needed. The car is the aid station every lap (~3.3 mi / ~45 min).",
+          "general_guidance": "Run the provisional race protocol end to end for ~5.3 h, on legs carrying Saturday's 10-mi medium-long + 30-min treadmill finisher (Saturday override: carb-rich dinner Saturday). Venue (run plan rev 2.8): Alpine loop x7 from the car - local, no long drive, so a normal long-run morning: breakfast ~90 min before the start, no early breakfast and no trailhead top-up needed. The car is the aid station every lap (~3.3 mi / ~45 min).",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
@@ -31108,7 +31516,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 61.3 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week).",
+        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week). REV 2.8: Saturday 3/13 treadmill finisher 45 min - same heel rules; heel isometrics stay in.",
         "day_notes": "Easy TI swim only - no run, no lift. Active recovery the day after the long run.",
         "sessions": [
           {
@@ -31241,7 +31649,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 61.3 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week).",
+        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week). REV 2.8: Saturday 3/13 treadmill finisher 45 min - same heel rules; heel isometrics stay in.",
         "day_notes": "DOUBLE DAY - AM Aerobic climbing - treadmill block at or below AeT + PM Lower A - Specific maintenance + descent eccentrics. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -31480,8 +31888,8 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 61.3 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week).",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap.",
+        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week). REV 2.8: Saturday 3/13 treadmill finisher 45 min - same heel rules; heel isometrics stay in.",
+        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap. Rev 2.15: optional 4-6 x 15-20 s relaxed strides after the AM run (gated on 2 heel-quiet weeks) - Upper A has no calf or heel loading, so no conflict; if strides were done, keep tonight's heel isometrics moderate and note the heel.",
         "sessions": [
           {
             "type": "strength",
@@ -31677,7 +32085,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 61.3 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week).",
+        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week). REV 2.8: Saturday 3/13 treadmill finisher 45 min - same heel rules; heel isometrics stay in.",
         "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon maintenance & reactive. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -31922,7 +32330,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 61.3 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week).",
+        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week). REV 2.8: Saturday 3/13 treadmill finisher 45 min - same heel rules; heel isometrics stay in.",
         "day_notes": "AM Fast-feet run - pick-ups, downhill pick-ups, sprints + PM Upper B - Push + Shoulder Health + Carries + easy TI swim (30 min) before the lift. Order: run, swim, then the lift.",
         "sessions": [
           {
@@ -32191,31 +32599,22 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 61.3 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week).",
-        "day_notes": "Routines only. Run plan: Medium-long run (B2B day 1).",
+        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week). REV 2.8: Saturday 3/13 treadmill finisher 45 min - same heel rules; heel isometrics stay in.",
+        "day_notes": "Routines only - no strength session. Run plan: Medium-long run (B2B day 1) + B2B FINISHER: 45-min treadmill hike at 7-10% (<= 8.5 min at 12-15%), started within ~90 min of the outdoor run (rev 2.16). The steep-incline minutes are the plan's highest Achilles-load work: evening heel isometrics as normal (bent-knee soleus priority, moderate holds, no added load or sets). Sunday's long run follows - the morning heel read (>= 3/10, or stiffness past the first ~30 min) steps the next finisher back or pauses it per the run card; tell the coach.",
         "sessions": []
       },
       "nutrition": {
         "day_type_id": "medium_long_run",
-        "day_type_label": "Saturday medium-long run (B2B day 1)",
-        "phase_adjustment_applied": {
-          "phase": "Peak",
-          "adjustment": "10-11 mi medium-longs (W23-25).",
-          "modified_targets": {
-            "calories_total": 3400,
-            "carbs_g": 480,
-            "protein_g": 150,
-            "fat_g": 85
-          }
-        },
+        "day_type_label": "MEDIUM-LONG 10.5 mi (B2B day 1) + 45-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 3400,
-          "carbs_g": 480,
+          "calories_total": 3800,
+          "carbs_g": 575,
           "protein_g": 150,
           "fat_g": 85,
-          "fluid_ml_total": 3500,
-          "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "fluid_ml_total": 4100,
+          "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 45-min treadmill hike: +400 kcal, +95 g carbs, +600 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+          "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
         },
         "session_fueling": [
           {
@@ -32265,28 +32664,76 @@
           {
             "linked_session": {
               "type": "run",
-              "subtype": "back_to_back",
+              "subtype": "power_climb",
+              "position": "pre"
+            },
+            "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+            "calories": 180,
+            "carbs_g": 35,
+            "protein_g": 5,
+            "fluid_ml": 300,
+            "foods": [
+              "banana",
+              "rice cake or white bread with honey or jam",
+              "a few pretzels (salt)",
+              "water or the rest of the drink-mix bottle"
+            ],
+            "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "during"
+            },
+            "timing": "Treadmill finisher (45 min) - race cadence continues from the outdoor run",
+            "calories": 210,
+            "carbs_g": 52,
+            "sodium_mg": 245,
+            "fluid_ml": 450,
+            "fueling_schedule": [
+              {
+                "interval_min": 0,
+                "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 15,
+                "item": "Half-strength GU Roctane Energy Drink Mix, ~450 ml sipped over the 45 min",
+                "cal": 110,
+                "sodium_mg": 120
+              }
+            ],
+            "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
               "position": "post"
             },
-            "timing": "Within 30 min, then a full meal",
+            "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
             "calories": 500,
             "carbs_g": 70,
             "protein_g": 35,
             "foods": [
               "whey shake + banana + oats",
-              "carb-rich dinner"
+              "carb-rich dinner, early night"
             ],
-            "notes": "Refuel for Sunday."
+            "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
           }
         ],
         "notes": "",
-        "source": "day_type",
+        "source": "date_override",
         "matched_by": "trigger",
         "signature": {
           "run_subtype": "back_to_back",
           "strength_subtype": null,
           "cross_subtypes": []
-        }
+        },
+        "override_reason": "MEDIUM-LONG 10.5 mi (B2B day 1) + 45-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "matched_day_type_label": "Saturday medium-long run (B2B day 1)"
       }
     },
     "2027-03-14": {
@@ -32341,7 +32788,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 61.3 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week).",
+        "week_notes": "UA S week (61.3 mi, back-to-back) - now a LOADING week, so full specific-maintenance sessions (the old 'recovery, light versions' note is retired). Thursday descent reaches 130 min / 2 x 2.5 mi sustained: Lower B's lateral step-down at bodyweight. Swims technique-only (peak run week). REV 2.8: Saturday 3/13 treadmill finisher 45 min - same heel rules; heel isometrics stay in.",
         "day_notes": "Routines only. Run plan: Long run.",
         "sessions": []
       },
@@ -32483,7 +32930,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work. REV 2.8: Saturday 3/20 treadmill finisher 60 min, and Tuesday 3/16 treadmill climb 75 min (session 100 min) - both posterior-heel load. Heel isometrics stay in through W25; Lower A unchanged.",
         "day_notes": "Easy TI swim only - no run, no lift. Active recovery the day after the long run.",
         "sessions": [
           {
@@ -32616,8 +33063,8 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
-        "day_notes": "DOUBLE DAY - AM Aerobic climbing - treadmill block at or below AeT + PM Lower A - Specific maintenance + descent eccentrics. Run first, 4+ h gap.",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work. REV 2.8: Saturday 3/20 treadmill finisher 60 min, and Tuesday 3/16 treadmill climb 75 min (session 100 min) - both posterior-heel load. Heel isometrics stay in through W25; Lower A unchanged.",
+        "day_notes": "DOUBLE DAY - AM Aerobic climbing - treadmill block at or below AeT + PM Lower A - Specific maintenance + descent eccentrics. Run first, 4+ h gap. Rev 2.16: treadmill climb block 75 min (session 100 min) - Lower A unchanged; heel > 2/10 on the treadmill = bent-knee isometrics in place of the step-ups/ME block (rev 2.3 rule).",
         "sessions": [
           {
             "type": "strength",
@@ -32855,8 +33302,8 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap.",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work. REV 2.8: Saturday 3/20 treadmill finisher 60 min, and Tuesday 3/16 treadmill climb 75 min (session 100 min) - both posterior-heel load. Heel isometrics stay in through W25; Lower A unchanged.",
+        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull + Pole-Specific. Run first, 4+ h gap. Rev 2.15: optional 4-6 x 15-20 s relaxed strides after the AM run (gated on 2 heel-quiet weeks) - Upper A has no calf or heel loading, so no conflict; if strides were done, keep tonight's heel isometrics moderate and note the heel.",
         "sessions": [
           {
             "type": "strength",
@@ -33052,7 +33499,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work. REV 2.8: Saturday 3/20 treadmill finisher 60 min, and Tuesday 3/16 treadmill climb 75 min (session 100 min) - both posterior-heel load. Heel isometrics stay in through W25; Lower A unchanged.",
         "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon maintenance & reactive. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -33297,7 +33744,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work. REV 2.8: Saturday 3/20 treadmill finisher 60 min, and Tuesday 3/16 treadmill climb 75 min (session 100 min) - both posterior-heel load. Heel isometrics stay in through W25; Lower A unchanged.",
         "day_notes": "AM Fast-feet run - pick-ups, downhill pick-ups, sprints + PM Upper B - Push + Shoulder Health + Carries + easy TI swim (30 min) before the lift. Order: run, swim, then the lift.",
         "sessions": [
           {
@@ -33566,31 +34013,22 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
-        "day_notes": "Routines only. Run plan: Medium-long run (B2B day 1).",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work. REV 2.8: Saturday 3/20 treadmill finisher 60 min, and Tuesday 3/16 treadmill climb 75 min (session 100 min) - both posterior-heel load. Heel isometrics stay in through W25; Lower A unchanged.",
+        "day_notes": "Routines only - no strength session. Run plan: Medium-long run (B2B day 1) + B2B FINISHER: 60-min treadmill hike at 7-10% (<= 9 min at 12-15%), started within ~90 min of the outdoor run (rev 2.16). The steep-incline minutes are the plan's highest Achilles-load work: evening heel isometrics as normal (bent-knee soleus priority, moderate holds, no added load or sets). Sunday's long run follows - the morning heel read (>= 3/10, or stiffness past the first ~30 min) steps the next finisher back or pauses it per the run card; tell the coach.",
         "sessions": []
       },
       "nutrition": {
         "day_type_id": "medium_long_run",
-        "day_type_label": "Saturday medium-long run (B2B day 1)",
-        "phase_adjustment_applied": {
-          "phase": "Peak",
-          "adjustment": "10-11 mi medium-longs (W23-25).",
-          "modified_targets": {
-            "calories_total": 3400,
-            "carbs_g": 480,
-            "protein_g": 150,
-            "fat_g": 85
-          }
-        },
+        "day_type_label": "MEDIUM-LONG 11 mi (B2B day 1) + 60-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 3400,
-          "carbs_g": 480,
+          "calories_total": 3900,
+          "carbs_g": 605,
           "protein_g": 150,
           "fat_g": 85,
-          "fluid_ml_total": 3500,
-          "general_guidance": "Fuel today for TOMORROW: the Sunday long run starts on these legs and this glycogen. Carb-rich dinner, early night.",
-          "notes": "Same breakfast as the Sunday long run - two rehearsals per week. Back-to-back weekends run W14-16, W18-19 (6-9 mi) and W23-25 (10-11 mi)."
+          "fluid_ml_total": 4300,
+          "general_guidance": "The normal Peak medium_long_run day (3,400 kcal / 480 g carbs / 3,500 ml) plus the 60-min treadmill hike: +500 kcal, +125 g carbs, +800 ml, almost all of it as carbohydrate around the sessions. Same rehearsed breakfast and race-cadence fueling on the outdoor run; small real-food snack in the gap; gel at the treadmill start; recovery shake after the treadmill, not between. Fuel today for TOMORROW: carb-rich dinner, early night.",
+          "notes": "Override exists because this is a two-run day (back_to_back + power_climb): without it the day-type match could resolve to the Tuesday climbing day type, and the post-run shake would land before the finisher."
         },
         "session_fueling": [
           {
@@ -33640,28 +34078,82 @@
           {
             "linked_session": {
               "type": "run",
-              "subtype": "back_to_back",
+              "subtype": "power_climb",
+              "position": "pre"
+            },
+            "timing": "In the gap between the outdoor run and the treadmill (start the treadmill within ~90 min)",
+            "calories": 180,
+            "carbs_g": 35,
+            "protein_g": 5,
+            "fluid_ml": 300,
+            "foods": [
+              "banana",
+              "rice cake or white bread with honey or jam",
+              "a few pretzels (salt)",
+              "water or the rest of the drink-mix bottle"
+            ],
+            "notes": "A small real-food bridge, not a meal - it is also a free gut-training rep (real food on running legs). If the gap is under ~20 min, a gel at the treadmill start covers it and this can be halved. The recovery shake moves to after the finisher."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
+              "position": "during"
+            },
+            "timing": "Treadmill finisher (60 min) - race cadence continues from the outdoor run",
+            "calories": 275,
+            "carbs_g": 68,
+            "sodium_mg": 330,
+            "fluid_ml": 600,
+            "fueling_schedule": [
+              {
+                "interval_min": 0,
+                "item": "GU Roctane gel (non-caffeine) - at the start of the treadmill",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 35,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 15,
+                "item": "Half-strength GU Roctane Energy Drink Mix, ~300 ml + ~300 ml water over the hour",
+                "cal": 75,
+                "sodium_mg": 80
+              }
+            ],
+            "notes": "~280-300 cal/hr equivalent - inside the race target, below Vermont's ~365 cal/hr FULL signal. Indoors = middle sodium/fluid tier (600-800 mg, 500-650 ml/hr); add a SaltStick if you are sweating heavily. Fan on. Rate fullness at the end - this is the 'fuel on tired legs at hour ~8' rehearsal for the Mountain climb."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "power_climb",
               "position": "post"
             },
-            "timing": "Within 30 min, then a full meal",
+            "timing": "Within 30 min of the finisher, then a full carb-rich dinner",
             "calories": 500,
             "carbs_g": 70,
             "protein_g": 35,
             "foods": [
               "whey shake + banana + oats",
-              "carb-rich dinner"
+              "carb-rich dinner, early night"
             ],
-            "notes": "Refuel for Sunday."
+            "notes": "Refuel for Sunday's long run - the whole day's job. (Replaces the post-run entry of the medium_long_run day type, which would otherwise land between the run and the treadmill.)"
           }
         ],
         "notes": "",
-        "source": "day_type",
+        "source": "date_override",
         "matched_by": "trigger",
         "signature": {
           "run_subtype": "back_to_back",
           "strength_subtype": null,
           "cross_subtypes": []
-        }
+        },
+        "override_reason": "MEDIUM-LONG 11 mi (B2B day 1) + 60-MIN TREADMILL FINISHER (run plan rev 2.16)",
+        "matched_day_type_label": "Saturday medium-long run (B2B day 1)"
       }
     },
     "2027-03-21": {
@@ -33716,7 +34208,7 @@
           "swim_minutes": 60,
           "notes": "Block 6 - Tuscany-specific / Peak (run week: UA S, 63.1 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work.",
+        "week_notes": "UA S week - LAST BIG WEEK (cycle peak, 63.1 mi). Specific maintenance; same heel-budget, reactive-trim and long-descent rules. If the age-50 recovery criteria fire, Upper B light first, then Lower A load down - never skip Lower B tendon work. REV 2.8: Saturday 3/20 treadmill finisher 60 min, and Tuesday 3/16 treadmill climb 75 min (session 100 min) - both posterior-heel load. Heel isometrics stay in through W25; Lower A unchanged.",
         "day_notes": "Routines only. Run plan: Long run - dress rehearsal (FEBAPPLE x2.6, late steep-descent block #2; ~3,100 ft of descent). Tue 3/23 Lower A descent eccentrics are trimmed for it.",
         "sessions": []
       },
@@ -33730,7 +34222,7 @@
           "protein_g": 150,
           "fat_g": 95,
           "fluid_ml_total": 4600,
-          "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue (run plan rev 2.8): Febapple loop x2.6 from the car (South Mountain, ~1 h drive) - breakfast at home before the drive, top-up at the trailhead; the car is the aid station each loop (~10 mi, every ~2-2.5 h), which is the Tuscany aid spacing.",
+          "general_guidance": "Last full rehearsal: race breakfast, race kit, race protocol. Nothing new after today. Venue (run plan rev 2.8): Febapple loop x2.6 from the car (South Mountain, ~1 h drive) - breakfast at home before the drive, top-up at the trailhead; the car is the aid station each loop (~10 mi, every ~2-2.5 h), which is the Tuscany aid spacing. Saturday was the 11-mi medium-long + 60-min treadmill finisher (the biggest Saturday of the cycle) - its carb-rich dinner matters.",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [

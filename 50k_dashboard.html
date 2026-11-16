@@ -629,7 +629,7 @@ function FuelSchedule({items}) {
     <div style={{marginTop:6,display:'flex',flexDirection:'column',gap:3}}>
       {items.map((it,i) => (
         <div key={i} style={{display:'flex',gap:8,alignItems:'baseline',fontSize:11,lineHeight:1.35}}>
-          <span style={{fontFamily:MONO,color:'#ffb020',fontWeight:700,flexShrink:0,minWidth:58}}>{it.interval_min != null ? `every ${it.interval_min}′` : '·'}</span>
+          <span style={{fontFamily:MONO,color:'#ffb020',fontWeight:700,flexShrink:0,minWidth:58}}>{it.interval_min == null ? '·' : it.interval_min === 0 ? 'at start' : `every ${it.interval_min}′`}</span>
           <span style={{flex:1,minWidth:0,color:A.text}}>{it.item}</span>
           <span style={{fontFamily:MONO,color:A.textFaint,flexShrink:0,fontSize:10}}>
             {[it.cal ? `${it.cal}kcal` : '', it.sodium_mg ? `${it.sodium_mg}Na` : '', it.caffeine_mg ? `${it.caffeine_mg}mg caf` : ''].filter(Boolean).join(' ')}
@@ -788,10 +788,17 @@ function MacroCard({label, value, color, pct}) {
 }
 
 // ── Fueling Timeline ──────────────────────────────────────────
-function FuelingTimeline({items}) {
+function FuelingTimeline({items, sessions = []}) {
   const [open, setOpen] = useState(false);
   if (!items?.length) return null;
-  const rank = f => (SESSION_ORDER[f.linked_session?.type] ?? 9) * 10 + FUEL_POSITIONS.indexOf(f.linked_session?.position);
+  // Group by the session each entry links to, in the day's session order, so a
+  // two-run day (rev 2.16 B2B finisher) reads run 1 pre/during/post, then run 2.
+  // An entry with no subtype, or one matching no session, falls back to type order.
+  const sessionIdx = ls => {
+    const i = sessions.findIndex(s => (s.type || 'run') === (ls?.type || 'run') && (ls?.subtype == null || s.subtype === ls.subtype));
+    return i >= 0 ? i : sessions.length + (SESSION_ORDER[ls?.type] ?? 9);
+  };
+  const rank = f => sessionIdx(f.linked_session) * 10 + FUEL_POSITIONS.indexOf(f.linked_session?.position);
   const sorted = [...items].sort((a, b) => rank(a) - rank(b));
   // "during" calories are per hour, so they are not summed into the window total.
   const totalCal = items.filter(f => f.linked_session?.position !== 'during').reduce((s,f) => s+(f.calories||0), 0);
@@ -1104,6 +1111,9 @@ const TIMELINE_SLOTS = {
   cross:    {pre:'11:30', at:'12:00', post:'13:00', preLabel:'Pre-swim snack',    postLabel:'Post-swim refuel'},
   strength: {pre:'16:00', at:'17:00', post:'18:30', preLabel:'Pre-strength fuel', postLabel:'Post-strength meal'},
 };
+const CHAIN_GAP_MIN = 30;
+const toMin = (t) => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
+const hhmm = (min) => `${String(Math.floor(min / 60) % 24).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
 const ROUTINE_SLOT_TIME = {morning:'06:15', pre_run:'07:45', post_run:'09:45', anytime:'13:30', evening:'21:00'};
 
 function DayTimeline({day, plan}) {
@@ -1119,8 +1129,16 @@ function DayTimeline({day, plan}) {
   const mornSups = plan.supplements.filter(s => s.timing_slot==='morning' && weekActive(s.active_weeks, day.week_number));
   if (mornSups.length) items.push({time:'07:00',kind:'supp',label:`Morning supplements (${mornSups.length})`,color:'#22d3ee'});
   const fueling = day.nutrition?.session_fueling || [];
+  const lastEnd = {};   // kind -> end (minutes) of that kind's previous session today
   for (const s of daySessions(day)) {
-    const slot = TIMELINE_SLOTS[s.kind] || TIMELINE_SLOTS.strength;
+    const base = TIMELINE_SLOTS[s.kind] || TIMELINE_SLOTS.strength;
+    // A second session of the same kind (rev 2.16: B2B finisher after the outdoor run)
+    // follows the first: its pre-fuel sits in the gap, the session starts
+    // CHAIN_GAP_MIN later, and its post-fuel comes right after it ends.
+    const slot = lastEnd[s.kind] == null ? base : {...base,
+      pre: hhmm(lastEnd[s.kind]), at: hhmm(lastEnd[s.kind] + CHAIN_GAP_MIN),
+      post: hhmm(lastEnd[s.kind] + CHAIN_GAP_MIN + (s.duration_min || 0)), preLabel: 'Between-session fuel'};
+    lastEnd[s.kind] = toMin(slot.at) + (s.duration_min || 0);
     const c = sessionColor(s);
     const pre = fuelFor(fueling, s, 'pre');
     const during = fuelFor(fueling, s, 'during');
@@ -2999,7 +3017,7 @@ function App({plan, update}) {
               {showNutrition && day.nutrition && (
                 <>
                   <NutritionCard nutrition={day.nutrition}/>
-                  <FuelingTimeline items={day.nutrition.session_fueling}/>
+                  <FuelingTimeline items={day.nutrition.session_fueling} sessions={daySessions(day)}/>
                   <Supplements supplements={plan.supplements} weekNumber={day.week_number}/>
                 </>
               )}
