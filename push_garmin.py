@@ -13,7 +13,8 @@ Reads combined_plan.json (the merged plan the app fetches). Pushes run sessions
 only: no swims, no strength, no race (race_pace), no walks (distance_mi 0).
 Each step carries a custom HR range 90..hr_cap_bpm; the watch alerts above it.
 
-Idempotent: garmin_sync_state.json maps date -> {workoutId, name, fingerprint}.
+Idempotent: garmin_sync_state.json maps key -> {workoutId, name, fingerprint}; the
+key is the date for a day's first run and 'date#2' for a second (B2B finishers).
 A re-run skips unchanged sessions, replaces changed ones (delete + create), and
 deletes sessions that left the plan. It only ever deletes workouts whose ids are
 in that state file, or — with --prune — tagged workouts on the calendar that the
@@ -58,9 +59,11 @@ DEFAULT_DAYS = 14
 DEFAULT_STATE = "garmin_sync_state.json"
 DEFAULT_TOKEN_DIR = os.path.expanduser("~/.garth")
 
-# Cue patterns (rev 2.11 — checked against every session in the cycle; see --dry-run warnings)
+# Cue patterns (rev 2.16 — checked against every session in the cycle; see --dry-run warnings)
 RE_OUTDOOR_CLIMB = re.compile(r"After a (\d+)-min .*?warm-up: (\d+) x (\d+) min", re.I | re.S)
 RE_TREADMILL_CLIMB = re.compile(r"(\d+) min Z1-2 at \d+%, then ONE (\d+)-min", re.I | re.S)
+# B2B finisher (rev 2.16, W23-W25 Sat): "TREADMILL HIKE after the outdoor run ... ONE continuous 30-min hike"
+RE_TREADMILL_HIKE = re.compile(r"TREADMILL HIKE\b.*?ONE continuous (\d+)-min hike", re.I | re.S)
 # Descent skill sessions: "2 x 1.0 mi sustained at -5..-8%" or "1.5 + 1.5 + 1.0 mi sustained at -5..-8%"
 RE_DESCENT_EQUAL = re.compile(r"(\d+) x ([\d.]+) mi[^.]*?sustained at -", re.I)
 RE_DESCENT_LIST = re.compile(r"((?:[\d.]+ \+ )+[\d.]+) mi sustained at -", re.I)
@@ -144,6 +147,9 @@ def plan_steps(session):
         return [step(k, m) for k, m in TIME_TRIAL_STEPS], None
 
     if sub == "power_climb":
+        m = RE_TREADMILL_HIKE.search(cue)
+        if m:                                           # already warm from the outdoor run: no warm-up, no cooldown
+            return [step("interval", int(m.group(1)), hr_target(cap))], None
         m = RE_OUTDOOR_CLIMB.search(cue)
         if m:
             wu, n, work = (int(x) for x in m.groups())
@@ -307,8 +313,19 @@ def pushable(session):
     )
 
 
+def session_key(date_str, i):
+    """State key for the i-th (0-based) pushable run of a day: the bare date for the
+    first — so state files written before multi-run days stay valid — then 'date#2', ..."""
+    return date_str if i == 0 else f"{date_str}#{i + 1}"
+
+
+def key_date(key):
+    return key.split("#", 1)[0]
+
+
 def sessions_in_window(plan, start, days):
-    """Yield (date_str, day, session) for pushable run sessions in [start, start+days)."""
+    """Yield (key, day, session) for every pushable run session in [start, start+days).
+    A day with two runs (rev 2.16 B2B finishers) yields two keys, in plan order."""
     end = start + dt.timedelta(days=days)
     for date_str in sorted(plan["days"]):
         d = dt.date.fromisoformat(date_str)
@@ -316,14 +333,12 @@ def sessions_in_window(plan, start, days):
             continue
         day = plan["days"][date_str]
         runs = [s for s in ((day.get("run") or {}).get("sessions") or []) if pushable(s)]
-        if len(runs) > 1:
-            log(f"WARNING {date_str}: {len(runs)} pushable run sessions; pushing the first only")
-        if runs:
-            yield date_str, day, runs[0]
+        for i, s in enumerate(runs):
+            yield session_key(date_str, i), day, s
 
 
-def fingerprint(date_str, payload):
-    return hashlib.sha1((date_str + json.dumps(payload, sort_keys=True)).encode()).hexdigest()
+def fingerprint(key, payload):
+    return hashlib.sha1((key + json.dumps(payload, sort_keys=True)).encode()).hexdigest()
 
 
 # ── Garmin ────────────────────────────────────────────────────────────────────
@@ -435,14 +450,13 @@ def main():
     log(f"plan {args.plan} (run rev {rev}), tag {tag}, window {start} +{args.days}d, state {args.state}"
         + (" [DRY RUN]" if args.dry_run else ""))
 
-    wanted = {}
-    for date_str, day, session in sessions_in_window(plan, start, args.days):
-        payload, steps, warning = build_payload(tag, day, session)
-        wanted[date_str] = (payload, steps, warning)
+    wanted = {}                                     # state key -> (payload, steps, warning)
+    for key, day, session in sessions_in_window(plan, start, args.days):
+        wanted[key] = build_payload(tag, day, session)
 
     if args.dry_run:
-        for date_str, (payload, steps, warning) in wanted.items():
-            print(f"\n{date_str}  {payload['workoutName']}")
+        for key, (payload, steps, warning) in wanted.items():
+            print(f"\n{key}  {payload['workoutName']}")
             print("\n".join(describe_steps(steps)))
             if warning:
                 print(f"    WARNING: {warning}")
@@ -464,31 +478,31 @@ def main():
     state = load_state(args.state)
     summary = []
 
-    # Dates in the window that are in state but no longer wanted -> delete
+    # Keys in the window that are in state but no longer wanted -> delete
     end = start + dt.timedelta(days=args.days)
-    for date_str in sorted(state):
-        d = dt.date.fromisoformat(date_str)
-        if start <= d < end and date_str not in wanted:
-            gc_delete(g, state[date_str]["workoutId"])
-            summary.append((date_str, "deleted", state[date_str]["name"]))
-            del state[date_str]
+    for key in sorted(state):
+        d = dt.date.fromisoformat(key_date(key))
+        if start <= d < end and key not in wanted:
+            gc_delete(g, state[key]["workoutId"])
+            summary.append((key, "deleted", state[key]["name"]))
+            del state[key]
             save_state(args.state, state)
 
-    for date_str, (payload, steps, warning) in wanted.items():
-        fp = fingerprint(date_str, payload)
-        prev = state.get(date_str)
+    for key, (payload, steps, warning) in wanted.items():
+        fp = fingerprint(key, payload)
+        prev = state.get(key)
         if prev and prev.get("fingerprint") == fp:
-            summary.append((date_str, "skipped", prev["name"]))
+            summary.append((key, "skipped", prev["name"]))
             continue
         if prev:
             gc_delete(g, prev["workoutId"])
         wid = gc_create(g, payload)
-        gc_schedule(g, wid, date_str)
-        state[date_str] = {"workoutId": wid, "name": payload["workoutName"], "fingerprint": fp}
+        gc_schedule(g, wid, key_date(key))
+        state[key] = {"workoutId": wid, "name": payload["workoutName"], "fingerprint": fp}
         save_state(args.state, state)
-        summary.append((date_str, "updated" if prev else "created", payload["workoutName"]))
+        summary.append((key, "updated" if prev else "created", payload["workoutName"]))
         if warning:
-            log(f"WARNING {date_str}: {warning}")
+            log(f"WARNING {key}: {warning}")
 
     # Reconcile: tagged workouts on the calendar that state does not know
     known = {v["workoutId"] for v in state.values()}
