@@ -22,21 +22,21 @@
     "sources": {
       "run": {
         "schema_version": "1.8",
-        "revision": "2.16",
+        "revision": "2.17.2",
         "generated_by": "Performance / Run Coach (Claude)",
-        "generated_date": "2026-11-16"
+        "generated_date": "2026-11-17"
       },
       "strength": {
         "schema_version": "1.7",
-        "revision": "2.9",
+        "revision": "2.10",
         "generated_by": "Strength Coach (Claude)",
-        "generated_date": "2026-11-16"
+        "generated_date": "2026-11-17"
       },
       "nutrition": {
         "schema_version": "1.7",
-        "revision": "2.3.7",
+        "revision": "2.3.8",
         "generated_by": "Nutrition Coach (Claude)",
-        "generated_date": "2026-11-16"
+        "generated_date": "2026-11-17"
       }
     }
   },
@@ -1967,14 +1967,14 @@
       },
       {
         "date": "2026-11-22",
-        "reason": "HEADLAMP #1 - 05:30 start (14.5 mi)",
+        "reason": "LONG RUN - ALPINE x4, daylight start (14.5 mi)",
         "daily_targets": {
           "calories_total": 3300,
           "carbs_g": 450,
           "protein_g": 145,
           "fat_g": 85,
           "fluid_ml_total": 3600,
-          "general_guidance": "Early breakfast at 04:00 - first test of eating in the dark before a run."
+          "general_guidance": "Base long-run targets. Daylight start (~06:45, run plan rev 2.17) - normal long-run morning, no early breakfast (the early-breakfast test moved to 1/24). Longest run since Vermont: the car is the aid point each lap."
         },
         "session_fueling": [
           {
@@ -1983,16 +1983,16 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "04:00 (90 min before)",
+            "timing": "90 min before (normal long-run morning)",
             "calories": 500,
             "carbs_g": 80,
             "protein_g": 15,
             "fat_g": 10,
             "foods": [
               "oatmeal with banana, honey and berries",
-              "coffee"
+              "coffee with a splash of milk"
             ],
-            "notes": "Same meal, earlier - note how it sits at this hour."
+            "notes": "The rehearsed meal at the normal time. If breakfast ends up > 2 h before the start, 1 gel (non-caffeine) or a banana ~15 min before."
           },
           {
             "linked_session": {
@@ -2019,7 +2019,7 @@
                 "sodium_mg": 200
               }
             ],
-            "notes": "Cold start: sodium at the low tier."
+            "notes": "Cold November morning: sodium at the low tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer."
           },
           {
             "linked_session": {
@@ -2550,6 +2550,86 @@
               "or whey + a sandwich"
             ],
             "notes": "Largest protein dose of the day on lower days."
+          }
+        ]
+      },
+      {
+        "date": "2027-01-24",
+        "reason": "LONG RUN - PRE-DAWN START + early breakfast (12 mi, recovery week) - first early-breakfast test",
+        "daily_targets": {
+          "calories_total": 3300,
+          "carbs_g": 450,
+          "protein_g": 145,
+          "fat_g": 85,
+          "fluid_ml_total": 3600,
+          "general_guidance": "Recovery-week long run (W17): eat to the Base long-run targets, not Build. ~05:45 start, breakfast ~03:45 - the FIRST test of eating at an hour the body does not want food, ahead of the 03:00 breakfast on 2/21. The breakfast is the only new variable: no new food item during the run. Same plan if icy and the run moves to Boat Basin."
+        },
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "long",
+              "position": "pre"
+            },
+            "timing": "~03:45 (2 h before a ~05:45 start) - the same spacing as 2/21 and race day",
+            "calories": 450,
+            "carbs_g": 80,
+            "protein_g": 12,
+            "fat_g": 8,
+            "foods": [
+              "oatmeal with banana and honey (smaller portion at this hour)",
+              "coffee"
+            ],
+            "notes": "The 2/21 / race breakfast, rehearsed exactly. If the full meal won't go down, take 350 kcal + a gel (non-caffeine) ~15 min before the start - and log which you did and how it sat."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "long",
+              "position": "during"
+            },
+            "timing": "From 30 min; proven baseline throughout",
+            "calories": 240,
+            "carbs_g": 58,
+            "sodium_mg": 500,
+            "fluid_ml": 500,
+            "fueling_schedule": [
+              {
+                "interval_min": 30,
+                "item": "GU Roctane gel (non-caffeine)",
+                "cal": 100,
+                "sodium_mg": 125
+              },
+              {
+                "interval_min": 60,
+                "item": "Half-strength GU Roctane Energy Drink Mix in 500 ml (own powder, pre-portioned)",
+                "cal": 125,
+                "sodium_mg": 160
+              },
+              {
+                "interval_min": 120,
+                "item": "Real-food item that has already passed (potato / rice ball / PB&J quarter) - nothing new",
+                "cal": 120,
+                "sodium_mg": 150
+              }
+            ],
+            "notes": "NO NEW FOOD ITEM: the breakfast is the only variable today. Hour 1 on the proven baseline as always. The car is the aid point each lap (<= 2-min stop: bottles, food, out). Dark, cold January start: sodium at the low tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick). Log gut fullness 0-10 at hour 1 and hour 2 - the read on how the early breakfast sits under load."
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "long",
+              "position": "post"
+            },
+            "timing": "Within 30 min",
+            "calories": 500,
+            "carbs_g": 65,
+            "protein_g": 35,
+            "foods": [
+              "whey shake + banana + oats",
+              "full meal within 2 h"
+            ],
+            "notes": "Rehydrate ~150% of the weight lost; include sodium."
           }
         ]
       },
@@ -11338,7 +11418,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4) - ALPINE x4 (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -11442,7 +11522,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4) - ALPINE x4 (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
         "day_notes": "",
         "sessions": [
           {
@@ -11699,26 +11779,26 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4) - ALPINE x4 (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "easy",
-            "title": "Recovery run (UA Zone 1)",
+            "title": "Recovery run (UA Zone 1) - HEADLAMP #1 (evening, flat)",
             "duration_min": 55,
             "distance_mi": 4.5,
             "elevation_gain_ft": 100,
             "elevation_loss_ft": 100,
-            "terrain": "road",
+            "terrain": "mixed",
             "terrain_intent": "free",
             "hr_cap_bpm": 132,
             "hr_zone": "Z1",
             "hr_anchor": "AeT_minus_10pct",
             "poles": false,
-            "key_cue": "Truly easy: stay under AeT-10% (132 working). Walk any hill that pushes you over.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "HEADLAMP #1 (rev 2.17, moved from the 11/22 pre-dawn start - athlete 11/17: leaf-covered trails hide footing, so the first dark run goes on easy ground). START ~17:15 (sunset ~16:35) so the whole run is in full dark. ROUTE: a FLAT, smooth trail, path or quiet road you know well - no technical footing, no steep descent. KIT: the race headlamp + the spare. Swap to the spare once mid-run WITHOUT stopping the watch - the spare is compulsory kit and the swap is part of the rehearsal. Reflective layer near roads. FOCUS: eyes 3-4 m ahead, cadence up, short stride; note how the beam flattens the ground, the battery mode you ran and how far you could see. Walk anything uncertain; if HR drifts on uneven ground, walk - never raise the cap. AFTERWARDS (one line): lamp beam and battery mode, swap time, any footing worries. Truly easy: stay under AeT-10% (132 working). Walk any hill that pushes you over.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too)."
+            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too). Headlamp #1 (ask #1) moved here in rev 2.17 from the 11/22 long run; dark descent moves to headlamp #2 (1/10), pre-dawn start + early breakfast to 1/24. FIT to RS. RS ack 17 Nov: tagged non-pacing (kit and comfort check, not a model sample)."
           }
         ]
       },
@@ -11731,7 +11811,7 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B (hop test passed 11/5). Fast downhill pick-ups start Friday.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull. Run first, 4+ h gap.",
+        "day_notes": "DOUBLE DAY - AM Upper A - Pull + EVENING Recovery run (UA Zone 1) - HEADLAMP #1 (~17:15, flat). Lift in the morning; 4+ h gap before the run.",
         "sessions": [
           {
             "type": "strength",
@@ -11885,7 +11965,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4) - ALPINE x4 (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
         "day_notes": "",
         "sessions": [
           {
@@ -12132,7 +12212,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4) - ALPINE x4 (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
         "day_notes": "",
         "sessions": [
           {
@@ -12372,7 +12452,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4) - ALPINE x4 (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
         "day_notes": "Rest. Day before the long run.",
         "sessions": []
       },
@@ -12432,13 +12512,13 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). Sunday: headlamp #1 (moved from 11/15, rev 2.4) - ALPINE x4 (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "long",
-            "title": "Long run - HEADLAMP #1 (pre-dawn start)",
+            "title": "Long run - ALPINE x4 (daylight start)",
             "duration_min": 187,
             "distance_mi": 14.5,
             "elevation_gain_ft": 1450,
@@ -12449,10 +12529,10 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "VENUE (rev 2.14; RS 2 Nov s3, confirmed 14 Nov): ALPINE loop x4 + ~1.2 mi flat (~14.5 mi / ~1,600 ft) - fixed, because the 11/15 Overlook fallback (Boat Basin) fired; the Boat Basin option is withdrawn (11/12, 11/15 and 11/19 are all Boat Basin - variety guard). Start at 05:30 (sunrise ~06:45): ~1 h 15 min by headlamp on known, non-technical footing, then continue in daylight. HEADLAMP SESSION (ask #1): carry the race headlamp + spare; the dark section includes a descent - cadence up, stride short, eyes 3-4 m ahead. Longest run since Vermont; run the downs. END PITCH (rev 2.14): each lap ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) - on every DAYLIGHT lap RUN it deliberately: cadence 175+, short strides, quiet feet, no hard braking, pole-free; exposure, not speed. It is the early steep-bout stand-in now that Overlook is optional (FR-ah). By headlamp: easy. POLES (rev 2.14): carry them. From LAP 3 (full daylight) deploy on the lap's opening climb only (~0.5 mi at ~+8.6%, the end pitch in reverse; if the steepest climb is elsewhere, use that and say so) - the cycle's first pole-on climb sample, moved here from 11/15. Stowed, or carried and not loaded, everywhere else and on every descent (RS FR-ag). Never deploy by headlamp. Lap-press at the base and top of each pole-on climb. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.14; RS 2 Nov s3, confirmed 14 Nov): ALPINE loop x4 + ~1.2 mi flat (~14.5 mi / ~1,600 ft) - fixed, because the 11/15 Overlook fallback (Boat Basin) fired; the Boat Basin option is withdrawn (11/12, 11/15 and 11/19 are all Boat Basin - variety guard). DAYLIGHT START (rev 2.17): start after sunrise (~06:45); normal long-run morning. Headlamp #1 moved to the Wed 11/18 evening run (athlete 11/17: leaf-covered trails). Leaves hide rocks and roots in daylight too - eyes ahead, quiet feet. Longest run since Vermont; run the downs. END PITCH (rev 2.14): each lap ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) - on EVERY lap RUN it deliberately: cadence 175+, short strides, quiet feet, no hard braking, pole-free; exposure, not speed. It is the early steep-bout stand-in now that Overlook is optional (FR-ah). GATE (RS 17 Nov): run it on laps 3-4 only if laps 1-2 left the ankle, heel and knee symptom-free; otherwise walk it on laps 3-4 and log that. Walking the steepest quarter on any lap is allowed. If the leaf cover makes the footing unreadable, walk it and say so. 24-H READ: if it is not clean on Monday 11/23, flag it before the 11/24 AeT test. POLES (rev 2.14): carry them. From LAP 3 deploy on the lap's opening climb only (~0.5 mi at ~+8.6%, the end pitch in reverse; if the steepest climb is elsewhere, use that and say so) - the cycle's first pole-on climb sample, moved here from 11/15. Stowed, or carried and not loaded, everywhere else and on every descent (RS FR-ag). Lap-press at the base and top of each pole-on climb. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Headlamp #1 moved here from 11/15 in rev 2.4 (11/15 was the Overlook intro; its fallback fired). Venue fixed at Alpine in rev 2.14 (was the rev 2.9 gate); pole-on-climb FIT (laps 3-4) flagged for RS; AeT test #2 48 h later is unaffected (RS). FIT to RS."
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Headlamp #1 moved off this card to Wed 11/18 in rev 2.17 (athlete 11/17: leaves; first dark run on easy ground). Venue fixed at Alpine in rev 2.14 (was the rev 2.9 gate); pole-on-climb FIT (laps 3-4) flagged for RS; AeT test #2 48 h later is unaffected (RS). FIT to RS."
           }
         ]
       },
@@ -12465,12 +12545,12 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B (hop test passed 11/5). Fast downhill pick-ups start Friday.",
-        "day_notes": "Routines only. Run plan: Long run - HEADLAMP #1 (pre-dawn start).",
+        "day_notes": "Routines only. Run plan: Long run - ALPINE x4 (daylight start).",
         "sessions": []
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "HEADLAMP #1 - 05:30 start (14.5 mi)",
+        "day_type_label": "LONG RUN - ALPINE x4, daylight start (14.5 mi)",
         "phase_adjustment_applied": null,
         "daily_targets": {
           "calories_total": 3300,
@@ -12478,7 +12558,7 @@
           "protein_g": 145,
           "fat_g": 85,
           "fluid_ml_total": 3600,
-          "general_guidance": "Early breakfast at 04:00 - first test of eating in the dark before a run.",
+          "general_guidance": "Base long-run targets. Daylight start (~06:45, run plan rev 2.17) - normal long-run morning, no early breakfast (the early-breakfast test moved to 1/24). Longest run since Vermont: the car is the aid point each lap.",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
@@ -12488,16 +12568,16 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "04:00 (90 min before)",
+            "timing": "90 min before (normal long-run morning)",
             "calories": 500,
             "carbs_g": 80,
             "protein_g": 15,
             "fat_g": 10,
             "foods": [
               "oatmeal with banana, honey and berries",
-              "coffee"
+              "coffee with a splash of milk"
             ],
-            "notes": "Same meal, earlier - note how it sits at this hour."
+            "notes": "The rehearsed meal at the normal time. If breakfast ends up > 2 h before the start, 1 gel (non-caffeine) or a banana ~15 min before."
           },
           {
             "linked_session": {
@@ -12524,7 +12604,7 @@
                 "sodium_mg": 200
               }
             ],
-            "notes": "Cold start: sodium at the low tier."
+            "notes": "Cold November morning: sodium at the low tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick); add one if it is warmer."
           },
           {
             "linked_session": {
@@ -12550,7 +12630,7 @@
           "strength_subtype": null,
           "cross_subtypes": []
         },
-        "override_reason": "HEADLAMP #1 - 05:30 start (14.5 mi)",
+        "override_reason": "LONG RUN - ALPINE x4, daylight start (14.5 mi)",
         "matched_day_type_label": "Sunday long run"
       }
     },
@@ -22554,7 +22634,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5).",
+        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5). Sunday: pre-dawn start + early breakfast (rev 2.17).",
         "day_notes": "Rest before AeT retest #3.",
         "sessions": []
       },
@@ -22614,7 +22694,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5).",
+        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5). Sunday: pre-dawn start + early breakfast (rev 2.17).",
         "day_notes": "",
         "sessions": [
           {
@@ -22852,7 +22932,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5).",
+        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5). Sunday: pre-dawn start + early breakfast (rev 2.17).",
         "day_notes": "",
         "sessions": [
           {
@@ -23048,7 +23128,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5).",
+        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5). Sunday: pre-dawn start + early breakfast (rev 2.17).",
         "day_notes": "",
         "sessions": [
           {
@@ -23303,7 +23383,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5).",
+        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5). Sunday: pre-dawn start + early breakfast (rev 2.17).",
         "day_notes": "",
         "sessions": [
           {
@@ -23535,7 +23615,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5).",
+        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5). Sunday: pre-dawn start + early breakfast (rev 2.17).",
         "day_notes": "Rest. Day before the long run.",
         "sessions": []
       },
@@ -23595,13 +23675,13 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5).",
+        "week_notes": "UA R week (-46% miles) + AeT retest #3 (Tuesday, moved from 1/5). Sunday: pre-dawn start + early breakfast (rev 2.17).",
         "day_notes": "",
         "sessions": [
           {
             "type": "run",
             "subtype": "long",
-            "title": "Long run",
+            "title": "Long run - PRE-DAWN START + early breakfast",
             "duration_min": 158,
             "distance_mi": 12.0,
             "elevation_gain_ft": 1500,
@@ -23612,10 +23692,10 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": true,
-            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Each lap ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) in either direction - easy, short strides. Easy. Rehearse the pole pickup/stow once (the 2/21 long effort picks poles up at the car). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% only; stowed (or carried, not loaded) on every descent and elsewhere - descents are run pole-free (RS FR-ag). HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "PRE-DAWN START (rev 2.17; moved from 11/22): start ~05:45 (sunrise ~07:10) - ~1 h 20 min by headlamp, after the 11/18 evening run and the 1/10 dusk finish. EARLY BREAKFAST at ~03:45 (2 h before) = the first test of eating at an hour the body does not want food, ahead of the 03:00 breakfast on 2/21 (see nutrition override). Race headlamp + spare. VENUE: ALPINE is the default (RS ruling 17 Nov) - the end pitch (~-8.6%, -11% core) is the closer match to Tuscany's dark opening (three short pitches at ~-10..-17%, then a steep climb by headlamp); Boat Basin is the ice fallback only. Run the descents by headlamp as you would in daylight, walking anything uncertain; walking the steepest quarter of the pitch in the dark is allowed - log it, it is data, not a failure. RS reads the pitch dark laps vs daylight laps (pace, cadence, run/walk) and HR on the dark climb. LAP-PRESS at civil dawn (~06:40) to tag the dark segment. ICY WOODS (RS 17 Nov): the highest-risk combination in the headlamp sequence - winter traction rule applies and skipping the woods is your call; if skipped, run the whole day at BOAT BASIN (park at the top): x3 round trips (~9.2 mi / ~1,470 ft) + ~2.8 mi flat, dark section on the road. Start time and breakfast hold either way. VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Each lap ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) in either direction - easy, short strides. Easy. Rehearse the pole pickup/stow once (the 2/21 long effort picks poles up at the car). POLES (Black Diamond Carbon Z): deploy on sustained climbs >= +8% only; stowed (or carried, not loaded) on every descent and elsewhere - descents are run pole-free (RS FR-ag). HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Pre-dawn start + early-breakfast rehearsal moved here from 11/22 in rev 2.17 (recovery-week long run: low stakes; 2/7 not used - it is the G1 backup). FIT to RS (dark segment tagged). Covers the FRESH-legs dark descent (race opening) - if this day is lost, that case is uncovered and must be re-placed, not dropped (RS 17 Nov s2). Venue ruled 17 Nov: Alpine default; the Boat Basin fallback logs as a shallower-grade (-6% road) dark sample that still covers the fresh-legs case."
           }
         ]
       },
@@ -23628,29 +23708,20 @@
           "notes": "Block 4 - Build I (run week: UA R, 27.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA R week (-45% miles) + AeT retest #3 Tuesday 1/19 (moved from 1/5). Light versions; Lower A follows the test as at W9. No swim Monday (identical test inputs).",
-        "day_notes": "Routines only. Run plan: Long run.",
+        "day_notes": "Routines only. Run plan: Long run - PRE-DAWN START + early breakfast.",
         "sessions": []
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "Sunday long run",
-        "phase_adjustment_applied": {
-          "phase": "Build",
-          "adjustment": "15-22 mi with race weight and poles (the 38-mi long effort on 2/21 has its own override).",
-          "modified_targets": {
-            "calories_total": 3800,
-            "carbs_g": 560,
-            "protein_g": 150,
-            "fat_g": 90
-          }
-        },
+        "day_type_label": "LONG RUN - PRE-DAWN START + early breakfast (12 mi, recovery week) - first early-breakfast test",
+        "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 3800,
-          "carbs_g": 560,
-          "protein_g": 150,
-          "fat_g": 90,
-          "fluid_ml_total": 3800,
-          "general_guidance": "Highest regular carb day. Breakfast = race-morning rehearsal. During-run fueling follows the phase ladder below. Post-run recovery is the priority meal of the week.",
+          "calories_total": 3300,
+          "carbs_g": 450,
+          "protein_g": 145,
+          "fat_g": 85,
+          "fluid_ml_total": 3600,
+          "general_guidance": "Recovery-week long run (W17): eat to the Base long-run targets, not Build. ~05:45 start, breakfast ~03:45 - the FIRST test of eating at an hour the body does not want food, ahead of the 03:00 breakfast on 2/21. The breakfast is the only new variable: no new food item during the run. Same plan if icy and the run moves to Boat Basin.",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
@@ -23660,16 +23731,16 @@
               "subtype": "long",
               "position": "pre"
             },
-            "timing": "90 min before",
-            "calories": 500,
+            "timing": "~03:45 (2 h before a ~05:45 start) - the same spacing as 2/21 and race day",
+            "calories": 450,
             "carbs_g": 80,
-            "protein_g": 15,
-            "fat_g": 10,
+            "protein_g": 12,
+            "fat_g": 8,
             "foods": [
-              "oatmeal with banana, honey and berries",
-              "coffee with a splash of milk"
+              "oatmeal with banana and honey (smaller portion at this hour)",
+              "coffee"
             ],
-            "notes": "THE rehearsed meal - race-proven twice."
+            "notes": "The 2/21 / race breakfast, rehearsed exactly. If the full meal won't go down, take 350 kcal + a gel (non-caffeine) ~15 min before the start - and log which you did and how it sat."
           },
           {
             "linked_session": {
@@ -23677,11 +23748,11 @@
               "subtype": "long",
               "position": "during"
             },
-            "timing": "Phase ladder (see notes); sodium and fluid by temperature tier (meta)",
+            "timing": "From 30 min; proven baseline throughout",
             "calories": 240,
             "carbs_g": 58,
-            "sodium_mg": 550,
-            "fluid_ml": 550,
+            "sodium_mg": 500,
+            "fluid_ml": 500,
             "fueling_schedule": [
               {
                 "interval_min": 30,
@@ -23697,18 +23768,12 @@
               },
               {
                 "interval_min": 120,
-                "item": "Real-food item (from W7, runs >= 2.5 h)",
+                "item": "Real-food item that has already passed (potato / rice ball / PB&J quarter) - nothing new",
                 "cal": 120,
                 "sodium_mg": 150
-              },
-              {
-                "interval_min": 60,
-                "item": "SaltStick capsule (temperature-tiered - see meta)",
-                "cal": 0,
-                "sodium_mg": 215
               }
             ],
-            "notes": "Temperature tiers: < 12 C -> 400-600 mg Na, 400-500 ml/hr (skip SaltStick on cold days); 12-22 C -> 600-800 mg, 500-650 ml; > 22 C -> 800-1,000 mg, 650-800 ml."
+            "notes": "NO NEW FOOD ITEM: the breakfast is the only variable today. Hour 1 on the proven baseline as always. The car is the aid point each lap (<= 2-min stop: bottles, food, out). Dark, cold January start: sodium at the low tier (< 12 C: 400-600 mg Na, 400-500 ml/hr, no SaltStick). Log gut fullness 0-10 at hour 1 and hour 2 - the read on how the early breakfast sits under load."
           },
           {
             "linked_session": {
@@ -23721,20 +23786,22 @@
             "carbs_g": 65,
             "protein_g": 35,
             "foods": [
-              "whey shake with banana and oats",
-              "full meal within 2 h: protein + rice/potatoes + vegetables"
+              "whey shake + banana + oats",
+              "full meal within 2 h"
             ],
             "notes": "Rehydrate ~150% of the weight lost; include sodium."
           }
         ],
         "notes": "",
-        "source": "day_type",
+        "source": "date_override",
         "matched_by": "trigger",
         "signature": {
           "run_subtype": "long",
           "strength_subtype": null,
           "cross_subtypes": []
-        }
+        },
+        "override_reason": "LONG RUN - PRE-DAWN START + early breakfast (12 mi, recovery week) - first early-breakfast test",
+        "matched_day_type_label": "Sunday long run"
       }
     },
     "2027-01-25": {
