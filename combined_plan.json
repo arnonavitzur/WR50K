@@ -22,21 +22,21 @@
     "sources": {
       "run": {
         "schema_version": "1.8",
-        "revision": "2.17.3",
+        "revision": "2.19.1",
         "generated_by": "Performance / Run Coach (Claude)",
         "generated_date": "2026-11-19"
       },
       "strength": {
         "schema_version": "1.7",
-        "revision": "2.11",
+        "revision": "2.12",
         "generated_by": "Strength Coach (Claude)",
         "generated_date": "2026-11-19"
       },
       "nutrition": {
         "schema_version": "1.7",
-        "revision": "2.3.8",
+        "revision": "2.3.9",
         "generated_by": "Nutrition Coach (Claude)",
-        "generated_date": "2026-11-17"
+        "generated_date": "2026-11-19"
       }
     }
   },
@@ -2132,15 +2132,15 @@
         ]
       },
       {
-        "date": "2026-12-06",
-        "reason": "GATE D #1 - 21-mi qualifying run (tissue test)",
+        "date": "2026-12-07",
+        "reason": "GATE D #1 - 21.4-mi qualifying run (tissue test); moved from Sun 12/6 (travel, run plan rev 2.18)",
         "daily_targets": {
           "calories_total": 3700,
           "carbs_g": 540,
           "protein_g": 150,
           "fat_g": 88,
           "fluid_ml_total": 4000,
-          "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before."
+          "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before (Sun 12/6, first full day home - also hydrate well after the flight). FALLBACK (run plan rev 2.19 readiness rule, decided the morning of 12/7): if the gate moves to Tue 12/8, this whole override applies to 12/8, the carb-rich dinner to 12/7, 12/7 eats as a rest day, and the 12/13 long_run day type moves to Mon 12/14 (day types follow the run plan - no extra override)."
         },
         "session_fueling": [
           {
@@ -12643,11 +12643,11 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 22.5,
-          "vertical_ft": 1300,
-          "descent_ft": 1300,
-          "long_run_mi": 9.0,
-          "run_hours_est": 5.2,
+          "mileage_mi": 23.1,
+          "vertical_ft": 1460,
+          "descent_ft": 1460,
+          "long_run_mi": 9.6,
+          "run_hours_est": 5.3,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
@@ -12662,11 +12662,11 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 40,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test.",
+        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test. REV 2.12 (TRAVEL 11/25-12/5, full gym, no pool): Upper A Wed -> Thu 11/26 (11/25 travel day); Lower B Thu -> Fri 11/27 (not on the arrival day); Upper B Fri -> Sat 11/28; the 11/27 swim dropped.",
         "day_notes": "No swim: rest before AeT retest #2 (identical test inputs).",
         "sessions": []
       },
@@ -12703,11 +12703,11 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 22.5,
-          "vertical_ft": 1300,
-          "descent_ft": 1300,
-          "long_run_mi": 9.0,
-          "run_hours_est": 5.2,
+          "mileage_mi": 23.1,
+          "vertical_ft": 1460,
+          "descent_ft": 1460,
+          "long_run_mi": 9.6,
+          "run_hours_est": 5.3,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
@@ -12741,11 +12741,11 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 40,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test.",
+        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test. REV 2.12 (TRAVEL 11/25-12/5, full gym, no pool): Upper A Wed -> Thu 11/26 (11/25 travel day); Lower B Thu -> Fri 11/27 (not on the arrival day); Upper B Fri -> Sat 11/28; the 11/27 swim dropped.",
         "day_notes": "DOUBLE DAY - AM AeT HEART-RATE DRIFT TEST #2 (treadmill, 3%) + PM Lower A - MAX STRENGTH. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -12942,11 +12942,11 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 22.5,
-          "vertical_ft": 1300,
-          "descent_ft": 1300,
-          "long_run_mi": 9.0,
-          "run_hours_est": 5.2,
+          "mileage_mi": 23.1,
+          "vertical_ft": 1460,
+          "descent_ft": 1460,
+          "long_run_mi": 9.6,
+          "run_hours_est": 5.3,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
@@ -12970,9 +12970,9 @@
             "hr_zone": "Z1",
             "hr_anchor": "none",
             "poles": false,
-            "key_cue": "Easy brisk walk, 30-40 min.",
+            "key_cue": "Easy brisk walk, 30-40 min, at home in the morning before leaving for the airport (noon).",
             "fueling_required": false,
-            "notes": "Intensity: Recovery walk. Walk-only sessions carry distance_mi 0 by convention (walk miles are not run miles); duration carries the load. UA: a brisk walk counts as a recovery workout."
+            "notes": "Intensity: Recovery walk. Walk-only sessions carry distance_mi 0 by convention (walk miles are not run miles); duration carries the load. UA: a brisk walk counts as a recovery workout. TRAVEL (rev 2.18): Raanana trip 11/25-12/5 (7 h ahead). Travel day."
           }
         ]
       },
@@ -12980,12 +12980,133 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 40,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test.",
-        "day_notes": "DOUBLE DAY - AM Recovery walk + PM Upper A - Pull. Run first, 4+ h gap.",
+        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test. REV 2.12 (TRAVEL 11/25-12/5, full gym, no pool): Upper A Wed -> Thu 11/26 (11/25 travel day); Lower B Thu -> Fri 11/27 (not on the arrival day); Upper B Fri -> Sat 11/28; the 11/27 swim dropped.",
+        "day_notes": "Travel day (Raanana, 7 h ahead). Run plan: walk before the airport. Routines only - heel isometrics travel well. Upper A moves to Thu 11/26.",
+        "sessions": []
+      },
+      "nutrition": {
+        "day_type_id": "easy_run_only",
+        "day_type_label": "Easy / recovery run or walk (no strength)",
+        "phase_adjustment_applied": {
+          "phase": "Base",
+          "adjustment": "Recovery weeks 1-2: walks burn little - lower end of carbs, protein unchanged.",
+          "modified_targets": {
+            "calories_total": 2350,
+            "carbs_g": 260,
+            "protein_g": 145,
+            "fat_g": 80
+          }
+        },
+        "daily_targets": {
+          "calories_total": 2350,
+          "carbs_g": 260,
+          "protein_g": 145,
+          "fat_g": 80,
+          "fluid_ml_total": 2700,
+          "general_guidance": "Moderate day. Carbs at breakfast and around the run.",
+          "notes": "Runs under 60-75 min need no during-fuel; water only."
+        },
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "easy",
+              "position": "pre"
+            },
+            "timing": "60-90 min before, or fasted-light if < 45 min",
+            "calories": 250,
+            "carbs_g": 45,
+            "protein_g": 8,
+            "fat_g": 5,
+            "foods": [
+              "toast with honey and banana",
+              "coffee"
+            ]
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": null,
+              "position": "post"
+            },
+            "timing": "Within 30-45 min",
+            "calories": 350,
+            "carbs_g": 50,
+            "protein_g": 30,
+            "foods": [
+              "whey shake + banana",
+              "or a normal meal if it is mealtime"
+            ],
+            "notes": "Creatine 5 g in this window."
+          }
+        ],
+        "notes": "",
+        "source": "day_type",
+        "matched_by": "trigger",
+        "signature": {
+          "run_subtype": "easy",
+          "strength_subtype": null,
+          "cross_subtypes": []
+        }
+      }
+    },
+    "2026-11-26": {
+      "date": "2026-11-26",
+      "day_of_week": "Thursday",
+      "week_number": 9,
+      "flex": false,
+      "rest_day": false,
+      "run": {
+        "phase": "Base",
+        "weekly_targets": {
+          "mileage_mi": 23.1,
+          "vertical_ft": 1460,
+          "descent_ft": 1460,
+          "long_run_mi": 9.6,
+          "run_hours_est": 5.3,
+          "recovery_week": true,
+          "ua_week_type": "R",
+          "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
+        },
+        "week_notes": "UA R week + AeT retest #2 (Tuesday). -38% miles. Thanksgiving Thursday is flexible.",
+        "day_notes": "",
+        "sessions": [
+          {
+            "type": "run",
+            "subtype": "easy",
+            "title": "Recovery run (UA Zone 1)",
+            "duration_min": 42,
+            "distance_mi": 3.5,
+            "elevation_gain_ft": 150,
+            "elevation_loss_ft": 150,
+            "terrain": "road",
+            "terrain_intent": "free",
+            "hr_cap_bpm": 132,
+            "hr_zone": "Z1",
+            "hr_anchor": "AeT_minus_10pct",
+            "poles": false,
+            "key_cue": "Truly easy: stay under AeT-10% (132 working). Walk any hill that pushes you over. ARRIVAL DAY (Raanana): Park Loop x1.5 (~3.3 mi), outdoors in afternoon daylight to help reset the clock. If the overnight flight wrecked you, a 30-min walk instead. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "fueling_required": false,
+            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too). TRAVEL (rev 2.18): Raanana trip 11/25-12/5 (7 h ahead). Venue: Raanana Park Loop (2.1 mi, ~96 ft/lap)."
+          }
+        ]
+      },
+      "strength": {
+        "phase": "Base",
+        "weekly_targets": {
+          "strength_sessions": 4,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
+          "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
+        },
+        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test. REV 2.12 (TRAVEL 11/25-12/5, full gym, no pool): Upper A Wed -> Thu 11/26 (11/25 travel day); Lower B Thu -> Fri 11/27 (not on the arrival day); Upper B Fri -> Sat 11/28; the 11/27 swim dropped.",
+        "day_notes": "DOUBLE DAY - arrival day. AM Recovery run (UA Zone 1, Raanana Park Loop) + PM Upper A - Pull (gym). Run first, 4+ h gap. No heavy tendon work the day after an overnight flight: Lower B moves to Fri 11/27.",
         "sessions": [
           {
             "type": "strength",
@@ -13119,20 +13240,20 @@
         }
       }
     },
-    "2026-11-26": {
-      "date": "2026-11-26",
-      "day_of_week": "Thursday",
+    "2026-11-27": {
+      "date": "2026-11-27",
+      "day_of_week": "Friday",
       "week_number": 9,
-      "flex": false,
+      "flex": true,
       "rest_day": false,
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 22.5,
-          "vertical_ft": 1300,
-          "descent_ft": 1300,
-          "long_run_mi": 9.0,
-          "run_hours_est": 5.2,
+          "mileage_mi": 23.1,
+          "vertical_ft": 1460,
+          "descent_ft": 1460,
+          "long_run_mi": 9.6,
+          "run_hours_est": 5.3,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
@@ -13145,20 +13266,20 @@
           {
             "type": "run",
             "subtype": "easy",
-            "title": "Recovery run (UA Zone 1)",
-            "duration_min": 42,
-            "distance_mi": 3.5,
-            "elevation_gain_ft": 100,
-            "elevation_loss_ft": 100,
+            "title": "Fast-feet run - pick-ups, downhill pick-ups, sprints",
+            "duration_min": 40,
+            "distance_mi": 3.0,
+            "elevation_gain_ft": 150,
+            "elevation_loss_ft": 150,
             "terrain": "road",
             "terrain_intent": "free",
-            "hr_cap_bpm": 132,
-            "hr_zone": "Z1",
-            "hr_anchor": "AeT_minus_10pct",
+            "hr_cap_bpm": 147,
+            "hr_zone": "Z1-2",
+            "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "Truly easy: stay under AeT-10% (132 working). Walk any hill that pushes you over. Thanksgiving - easy, anywhere. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x4: 8-10 s uphill at +8..+12% (max effort - recovery-week half dose), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: a quiet posterior heel (single-leg hop test PASSED 11/5). First thing pulled on any heel, Achilles or forefoot signal. Then 3 x 45 s FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too)."
+            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel). TRAVEL (rev 2.18): Raanana trip 11/25-12/5 (7 h ahead). VENUE: Raanana North Loop spur (GPX mi 4.69-5.37, out-and-back). Jog ~15 min to the spur base as the warm-up. SPRINTS on the steep pitch mi 4.88-4.94 (~+8..+10%, 100 m; ~32.2081,34.8524 -> 32.2079,34.8520). DOWNHILL PICK-UPS on the way back below the steep pitch, mi 5.19-5.34 (-6..-3%, ~240 m; start ~32.2079,34.8520); never on the -8..-10% pitch (mi 5.13-5.19). GPX elevation is map-derived - confirm grade and footing on the ground."
           }
         ]
       },
@@ -13166,12 +13287,12 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 40,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap.",
+        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test. REV 2.12 (TRAVEL 11/25-12/5, full gym, no pool): Upper A Wed -> Thu 11/26 (11/25 travel day); Lower B Thu -> Fri 11/27 (not on the arrival day); Upper B Fri -> Sat 11/28; the 11/27 swim dropped.",
+        "day_notes": "DOUBLE DAY - AM Fast-feet run (North Loop spur) + PM Lower B - Tendon HSR & Lateral Chain (moved from Thu: trip). Run first, 4+ h gap. No swim on the trip (no pool). Upper B moves to Sat 11/28.",
         "sessions": [
           {
             "type": "strength",
@@ -13366,20 +13487,20 @@
         }
       }
     },
-    "2026-11-27": {
-      "date": "2026-11-27",
-      "day_of_week": "Friday",
+    "2026-11-28": {
+      "date": "2026-11-28",
+      "day_of_week": "Saturday",
       "week_number": 9,
-      "flex": true,
+      "flex": false,
       "rest_day": false,
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 22.5,
-          "vertical_ft": 1300,
-          "descent_ft": 1300,
-          "long_run_mi": 9.0,
-          "run_hours_est": 5.2,
+          "mileage_mi": 23.1,
+          "vertical_ft": 1460,
+          "descent_ft": 1460,
+          "long_run_mi": 9.6,
+          "run_hours_est": 5.3,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
@@ -13387,49 +13508,20 @@
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
         "week_notes": "UA R week + AeT retest #2 (Tuesday). -38% miles. Thanksgiving Thursday is flexible.",
-        "day_notes": "",
-        "sessions": [
-          {
-            "type": "run",
-            "subtype": "easy",
-            "title": "Fast-feet run - pick-ups, downhill pick-ups, sprints",
-            "duration_min": 40,
-            "distance_mi": 3.0,
-            "elevation_gain_ft": 100,
-            "elevation_loss_ft": 100,
-            "terrain": "road",
-            "terrain_intent": "free",
-            "hr_cap_bpm": 147,
-            "hr_zone": "Z1-2",
-            "hr_anchor": "AeT",
-            "poles": false,
-            "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: HILL SPRINTS x4: 8-10 s uphill at +8..+12% (max effort - recovery-week half dose), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: a quiet posterior heel (single-leg hop test PASSED 11/5). First thing pulled on any heel, Achilles or forefoot signal. Then 3 x 45 s FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
-            "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular, recovery-week dose (UA R week: hill sprints halved, late in the week; one run with fast downhill pick-ups). SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel)."
-          }
-        ]
+        "day_notes": "Rest. Day before the long run.",
+        "sessions": []
       },
       "strength": {
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 40,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test.",
-        "day_notes": "AM Fast-feet run - pick-ups, downhill pick-ups, sprints + PM Upper B - Push + Shoulder Health + Carries + easy TI swim (40 min) before the lift. Order: run, swim, then the lift.",
+        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test. REV 2.12 (TRAVEL 11/25-12/5, full gym, no pool): Upper A Wed -> Thu 11/26 (11/25 travel day); Lower B Thu -> Fri 11/27 (not on the arrival day); Upper B Fri -> Sat 11/28; the 11/27 swim dropped.",
+        "day_notes": "Upper B - Push + Shoulder Health + Carries (moved from Fri: trip). No run; day before the long run - upper only, carries at moderate load.",
         "sessions": [
-          {
-            "type": "cross",
-            "subtype": "swim",
-            "method": "Total Immersion",
-            "title": "Easy TI swim",
-            "duration_min": 40,
-            "intensity": "easy",
-            "key_cue": "DRILLS + SHORT WHOLE STROKE: ~10 min drills, then 25-50 m whole-stroke repeats. Focus: head-spine alignment, patient lead hand, 2-beat kick. Count strokes per length (SPL) and keep it steady. EFFORT 3-4/10 throughout; if breathing gets ragged, go back to drills. HR is NOT capped: swim HR runs well below running HR at the same effort, so the running AeT cap does not apply - go by feel. SHOULDER RULE: stop at the first pinch at the front or top of the shoulder (left is the priority side); no paddles; hands enter wide ('railroad tracks'), never crossing the midline. KICK: relaxed 2-beat; ease it off if the calf or posterior heel tightens; no breaststroke kick (knees). Gentle wall push-offs.",
-            "notes": "Cross-training (athlete, rev 2.2): general aerobic + upper-body work, light on the legs. NOT counted in run mileage, vertical or the ramp guard; counted in weekly hours. If the left shoulder reacts, swimming is dropped BEFORE Upper A (Upper A's cuff work is the protective part). Swim first, Upper B later (Upper B is push, so it complements the swim's pull). "
-          },
           {
             "type": "strength",
             "subtype": "upper",
@@ -13517,65 +13609,33 @@
         ]
       },
       "nutrition": {
-        "day_type_id": "easy_run_upper_swim",
-        "day_type_label": "Friday: fast-feet run + swim + upper strength",
+        "day_type_id": "strength_only",
+        "day_type_label": "Strength only (no run)",
         "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 2900,
-          "carbs_g": 370,
+          "calories_total": 2450,
+          "carbs_g": 280,
           "protein_g": 150,
           "fat_g": 85,
-          "fluid_ml_total": 3200,
-          "general_guidance": "Three light sessions: spread carbs across the day, protein at every meal. Tomorrow is either a rest day (single-long-run weeks) or the Saturday medium-long (back-to-back weeks W14-16, W18-19, W23-25) - in back-to-back weeks make dinner carb-rich (phase adjustments)."
+          "fluid_ml_total": 2700,
+          "general_guidance": "Moderate carbs, protein high."
         },
         "session_fueling": [
           {
             "linked_session": {
-              "type": "run",
-              "subtype": "easy",
+              "type": "strength",
+              "subtype": "lower",
               "position": "pre"
             },
-            "timing": "Optional - fasted-light if < 45 min",
-            "calories": 200,
-            "carbs_g": 35,
-            "protein_g": 6,
-            "fat_g": 4,
+            "timing": "30-60 min before",
+            "calories": 120,
+            "carbs_g": 15,
+            "protein_g": 15,
             "foods": [
-              "banana or toast",
-              "coffee"
-            ]
-          },
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": null,
-              "position": "post"
-            },
-            "timing": "Within 30-45 min",
-            "calories": 350,
-            "carbs_g": 50,
-            "protein_g": 30,
-            "foods": [
-              "whey shake + banana",
-              "or a normal meal if it is mealtime"
+              "15 g collagen + 250 mg vitamin C (or with orange juice)",
+              "small carb snack if > 3 h since a meal"
             ],
-            "notes": "Creatine 5 g in this window."
-          },
-          {
-            "linked_session": {
-              "type": "cross",
-              "subtype": "swim",
-              "position": "post"
-            },
-            "timing": "Within 45 min",
-            "calories": 250,
-            "carbs_g": 30,
-            "protein_g": 20,
-            "foods": [
-              "Greek yogurt + fruit",
-              "or a normal meal if it is mealtime"
-            ],
-            "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
+            "notes": "THE tendon lever - never skipped on Lower A/B days."
           },
           {
             "linked_session": {
@@ -13598,70 +13658,8 @@
         "source": "day_type",
         "matched_by": "trigger",
         "signature": {
-          "run_subtype": "easy",
-          "strength_subtype": "upper",
-          "cross_subtypes": [
-            "swim"
-          ]
-        }
-      }
-    },
-    "2026-11-28": {
-      "date": "2026-11-28",
-      "day_of_week": "Saturday",
-      "week_number": 9,
-      "flex": false,
-      "rest_day": true,
-      "run": {
-        "phase": "Base",
-        "weekly_targets": {
-          "mileage_mi": 22.5,
-          "vertical_ft": 1300,
-          "descent_ft": 1300,
-          "long_run_mi": 9.0,
-          "run_hours_est": 5.2,
-          "recovery_week": true,
-          "ua_week_type": "R",
-          "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
-          "derived_from": "session_sums",
-          "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
-        },
-        "week_notes": "UA R week + AeT retest #2 (Tuesday). -38% miles. Thanksgiving Thursday is flexible.",
-        "day_notes": "Rest. Day before the long run.",
-        "sessions": []
-      },
-      "strength": {
-        "phase": "Base",
-        "weekly_targets": {
-          "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 40,
-          "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
-        },
-        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test.",
-        "day_notes": "Routines only.",
-        "sessions": []
-      },
-      "nutrition": {
-        "day_type_id": "rest_day",
-        "day_type_label": "Rest day (no training)",
-        "phase_adjustment_applied": null,
-        "daily_targets": {
-          "calories_total": 2300,
-          "carbs_g": 260,
-          "protein_g": 145,
-          "fat_g": 85,
-          "fluid_ml_total": 2500,
-          "general_guidance": "Lowest-carb day, protein unchanged. Three meals + one protein snack. Collagen + C with the morning foot routine.",
-          "notes": "Rest days are where tendon remodeling happens - under-eating protein here is the common error."
-        },
-        "session_fueling": [],
-        "notes": "",
-        "source": "day_type",
-        "matched_by": "trigger",
-        "signature": {
           "run_subtype": null,
-          "strength_subtype": null,
+          "strength_subtype": "upper",
           "cross_subtypes": []
         }
       }
@@ -13675,11 +13673,11 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 22.5,
-          "vertical_ft": 1300,
-          "descent_ft": 1300,
-          "long_run_mi": 9.0,
-          "run_hours_est": 5.2,
+          "mileage_mi": 23.1,
+          "vertical_ft": 1460,
+          "descent_ft": 1460,
+          "long_run_mi": 9.6,
+          "run_hours_est": 5.3,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
@@ -13693,20 +13691,20 @@
             "type": "run",
             "subtype": "long",
             "title": "Long run",
-            "duration_min": 118,
-            "distance_mi": 9.0,
-            "elevation_gain_ft": 1100,
-            "elevation_loss_ft": 1100,
+            "duration_min": 120,
+            "distance_mi": 9.6,
+            "elevation_gain_ft": 1160,
+            "elevation_loss_ft": 1160,
             "terrain": "trail",
             "terrain_intent": "relief",
             "hr_cap_bpm": 147,
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Each lap ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) in either direction - RUN it, easy but deliberate: cadence 175+, short strides, quiet feet, no hard braking; exposure, not speed (rev 2.14: early steep-bout stand-in, Overlook optional per FR-ah). Recovery-week long run. Easy rolling; last long run before Gate D #1. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "VENUE (rev 2.18, travel): EITAN MOUNTAIN LOOP x2 (4.8 mi / ~580 ft per loop; ~1 h drive). Each loop: 1.2 km at +5.7% (steepest ~200 m at ~+10% near the end of the loop) and 1 km at -5.6% (short -8.6% stretch around km 2.8). RUN the descents easy but deliberate: cadence 175+, short strides, quiet feet, no hard braking; exposure, not speed. Recovery-week long run. Easy rolling; last long run before Gate D #1. Morning start (warm days). Time governs, not distance. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: the car stop between loops is the fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. TRAVEL (rev 2.18): Raanana trip 11/25-12/5 (7 h ahead). Eitan replaces Alpine CCW (GPX: 9.56 mi / 1,162 ft gain / 1,160 ft loss for two loops; card carries the route figures)."
           }
         ]
       },
@@ -13714,12 +13712,12 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 40,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 2 - Aerobic Base II (run week: UA R, 22.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test.",
-        "day_notes": "Routines only. Run plan: Long run.",
+        "week_notes": "UA R week (deeper run cut, -38%) + AeT retest #2 Tuesday. Max strength held: 2 lower + 2 upper. Lower A follows the test. REV 2.12 (TRAVEL 11/25-12/5, full gym, no pool): Upper A Wed -> Thu 11/26 (11/25 travel day); Lower B Thu -> Fri 11/27 (not on the arrival day); Upper B Fri -> Sat 11/28; the 11/27 swim dropped.",
+        "day_notes": "Routines only. Run plan: Long run - Eitan x2 (rev 2.18).",
         "sessions": []
       },
       "nutrition": {
@@ -13833,22 +13831,22 @@
       "day_of_week": "Monday",
       "week_number": 10,
       "flex": false,
-      "rest_day": false,
+      "rest_day": true,
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 38.9,
-          "vertical_ft": 3940,
-          "descent_ft": 3940,
-          "long_run_mi": 21.4,
-          "run_hours_est": 8.2,
+          "mileage_mi": 17.5,
+          "vertical_ft": 890,
+          "descent_ft": 590,
+          "long_run_mi": 0,
+          "run_hours_est": 3.5,
           "recovery_week": false,
           "ua_week_type": "B",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1.",
+        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1. REV 2.18 (TRAVEL 11/25-12/5): Tue-Thu run in Raanana (treadmill climbing blocks + North Loop spur sprints; Park Loop; TLV boardwalk). Gate D #1 moved Sun 12/6 -> Mon 12/7 (lands in W11's calendar week); 12/6 = rest after the flight. Gate attributed to W10 for ramp, RS 19 Nov: ramp-basis W10 = the calendar sums plus the gate.",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -13856,79 +13854,35 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 70,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday.",
-        "day_notes": "Easy TI swim only - no run, no lift. Active recovery the day after the long run.",
-        "sessions": [
-          {
-            "type": "cross",
-            "subtype": "swim",
-            "method": "Total Immersion",
-            "title": "Easy TI swim - active recovery",
-            "duration_min": 40,
-            "intensity": "easy",
-            "key_cue": "DRILLS + CONTINUOUS EASY SWIMMING: ~10 min drills, then 200-400 m continuous at an easy, even SPL; bilateral breathing. EFFORT 3-4/10 throughout; if breathing gets ragged, go back to drills. HR is NOT capped: swim HR runs well below running HR at the same effort, so the running AeT cap does not apply - go by feel. SHOULDER RULE: stop at the first pinch at the front or top of the shoulder (left is the priority side); no paddles; hands enter wide ('railroad tracks'), never crossing the midline. KICK: relaxed 2-beat; ease it off if the calf or posterior heel tightens; no breaststroke kick (knees). Gentle wall push-offs.",
-            "notes": "Cross-training (athlete, rev 2.2): general aerobic + upper-body work, light on the legs. NOT counted in run mileage, vertical or the ramp guard; counted in weekly hours. If the left shoulder reacts, swimming is dropped BEFORE Upper A (Upper A's cuff work is the protective part). Monday: the day after the long run - restorative only. "
-          }
-        ]
+        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday. REV 2.12: Mon 11/30 and Fri 12/4 swims dropped (no pool on the trip). Gate D #1 is now Mon 12/7 (run plan rev 2.18/2.19); 12/6 rest, no lower-body work 12/6-12/8.",
+        "day_notes": "Rest - routines only. Day after the long run; no swim on the trip (no pool).",
+        "sessions": []
       },
       "nutrition": {
-        "day_type_id": "rest_day_swim",
-        "day_type_label": "Swim-only day (Monday recovery swim / rest day + swim)",
+        "day_type_id": "rest_day",
+        "day_type_label": "Rest day (no training)",
         "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 2600,
-          "carbs_g": 310,
-          "protein_g": 150,
+          "calories_total": 2300,
+          "carbs_g": 260,
+          "protein_g": 145,
           "fat_g": 85,
-          "fluid_ml_total": 2900,
-          "general_guidance": "Rest-day eating plus the swim: carbs up modestly, protein unchanged. Monday = recovery day after the long run - eat enough."
+          "fluid_ml_total": 2500,
+          "general_guidance": "Lowest-carb day, protein unchanged. Three meals + one protein snack. Collagen + C with the morning foot routine.",
+          "notes": "Rest days are where tendon remodeling happens - under-eating protein here is the common error."
         },
-        "session_fueling": [
-          {
-            "linked_session": {
-              "type": "cross",
-              "subtype": "swim",
-              "position": "pre"
-            },
-            "timing": "30-60 min before (optional)",
-            "calories": 120,
-            "carbs_g": 25,
-            "protein_g": 3,
-            "foods": [
-              "banana or a slice of toast with honey"
-            ],
-            "notes": "Skip if a meal was < 2 h ago."
-          },
-          {
-            "linked_session": {
-              "type": "cross",
-              "subtype": "swim",
-              "position": "post"
-            },
-            "timing": "Within 45 min",
-            "calories": 250,
-            "carbs_g": 30,
-            "protein_g": 20,
-            "foods": [
-              "Greek yogurt + fruit",
-              "or a normal meal if it is mealtime"
-            ],
-            "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
-          }
-        ],
+        "session_fueling": [],
         "notes": "",
         "source": "day_type",
         "matched_by": "trigger",
         "signature": {
           "run_subtype": null,
           "strength_subtype": null,
-          "cross_subtypes": [
-            "swim"
-          ]
+          "cross_subtypes": []
         }
       }
     },
@@ -13941,18 +13895,18 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 38.9,
-          "vertical_ft": 3940,
-          "descent_ft": 3940,
-          "long_run_mi": 21.4,
-          "run_hours_est": 8.2,
+          "mileage_mi": 17.5,
+          "vertical_ft": 890,
+          "descent_ft": 590,
+          "long_run_mi": 0,
+          "run_hours_est": 3.5,
           "recovery_week": false,
           "ua_week_type": "B",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1.",
+        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1. REV 2.18 (TRAVEL 11/25-12/5): Tue-Thu run in Raanana (treadmill climbing blocks + North Loop spur sprints; Park Loop; TLV boardwalk). Gate D #1 moved Sun 12/6 -> Mon 12/7 (lands in W11's calendar week); 12/6 = rest after the flight. Gate attributed to W10 for ramp, RS 19 Nov: ramp-basis W10 = the calendar sums plus the gate.",
         "day_notes": "",
         "sessions": [
           {
@@ -13962,7 +13916,7 @@
             "duration_min": 85,
             "distance_mi": 6.5,
             "elevation_gain_ft": 400,
-            "elevation_loss_ft": 400,
+            "elevation_loss_ft": 100,
             "terrain": "mixed",
             "terrain_intent": "grade",
             "hr_cap_bpm": 147,
@@ -13972,7 +13926,7 @@
             "key_cue": "After a 15-min Z1-2 warm-up: 2 x 10 min of continuous climbing at +3..+7%, jog/walk down between. Remainder of the run Z1-2 on rolling terrain. RULE: HR at the alert (AeT) -> hike immediately until AeT-5, then run again. Hiking to stay aerobic is the session working, not failing. HILL SPRINTS x6: 8-10 s uphill at +8..+12% (max effort), full 2-3 min walk-down recovery - never cut the rest short. Progress by adding reps (max +2/week, cap 8), never by lengthening past 10 s; grade stays +8..+12% (posterior heel - deliberate deviation from UA's 30% hills). Alactic - HR is irrelevant, so these are NOT gated by the AeT test (Uphill Athlete permits them in an aerobic-deficiency base). GATED ON: a quiet posterior heel (single-leg hop test PASSED 11/5). First thing pulled on any heel, Achilles or forefoot signal. READ-OUT (FR tracking ask #4): lap-press every climb block; RS reports run_pct and mean HR on +5..+10% versus the Vermont baseline (debrief s3: ~60% run share on +5..+10% late). Target over the cycle: crossover up from ~7-8% at unchanged HR. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "1 gel at 45 min if over 75 min.",
-            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the way back is mostly gentle (-4.6% average) but ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) - run it relaxed, short strides; it is inside the card's descent. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. Gate week: lighter by design. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel).",
+            "notes": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE - its 1.12-mi +6.2% climb holds the blocks; the way back is mostly gentle (-4.6% average) but ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) - run it relaxed, short strides; it is inside the card's descent. Boat Basin (1.5 mi at +6.0%) if the Alpine woods are icy. Intensity: Aerobic quality (priority 1 - uphill running at low HR). SURFACE: gravel/dirt road or smooth trail at the named grade (terrain_intent grade; Terrain_Substitution_Rules_v1); a treadmill is allowed - log it, the descent field drops to the warm-up's. Gate week: lighter by design. SPRINT HILL (rev 2.4): the athlete's short steep local hills are fine; grade stays +8..+12% (posterior heel). TRAVEL (rev 2.18): Raanana trip 11/25-12/5 (7 h ahead). VENUE: TREADMILL for the climbing blocks (15-min warm-up, 2 x 10 min at +4..+6%, jog-downs at 0-1%), then outdoors to the Raanana North Loop spur for the 6 sprints (steep pitch GPX mi 4.88-4.94) and back. Elevation_loss drops to the outdoor part (treadmill rule). Alternative: Eitan loop's 1.2-km +5.7% climb holds a 10-min block (second 1-h drive). If the 11/24 test passes, the if_pass version runs the same way on the treadmill.",
             "aet_gate": {
               "slot": "gated",
               "active_version": "default",
@@ -13994,12 +13948,12 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 70,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday.",
-        "day_notes": "DOUBLE DAY - AM Aerobic climbing - run the climbs at or below AeT + PM Lower A - MAX STRENGTH (moderate - gate week). Run first, 4+ h gap.",
+        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday. REV 2.12: Mon 11/30 and Fri 12/4 swims dropped (no pool on the trip). Gate D #1 is now Mon 12/7 (run plan rev 2.18/2.19); 12/6 rest, no lower-body work 12/6-12/8.",
+        "day_notes": "DOUBLE DAY - AM Aerobic climbing (treadmill blocks + spur sprints, Raanana) + PM Lower A - MAX STRENGTH (moderate - gate week). Run first, 4+ h gap.",
         "sessions": [
           {
             "type": "strength",
@@ -14075,7 +14029,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. GATE WEEK: moderate loads only - nothing that leaves soreness into Sunday. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
+            "notes": "Uphill Athlete MAX STRENGTH phase: low reps, high load, long rests (2-3 min). Strength is the ceiling that muscular endurance is later built under. GATE WEEK: moderate loads only - nothing that leaves soreness into the Mon 12/7 gate. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -14198,18 +14152,18 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 38.9,
-          "vertical_ft": 3940,
-          "descent_ft": 3940,
-          "long_run_mi": 21.4,
-          "run_hours_est": 8.2,
+          "mileage_mi": 17.5,
+          "vertical_ft": 890,
+          "descent_ft": 590,
+          "long_run_mi": 0,
+          "run_hours_est": 3.5,
           "recovery_week": false,
           "ua_week_type": "B",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1.",
+        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1. REV 2.18 (TRAVEL 11/25-12/5): Tue-Thu run in Raanana (treadmill climbing blocks + North Loop spur sprints; Park Loop; TLV boardwalk). Gate D #1 moved Sun 12/6 -> Mon 12/7 (lands in W11's calendar week); 12/6 = rest after the flight. Gate attributed to W10 for ramp, RS 19 Nov: ramp-basis W10 = the calendar sums plus the gate.",
         "day_notes": "",
         "sessions": [
           {
@@ -14218,8 +14172,8 @@
             "title": "Recovery run (UA Zone 1)",
             "duration_min": 60,
             "distance_mi": 5.0,
-            "elevation_gain_ft": 100,
-            "elevation_loss_ft": 100,
+            "elevation_gain_ft": 230,
+            "elevation_loss_ft": 230,
             "terrain": "road",
             "terrain_intent": "free",
             "hr_cap_bpm": 132,
@@ -14228,7 +14182,7 @@
             "poles": false,
             "key_cue": "Truly easy: stay under AeT-10% (132 working). Walk any hill that pushes you over.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too)."
+            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too). TRAVEL (rev 2.18): Raanana trip 11/25-12/5 (7 h ahead). Venue: Raanana Park Loop x2 plus extra (~5 mi)."
           }
         ]
       },
@@ -14236,11 +14190,11 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 70,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday.",
+        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday. REV 2.12: Mon 11/30 and Fri 12/4 swims dropped (no pool on the trip). Gate D #1 is now Mon 12/7 (run plan rev 2.18/2.19); 12/6 rest, no lower-body work 12/6-12/8.",
         "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull. Run first, 4+ h gap.",
         "sessions": [
           {
@@ -14384,18 +14338,18 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 38.9,
-          "vertical_ft": 3940,
-          "descent_ft": 3940,
-          "long_run_mi": 21.4,
-          "run_hours_est": 8.2,
+          "mileage_mi": 17.5,
+          "vertical_ft": 890,
+          "descent_ft": 590,
+          "long_run_mi": 0,
+          "run_hours_est": 3.5,
           "recovery_week": false,
           "ua_week_type": "B",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1.",
+        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1. REV 2.18 (TRAVEL 11/25-12/5): Tue-Thu run in Raanana (treadmill climbing blocks + North Loop spur sprints; Park Loop; TLV boardwalk). Gate D #1 moved Sun 12/6 -> Mon 12/7 (lands in W11's calendar week); 12/6 = rest after the flight. Gate attributed to W10 for ramp, RS 19 Nov: ramp-basis W10 = the calendar sums plus the gate.",
         "day_notes": "",
         "sessions": [
           {
@@ -14404,8 +14358,8 @@
             "title": "Aerobic run (Z1-2, at or below AeT)",
             "duration_min": 68,
             "distance_mi": 6.0,
-            "elevation_gain_ft": 100,
-            "elevation_loss_ft": 100,
+            "elevation_gain_ft": 260,
+            "elevation_loss_ft": 260,
             "terrain": "road",
             "terrain_intent": "free",
             "hr_cap_bpm": 147,
@@ -14414,7 +14368,7 @@
             "poles": false,
             "key_cue": "Steady and conversational, capped at AeT (147 working). Run everything that stays under the cap; hike what doesn't. Flat-to-gentle. NO descent reps this week - the gate run is Sunday. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic."
+            "notes": "Intensity: Aerobic. TRAVEL (rev 2.18): Raanana trip 11/25-12/5 (7 h ahead). Venue: TLV boardwalk out-and-back (3.0 mi each way, ~130 ft each way; 20-min drive)."
           }
         ]
       },
@@ -14422,11 +14376,11 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 70,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday.",
+        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday. REV 2.12: Mon 11/30 and Fri 12/4 swims dropped (no pool on the trip). Gate D #1 is now Mon 12/7 (run plan rev 2.18/2.19); 12/6 rest, no lower-body work 12/6-12/8.",
         "day_notes": "DOUBLE DAY - AM Aerobic run (Z1-2, at or below AeT) + PM Lower B - Tendon HSR & Lateral Chain (light - gate week). Run first, 4+ h gap.",
         "sessions": [
           {
@@ -14498,7 +14452,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "P1 flagship tendon session. GATE WEEK: light, 3 days before the qualifying run. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
+            "notes": "P1 flagship tendon session. GATE WEEK: light, 4 days before the qualifying run (Mon 12/7). Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan).",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -14622,42 +14576,32 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 38.9,
-          "vertical_ft": 3940,
-          "descent_ft": 3940,
-          "long_run_mi": 21.4,
-          "run_hours_est": 8.2,
+          "mileage_mi": 17.5,
+          "vertical_ft": 890,
+          "descent_ft": 590,
+          "long_run_mi": 0,
+          "run_hours_est": 3.5,
           "recovery_week": false,
           "ua_week_type": "B",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1.",
-        "day_notes": "Rest (gate week).",
+        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1. REV 2.18 (TRAVEL 11/25-12/5): Tue-Thu run in Raanana (treadmill climbing blocks + North Loop spur sprints; Park Loop; TLV boardwalk). Gate D #1 moved Sun 12/6 -> Mon 12/7 (lands in W11's calendar week); 12/6 = rest after the flight. Gate attributed to W10 for ramp, RS 19 Nov: ramp-basis W10 = the calendar sums plus the gate.",
+        "day_notes": "Rest (gate week). Last day in Raanana.",
         "sessions": []
       },
       "strength": {
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 70,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday.",
-        "day_notes": "No run today. Easy TI swim (30 min) first, Upper B - Push + Shoulder Health (light) later.",
+        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday. REV 2.12: Mon 11/30 and Fri 12/4 swims dropped (no pool on the trip). Gate D #1 is now Mon 12/7 (run plan rev 2.18/2.19); 12/6 rest, no lower-body work 12/6-12/8.",
+        "day_notes": "No run today (last day in Raanana). Upper B - Push + Shoulder Health (light). No swim (no pool).",
         "sessions": [
-          {
-            "type": "cross",
-            "subtype": "swim",
-            "method": "Total Immersion",
-            "title": "Easy TI swim",
-            "duration_min": 30,
-            "intensity": "easy",
-            "key_cue": "DRILLS + CONTINUOUS EASY SWIMMING: ~10 min drills, then 200-400 m continuous at an easy, even SPL; bilateral breathing. EFFORT 3-4/10 throughout; if breathing gets ragged, go back to drills. HR is NOT capped: swim HR runs well below running HR at the same effort, so the running AeT cap does not apply - go by feel. SHOULDER RULE: stop at the first pinch at the front or top of the shoulder (left is the priority side); no paddles; hands enter wide ('railroad tracks'), never crossing the midline. KICK: relaxed 2-beat; ease it off if the calf or posterior heel tightens; no breaststroke kick (knees). Gentle wall push-offs.",
-            "notes": "Cross-training (athlete, rev 2.2): general aerobic + upper-body work, light on the legs. NOT counted in run mileage, vertical or the ramp guard; counted in weekly hours. If the left shoulder reacts, swimming is dropped BEFORE Upper A (Upper A's cuff work is the protective part). Swim first, Upper B later (Upper B is push, so it complements the swim's pull). "
-          },
           {
             "type": "strength",
             "subtype": "upper",
@@ -14728,48 +14672,33 @@
         ]
       },
       "nutrition": {
-        "day_type_id": "strength_only_swim",
-        "day_type_label": "Swim + upper strength (no run)",
+        "day_type_id": "strength_only",
+        "day_type_label": "Strength only (no run)",
         "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 2750,
-          "carbs_g": 330,
+          "calories_total": 2450,
+          "carbs_g": 280,
           "protein_g": 150,
           "fat_g": 85,
-          "fluid_ml_total": 3000,
+          "fluid_ml_total": 2700,
           "general_guidance": "Moderate carbs, protein high."
         },
         "session_fueling": [
           {
             "linked_session": {
-              "type": "cross",
-              "subtype": "swim",
+              "type": "strength",
+              "subtype": "lower",
               "position": "pre"
             },
-            "timing": "30-60 min before (optional)",
+            "timing": "30-60 min before",
             "calories": 120,
-            "carbs_g": 25,
-            "protein_g": 3,
+            "carbs_g": 15,
+            "protein_g": 15,
             "foods": [
-              "banana or a slice of toast with honey"
+              "15 g collagen + 250 mg vitamin C (or with orange juice)",
+              "small carb snack if > 3 h since a meal"
             ],
-            "notes": "Skip if a meal was < 2 h ago."
-          },
-          {
-            "linked_session": {
-              "type": "cross",
-              "subtype": "swim",
-              "position": "post"
-            },
-            "timing": "Within 45 min",
-            "calories": 250,
-            "carbs_g": 30,
-            "protein_g": 20,
-            "foods": [
-              "Greek yogurt + fruit",
-              "or a normal meal if it is mealtime"
-            ],
-            "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
+            "notes": "THE tendon lever - never skipped on Lower A/B days."
           },
           {
             "linked_session": {
@@ -14794,9 +14723,7 @@
         "signature": {
           "run_subtype": null,
           "strength_subtype": "upper",
-          "cross_subtypes": [
-            "swim"
-          ]
+          "cross_subtypes": []
         }
       }
     },
@@ -14809,31 +14736,31 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 38.9,
-          "vertical_ft": 3940,
-          "descent_ft": 3940,
-          "long_run_mi": 21.4,
-          "run_hours_est": 8.2,
+          "mileage_mi": 17.5,
+          "vertical_ft": 890,
+          "descent_ft": 590,
+          "long_run_mi": 0,
+          "run_hours_est": 3.5,
           "recovery_week": false,
           "ua_week_type": "B",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1.",
-        "day_notes": "Rest. Day before Gate D #1.",
+        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1. REV 2.18 (TRAVEL 11/25-12/5): Tue-Thu run in Raanana (treadmill climbing blocks + North Loop spur sprints; Park Loop; TLV boardwalk). Gate D #1 moved Sun 12/6 -> Mon 12/7 (lands in W11's calendar week); 12/6 = rest after the flight. Gate attributed to W10 for ramp, RS 19 Nov: ramp-basis W10 = the calendar sums plus the gate.",
+        "day_notes": "Travel home (morning departure, late-afternoon arrival). No running.",
         "sessions": []
       },
       "strength": {
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 70,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
           "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday.",
-        "day_notes": "Routines only.",
+        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday. REV 2.12: Mon 11/30 and Fri 12/4 swims dropped (no pool on the trip). Gate D #1 is now Mon 12/7 (run plan rev 2.18/2.19); 12/6 rest, no lower-body work 12/6-12/8.",
+        "day_notes": "Travel home. Routines only.",
         "sessions": []
       },
       "nutrition": {
@@ -14865,23 +14792,83 @@
       "day_of_week": "Sunday",
       "week_number": 10,
       "flex": false,
-      "rest_day": false,
+      "rest_day": true,
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 38.9,
-          "vertical_ft": 3940,
-          "descent_ft": 3940,
-          "long_run_mi": 21.4,
-          "run_hours_est": 8.2,
+          "mileage_mi": 17.5,
+          "vertical_ft": 890,
+          "descent_ft": 590,
+          "long_run_mi": 0,
+          "run_hours_est": 3.5,
           "recovery_week": false,
           "ua_week_type": "B",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1.",
-        "day_notes": "GATE D #1. Morning symptom ratings 12/7 and 12/8 are part of the test.",
+        "week_notes": "GATE D #1 WEEK. Midweek deliberately flat after Tuesday; no downhill pick-ups; Friday and Saturday rest; Sunday = qualifying run #1. REV 2.18 (TRAVEL 11/25-12/5): Tue-Thu run in Raanana (treadmill climbing blocks + North Loop spur sprints; Park Loop; TLV boardwalk). Gate D #1 moved Sun 12/6 -> Mon 12/7 (lands in W11's calendar week); 12/6 = rest after the flight. Gate attributed to W10 for ramp, RS 19 Nov: ramp-basis W10 = the calendar sums plus the gate.",
+        "day_notes": "Rest - first full day home after the flight (rev 2.18: Gate D #1 moved to Mon 12/7). Optional 20-30 min easy walk in daylight.",
+        "sessions": []
+      },
+      "strength": {
+        "phase": "Base",
+        "weekly_targets": {
+          "strength_sessions": 4,
+          "swim_sessions": 0,
+          "swim_minutes": 0,
+          "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
+        },
+        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday. REV 2.12: Mon 11/30 and Fri 12/4 swims dropped (no pool on the trip). Gate D #1 is now Mon 12/7 (run plan rev 2.18/2.19); 12/6 rest, no lower-body work 12/6-12/8.",
+        "day_notes": "Rest - first full day home after the flight. Routines only; no lower-body work (day before Gate D #1). Run plan: optional 20-30 min daylight walk.",
+        "sessions": []
+      },
+      "nutrition": {
+        "day_type_id": "rest_day",
+        "day_type_label": "Rest day (no training)",
+        "phase_adjustment_applied": null,
+        "daily_targets": {
+          "calories_total": 2300,
+          "carbs_g": 260,
+          "protein_g": 145,
+          "fat_g": 85,
+          "fluid_ml_total": 2500,
+          "general_guidance": "Lowest-carb day, protein unchanged. Three meals + one protein snack. Collagen + C with the morning foot routine.",
+          "notes": "Rest days are where tendon remodeling happens - under-eating protein here is the common error."
+        },
+        "session_fueling": [],
+        "notes": "",
+        "source": "day_type",
+        "matched_by": "trigger",
+        "signature": {
+          "run_subtype": null,
+          "strength_subtype": null,
+          "cross_subtypes": []
+        }
+      }
+    },
+    "2026-12-07": {
+      "date": "2026-12-07",
+      "day_of_week": "Monday",
+      "week_number": 11,
+      "flex": false,
+      "rest_day": false,
+      "run": {
+        "phase": "Base",
+        "weekly_targets": {
+          "mileage_mi": 42.9,
+          "vertical_ft": 4990,
+          "descent_ft": 4990,
+          "long_run_mi": 21.4,
+          "run_hours_est": 9.2,
+          "recovery_week": true,
+          "ua_week_type": "R",
+          "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
+        },
+        "week_notes": "REV 2.18: Gate D #1 now Mon 12/7 (travel). 12/8 rest (gate +1), 12/9 flat recovery (gate +2), rest of the R week unchanged; one recovery run dropped. Weekly sums (calendar) include the gate; the gate is attributed to W10 for ramp, RS 19 Nov (ramp-basis W11 excludes it). UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
+        "day_notes": "GATE D #1 (moved from 12/6, rev 2.18). Morning symptom ratings 12/8 and 12/9 are part of the test.",
         "sessions": [
           {
             "type": "run",
@@ -14896,10 +14883,10 @@
             "hr_zone": "Z1-2",
             "hr_anchor": "AeT",
             "poles": false,
-            "key_cue": "GATE D QUALIFYING RUN (criteria agreed August; RS 27 Oct relaxed 'rolling' only - the descent criterion is unchanged): 20-22 mi RUNNABLE, with 3,000+ ft of DESCENT; the downs RUN, not hiked; then a clean 48-hour symptom window. POLE-FREE for comparability (ask #6). ROUTE (rev 2.6, RS ruling 27 Oct): BOAT BASIN x7 round trips (1.53 mi / ~477 ft each way at ~6%), ~21.4 mi / ~3,340 ft of descent - the card carries the route's honest ~3,340 ft (rev 2.7, RS F-1 option a); RS verifies the >= 3,000 ft threshold from the FIT, not the card. Same route, same rep order and same use of the flat section at the bottom between reps on BOTH days (as on 9/14). Park at the top in winter. Every descent RUN; if a rep's descent is hiked for any reason other than a short ice patch, record it in the body report - RS decides whether the day counts. Read against the 9/14 Peregrine baseline on the same road. This is a tissue-tolerance test, NOT a race simulation: do not inflate it (cover note). HR capped at AeT on climbs; descents audited. SHOES (RS 2 Nov): at least ONE Gate D run in the CANDIDATE RACE SHOE, so it has a long hard-surface run before G2 on 2/21 - 12/6 if the candidate is settled by then, otherwise 12/20. Record the shoe in the body report each day. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "key_cue": "DATE (rev 2.18): moved from Sun 12/6 - flying home 12/5. FALLBACK: Tue 12/8 (then 12/8-12/9 shift one day and the 12/13 long run moves to Mon 12/14, attributed to W11 for ramp, RS 19 Nov). READINESS RULE (RS 19 Nov): take the Tue 12/8 fallback if EITHER morning RHR on 12/7 is >= 50 bpm (baseline 45) OR sleep on the night of 12/6 is under ~6 h; otherwise run 12/7. A move under this rule is not a deviation. RECORD in the body report: landing time on 12/5, sleep on the nights of 12/5 and 12/6, and the 12/7 morning RHR.  Westward jetlag usually means early waking - an early start is fine. GATE D QUALIFYING RUN (criteria agreed August; RS 27 Oct relaxed 'rolling' only - the descent criterion is unchanged): 20-22 mi RUNNABLE, with 3,000+ ft of DESCENT; the downs RUN, not hiked; then a clean 48-hour symptom window. POLE-FREE for comparability (ask #6). ROUTE (rev 2.6, RS ruling 27 Oct): BOAT BASIN x7 round trips (1.53 mi / ~477 ft each way at ~6%), ~21.4 mi / ~3,340 ft of descent - the card carries the route's honest ~3,340 ft (rev 2.7, RS F-1 option a); RS verifies the >= 3,000 ft threshold from the FIT, not the card. Same route, same rep order and same use of the flat section at the bottom between reps on BOTH days (as on 9/14). Park at the top in winter. Every descent RUN; if a rep's descent is hiked for any reason other than a short ice patch, record it in the body report - RS decides whether the day counts. Read against the 9/14 Peregrine baseline on the same road. This is a tissue-tolerance test, NOT a race simulation: do not inflate it (cover note). HR capped at AeT on climbs; descents audited. SHOES (RS 2 Nov): at least ONE Gate D run in the CANDIDATE RACE SHOE, so it has a long hard-surface run before G2 on 2/21 - 12/6 if the candidate is settled by then, otherwise 12/20. Record the shoe in the body report each day. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: non-technical paved road (the RS-ruled Gate D route); never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Intensity: GATE. FIT + 48-h symptom notes (heel, lateral ankle, knees, forefoot: morning ratings 0-10 on days +1 and +2) to Race Strategy; RS rules within a few days. PASS twice within three weeks -> the 103K is on. FAIL -> fallback is the 53K at the same event or a spring 50-miler, and this plan re-scopes by revision.",
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: non-technical paved road (the RS-ruled Gate D route); never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. Intensity: GATE. FIT + 48-h symptom notes (heel, lateral ankle, knees, forefoot: morning ratings 0-10 on days +1 and +2) to Race Strategy; RS rules within a few days. PASS twice within three weeks -> the 103K is on. FAIL -> fallback is the 53K at the same event or a spring 50-miler, and this plan re-scopes by revision. REV 2.18: displaced one day by travel into W11's calendar week. Attributed to W10 for ramp, RS 19 Nov (W10 stays the reference for W12; W11's recovery character is judged on 12/8-12/13). The Gate D exemption applies as before. Min 6 days to the 12/13 long run is met (6); Gate D #2 (12/20) stays inside the three-week pass window.",
             "elevation_loss_ft": 3340
           }
         ]
@@ -14908,17 +14895,17 @@
         "phase": "Base",
         "weekly_targets": {
           "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 70,
-          "notes": "Block 3 - Gate D (run week: UA B, 38.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
+          "swim_sessions": 1,
+          "swim_minutes": 45,
+          "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "GATE D #1 WEEK: moderate Lower A, light Lower B, light Upper B Friday (no carries); nothing heavy for the legs after Thursday.",
-        "day_notes": "Routines only. Run plan: GATE D #1 - December qualifying run.",
+        "week_notes": "UA R week. Absorb week after Gate D #1 (Mon 12/7, run plan rev 2.18/2.19): 12/8 full rest; Lower A Wed 12/9 (after the gate +2 rating); Upper A Thu 12/10; Lower B Fri 12/11; swim + Upper B Sat 12/12. FALLBACK (gate moves to Tue 12/8): 12/9 rest; Lower A Thu, Upper A Fri, Lower B Sat, swim + Upper B Sun; long run Mon 12/14.",
+        "day_notes": "GATE D #1 (default date). Routines only - no lower-body work. FALLBACK (decided the morning of 12/7: RHR >= 50 or 12/6 sleep < ~6 h): 12/7 = rest, gate runs Tue 12/8.",
         "sessions": []
       },
       "nutrition": {
         "day_type_id": "long_run",
-        "day_type_label": "GATE D #1 - 21-mi qualifying run (tissue test)",
+        "day_type_label": "GATE D #1 - 21.4-mi qualifying run (tissue test); moved from Sun 12/6 (travel, run plan rev 2.18)",
         "phase_adjustment_applied": null,
         "daily_targets": {
           "calories_total": 3700,
@@ -14926,7 +14913,7 @@
           "protein_g": 150,
           "fat_g": 88,
           "fluid_ml_total": 4000,
-          "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before.",
+          "general_guidance": "NO NEW VARIABLES: this is a tissue test, so the fueling is the proven base protocol exactly. Carb-rich dinner the night before (Sun 12/6, first full day home - also hydrate well after the flight). FALLBACK (run plan rev 2.19 readiness rule, decided the morning of 12/7): if the gate moves to Tue 12/8, this whole override applies to 12/8, the carb-rich dinner to 12/7, 12/7 eats as a rest day, and the 12/13 long_run day type moves to Mon 12/14 (day types follow the run plan - no extra override).",
           "notes": "FUELING LADDER (FR-w: the problem is calorie MIX, not volume). BASE W3-13: proven gels every 25-30 min + water, 200-250 cal/hr; from W7 add ONE real-food item at ~hour 2 on runs >= 2.5 h, rotating (salted boiled potato, rice ball, 1/4 PB&J, banana, bread + cheese). BUILD W14-22: 250-280 cal/hr as a MIX - gels ~50%, half-strength GU Roctane Energy Drink Mix ~25%, real food ~25% every 45-60 min - so no single source runs over ~150 cal/hr (Vermont's fullness came at ~365 cal/hr, mostly gel + drink). The 2/21 long effort (override) is the J-2 rehearsal of this mix past hour 7. G1 shoe gate 1/31 and the 2/7 long run use this day type - no new fuel variable on a footing test. PEAK W23-26: race protocol v1 (overrides 3/7, 3/21). One new variable per run; hour 1 always on the proven baseline."
         },
         "session_fueling": [
@@ -15004,31 +14991,31 @@
           "strength_subtype": null,
           "cross_subtypes": []
         },
-        "override_reason": "GATE D #1 - 21-mi qualifying run (tissue test)",
+        "override_reason": "GATE D #1 - 21.4-mi qualifying run (tissue test); moved from Sun 12/6 (travel, run plan rev 2.18)",
         "matched_day_type_label": "Sunday long run"
       }
     },
-    "2026-12-07": {
-      "date": "2026-12-07",
-      "day_of_week": "Monday",
+    "2026-12-08": {
+      "date": "2026-12-08",
+      "day_of_week": "Tuesday",
       "week_number": 11,
       "flex": false,
       "rest_day": true,
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 1750,
-          "descent_ft": 1750,
-          "long_run_mi": 9.5,
-          "run_hours_est": 5.3,
+          "mileage_mi": 42.9,
+          "vertical_ft": 4990,
+          "descent_ft": 4990,
+          "long_run_mi": 21.4,
+          "run_hours_est": 9.2,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
+        "week_notes": "REV 2.18: Gate D #1 now Mon 12/7 (travel). 12/8 rest (gate +1), 12/9 flat recovery (gate +2), rest of the R week unchanged; one recovery run dropped. Weekly sums (calendar) include the gate; the gate is attributed to W10 for ramp, RS 19 Nov (ramp-basis W11 excludes it). UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
         "day_notes": "Gate day +1: rest. Morning symptom rating logged.",
         "sessions": []
       },
@@ -15040,8 +15027,8 @@
           "swim_minutes": 45,
           "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week. Absorb week: Upper A Tue, Lower A Wed (after the 48-h window; Wednesday is now a recovery run, not climbing), Lower B Fri, Upper B Sat.",
-        "day_notes": "No swim: gate day +1 - full rest.",
+        "week_notes": "UA R week. Absorb week after Gate D #1 (Mon 12/7, run plan rev 2.18/2.19): 12/8 full rest; Lower A Wed 12/9 (after the gate +2 rating); Upper A Thu 12/10; Lower B Fri 12/11; swim + Upper B Sat 12/12. FALLBACK (gate moves to Tue 12/8): 12/9 rest; Lower A Thu, Upper A Fri, Lower B Sat, swim + Upper B Sun; long run Mon 12/14.",
+        "day_notes": "Gate day +1: full rest - no swim, no lift. Morning symptom rating. FALLBACK: this is the gate day - routines only, no lower-body work.",
         "sessions": []
       },
       "nutrition": {
@@ -15068,27 +15055,27 @@
         }
       }
     },
-    "2026-12-08": {
-      "date": "2026-12-08",
-      "day_of_week": "Tuesday",
+    "2026-12-09": {
+      "date": "2026-12-09",
+      "day_of_week": "Wednesday",
       "week_number": 11,
-      "flex": false,
+      "flex": true,
       "rest_day": false,
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 1750,
-          "descent_ft": 1750,
-          "long_run_mi": 9.5,
-          "run_hours_est": 5.3,
+          "mileage_mi": 42.9,
+          "vertical_ft": 4990,
+          "descent_ft": 4990,
+          "long_run_mi": 21.4,
+          "run_hours_est": 9.2,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
+        "week_notes": "REV 2.18: Gate D #1 now Mon 12/7 (travel). 12/8 rest (gate +1), 12/9 flat recovery (gate +2), rest of the R week unchanged; one recovery run dropped. Weekly sums (calendar) include the gate; the gate is attributed to W10 for ramp, RS 19 Nov (ramp-basis W11 excludes it). UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
         "day_notes": "Gate day +2: symptom rating logged in the morning; FIT and notes to RS today.",
         "sessions": [
           {
@@ -15107,7 +15094,7 @@
             "poles": false,
             "key_cue": "Truly easy: stay under AeT-10% (132 working). Walk any hill that pushes you over. Flat only - still inside the 48-h window. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too)."
+            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too). REV 2.18: moved 12/8 -> 12/9 with the gate shift; the original 12/9 recovery run is dropped (R week keeps >= 2 recovery-zone workouts with the swims)."
           }
         ]
       },
@@ -15119,194 +15106,8 @@
           "swim_minutes": 45,
           "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week. Absorb week: Upper A Tue, Lower A Wed (after the 48-h window; Wednesday is now a recovery run, not climbing), Lower B Fri, Upper B Sat.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Upper A - Pull. Run first, 4+ h gap.",
-        "sessions": [
-          {
-            "type": "strength",
-            "subtype": "upper",
-            "title": "Upper A - Pull",
-            "duration_min": 45,
-            "exercises": [
-              {
-                "name": "Pull-ups (or band-assisted)",
-                "category": "upper_body",
-                "sets": 4,
-                "reps": "6-8",
-                "load": "heavy",
-                "side": "both",
-                "cue": "Full hang to chin over."
-              },
-              {
-                "name": "Single-arm dumbbell row",
-                "category": "upper_body",
-                "sets": 3,
-                "reps": 10,
-                "load": "heavy",
-                "side": "alternating"
-              },
-              {
-                "name": "Dumbbell overhead press",
-                "category": "upper_body",
-                "sets": 3,
-                "reps": 8,
-                "load": "moderate",
-                "side": "both",
-                "cue": "Ribs down."
-              },
-              {
-                "name": "Cable row (or band row)",
-                "category": "upper_body",
-                "sets": 3,
-                "reps": 12,
-                "load": "moderate",
-                "side": "both"
-              },
-              {
-                "name": "Band external rotation",
-                "category": "corrective",
-                "sets": 3,
-                "reps": 12,
-                "load": "light",
-                "side": "alternating",
-                "cue": "Left shoulder maintenance - non-negotiable set."
-              },
-              {
-                "name": "Pallof press",
-                "category": "core",
-                "sets": 3,
-                "reps": 10,
-                "side": "alternating"
-              }
-            ],
-            "notes": "Pairs with any run day. ",
-            "warmup_protocol": "pre_upper"
-          }
-        ]
-      },
-      "nutrition": {
-        "day_type_id": "easy_run_upper_strength",
-        "day_type_label": "Recovery/easy run + upper strength (double-day)",
-        "phase_adjustment_applied": null,
-        "daily_targets": {
-          "calories_total": 2600,
-          "carbs_g": 310,
-          "protein_g": 145,
-          "fat_g": 85,
-          "fluid_ml_total": 2800,
-          "general_guidance": "Moderate day. Refill after Tuesday's double without overdoing it."
-        },
-        "session_fueling": [
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "pre"
-            },
-            "timing": "Optional - run fasted-light if < 45 min",
-            "calories": 200,
-            "carbs_g": 35,
-            "protein_g": 6,
-            "fat_g": 4,
-            "foods": [
-              "banana or toast",
-              "coffee"
-            ]
-          },
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": null,
-              "position": "post"
-            },
-            "timing": "Within 30-45 min",
-            "calories": 350,
-            "carbs_g": 50,
-            "protein_g": 30,
-            "foods": [
-              "whey shake + banana",
-              "or a normal meal if it is mealtime"
-            ],
-            "notes": "Creatine 5 g in this window."
-          },
-          {
-            "linked_session": {
-              "type": "strength",
-              "subtype": "upper",
-              "position": "post"
-            },
-            "timing": "Within 60 min",
-            "calories": 350,
-            "carbs_g": 35,
-            "protein_g": 30,
-            "foods": [
-              "normal protein-rich meal"
-            ]
-          }
-        ],
-        "notes": "",
-        "source": "day_type",
-        "matched_by": "trigger",
-        "signature": {
-          "run_subtype": "easy",
-          "strength_subtype": "upper",
-          "cross_subtypes": []
-        }
-      }
-    },
-    "2026-12-09": {
-      "date": "2026-12-09",
-      "day_of_week": "Wednesday",
-      "week_number": 11,
-      "flex": true,
-      "rest_day": false,
-      "run": {
-        "phase": "Base",
-        "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 1750,
-          "descent_ft": 1750,
-          "long_run_mi": 9.5,
-          "run_hours_est": 5.3,
-          "recovery_week": true,
-          "ua_week_type": "R",
-          "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
-          "derived_from": "session_sums",
-          "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
-        },
-        "week_notes": "UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
-        "day_notes": "",
-        "sessions": [
-          {
-            "type": "run",
-            "subtype": "easy",
-            "title": "Recovery run (UA Zone 1)",
-            "duration_min": 48,
-            "distance_mi": 4.0,
-            "elevation_gain_ft": 100,
-            "elevation_loss_ft": 100,
-            "terrain": "road",
-            "terrain_intent": "free",
-            "hr_cap_bpm": 132,
-            "hr_zone": "Z1",
-            "hr_anchor": "AeT_minus_10pct",
-            "poles": false,
-            "key_cue": "Truly easy: stay under AeT-10% (132 working). Walk any hill that pushes you over.  WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
-            "fueling_required": false,
-            "notes": "Intensity: Recovery (UA Zone 1). Counts as one of the week's recovery-zone workouts (UA: >= 2 in R and S weeks; Monday/Friday swims count too)."
-          }
-        ]
-      },
-      "strength": {
-        "phase": "Base",
-        "weekly_targets": {
-          "strength_sessions": 4,
-          "swim_sessions": 1,
-          "swim_minutes": 45,
-          "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
-        },
-        "week_notes": "UA R week. Absorb week: Upper A Tue, Lower A Wed (after the 48-h window; Wednesday is now a recovery run, not climbing), Lower B Fri, Upper B Sat.",
-        "day_notes": "DOUBLE DAY - AM Recovery run (UA Zone 1) + PM Lower A - MAX STRENGTH. Run first, 4+ h gap.",
+        "week_notes": "UA R week. Absorb week after Gate D #1 (Mon 12/7, run plan rev 2.18/2.19): 12/8 full rest; Lower A Wed 12/9 (after the gate +2 rating); Upper A Thu 12/10; Lower B Fri 12/11; swim + Upper B Sat 12/12. FALLBACK (gate moves to Tue 12/8): 12/9 rest; Lower A Thu, Upper A Fri, Lower B Sat, swim + Upper B Sun; long run Mon 12/14.",
+        "day_notes": "DOUBLE DAY - gate +2: AM flat Recovery run + PM Lower A - MAX STRENGTH, after the morning symptom rating (~56 h post-gate). If a rating is up on 12/8, use the moderate gate-week loads. Run first, 4+ h gap. FALLBACK (gate 12/8): 12/9 = gate +1 full rest, no swim; Lower A moves to Thu 12/10.",
         "sessions": [
           {
             "type": "strength",
@@ -15506,18 +15307,18 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 1750,
-          "descent_ft": 1750,
-          "long_run_mi": 9.5,
-          "run_hours_est": 5.3,
+          "mileage_mi": 42.9,
+          "vertical_ft": 4990,
+          "descent_ft": 4990,
+          "long_run_mi": 21.4,
+          "run_hours_est": 9.2,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
+        "week_notes": "REV 2.18: Gate D #1 now Mon 12/7 (travel). 12/8 rest (gate +1), 12/9 flat recovery (gate +2), rest of the R week unchanged; one recovery run dropped. Weekly sums (calendar) include the gate; the gate is attributed to W10 for ramp, RS 19 Nov (ramp-basis W11 excludes it). UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
         "day_notes": "",
         "sessions": [
           {
@@ -15548,31 +15349,82 @@
           "swim_minutes": 45,
           "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week. Absorb week: Upper A Tue, Lower A Wed (after the 48-h window; Wednesday is now a recovery run, not climbing), Lower B Fri, Upper B Sat.",
-        "day_notes": "Routines only. Run plan: Aerobic run (Z1-2, at or below AeT).",
-        "sessions": []
+        "week_notes": "UA R week. Absorb week after Gate D #1 (Mon 12/7, run plan rev 2.18/2.19): 12/8 full rest; Lower A Wed 12/9 (after the gate +2 rating); Upper A Thu 12/10; Lower B Fri 12/11; swim + Upper B Sat 12/12. FALLBACK (gate moves to Tue 12/8): 12/9 rest; Lower A Thu, Upper A Fri, Lower B Sat, swim + Upper B Sun; long run Mon 12/14.",
+        "day_notes": "DOUBLE DAY - AM Aerobic run (Z1-2, at or below AeT) + PM Upper A - Pull (moved from Tue 12/8: gate +1 is full rest). Run first, 4+ h gap. FALLBACK: AM flat recovery run (gate +2) + PM Lower A; Upper A moves to Fri 12/11.",
+        "sessions": [
+          {
+            "type": "strength",
+            "subtype": "upper",
+            "title": "Upper A - Pull",
+            "duration_min": 45,
+            "exercises": [
+              {
+                "name": "Pull-ups (or band-assisted)",
+                "category": "upper_body",
+                "sets": 4,
+                "reps": "6-8",
+                "load": "heavy",
+                "side": "both",
+                "cue": "Full hang to chin over."
+              },
+              {
+                "name": "Single-arm dumbbell row",
+                "category": "upper_body",
+                "sets": 3,
+                "reps": 10,
+                "load": "heavy",
+                "side": "alternating"
+              },
+              {
+                "name": "Dumbbell overhead press",
+                "category": "upper_body",
+                "sets": 3,
+                "reps": 8,
+                "load": "moderate",
+                "side": "both",
+                "cue": "Ribs down."
+              },
+              {
+                "name": "Cable row (or band row)",
+                "category": "upper_body",
+                "sets": 3,
+                "reps": 12,
+                "load": "moderate",
+                "side": "both"
+              },
+              {
+                "name": "Band external rotation",
+                "category": "corrective",
+                "sets": 3,
+                "reps": 12,
+                "load": "light",
+                "side": "alternating",
+                "cue": "Left shoulder maintenance - non-negotiable set."
+              },
+              {
+                "name": "Pallof press",
+                "category": "core",
+                "sets": 3,
+                "reps": 10,
+                "side": "alternating"
+              }
+            ],
+            "notes": "Pairs with any run day. ",
+            "warmup_protocol": "pre_upper"
+          }
+        ]
       },
       "nutrition": {
-        "day_type_id": "easy_run_only",
-        "day_type_label": "Easy / recovery run or walk (no strength)",
-        "phase_adjustment_applied": {
-          "phase": "Base",
-          "adjustment": "Recovery weeks 1-2: walks burn little - lower end of carbs, protein unchanged.",
-          "modified_targets": {
-            "calories_total": 2350,
-            "carbs_g": 260,
-            "protein_g": 145,
-            "fat_g": 80
-          }
-        },
+        "day_type_id": "easy_run_upper_strength",
+        "day_type_label": "Recovery/easy run + upper strength (double-day)",
+        "phase_adjustment_applied": null,
         "daily_targets": {
-          "calories_total": 2350,
-          "carbs_g": 260,
+          "calories_total": 2600,
+          "carbs_g": 310,
           "protein_g": 145,
-          "fat_g": 80,
-          "fluid_ml_total": 2700,
-          "general_guidance": "Moderate day. Carbs at breakfast and around the run.",
-          "notes": "Runs under 60-75 min need no during-fuel; water only."
+          "fat_g": 85,
+          "fluid_ml_total": 2800,
+          "general_guidance": "Moderate day. Refill after Tuesday's double without overdoing it."
         },
         "session_fueling": [
           {
@@ -15581,13 +15433,13 @@
               "subtype": "easy",
               "position": "pre"
             },
-            "timing": "60-90 min before, or fasted-light if < 45 min",
-            "calories": 250,
-            "carbs_g": 45,
-            "protein_g": 8,
-            "fat_g": 5,
+            "timing": "Optional - run fasted-light if < 45 min",
+            "calories": 200,
+            "carbs_g": 35,
+            "protein_g": 6,
+            "fat_g": 4,
             "foods": [
-              "toast with honey and banana",
+              "banana or toast",
               "coffee"
             ]
           },
@@ -15606,6 +15458,20 @@
               "or a normal meal if it is mealtime"
             ],
             "notes": "Creatine 5 g in this window."
+          },
+          {
+            "linked_session": {
+              "type": "strength",
+              "subtype": "upper",
+              "position": "post"
+            },
+            "timing": "Within 60 min",
+            "calories": 350,
+            "carbs_g": 35,
+            "protein_g": 30,
+            "foods": [
+              "normal protein-rich meal"
+            ]
           }
         ],
         "notes": "",
@@ -15613,7 +15479,7 @@
         "matched_by": "trigger",
         "signature": {
           "run_subtype": "easy",
-          "strength_subtype": null,
+          "strength_subtype": "upper",
           "cross_subtypes": []
         }
       }
@@ -15627,18 +15493,18 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 1750,
-          "descent_ft": 1750,
-          "long_run_mi": 9.5,
-          "run_hours_est": 5.3,
+          "mileage_mi": 42.9,
+          "vertical_ft": 4990,
+          "descent_ft": 4990,
+          "long_run_mi": 21.4,
+          "run_hours_est": 9.2,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
+        "week_notes": "REV 2.18: Gate D #1 now Mon 12/7 (travel). 12/8 rest (gate +1), 12/9 flat recovery (gate +2), rest of the R week unchanged; one recovery run dropped. Weekly sums (calendar) include the gate; the gate is attributed to W10 for ramp, RS 19 Nov (ramp-basis W11 excludes it). UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
         "day_notes": "",
         "sessions": [
           {
@@ -15669,8 +15535,8 @@
           "swim_minutes": 45,
           "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week. Absorb week: Upper A Tue, Lower A Wed (after the 48-h window; Wednesday is now a recovery run, not climbing), Lower B Fri, Upper B Sat.",
-        "day_notes": "DOUBLE DAY - AM Fast-feet run - pick-ups, downhill pick-ups, sprints + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap.",
+        "week_notes": "UA R week. Absorb week after Gate D #1 (Mon 12/7, run plan rev 2.18/2.19): 12/8 full rest; Lower A Wed 12/9 (after the gate +2 rating); Upper A Thu 12/10; Lower B Fri 12/11; swim + Upper B Sat 12/12. FALLBACK (gate moves to Tue 12/8): 12/9 rest; Lower A Thu, Upper A Fri, Lower B Sat, swim + Upper B Sun; long run Mon 12/14.",
+        "day_notes": "DOUBLE DAY - AM Fast-feet run - pick-ups, downhill pick-ups, sprints + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap. FALLBACK: Upper A here instead; Lower B moves to Sat 12/12.",
         "sessions": [
           {
             "type": "strength",
@@ -15874,18 +15740,18 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 1750,
-          "descent_ft": 1750,
-          "long_run_mi": 9.5,
-          "run_hours_est": 5.3,
+          "mileage_mi": 42.9,
+          "vertical_ft": 4990,
+          "descent_ft": 4990,
+          "long_run_mi": 21.4,
+          "run_hours_est": 9.2,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
+        "week_notes": "REV 2.18: Gate D #1 now Mon 12/7 (travel). 12/8 rest (gate +1), 12/9 flat recovery (gate +2), rest of the R week unchanged; one recovery run dropped. Weekly sums (calendar) include the gate; the gate is attributed to W10 for ramp, RS 19 Nov (ramp-basis W11 excludes it). UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
         "day_notes": "Rest. Day before the long run.",
         "sessions": []
       },
@@ -15897,8 +15763,8 @@
           "swim_minutes": 45,
           "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week. Absorb week: Upper A Tue, Lower A Wed (after the 48-h window; Wednesday is now a recovery run, not climbing), Lower B Fri, Upper B Sat.",
-        "day_notes": "No run today. Easy TI swim (45 min) first, Upper B - Push + Shoulder Health + Carries later.",
+        "week_notes": "UA R week. Absorb week after Gate D #1 (Mon 12/7, run plan rev 2.18/2.19): 12/8 full rest; Lower A Wed 12/9 (after the gate +2 rating); Upper A Thu 12/10; Lower B Fri 12/11; swim + Upper B Sat 12/12. FALLBACK (gate moves to Tue 12/8): 12/9 rest; Lower A Thu, Upper A Fri, Lower B Sat, swim + Upper B Sun; long run Mon 12/14.",
+        "day_notes": "No run today. Easy TI swim (45 min) first, Upper B - Push + Shoulder Health + Carries later. FALLBACK: Lower B here (two days before the Mon 12/14 long run); swim + Upper B move to Sun 12/13.",
         "sessions": [
           {
             "type": "cross",
@@ -16078,18 +15944,18 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 25.5,
-          "vertical_ft": 1750,
-          "descent_ft": 1750,
-          "long_run_mi": 9.5,
-          "run_hours_est": 5.3,
+          "mileage_mi": 42.9,
+          "vertical_ft": 4990,
+          "descent_ft": 4990,
+          "long_run_mi": 21.4,
+          "run_hours_est": 9.2,
           "recovery_week": true,
           "ua_week_type": "R",
           "notes": "Block 3 - Gate D. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
+        "week_notes": "REV 2.18: Gate D #1 now Mon 12/7 (travel). 12/8 rest (gate +1), 12/9 flat recovery (gate +2), rest of the R week unchanged; one recovery run dropped. Weekly sums (calendar) include the gate; the gate is attributed to W10 for ramp, RS 19 Nov (ramp-basis W11 excludes it). UA R week between the gate runs (-34% miles, -53% vertical). The 48-h window runs Mon-Tue: flat only. No climbing slot this week.",
         "day_notes": "",
         "sessions": [
           {
@@ -16109,7 +15975,7 @@
             "key_cue": "VENUE (rev 2.4): Alpine loop COUNTERCLOCKWISE (3.3 mi, ~127 ft/mi - matches this card); clockwise is not used in recovery weeks. Each lap ends with 0.5 mi at ~-8.6% (0.25 mi at ~-11%) in either direction - easy, short strides. Easy rolling - absorb week between the two gate runs. HR: capped at AeT on climbs (hike to stay under); descents audited. AID ROUTINE: loop past the car/cache and rehearse a fixed <= 2-min stop (bottles, food, out) - no social dwell (ask #7). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": true,
             "fueling_notes": "See nutrition day type long_run, or the date override where one exists.",
-            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs."
+            "notes": "Intensity: Aerobic volume. LOAD-PATTERN GUARD: rolling non-technical terrain; never a cluster of long technical-descent runs (June 2026 lesson). Min 6 days between long runs. REV 2.19: if Gate D #1 takes its 12/8 fallback, this run moves to Mon 12/14 (6 days after the gate, 6 before Gate D #2) and is attributed to W11 for ramp, RS 19 Nov."
           }
         ]
       },
@@ -16121,8 +15987,8 @@
           "swim_minutes": 45,
           "notes": "Block 3 - Gate D (run week: UA R, 25.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
-        "week_notes": "UA R week. Absorb week: Upper A Tue, Lower A Wed (after the 48-h window; Wednesday is now a recovery run, not climbing), Lower B Fri, Upper B Sat.",
-        "day_notes": "Routines only. Run plan: Long run.",
+        "week_notes": "UA R week. Absorb week after Gate D #1 (Mon 12/7, run plan rev 2.18/2.19): 12/8 full rest; Lower A Wed 12/9 (after the gate +2 rating); Upper A Thu 12/10; Lower B Fri 12/11; swim + Upper B Sat 12/12. FALLBACK (gate moves to Tue 12/8): 12/9 rest; Lower A Thu, Upper A Fri, Lower B Sat, swim + Upper B Sun; long run Mon 12/14.",
+        "day_notes": "Routines only. Run plan: Long run. FALLBACK: no run; Easy TI swim + Upper B (no lower-body work - day before the 12/14 long run).",
         "sessions": []
       },
       "nutrition": {
@@ -16264,7 +16130,7 @@
           "notes": "Block 3 - Gate D (run week: UA B, 41.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "GATE D #2 WEEK: as Week 10.",
-        "day_notes": "Easy TI swim only - no run, no lift. Active recovery the day after the long run.",
+        "day_notes": "Easy TI swim only - no run, no lift. Active recovery the day after the long run. FALLBACK (gate 12/8): long-run day - swim dropped.",
         "sessions": [
           {
             "type": "cross",
@@ -16402,7 +16268,7 @@
           "notes": "Block 3 - Gate D (run week: UA B, 41.0 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "GATE D #2 WEEK: as Week 10.",
-        "day_notes": "DOUBLE DAY - AM Aerobic climbing - run the climbs at or below AeT + PM Lower A - MAX STRENGTH (moderate - gate week). Run first, 4+ h gap.",
+        "day_notes": "DOUBLE DAY - AM Aerobic climbing - run the climbs at or below AeT + PM Lower A - MAX STRENGTH (moderate - gate week). Run first, 4+ h gap. FALLBACK: day after the 12/14 long run - if the legs are not back, run the light version.",
         "sessions": [
           {
             "type": "strength",
