@@ -22,15 +22,15 @@
     "sources": {
       "run": {
         "schema_version": "1.8",
-        "revision": "2.17.2",
+        "revision": "2.17.3",
         "generated_by": "Performance / Run Coach (Claude)",
-        "generated_date": "2026-11-17"
+        "generated_date": "2026-11-19"
       },
       "strength": {
         "schema_version": "1.7",
-        "revision": "2.10",
+        "revision": "2.11",
         "generated_by": "Strength Coach (Claude)",
-        "generated_date": "2026-11-17"
+        "generated_date": "2026-11-19"
       },
       "nutrition": {
         "schema_version": "1.7",
@@ -11407,9 +11407,9 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 36.5,
-          "vertical_ft": 3400,
-          "descent_ft": 3400,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3200,
+          "descent_ft": 3200,
           "long_run_mi": 14.5,
           "run_hours_est": 7.6,
           "recovery_week": false,
@@ -11418,7 +11418,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups are postponed (rev 2.17.3: 11/20 fast-feet dropped for the schedule conflict). SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Descent session moved to Fri 11/20 (rev 2.17.3), still gated on the 11/15 Boat Basin read; Thu 11/19 = treadmill easy + flat pick-ups.",
         "day_notes": "Rest. Daily routines + evening heel isometrics (strength plan).",
         "sessions": []
       },
@@ -11511,9 +11511,9 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 36.5,
-          "vertical_ft": 3400,
-          "descent_ft": 3400,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3200,
+          "descent_ft": 3200,
           "long_run_mi": 14.5,
           "run_hours_est": 7.6,
           "recovery_week": false,
@@ -11522,7 +11522,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups are postponed (rev 2.17.3: 11/20 fast-feet dropped for the schedule conflict). SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Descent session moved to Fri 11/20 (rev 2.17.3), still gated on the 11/15 Boat Basin read; Thu 11/19 = treadmill easy + flat pick-ups.",
         "day_notes": "",
         "sessions": [
           {
@@ -11768,9 +11768,9 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 36.5,
-          "vertical_ft": 3400,
-          "descent_ft": 3400,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3200,
+          "descent_ft": 3200,
           "long_run_mi": 14.5,
           "run_hours_est": 7.6,
           "recovery_week": false,
@@ -11779,7 +11779,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups are postponed (rev 2.17.3: 11/20 fast-feet dropped for the schedule conflict). SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Descent session moved to Fri 11/20 (rev 2.17.3), still gated on the 11/15 Boat Basin read; Thu 11/19 = treadmill easy + flat pick-ups.",
         "day_notes": "",
         "sessions": [
           {
@@ -11949,14 +11949,14 @@
       "date": "2026-11-19",
       "day_of_week": "Thursday",
       "week_number": 8,
-      "flex": false,
+      "flex": true,
       "rest_day": false,
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 36.5,
-          "vertical_ft": 3400,
-          "descent_ft": 3400,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3200,
+          "descent_ft": 3200,
           "long_run_mi": 14.5,
           "run_hours_est": 7.6,
           "recovery_week": false,
@@ -11965,7 +11965,247 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups are postponed (rev 2.17.3: 11/20 fast-feet dropped for the schedule conflict). SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Descent session moved to Fri 11/20 (rev 2.17.3), still gated on the 11/15 Boat Basin read; Thu 11/19 = treadmill easy + flat pick-ups.",
+        "day_notes": "",
+        "sessions": [
+          {
+            "type": "run",
+            "subtype": "easy",
+            "title": "Treadmill easy run + flat pick-ups (fast-feet partial, rev 2.17.3)",
+            "duration_min": 50,
+            "distance_mi": 4.5,
+            "elevation_gain_ft": 0,
+            "elevation_loss_ft": 0,
+            "terrain": "road",
+            "terrain_intent": "free",
+            "hr_cap_bpm": 147,
+            "hr_zone": "Z1-2",
+            "hr_anchor": "AeT",
+            "poles": false,
+            "key_cue": "TREADMILL, 0-1% incline. 15 min easy warm-up, then PICK-UPS (Uphill Athlete): 6 x 10 s fast and relaxed, never a sprint, >= 2 min easy between. Rest of the run easy, capped at AeT. NO downhill pick-ups and no decline - the descent session is tomorrow (11/20). Pull the pick-ups on any heel or lateral-ankle signal. If the day only allows 30-40 min, cut the easy running, keep the pick-ups, and log it. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
+            "fueling_required": false,
+            "notes": "rev 2.17.3: athlete schedule conflict on 11/19. The descent session moved to 11/20; this replaces the dropped Friday fast-feet run (flat pick-ups only). Sized at 50 min so W8's sums hold mileage and hours close to rev 2.17.2 - W8 is the ramp reference for W10 (Gate D #1). If skipped, log it as missed; the Sunday check runs on actual sums."
+          }
+        ]
+      },
+      "strength": {
+        "phase": "Base",
+        "weekly_targets": {
+          "strength_sessions": 4,
+          "swim_sessions": 2,
+          "swim_minutes": 75,
+          "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
+        },
+        "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B (hop test passed 11/5). Fast downhill pick-ups start Friday.",
+        "day_notes": "AM Treadmill easy run + flat pick-ups (50 min; may be shortened) + PM easy TI swim (40 min) then Upper B - Push + Shoulder Health + Carries. Order: run, swim, then the lift. Busy day: if something has to go, drop the swim first, then shorten Upper B to the light version - keep it if you can (2 upper sessions a week).",
+        "sessions": [
+          {
+            "type": "cross",
+            "subtype": "swim",
+            "method": "Total Immersion",
+            "title": "Easy TI swim",
+            "duration_min": 40,
+            "intensity": "easy",
+            "key_cue": "DRILLS + SHORT WHOLE STROKE: ~10 min drills, then 25-50 m whole-stroke repeats. Focus: head-spine alignment, patient lead hand, 2-beat kick. Count strokes per length (SPL) and keep it steady. EFFORT 3-4/10 throughout; if breathing gets ragged, go back to drills. HR is NOT capped: swim HR runs well below running HR at the same effort, so the running AeT cap does not apply - go by feel. SHOULDER RULE: stop at the first pinch at the front or top of the shoulder (left is the priority side); no paddles; hands enter wide ('railroad tracks'), never crossing the midline. KICK: relaxed 2-beat; ease it off if the calf or posterior heel tightens; no breaststroke kick (knees). Gentle wall push-offs.",
+            "notes": "Cross-training (athlete, rev 2.2): general aerobic + upper-body work, light on the legs. NOT counted in run mileage, vertical or the ramp guard; counted in weekly hours. If the left shoulder reacts, swimming is dropped BEFORE Upper A (Upper A's cuff work is the protective part). Swim first, Upper B later (Upper B is push, so it complements the swim's pull). "
+          },
+          {
+            "type": "strength",
+            "subtype": "upper",
+            "title": "Upper B - Push + Shoulder Health + Carries",
+            "duration_min": 45,
+            "exercises": [
+              {
+                "name": "Bench press or weighted push-up",
+                "category": "upper_body",
+                "sets": 3,
+                "reps": 8,
+                "load": "heavy",
+                "side": "both"
+              },
+              {
+                "name": "Lat pulldown",
+                "category": "upper_body",
+                "sets": 3,
+                "reps": 10,
+                "load": "moderate",
+                "side": "both"
+              },
+              {
+                "name": "Incline dumbbell press",
+                "category": "upper_body",
+                "sets": 3,
+                "reps": 10,
+                "load": "moderate",
+                "side": "both"
+              },
+              {
+                "name": "Scapular push-up",
+                "category": "corrective",
+                "sets": 2,
+                "reps": 12,
+                "load": "bodyweight",
+                "side": "both"
+              },
+              {
+                "name": "Band face pull",
+                "category": "corrective",
+                "sets": 2,
+                "reps": 15,
+                "load": "light",
+                "side": "both",
+                "cue": "External rotation at the end range - left shoulder priority."
+              },
+              {
+                "name": "Band external rotation",
+                "category": "corrective",
+                "sets": 2,
+                "reps": 12,
+                "load": "light",
+                "side": "alternating",
+                "cue": "Elbow pinned. Shoulder-health set - in every upper session."
+              },
+              {
+                "name": "Farmer carry",
+                "category": "core",
+                "sets": 3,
+                "duration_sec": 45,
+                "load": "heavy",
+                "side": "both",
+                "cue": "Tall posture - vest-hours posture insurance (race weight from Week 14)."
+              },
+              {
+                "name": "Suitcase carry",
+                "category": "core",
+                "sets": 2,
+                "duration_sec": 30,
+                "load": "heavy",
+                "side": "alternating"
+              },
+              {
+                "name": "Side plank with reach",
+                "category": "core",
+                "sets": 2,
+                "duration_sec": 30,
+                "side": "alternating"
+              }
+            ],
+            "notes": "MOVED Fri 11/20 -> Thu 11/19 with the swim (strength rev 2.11, run plan rev 2.17.3). Second upper session of the week (athlete standard: 2 upper every week for general strength and shoulder health). If the age-50 recovery criteria fire, run this as the light version rather than dropping it.",
+            "warmup_protocol": "pre_upper"
+          }
+        ]
+      },
+      "nutrition": {
+        "day_type_id": "easy_run_upper_swim",
+        "day_type_label": "Friday: fast-feet run + swim + upper strength",
+        "phase_adjustment_applied": null,
+        "daily_targets": {
+          "calories_total": 2900,
+          "carbs_g": 370,
+          "protein_g": 150,
+          "fat_g": 85,
+          "fluid_ml_total": 3200,
+          "general_guidance": "Three light sessions: spread carbs across the day, protein at every meal. Tomorrow is either a rest day (single-long-run weeks) or the Saturday medium-long (back-to-back weeks W14-16, W18-19, W23-25) - in back-to-back weeks make dinner carb-rich (phase adjustments)."
+        },
+        "session_fueling": [
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": "easy",
+              "position": "pre"
+            },
+            "timing": "Optional - fasted-light if < 45 min",
+            "calories": 200,
+            "carbs_g": 35,
+            "protein_g": 6,
+            "fat_g": 4,
+            "foods": [
+              "banana or toast",
+              "coffee"
+            ]
+          },
+          {
+            "linked_session": {
+              "type": "run",
+              "subtype": null,
+              "position": "post"
+            },
+            "timing": "Within 30-45 min",
+            "calories": 350,
+            "carbs_g": 50,
+            "protein_g": 30,
+            "foods": [
+              "whey shake + banana",
+              "or a normal meal if it is mealtime"
+            ],
+            "notes": "Creatine 5 g in this window."
+          },
+          {
+            "linked_session": {
+              "type": "cross",
+              "subtype": "swim",
+              "position": "post"
+            },
+            "timing": "Within 45 min",
+            "calories": 250,
+            "carbs_g": 30,
+            "protein_g": 20,
+            "foods": [
+              "Greek yogurt + fruit",
+              "or a normal meal if it is mealtime"
+            ],
+            "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
+          },
+          {
+            "linked_session": {
+              "type": "strength",
+              "subtype": null,
+              "position": "post"
+            },
+            "timing": "Within 60 min",
+            "calories": 450,
+            "carbs_g": 45,
+            "protein_g": 40,
+            "foods": [
+              "chicken/fish/tofu + rice or potatoes + vegetables",
+              "or whey + a sandwich"
+            ],
+            "notes": "Largest protein dose of the day on lower days."
+          }
+        ],
+        "notes": "",
+        "source": "day_type",
+        "matched_by": "trigger",
+        "signature": {
+          "run_subtype": "easy",
+          "strength_subtype": "upper",
+          "cross_subtypes": [
+            "swim"
+          ]
+        }
+      }
+    },
+    "2026-11-20": {
+      "date": "2026-11-20",
+      "day_of_week": "Friday",
+      "week_number": 8,
+      "flex": false,
+      "rest_day": false,
+      "run": {
+        "phase": "Base",
+        "weekly_targets": {
+          "mileage_mi": 37.0,
+          "vertical_ft": 3200,
+          "descent_ft": 3200,
+          "long_run_mi": 14.5,
+          "run_hours_est": 7.6,
+          "recovery_week": false,
+          "ua_week_type": "B",
+          "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
+          "derived_from": "session_sums",
+          "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
+        },
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups are postponed (rev 2.17.3: 11/20 fast-feet dropped for the schedule conflict). SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Descent session moved to Fri 11/20 (rev 2.17.3), still gated on the 11/15 Boat Basin read; Thu 11/19 = treadmill easy + flat pick-ups.",
         "day_notes": "",
         "sessions": [
           {
@@ -11984,7 +12224,7 @@
             "poles": false,
             "key_cue": "2 x 1.25 mi sustained at -5..-8%.  Climb back up by easy run or hike - the ascent is transport. Median RUNNING cadence 175+ on every rep; lap-press each rep. HR on descents is audited, not governed. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
             "fueling_required": false,
-            "notes": "Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both. POST-11/15 GATE (rev 2.14; was the Overlook-intro gate): runs as written only if the day +1 to +3 morning reads after the 11/15 Boat Basin x3 long run are clean (<= 2/10, settling). Otherwise hold the 11/12 dose (2 x 1.0 mi) and flag the coach - the W10 descent ramp into Gate D is then re-checked."
+            "notes": "MOVED from Thu 11/19 (rev 2.17.3, athlete schedule conflict); the 11/20 fast-feet run is dropped this week. Friday -> Saturday rest -> Sunday long run: go as early in the day as practical; the 24-h symptom read falls on Saturday and feeds the 11/22 end-pitch gate (laps 3-4). Intensity: Aerobic + eccentric dose (priority 2 / J-4). SURFACE: Boat Basin road (-6.1%, most stable grade in the archive; 1.5 mi continuous, so no rep is longer than 1.5 mi) or a graded fire road; non-technical always. Perkins Memorial Drive is not used (rev 2.4: winter closure, crowding). WINTER PARKING AT THE TOP (RS check 10/22): warm up on the flat at the top, run the first descent as rep 1, end the session at the top - rep count and descent miles unchanged. 24-H SYMPTOM READ (heel, lateral ankle, knees) gates next week's progression. READ-OUT: running-only cadence and step length, first rep vs last rep at matched grade (C-5 basis). WINTER: never on ice - move the day, or garage-ramp repeats / treadmill decline as partial credit. VERTICAL FIX (rev 2.3): distance and elevation now count the full descent of every rep (~317 ft per descent-mile at -6%) and the climb back up - earlier cards understated both. POST-11/15 GATE (rev 2.14; was the Overlook-intro gate): runs as written only if the day +1 to +3 morning reads after the 11/15 Boat Basin x3 long run are clean (<= 2/10, settling). Otherwise hold the 11/12 dose (2 x 1.0 mi) and flag the coach - the W10 descent ramp into Gate D is then re-checked."
           }
         ]
       },
@@ -11997,7 +12237,7 @@
           "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
         },
         "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B (hop test passed 11/5). Fast downhill pick-ups start Friday.",
-        "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap. Both gated on the post-11/15 Boat Basin read.",
+        "day_notes": "DOUBLE DAY - AM Descent skill session (run the downs; moved from 11/19) + PM Lower B - Tendon HSR & Lateral Chain. Run first, 4+ h gap. Both gated on the post-11/15 Boat Basin read. Saturday 11/21 is rest; Sunday long run.",
         "sessions": [
           {
             "type": "strength",
@@ -12077,7 +12317,7 @@
                 "side": "alternating"
               }
             ],
-            "notes": "P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). POST-11/15 GATE (run plan rev 2.4; keyed to the Boat Basin run since rev 2.14): follows the same read as this morning's descent session. Day +1 to +3 morning reads after Sun 11/15 clean (<= 2/10, settling) -> as written, pogo hops enter (hop test passed 11/5). Not clean -> repeat the Thu 11/12 session: no pogo hops (they enter next Lower B), no load increase on the soleus HSR or the lateral step-down, and flag the coach.",
+            "notes": "MOVED Thu 11/19 -> Fri 11/20 (strength rev 2.11, run plan rev 2.17.3: the descent session moved to Friday; hard work stays paired, Saturday is rest). P1 flagship tendon session. Collagen 15 g + vitamin C 250 mg 30-60 min before (nutrition plan). POST-11/15 GATE (run plan rev 2.4; keyed to the Boat Basin run since rev 2.14): follows the same read as this morning's descent session. Day +1 to +3 morning reads after Sun 11/15 clean (<= 2/10, settling) -> as written, pogo hops enter (hop test passed 11/5). Not clean -> repeat the Thu 11/12 session: no pogo hops (they enter next Lower B), no load increase on the soleus HSR or the lateral step-down, and flag the coach.",
             "warmup_protocol": "pre_lower"
           }
         ]
@@ -12192,246 +12432,6 @@
         }
       }
     },
-    "2026-11-20": {
-      "date": "2026-11-20",
-      "day_of_week": "Friday",
-      "week_number": 8,
-      "flex": true,
-      "rest_day": false,
-      "run": {
-        "phase": "Base",
-        "weekly_targets": {
-          "mileage_mi": 36.5,
-          "vertical_ft": 3400,
-          "descent_ft": 3400,
-          "long_run_mi": 14.5,
-          "run_hours_est": 7.6,
-          "recovery_week": false,
-          "ua_week_type": "B",
-          "notes": "Block 2 - Aerobic Base II. SUNDAY CHECKS: (1) actual GPS weekly vertical AND descent vs vertical_ft / descent_ft - over by >100 ft, next week's ceilings recompute off the actual sums; (2) heel/lateral-ankle/knee/forefoot morning ratings for the week; (3) strength compliance (strength plan).",
-          "derived_from": "session_sums",
-          "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
-        },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
-        "day_notes": "",
-        "sessions": [
-          {
-            "type": "run",
-            "subtype": "easy",
-            "title": "Fast-feet run - pick-ups, downhill pick-ups, sprints",
-            "duration_min": 50,
-            "distance_mi": 4.0,
-            "elevation_gain_ft": 200,
-            "elevation_loss_ft": 200,
-            "terrain": "road",
-            "terrain_intent": "free",
-            "hr_cap_bpm": 147,
-            "hr_zone": "Z1-2",
-            "hr_anchor": "AeT",
-            "poles": false,
-            "key_cue": "FAST-FEET DAY. 10-15 min easy warm-up, then: PICK-UPS (Uphill Athlete): 6 x 10 s at a fun, fast, relaxed pace on flat or gentle uphill, >= 2 min easy jog between - economy and speed, never a sprint; pull them first on any heel or lateral-ankle signal. Then 4 x 45 s FAST DOWNHILL PICK-UPS (Uphill Athlete downhill-skill reps): on a SMOOTH -3..-6% road or dirt descent, fast and relaxed - quick feet, cadence 180+, never all-out, never braking; easy jog/walk back up (>= 2 min) between. Pull them on any heel, knee or lateral-ankle signal. Never on ice or wet leaves. Everything else easy, capped at AeT. WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember.",
-            "fueling_required": false,
-            "notes": "Intensity: Aerobic + neuromuscular (short, fully recovered reps). Friday is two days before the long run - this is the week's one speed/skill session (UA: pick-ups, fast downhill pick-ups and hill sprints), never the day before a long run."
-          }
-        ]
-      },
-      "strength": {
-        "phase": "Base",
-        "weekly_targets": {
-          "strength_sessions": 4,
-          "swim_sessions": 2,
-          "swim_minutes": 75,
-          "notes": "Block 2 - Aerobic Base II (run week: UA B, 36.5 mi). COMPLIANCE CHECK (Sunday evening): mark every named session and every daily-routine day done/missed. Two misses of P1 work (Lower B, heel isometrics, foot correctives) in a week = message the coach."
-        },
-        "week_notes": "UA B week (single long run). Max strength. Pogo hops enter Lower B (hop test passed 11/5). Fast downhill pick-ups start Friday.",
-        "day_notes": "AM Fast-feet run - pick-ups, downhill pick-ups, sprints + PM Upper B - Push + Shoulder Health + Carries + easy TI swim (40 min) before the lift. Order: run, swim, then the lift.",
-        "sessions": [
-          {
-            "type": "cross",
-            "subtype": "swim",
-            "method": "Total Immersion",
-            "title": "Easy TI swim",
-            "duration_min": 40,
-            "intensity": "easy",
-            "key_cue": "DRILLS + SHORT WHOLE STROKE: ~10 min drills, then 25-50 m whole-stroke repeats. Focus: head-spine alignment, patient lead hand, 2-beat kick. Count strokes per length (SPL) and keep it steady. EFFORT 3-4/10 throughout; if breathing gets ragged, go back to drills. HR is NOT capped: swim HR runs well below running HR at the same effort, so the running AeT cap does not apply - go by feel. SHOULDER RULE: stop at the first pinch at the front or top of the shoulder (left is the priority side); no paddles; hands enter wide ('railroad tracks'), never crossing the midline. KICK: relaxed 2-beat; ease it off if the calf or posterior heel tightens; no breaststroke kick (knees). Gentle wall push-offs.",
-            "notes": "Cross-training (athlete, rev 2.2): general aerobic + upper-body work, light on the legs. NOT counted in run mileage, vertical or the ramp guard; counted in weekly hours. If the left shoulder reacts, swimming is dropped BEFORE Upper A (Upper A's cuff work is the protective part). Swim first, Upper B later (Upper B is push, so it complements the swim's pull). "
-          },
-          {
-            "type": "strength",
-            "subtype": "upper",
-            "title": "Upper B - Push + Shoulder Health + Carries",
-            "duration_min": 45,
-            "exercises": [
-              {
-                "name": "Bench press or weighted push-up",
-                "category": "upper_body",
-                "sets": 3,
-                "reps": 8,
-                "load": "heavy",
-                "side": "both"
-              },
-              {
-                "name": "Lat pulldown",
-                "category": "upper_body",
-                "sets": 3,
-                "reps": 10,
-                "load": "moderate",
-                "side": "both"
-              },
-              {
-                "name": "Incline dumbbell press",
-                "category": "upper_body",
-                "sets": 3,
-                "reps": 10,
-                "load": "moderate",
-                "side": "both"
-              },
-              {
-                "name": "Scapular push-up",
-                "category": "corrective",
-                "sets": 2,
-                "reps": 12,
-                "load": "bodyweight",
-                "side": "both"
-              },
-              {
-                "name": "Band face pull",
-                "category": "corrective",
-                "sets": 2,
-                "reps": 15,
-                "load": "light",
-                "side": "both",
-                "cue": "External rotation at the end range - left shoulder priority."
-              },
-              {
-                "name": "Band external rotation",
-                "category": "corrective",
-                "sets": 2,
-                "reps": 12,
-                "load": "light",
-                "side": "alternating",
-                "cue": "Elbow pinned. Shoulder-health set - in every upper session."
-              },
-              {
-                "name": "Farmer carry",
-                "category": "core",
-                "sets": 3,
-                "duration_sec": 45,
-                "load": "heavy",
-                "side": "both",
-                "cue": "Tall posture - vest-hours posture insurance (race weight from Week 14)."
-              },
-              {
-                "name": "Suitcase carry",
-                "category": "core",
-                "sets": 2,
-                "duration_sec": 30,
-                "load": "heavy",
-                "side": "alternating"
-              },
-              {
-                "name": "Side plank with reach",
-                "category": "core",
-                "sets": 2,
-                "duration_sec": 30,
-                "side": "alternating"
-              }
-            ],
-            "notes": "Second upper session of the week (athlete standard: 2 upper every week for general strength and shoulder health). If the age-50 recovery criteria fire, run this as the light version rather than dropping it.",
-            "warmup_protocol": "pre_upper"
-          }
-        ]
-      },
-      "nutrition": {
-        "day_type_id": "easy_run_upper_swim",
-        "day_type_label": "Friday: fast-feet run + swim + upper strength",
-        "phase_adjustment_applied": null,
-        "daily_targets": {
-          "calories_total": 2900,
-          "carbs_g": 370,
-          "protein_g": 150,
-          "fat_g": 85,
-          "fluid_ml_total": 3200,
-          "general_guidance": "Three light sessions: spread carbs across the day, protein at every meal. Tomorrow is either a rest day (single-long-run weeks) or the Saturday medium-long (back-to-back weeks W14-16, W18-19, W23-25) - in back-to-back weeks make dinner carb-rich (phase adjustments)."
-        },
-        "session_fueling": [
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": "easy",
-              "position": "pre"
-            },
-            "timing": "Optional - fasted-light if < 45 min",
-            "calories": 200,
-            "carbs_g": 35,
-            "protein_g": 6,
-            "fat_g": 4,
-            "foods": [
-              "banana or toast",
-              "coffee"
-            ]
-          },
-          {
-            "linked_session": {
-              "type": "run",
-              "subtype": null,
-              "position": "post"
-            },
-            "timing": "Within 30-45 min",
-            "calories": 350,
-            "carbs_g": 50,
-            "protein_g": 30,
-            "foods": [
-              "whey shake + banana",
-              "or a normal meal if it is mealtime"
-            ],
-            "notes": "Creatine 5 g in this window."
-          },
-          {
-            "linked_session": {
-              "type": "cross",
-              "subtype": "swim",
-              "position": "post"
-            },
-            "timing": "Within 45 min",
-            "calories": 250,
-            "carbs_g": 30,
-            "protein_g": 20,
-            "foods": [
-              "Greek yogurt + fruit",
-              "or a normal meal if it is mealtime"
-            ],
-            "notes": "Easy TI swim: ~250-400 kcal. Rehydrate - you sweat in the pool too."
-          },
-          {
-            "linked_session": {
-              "type": "strength",
-              "subtype": null,
-              "position": "post"
-            },
-            "timing": "Within 60 min",
-            "calories": 450,
-            "carbs_g": 45,
-            "protein_g": 40,
-            "foods": [
-              "chicken/fish/tofu + rice or potatoes + vegetables",
-              "or whey + a sandwich"
-            ],
-            "notes": "Largest protein dose of the day on lower days."
-          }
-        ],
-        "notes": "",
-        "source": "day_type",
-        "matched_by": "trigger",
-        "signature": {
-          "run_subtype": "easy",
-          "strength_subtype": "upper",
-          "cross_subtypes": [
-            "swim"
-          ]
-        }
-      }
-    },
     "2026-11-21": {
       "date": "2026-11-21",
       "day_of_week": "Saturday",
@@ -12441,9 +12441,9 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 36.5,
-          "vertical_ft": 3400,
-          "descent_ft": 3400,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3200,
+          "descent_ft": 3200,
           "long_run_mi": 14.5,
           "run_hours_est": 7.6,
           "recovery_week": false,
@@ -12452,7 +12452,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups are postponed (rev 2.17.3: 11/20 fast-feet dropped for the schedule conflict). SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Descent session moved to Fri 11/20 (rev 2.17.3), still gated on the 11/15 Boat Basin read; Thu 11/19 = treadmill easy + flat pick-ups.",
         "day_notes": "Rest. Day before the long run.",
         "sessions": []
       },
@@ -12501,9 +12501,9 @@
       "run": {
         "phase": "Base",
         "weekly_targets": {
-          "mileage_mi": 36.5,
-          "vertical_ft": 3400,
-          "descent_ft": 3400,
+          "mileage_mi": 37.0,
+          "vertical_ft": 3200,
+          "descent_ft": 3200,
           "long_run_mi": 14.5,
           "run_hours_est": 7.6,
           "recovery_week": false,
@@ -12512,7 +12512,7 @@
           "derived_from": "session_sums",
           "derivation_rule": "DERIVED FIELD - regenerated from this week's session sums (race_pace sessions excluded). Never hand-author. Loaders assert mileage_mi, vertical_ft and descent_ft equal the session sums within +/-0.5 mi / +/-50 ft. descent_ft sums elevation_loss_ft (absent = elevation_gain_ft). run_hours_est is the sum of duration_min (race excluded) / 60."
         },
-        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups begin Friday. SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Thu 11/19 is gated on the 11/15 Boat Basin read.",
+        "week_notes": "UA B week (single long run, 30-40% - back-to-backs now start in W14). Fast downhill pick-ups are postponed (rev 2.17.3: 11/20 fast-feet dropped for the schedule conflict). SHOE TRIAL STARTS: candidate shoe(s) on 1-2 easy runs a week (never the gate runs). HEADLAMP #1 = Wednesday 11/18 evening recovery run on flat ground (rev 2.17). Sunday: ALPINE x4, daylight start (rev 2.14: the 11/15 fallback fired), end pitch run deliberately, pole-on opening climb from lap 3. Descent session moved to Fri 11/20 (rev 2.17.3), still gated on the 11/15 Boat Basin read; Thu 11/19 = treadmill easy + flat pick-ups.",
         "day_notes": "",
         "sessions": [
           {
