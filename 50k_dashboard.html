@@ -313,6 +313,28 @@ const terrainLabel = t => String(t).replace(/_or_/g, '/').replace(/_/g, ' ')
 // merge fills it in; the fallback covers combined files built before 1.8.
 const runDescent = s => s.elevation_loss_ft ?? s.elevation_gain_ft ?? 0;
 
+// Poles (schema 1.9): pole_use = none | climbs_only | climbs_only_from, with
+// pole_start (free text) saying when they come in for climbs_only_from. The
+// boolean `poles` is kept consistent by the coach (true iff pole_use != none);
+// it is the fallback for combined files built before 1.9. No "optional" value.
+const POLE_USE = {
+  climbs_only:      { tag: 'CLIMBS ONLY',  text: 'Climbs only — every descent pole-free' },
+  climbs_only_from: { tag: 'CLIMBS, LATER', text: 'Start without poles; climbs only from' },
+};
+const polesOn = s => s.pole_use ? s.pole_use !== 'none' : !!s.poles;
+// Short chip text: "POLES · CLIMBS ONLY". Unknown future values show raw.
+const poleTag = s => {
+  if (!polesOn(s)) return null;
+  const u = s.pole_use && (POLE_USE[s.pole_use]?.tag || terrainLabel(s.pole_use).toUpperCase());
+  return u ? `POLES · ${u}` : 'POLES';
+};
+// Full sentence for the expanded card.
+const poleText = s => {
+  if (!polesOn(s)) return null;
+  const base = POLE_USE[s.pole_use]?.text || (s.pole_use ? terrainLabel(s.pole_use) : 'Poles');
+  return s.pole_start ? `${base}${s.pole_use === 'climbs_only_from' ? ' ' : ' · from '}${s.pole_start}` : base;
+};
+
 function SessionStats({session, kind, expanded}) {
   const stats = [];
   if (kind === 'run') {
@@ -348,7 +370,8 @@ function SessionStats({session, kind, expanded}) {
     detail.push({label:'TERRAIN INTENT', value:ti, mono:true, size:sized(ti),
                  color:session.terrain_intent ? undefined : A.textDim});
   }
-  if (!stats.length && !detail.length) return null;
+  const poles = expanded && kind === 'run' ? poleText(session) : null;
+  if (!stats.length && !detail.length && !poles) return null;
   return (
     <>
       {stats.length > 0 && (
@@ -359,6 +382,12 @@ function SessionStats({session, kind, expanded}) {
       {detail.length > 0 && (
         <div style={{display:'grid',gridTemplateColumns:`repeat(${detail.length},1fr)`,padding:'0 18px 18px',gap:12}}>
           {detail.map(s => <BigStat key={s.label} {...s}/>)}
+        </div>
+      )}
+      {poles && (
+        <div style={{padding:'0 18px 18px',display:'flex',gap:10,alignItems:'baseline'}}>
+          <span style={{fontSize:9,color:A.textDim,fontFamily:MONO,letterSpacing:1.4,fontWeight:700,flexShrink:0}}>POLES</span>
+          <span style={{fontSize:13,color:A.text,lineHeight:1.35}}>{poles}</span>
         </div>
       )}
     </>
@@ -498,7 +527,7 @@ function HeroWorkout({session, kind, isSecondary, fueling, prePost, workoutLabel
           <span style={{padding:'3px 8px',borderRadius:4,fontSize:10,fontWeight:700,letterSpacing:1.4,color:color.hue,background:color.bg,fontFamily:MONO}}>
             {color.name}
           </span>
-          {kind==='run' && session.poles && <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1}}>+ POLES</span>}
+          {kind==='run' && poleTag(session) && <span style={{fontSize:10,color:A.text,fontFamily:MONO,letterSpacing:1}}>+ {poleTag(session)}</span>}
           {kind==='cross' && session.method && <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1}}>{session.method.toUpperCase()}</span>}
           <div style={{flex:1}}/>
           <span style={{transform:collapsed?'rotate(0)':'rotate(180deg)',transition:'transform .2s',display:'flex',alignItems:'center'}}>
@@ -1048,7 +1077,7 @@ function HeroWorkoutMinimal({session, kind, onOpen}) {
           <span style={{padding:'3px 8px',borderRadius:4,fontSize:10,fontWeight:700,letterSpacing:1.4,color:color.hue,background:color.bg,fontFamily:MONO}}>
             {color.name}
           </span>
-          {session.poles && <span style={{fontSize:10,color:A.textDim,fontFamily:MONO,letterSpacing:1}}>+ POLES</span>}
+          {poleTag(session) && <span style={{fontSize:10,color:A.text,fontFamily:MONO,letterSpacing:1}}>+ {poleTag(session)}</span>}
           {session.aet_gate && session.aet_gate.active_version !== 'if_pass' && <span style={{fontSize:10,color:A.textFaint,fontFamily:MONO,letterSpacing:1}}>GATED</span>}
           <div style={{flex:1}}/>
           <Icon name={sessionIcon(session)} size={16} color={A.textFaint}/>
@@ -1251,7 +1280,7 @@ function WeekSessionRow({s}) {
     main = s.duration_min != null ? `${s.duration_min}m` : '';
     sub = `${(s.exercises||[]).length} moves`;
   }
-  const tag = [c.name, s.poles ? 'POLES' : '', s.aet_gate && s.aet_gate.active_version !== 'if_pass' ? 'GATED' : ''].filter(Boolean).join(' · ');
+  const tag = [c.name, s.type === 'run' ? poleTag(s) || '' : '', s.aet_gate && s.aet_gate.active_version !== 'if_pass' ? 'GATED' : ''].filter(Boolean).join(' · ');
   return (
     <div style={{display:'flex',alignItems:'center',gap:12}}>
       <div style={{width:6,height:6,borderRadius:3,background:c.hue,flexShrink:0}}/>

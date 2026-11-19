@@ -11,7 +11,7 @@ Usage:
         [--output-week1 week1_plan.json] [--slice-week 1] \
         [--schema master_schema_v7.json]
 
-Schema support: master schema v1.2 - v1.8 (additive changes only, so older
+Schema support: master schema v1.2 - v1.9 (additive changes only, so older
 source files still merge).
 
 What changed for schema 1.7 / 1.8 (vs the May 2026 script):
@@ -47,7 +47,7 @@ from collections import defaultdict
 from datetime import date as _date
 from pathlib import Path
 
-KNOWN_SCHEMA_VERSIONS = {"1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8"}
+KNOWN_SCHEMA_VERSIONS = {"1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"}
 
 # Run-plan meta fields carried into the combined meta (schema 1.6+).
 HR_META_FIELDS = [
