@@ -164,8 +164,9 @@ def plan_steps(session):
             return with_cooldown(steps, dur, cap), None
         return [step("interval", dur, hr_target(cap))], "unparsed climb cue — pushed as a single capped step"
 
-    # Descent skill session: reps by distance, HR audited not governed on the way down,
-    # capped on the climb back (lap button — "the ascent is transport"). Warm-up ends on lap.
+    # Descent skill session: reps by distance, capped like every other step — the cue asks
+    # for a watch high-HR alert at hr_cap_bpm, and a no-target step never alerts. Climb back
+    # on the lap button ("the ascent is transport"), also capped. Warm-up ends on lap.
     m = RE_DESCENT_EQUAL.search(cue)
     reps = None
     if m:
@@ -177,10 +178,10 @@ def plan_steps(session):
     if reps:
         steps = [step("warmup", target=hr_target(cap))]
         if len(set(reps)) == 1:
-            steps.append(repeat(len(reps), [step("interval", miles=reps[0]), step("recovery", target=hr_target(cap))]))
+            steps.append(repeat(len(reps), [step("interval", miles=reps[0], target=hr_target(cap)), step("recovery", target=hr_target(cap))]))
         else:
             for d_mi in reps:
-                steps += [step("interval", miles=d_mi), step("recovery", target=hr_target(cap))]
+                steps += [step("interval", miles=d_mi, target=hr_target(cap)), step("recovery", target=hr_target(cap))]
         return steps, None
 
     # Fast-feet day: warm-up, then pick-ups / hill sprints / downhill pick-ups as the cue lists them
