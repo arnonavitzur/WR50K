@@ -22,7 +22,7 @@
     "sources": {
       "run": {
         "schema_version": "1.9",
-        "revision": "2.21",
+        "revision": "2.23",
         "generated_by": "Performance / Run Coach (Claude)",
         "generated_date": "2026-11-19"
       },
@@ -27774,10 +27774,10 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 53.1,
-          "vertical_ft": 5400,
-          "descent_ft": 4800,
-          "long_run_mi": 38.0,
+          "mileage_mi": 52.8,
+          "vertical_ft": 5530,
+          "descent_ft": 4930,
+          "long_run_mi": 37.7,
           "run_hours_est": 12.1,
           "recovery_week": true,
           "ua_week_type": "G",
@@ -27878,10 +27878,10 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 53.1,
-          "vertical_ft": 5400,
-          "descent_ft": 4800,
-          "long_run_mi": 38.0,
+          "mileage_mi": 52.8,
+          "vertical_ft": 5530,
+          "descent_ft": 4930,
+          "long_run_mi": 37.7,
           "run_hours_est": 12.1,
           "recovery_week": true,
           "ua_week_type": "G",
@@ -28100,10 +28100,10 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 53.1,
-          "vertical_ft": 5400,
-          "descent_ft": 4800,
-          "long_run_mi": 38.0,
+          "mileage_mi": 52.8,
+          "vertical_ft": 5530,
+          "descent_ft": 4930,
+          "long_run_mi": 37.7,
           "run_hours_est": 12.1,
           "recovery_week": true,
           "ua_week_type": "G",
@@ -28297,10 +28297,10 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 53.1,
-          "vertical_ft": 5400,
-          "descent_ft": 4800,
-          "long_run_mi": 38.0,
+          "mileage_mi": 52.8,
+          "vertical_ft": 5530,
+          "descent_ft": 4930,
+          "long_run_mi": 37.7,
           "run_hours_est": 12.1,
           "recovery_week": true,
           "ua_week_type": "G",
@@ -28523,10 +28523,10 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 53.1,
-          "vertical_ft": 5400,
-          "descent_ft": 4800,
-          "long_run_mi": 38.0,
+          "mileage_mi": 52.8,
+          "vertical_ft": 5530,
+          "descent_ft": 4930,
+          "long_run_mi": 37.7,
           "run_hours_est": 12.1,
           "recovery_week": true,
           "ua_week_type": "G",
@@ -28719,10 +28719,10 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 53.1,
-          "vertical_ft": 5400,
-          "descent_ft": 4800,
-          "long_run_mi": 38.0,
+          "mileage_mi": 52.8,
+          "vertical_ft": 5530,
+          "descent_ft": 4930,
+          "long_run_mi": 37.7,
           "run_hours_est": 12.1,
           "recovery_week": true,
           "ua_week_type": "G",
@@ -28801,10 +28801,10 @@
       "run": {
         "phase": "Build",
         "weekly_targets": {
-          "mileage_mi": 53.1,
-          "vertical_ft": 5400,
-          "descent_ft": 4800,
-          "long_run_mi": 38.0,
+          "mileage_mi": 52.8,
+          "vertical_ft": 5530,
+          "descent_ft": 4930,
+          "long_run_mi": 37.7,
           "run_hours_est": 12.1,
           "recovery_week": true,
           "ua_week_type": "G",
@@ -28820,9 +28820,9 @@
             "subtype": "long",
             "title": "LONG EFFORT - 35-40 mi / 8-10 h (Oracle substitute)",
             "duration_min": 540,
-            "distance_mi": 38.0,
-            "elevation_gain_ft": 4550,
-            "elevation_loss_ft": 4550,
+            "distance_mi": 37.7,
+            "elevation_gain_ft": 4680,
+            "elevation_loss_ft": 4680,
             "terrain": "mixed",
             "terrain_intent": "relief",
             "hr_cap_bpm": 147,
@@ -28831,10 +28831,10 @@
             "poles": true,
             "pole_use": "climbs_only_from",
             "pole_start": "~mi 25-28 - collected at the car",
-            "key_cue": "ORACLE SUBSTITUTE (RS memo 21 Oct; decision 10/22). ONE CONTINUOUS SUPPORTED DAY: 35-40 mi or 8-10 h, whichever comes first, on HARD FIRE ROAD - VENUE (rev 2.6, RS ruling 27 Oct): FEBAPPLE loop x3.8 (~38 mi / ~4,550 ft on the measured ~1,200 ft loop; card restored by RS ruling 2 Nov, option a - FR-ae), as loops from the car. No second venue, no added laps, and the loop count is never reduced to fit a number. The same venue applies on any backup date - the car is the aid station every ~2-2.5 h. 05:00 START (sunrise ~06:45): the first ~1.75 h by headlamp, including a descent - this is also the Tuscany race-start simulation (race breakfast ~03:00, nutrition override). HR: Z1-2, capped at AeT ALL DAY - pacing discipline when tired is one of the jobs (S-3); no late by-feel allowance in a training run. JOBS: J-1 hours 7-10 (first exposure past 33 mi / 6:40); J-2 REAL FOOD from hour 3 + the drink-mix replacement, every item logged (time, item, ~cal, ~sodium, GI notes); J-3 headlamp start; S-1 POLES: start without, collect them at the car at ~mi 25-28 and use them on the climbs for the rest - descents stay pole-free (RS FR-ag) (the Gallina switch); S-2 SHOE GATE G2: the candidate shoe on 30+ mi of hard dirt road (cushioning over hours of hard-surface impact); S-4 AID: every car stop TIMED, <= 2 min, set list (bottles, food, out). REPORT TO RS: FIT, fueling log, body report at the finish and at ~24/48 h (heel/Achilles, knees, ankles, feet), pole and shoe notes. WEATHER: never on icy descents. ONLY backup = Sunday 2/14 (RS F-1: 2/28 would put the 3/7 rough-descent block 7 days after an 8-10 h day) - decide on the forecast by Wednesday 2/10; If G1 ran on Sun 2/7 (backup), the 2/14 long-effort backup is OFF (RS F-3: no 4 h+ run inside the pre-effort week) - only the Sat 2/20 short-notice fallback remains.  if 2/14 is used, W20 becomes the effort week and W21 the recovery week (TP patch). If 2/21 itself turns bad at short notice: Saturday 2/20 (swap with the shakeout). LAST-RESORT WEEKDAY FALLBACK (RS, athlete-confirmed): if G1 ran on 2/7 AND the weather rules out both Sat 2/20 and Sun 2/21, the effort runs on a weekday Wed 2/17 - Thu 2/25, chosen on a 2-3 day forecast (>= 10 days after G1, >= 10 days before rough-descent block #1 on 3/7); TP reshuffles the surrounding days (taper-class days before, recovery days after) by patch. Protocol, deliverables and the 3/7, 3/21, 3/28 blocks unchanged. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember. HIKING MODES (RS FR-ak, 20 Nov): BRISK is the default on any climb hiked by design - short quick steps, cadence ~125-135, arms working, upright from the hips. RECOVERY only after a cap trigger - hike easily to AeT-5, then go back to what the card says for that climb (run again on run-first climbs, brisk on hiked ones). Reference ~14-15 min/mi at +6..+8% is never a target; HR rules. Hiking cadence is read from the file.",
+            "key_cue": "ORACLE SUBSTITUTE (RS memo 21 Oct; decision 10/22). ONE CONTINUOUS SUPPORTED DAY: 35-40 mi or 8-10 h, whichever comes first, on HARD FIRE ROAD - VENUE (rev 2.6, RS ruling 27 Oct): FEBAPPLE loops 1-3 + loop 4 to the ~5.2-mi connector with the C2 pair (~37.7 mi / ~4,680 ft, RS 20 Nov FR-am; was x3.8 ~38 mi / ~4,550 ft on the measured ~1,200 ft loop; card restored by RS ruling 2 Nov, option a - FR-ae), as loops from the car. No second venue, no added laps. FINISH (rev 2.22, RS FR-am, 20 Nov - replaces \"the loop count is never reduced\"): loops 1-3 complete; loop 4 runs through the C2 test pair, then on to the connector at ~loop mi 5.2 and back to the car (~200 m). Survey profile: ~37.7 mi / ~4,680 ft up and down - now the card figures (RS ruling 20 Nov, option i); GPS governs the Sunday check. The same venue applies on any backup date - the car is the aid station every ~2-2.5 h. 05:00 START (sunrise ~06:45): the first ~1.75 h by headlamp, including a descent - this is also the Tuscany race-start simulation (race breakfast ~03:00, nutrition override). HR: Z1-2, capped at AeT ALL DAY - pacing discipline when tired is one of the jobs (S-3); no late by-feel allowance in a training run. JOBS: J-1 hours 7-10 (first exposure past 33 mi / 6:40); J-2 REAL FOOD from hour 3 + the drink-mix replacement, every item logged (time, item, ~cal, ~sodium, GI notes); J-3 headlamp start; S-1 POLES: start without, collect them at the car at ~mi 25-28 and use them on the climbs for the rest - descents stay pole-free (RS FR-ag) (the Gallina switch); S-2 SHOE GATE G2: the candidate shoe on 30+ mi of hard dirt road (cushioning over hours of hard-surface impact); S-4 AID: every car stop TIMED, <= 2 min, set list (bottles, food, out). REPORT TO RS: FIT, fueling log, body report at the finish and at ~24/48 h (heel/Achilles, knees, ankles, feet), pole and shoe notes. WEATHER: never on icy descents. ONLY backup = Sunday 2/14 (RS F-1: 2/28 would put the 3/7 rough-descent block 7 days after an 8-10 h day) - decide on the forecast by Wednesday 2/10; If G1 ran on Sun 2/7 (backup), the 2/14 long-effort backup is OFF (RS F-3: no 4 h+ run inside the pre-effort week) - only the Sat 2/20 short-notice fallback remains.  if 2/14 is used, W20 becomes the effort week and W21 the recovery week (TP patch). If 2/21 itself turns bad at short notice: Saturday 2/20 (swap with the shakeout). LAST-RESORT WEEKDAY FALLBACK (RS, athlete-confirmed): if G1 ran on 2/7 AND the weather rules out both Sat 2/20 and Sun 2/21, the effort runs on a weekday Wed 2/17 - Thu 2/25, chosen on a 2-3 day forecast (>= 10 days after G1, >= 10 days before rough-descent block #1 on 3/7); TP reshuffles the surrounding days (taper-class days before, recovery days after) by patch. Protocol, deliverables and the 3/7, 3/21, 3/28 blocks unchanged. RACE WEIGHT: carry the Tuscany mandatory kit - 1 L water minimum, waterproof jacket, thermal blanket, whistle, phone, headlamp + spare, cup (cover-note ask #2). WATCH ALERT: set a high-HR alert at the hr_cap_bpm value (FR-y) - it is a number the watch enforces, not one you remember. GAIT READ-OUT (RS FR-am, 20 Nov): LAP-PRESS at the base and the crest of the three loop climbs on EVERY loop - C1 ~loop mi 1.9-2.7 (~7.6%), C2 ~4.05-4.95 (~6.3%), C3 ~6.95-7.45 (~6.0%). Gait per the race rule (FR-aj): hours 0-4 run <= ~5%, decide ~5-8% by HR headroom (ceiling-5), hike >= ~8%; from hour ~4 run <= ~4%, decide ~4-6%, hike >= ~6% (brisk; poled once poles are on). Decide band: pick at the base, hold it to the crest - no mixing within a climb. C2 TEST PASSES: LOOP 1 (~h1, pole-free) RUN C2 under the cap. LOOP 4 (~h8.5) OUT-AND-BACK PAIR: (A) RUN C2, poles stowed, under the cap; at the crest turn, descend C2 easy and pole-free (FR-ag); (B) HIKE C2 again, brisk and poled. ENTRY GATE for A and B: HR <= 137 (AeT-10) at the base - walk the flat until it is there. Lap-press each base and crest. Loops 2-3: C2 per the race rule. SKIP the loop-4 pair if any heel, ankle or knee flag is up, or HR is sitting at the cap on the flats by loop 4 - then go straight to the 5.2-mi connector; note it in the body report. LOG temperature at the start and at loop 4. HIKING MODES (RS FR-ak, 20 Nov): BRISK is the default on any climb hiked by design - short quick steps, cadence ~125-135, arms working, upright from the hips. RECOVERY only after a cap trigger - hike easily to AeT-5, then go back to what the card says for that climb (run again on run-first climbs, brisk on hiked ones). Reference ~14-15 min/mi at +6..+8% is never a target; HR rules. Hiking cadence is read from the file.",
             "fueling_required": true,
             "fueling_notes": "Full long-effort protocol - see the nutrition date override for 2/21 (nutrition plan to be updated from the race-start simulation to the 8-10 h protocol).",
-            "notes": "Intensity: Long effort (training run). COUNTED in weekly sums. Longest day of the cycle. Distance/elevation are planning values (Febapple x3.8 on the measured ~1,200 ft loop = ~4,550 ft; RS 2 Nov restored the card from 3,800 - F-16, cards carry the figure of record); the GPS sum governs the Sunday check. Followed by a UA R week (W22)."
+            "notes": "Intensity: Long effort (training run). COUNTED in weekly sums. Longest day of the cycle. Distance/elevation are planning values (Febapple loops 1-3 + loop 4 to the 5.2-mi connector + C2 pair = ~37.7 mi / ~4,680 ft, RS 20 Nov FR-am; earlier x3.8 = ~4,550 ft, RS 2 Nov - F-16, cards carry the figure of record); the GPS sum governs the Sunday check. Followed by a UA R week (W22)."
           }
         ]
       },
