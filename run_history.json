@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-27T04:42:42.655Z",
+  "generated_at": "2026-11-27T17:14:38.230Z",
   "parser_version": "10.2",
   "gap_model": "minetti",
   "source_folder": "~/Google Drive/Health/Garmin",
@@ -72,6 +72,7 @@
     {"id":"24572600305","file":"20261001_24572600305.fit","sport":"training","sub_sport":"strength_training"},
     {"id":"24714847684","file":"20261013_24714847684.fit","sport":"training","sub_sport":"strength_training"},
     {"id":"24897443421","file":"20261029_24897443421.fit","sport":"hiking","sub_sport":"generic"},
-    {"id":"24981485013","file":"20261105_24981485013.fit","sport":"training","sub_sport":"strength_training"}
+    {"id":"24981485013","file":"20261105_24981485013.fit","sport":"training","sub_sport":"strength_training"},
+    {"id":"25216086600","file":"20261127_25216086600.fit","sport":"walking","sub_sport":"generic"}
   ]
 }
